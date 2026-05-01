@@ -1,0 +1,2113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F-ER-90 — Guía de Operación</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap');
+
+:root {
+  --cream: #F4EFE6;
+  --navy: #0D1B2A;
+  --navy-mid: #1A2E44;
+  --navy-light: #243C54;
+  --orange: #FF6B00;
+  --orange-dim: #CC5500;
+  --orange-pale: rgba(255,107,0,0.12);
+  --gray: #C8BFB0;
+  --gray-light: #E8E2D8;
+  --ink: #1A1A2E;
+  --green: #2ECC71;
+  --red: #E74C3C;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: var(--navy);
+  font-family: 'Rajdhani', sans-serif;
+  color: var(--cream);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ─── SCANLINE OVERLAY ─── */
+body::before {
+  content:'';
+  position:fixed;
+  inset:0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
+  pointer-events:none;
+  z-index:9999;
+}
+
+/* ─── TOP NAV ─── */
+.topbar {
+  background: var(--navy);
+  border-bottom: 2px solid var(--orange);
+  padding: 0 16px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 52px;
+}
+.topbar-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 4px;
+  color: var(--cream);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.topbar-logo span { color: var(--orange); }
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.score-display {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  color: var(--orange);
+  letter-spacing: 1px;
+  border: 1px solid var(--orange);
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.score-display:hover { background: var(--orange-pale); }
+.protocol-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  color: #8899AA;
+  letter-spacing: 2px;
+}
+
+/* ─── HERO ─── */
+.hero {
+  background: linear-gradient(180deg, var(--navy) 0%, #0A2540 100%);
+  border-bottom: 1px solid rgba(255,107,0,0.3);
+  padding: 28px 20px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content:'';
+  position:absolute;
+  bottom:0; left:0; right:0;
+  height:3px;
+  background: linear-gradient(90deg, transparent, var(--orange), transparent);
+}
+.hero-emblem {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--orange);
+  box-shadow: 0 0 30px rgba(255,107,0,0.3), 0 0 60px rgba(255,107,0,0.1);
+}
+.hero-emblem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-emblem-fallback {
+  width: 100%;
+  height: 100%;
+  background: var(--navy-mid);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 38px;
+  letter-spacing: 6px;
+  line-height: 1;
+  color: var(--cream);
+}
+.hero-title span { color: var(--orange); }
+.hero-sub {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  color: #8899AA;
+  letter-spacing: 4px;
+  margin: 6px 0 10px;
+}
+.hero-lema {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gray);
+  letter-spacing: 1px;
+}
+.hero-lema em { color: var(--orange); font-style: italic; }
+
+/* ─── STATS BAR ─── */
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 1px solid rgba(255,107,0,0.2);
+}
+.stat-item {
+  padding: 10px 8px;
+  text-align: center;
+  border-right: 1px solid rgba(255,107,0,0.15);
+}
+.stat-item:last-child { border-right: none; }
+.stat-val {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  color: var(--orange);
+  display: block;
+}
+.stat-lbl {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 7px;
+  color: #8899AA;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* ─── DAY TABS ─── */
+.day-tabs {
+  display: flex;
+  background: var(--navy);
+  border-bottom: 1px solid var(--navy-light);
+  overflow-x: auto;
+  scrollbar-width: none;
+  position: sticky;
+  top: 52px;
+  z-index: 90;
+}
+.day-tabs::-webkit-scrollbar { display: none; }
+.day-tab {
+  flex: 1;
+  min-width: 80px;
+  padding: 10px 8px;
+  text-align: center;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s;
+  user-select: none;
+}
+.day-tab .dt-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #556677;
+  display: block;
+  transition: color 0.2s;
+}
+.day-tab .dt-count {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 8px;
+  color: #445566;
+  letter-spacing: 1px;
+  margin-top: 2px;
+  display: block;
+  transition: color 0.2s;
+}
+.day-tab.active {
+  border-bottom-color: var(--orange);
+  background: rgba(255,107,0,0.05);
+}
+.day-tab.active .dt-label { color: var(--cream); }
+.day-tab.active .dt-count { color: var(--orange); }
+.day-tab:hover .dt-label { color: var(--gray); }
+
+/* ─── MAIN CONTENT ─── */
+.main { padding: 0 0 80px; }
+
+.day-section { display: none; }
+.day-section.active { display: block; }
+
+/* ─── SECTION HEADER ─── */
+.section-header {
+  padding: 16px 16px 10px;
+  border-bottom: 1px solid var(--navy-light);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-day-badge {
+  background: var(--orange);
+  color: var(--navy);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  padding: 4px 8px;
+  white-space: nowrap;
+}
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 3px;
+  color: var(--cream);
+}
+.section-subtitle {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 8px;
+  color: #8899AA;
+  letter-spacing: 2px;
+}
+
+/* ─── MISSION CARD ─── */
+.mission-card {
+  margin: 12px 12px 0;
+  border: 1px solid var(--navy-light);
+  background: linear-gradient(135deg, rgba(26,46,68,0.6) 0%, rgba(13,27,42,0.8) 100%);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.mission-card::before {
+  content:'';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--orange);
+}
+.mission-card.completed {
+  border-color: rgba(46,204,113,0.3);
+  opacity: 0.7;
+}
+.mission-card.completed::before { background: var(--green); }
+
+.card-header {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px 10px 16px;
+  cursor: pointer;
+  gap: 10px;
+}
+.card-num {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  color: var(--orange);
+  letter-spacing: 1px;
+  min-width: 32px;
+}
+.card-title-block { flex: 1; }
+.card-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 17px;
+  letter-spacing: 2px;
+  color: var(--cream);
+  line-height: 1.1;
+}
+.card-subtitle {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 8px;
+  color: var(--orange);
+  letter-spacing: 2px;
+  margin-top: 2px;
+}
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 7px;
+  letter-spacing: 1px;
+  padding: 2px 6px;
+  border: 1px solid;
+  text-transform: uppercase;
+}
+.tag-org { color: #4AB8FF; border-color: rgba(74,184,255,0.4); background: rgba(74,184,255,0.08); }
+.tag-surf { color: #2EC4B6; border-color: rgba(46,196,182,0.4); background: rgba(46,196,182,0.08); }
+.tag-teatro { color: #E040FB; border-color: rgba(224,64,251,0.4); background: rgba(224,64,251,0.08); }
+.tag-musica { color: #FFCA28; border-color: rgba(255,202,40,0.4); background: rgba(255,202,40,0.08); }
+.tag-galicia { color: #76FF03; border-color: rgba(118,255,3,0.4); background: rgba(118,255,3,0.08); }
+.tag-deporte { color: #FF5722; border-color: rgba(255,87,34,0.4); background: rgba(255,87,34,0.08); }
+.tag-elena { color: #F48FB1; border-color: rgba(244,143,177,0.4); background: rgba(244,143,177,0.08); }
+.tag-caos { color: var(--orange); border-color: rgba(255,107,0,0.4); background: rgba(255,107,0,0.08); }
+
+.chevron {
+  color: #556677;
+  font-size: 14px;
+  transition: transform 0.3s;
+  min-width: 16px;
+}
+.card-header.open .chevron { transform: rotate(180deg); }
+
+.card-body {
+  display: none;
+  padding: 0 16px 14px 16px;
+  border-top: 1px solid var(--navy-light);
+}
+.card-body.open { display: block; }
+
+/* ─── CARD SECTIONS ─── */
+.cb-section {
+  margin-top: 12px;
+}
+.cb-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 8px;
+  color: var(--orange);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.cb-label::before {
+  content:'';
+  display: inline-block;
+  width: 14px;
+  height: 1px;
+  background: var(--orange);
+}
+.cb-text {
+  font-size: 13px;
+  color: var(--gray);
+  line-height: 1.6;
+  font-weight: 500;
+}
+.cb-text strong { color: var(--cream); font-weight: 700; }
+
+/* LIST ITEMS */
+.check-list {
+  list-style: none;
+  margin-top: 4px;
+}
+.check-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-size: 12.5px;
+  color: var(--gray);
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.15s;
+}
+.check-list li:last-child { border-bottom: none; }
+.check-list li.checked { color: #445566; text-decoration: line-through; }
+.check-list li::before {
+  content: '□';
+  color: #556677;
+  font-size: 14px;
+  min-width: 16px;
+  margin-top: -1px;
+  transition: color 0.15s;
+}
+.check-list li.checked::before { content:'☑'; color: var(--green); }
+
+/* SPEECH BOX */
+.speech-box {
+  background: rgba(255,107,0,0.07);
+  border-left: 3px solid var(--orange);
+  border-right: 1px solid rgba(255,107,0,0.2);
+  border-top: 1px solid rgba(255,107,0,0.2);
+  border-bottom: 1px solid rgba(255,107,0,0.2);
+  padding: 10px 12px;
+  margin-top: 8px;
+  position: relative;
+}
+.speech-box::before {
+  content: '» LEER EN VOZ ALTA';
+  position: absolute;
+  top: -7px;
+  left: 10px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 7px;
+  color: var(--orange);
+  background: var(--navy);
+  padding: 0 6px;
+  letter-spacing: 2px;
+}
+.speech-text {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--cream);
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+/* PENALTY BOX */
+.penalty-box {
+  background: rgba(231,76,60,0.07);
+  border: 1px solid rgba(231,76,60,0.3);
+  border-left: 3px solid var(--red);
+  padding: 8px 12px;
+  margin-top: 8px;
+}
+.penalty-box .cb-label { color: var(--red); }
+.penalty-box .cb-label::before { background: var(--red); }
+.penalty-text { font-size: 12.5px; color: #FFAAAA; font-weight: 500; line-height: 1.6; }
+
+/* POINTS BOX */
+.points-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-top: 6px;
+}
+.point-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  padding: 5px 8px;
+  font-size: 11.5px;
+  color: var(--gray);
+  font-weight: 600;
+}
+.point-val { font-family: 'Share Tech Mono', monospace; font-size: 11px; }
+.point-val.pos { color: var(--green); }
+.point-val.neg { color: var(--red); }
+
+/* HINT CAROUSEL */
+.hints-list {
+  margin-top: 6px;
+}
+.hint-item {
+  display: flex;
+  gap: 10px;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  align-items: flex-start;
+}
+.hint-item:last-child { border-bottom: none; }
+.hint-num {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  color: var(--orange);
+  min-width: 50px;
+  padding-top: 2px;
+}
+.hint-text { font-size: 12.5px; color: var(--gray); font-weight: 500; line-height: 1.5; }
+.hint-reveal {
+  display: none;
+  margin-top: 4px;
+  font-size: 11.5px;
+  color: #8899AA;
+  font-style: italic;
+}
+.hint-item.revealed .hint-reveal { display: block; }
+.hint-btn {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 8px;
+  color: var(--orange);
+  border: 1px solid rgba(255,107,0,0.4);
+  padding: 2px 6px;
+  cursor: pointer;
+  background: none;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+.hint-btn:hover { background: var(--orange-pale); }
+
+/* COMPLETE BUTTON */
+.complete-btn {
+  width: 100%;
+  margin-top: 14px;
+  padding: 10px;
+  background: none;
+  border: 1px solid var(--navy-light);
+  color: #556677;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+.complete-btn:hover {
+  border-color: var(--green);
+  color: var(--green);
+  background: rgba(46,204,113,0.05);
+}
+.complete-btn.done {
+  border-color: var(--green);
+  color: var(--green);
+  background: rgba(46,204,113,0.08);
+}
+
+/* ─── SCORE MODAL ─── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: var(--navy);
+  border: 1px solid var(--orange);
+  border-top: 3px solid var(--orange);
+  width: 100%;
+  max-width: 420px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+.modal-header {
+  background: rgba(255,107,0,0.1);
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255,107,0,0.3);
+}
+.modal-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 3px;
+  color: var(--orange);
+}
+.modal-close {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 12px;
+  color: #8899AA;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px 8px;
+}
+.modal-close:hover { color: var(--cream); }
+.modal-body { padding: 16px; }
+
+.score-cat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.score-cat:last-child { border-bottom: none; }
+.score-cat-name {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gray);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.score-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.score-btn {
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--navy-light);
+  background: none;
+  color: var(--gray);
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: monospace;
+}
+.score-btn:hover { border-color: var(--orange); color: var(--orange); }
+.score-val {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  color: var(--orange);
+  min-width: 30px;
+  text-align: center;
+}
+.score-total-row {
+  margin-top: 16px;
+  padding: 12px;
+  background: rgba(255,107,0,0.1);
+  border: 1px solid rgba(255,107,0,0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.score-total-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  color: var(--orange);
+  letter-spacing: 2px;
+}
+.score-total-val {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 32px;
+  color: var(--orange);
+}
+.score-cert {
+  margin-top: 12px;
+  padding: 10px;
+  background: rgba(255,255,255,0.03);
+  border: 1px dashed rgba(255,107,0,0.3);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  color: #8899AA;
+  letter-spacing: 1.5px;
+  text-align: center;
+  line-height: 1.8;
+}
+
+/* ─── PROGRESS TIMELINE ─── */
+.timeline-section {
+  padding: 14px 12px 0;
+}
+.timeline-title {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 8px;
+  color: #8899AA;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.timeline-track {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.timeline-dot {
+  width: 24px;
+  height: 8px;
+  background: var(--navy-light);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: background 0.3s;
+  cursor: pointer;
+}
+.timeline-dot.done { background: var(--orange); }
+.timeline-dot.active-dot {
+  background: var(--orange);
+  animation: pulse 1.5s infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+/* ─── BOTTOM NAV HINT ─── */
+.bottom-bar {
+  position: fixed;
+  bottom: 0; left:0; right:0;
+  background: var(--navy);
+  border-top: 1px solid rgba(255,107,0,0.3);
+  padding: 8px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 80;
+}
+.bottom-status {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 8px;
+  color: #8899AA;
+  letter-spacing: 2px;
+}
+.bottom-status span { color: var(--orange); }
+.hatching-mini {
+  display: inline-flex;
+  gap: 1.5px;
+  height: 8px;
+  align-items: flex-end;
+}
+.hatching-mini i {
+  display: block;
+  width: 2px;
+  background: var(--orange);
+  opacity: 0.6;
+}
+
+/* ─── MISC ─── */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--navy-light), transparent);
+  margin: 6px 0;
+}
+.roles-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  margin-top: 6px;
+}
+.role-item {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  padding: 5px 8px;
+  font-size: 11.5px;
+  color: var(--gray);
+}
+.role-item strong {
+  display: block;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 8px;
+  color: var(--orange);
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+
+/* CERT FINAL */
+.cert-box {
+  margin: 12px;
+  border: 2px solid var(--orange);
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  background: rgba(255,107,0,0.04);
+}
+.cert-box::before, .cert-box::after {
+  content: '◆';
+  position: absolute;
+  color: var(--orange);
+  font-size: 10px;
+}
+.cert-box::before { top: 6px; left: 10px; }
+.cert-box::after { bottom: 6px; right: 10px; }
+.cert-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px;
+  letter-spacing: 4px;
+  color: var(--orange);
+}
+.cert-sub {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  color: #8899AA;
+  letter-spacing: 3px;
+  margin: 6px 0 14px;
+}
+.cert-text {
+  font-size: 13px;
+  color: var(--gray);
+  line-height: 1.7;
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+.cert-cats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+}
+.cert-cat {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 8px;
+  color: var(--orange);
+  border: 1px solid rgba(255,107,0,0.4);
+  padding: 3px 8px;
+  letter-spacing: 1px;
+}
+
+@media (min-width: 600px) {
+  .hero-emblem { width: 160px; height: 160px; }
+  .hero-title { font-size: 48px; }
+  .stats-bar { grid-template-columns: repeat(4, 1fr); }
+  .points-grid { grid-template-columns: repeat(3, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-logo">F-ER-<span>90</span></div>
+  <div class="topbar-right">
+    <div class="protocol-tag">PROTOCOLO ACTIVO</div>
+    <div class="score-display" onclick="openModal()">▶ MARCADOR</div>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-emblem">
+    <!-- Emblem SVG fallback if img not loaded -->
+    <div class="hero-emblem-fallback">
+      <svg viewBox="0 0 140 140" width="140" height="140" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="70" cy="70" r="68" fill="#0D1B2A"/>
+        <circle cx="70" cy="70" r="64" fill="none" stroke="#FF6B00" stroke-width="1.5"/>
+        <circle cx="70" cy="70" r="58" fill="none" stroke="rgba(255,107,0,0.3)" stroke-width="0.5"/>
+        <defs>
+          <path id="h1" d="M12,70 A58,58 0 0,1 128,70"/>
+          <path id="h2" d="M15,80 A58,58 0 0,0 125,80"/>
+        </defs>
+        <text font-family="'Share Tech Mono',monospace" font-size="7" fill="#FF6B00" letter-spacing="2">
+          <textPath href="#h1" startOffset="8%">PROYECTO F-ER-90</textPath>
+        </text>
+        <text font-family="'Share Tech Mono',monospace" font-size="6" fill="#8899AA" letter-spacing="1.5">
+          <textPath href="#h2" startOffset="5%">UNIDAD DE VALIDACIÓN ATLÁNTICA</textPath>
+        </text>
+        <!-- Wave -->
+        <path d="M18,85 C28,72 38,68 48,78 C58,88 68,72 78,80 C88,88 98,76 108,82" fill="none" stroke="#0D5C8A" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- Surfboard -->
+        <ellipse cx="32" cy="72" rx="5" ry="18" fill="#FF6B00" transform="rotate(-20,32,72)" stroke="#0D1B2A" stroke-width="1"/>
+        <!-- Lightning -->
+        <polygon points="68,30 64,46 70,46 62,62 66,48 60,48" fill="#FF6B00"/>
+        <!-- Text center -->
+        <text x="70" y="72" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="22" fill="#F4EFE6" letter-spacing="3">FER-90</text>
+        <!-- Masks -->
+        <ellipse cx="100" cy="78" rx="9" ry="10" fill="#F5C842" stroke="#0D1B2A" stroke-width="0.8"/>
+        <ellipse cx="110" cy="84" rx="8" ry="9" fill="#4A9ECC" stroke="#0D1B2A" stroke-width="0.8"/>
+        <!-- Dumbbell -->
+        <line x1="26" y1="100" x2="50" y2="100" stroke="#1A2E44" stroke-width="2"/>
+        <rect x="22" y="96" width="6" height="8" rx="1" fill="#556677"/>
+        <rect x="46" y="96" width="6" height="8" rx="1" fill="#556677"/>
+      </svg>
+    </div>
+  </div>
+  <div class="hero-title">OPERACIÓN <span>ATLÁNTICA</span></div>
+  <div class="hero-sub">PROGRAMA DE CERTIFICACIÓN DEL HOMBRE PERFECTO™ // LISBOA 2026</div>
+  <div class="hero-lema">O PLAN XA NON O LEVAS TI. <em>Agora, o plan es ti.</em></div>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <span class="stat-val" id="stat-total">22</span>
+    <span class="stat-lbl">PRUEBAS</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-val" id="stat-done">0</span>
+    <span class="stat-lbl">SUPERADAS</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-val">3</span>
+    <span class="stat-lbl">DÍAS</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-val" id="stat-pts">0</span>
+    <span class="stat-lbl">PUNTOS</span>
+  </div>
+</div>
+
+<!-- PROGRESS TIMELINE -->
+<div class="timeline-section">
+  <div class="timeline-title">▷ PROGRESO DE VALIDACIÓN</div>
+  <div class="timeline-track" id="timelineTrack"></div>
+</div>
+
+<!-- DAY TABS -->
+<div class="day-tabs">
+  <div class="day-tab active" onclick="switchDay('viernes')">
+    <span class="dt-label">VIERNES</span>
+    <span class="dt-count">7 PRUEBAS</span>
+  </div>
+  <div class="day-tab" onclick="switchDay('sabado')">
+    <span class="dt-label">SÁBADO</span>
+    <span class="dt-count">10 PRUEBAS</span>
+  </div>
+  <div class="day-tab" onclick="switchDay('domingo')">
+    <span class="dt-label">DOMINGO</span>
+    <span class="dt-count">3 PRUEBAS</span>
+  </div>
+  <div class="day-tab" onclick="switchDay('cierre')">
+    <span class="dt-label">CIERRE</span>
+    <span class="dt-count">CERTIFICADO</span>
+  </div>
+</div>
+
+<!-- ══════════════════════ MAIN CONTENT ══════════════════════ -->
+<div class="main">
+
+<!-- ────────── VIERNES ────────── -->
+<div class="day-section active" id="day-viernes">
+  <div class="section-header">
+    <div class="section-day-badge">DÍA 1</div>
+    <div>
+      <div class="section-title">VIERNES</div>
+      <div class="section-subtitle">08 MAYO 2026 // MADRID → LISBOA</div>
+    </div>
+  </div>
+
+  <!-- PRUEBA 1 -->
+  <div class="mission-card" id="card-1">
+    <div class="card-header" onclick="toggleCard(1)">
+      <div class="card-num">01</div>
+      <div class="card-title-block">
+        <div class="card-title">MALETA A CIEGAS</div>
+        <div class="card-subtitle">RECOGIDA EN MADRID // AUDITORÍA INICIAL</div>
+      </div>
+      <div class="card-meta">
+        <span class="tag tag-org">ORG</span>
+        <span class="tag tag-caos">CAOS</span>
+      </div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="card-body" id="body-1">
+      <div class="cb-section">
+        <div class="cb-label">OBJETIVO</div>
+        <div class="cb-text">Que Fer haga la maleta sin saber el destino.</div>
+      </div>
+      <div class="cb-section">
+        <div class="cb-label">MATERIAL NECESARIO</div>
+        <ul class="check-list" onclick="handleCheck(event)">
+          <li>Cronómetro (móvil)</li>
+          <li>Cartel: "Auditoría del Hombre Perfecto"</li>
+          <li>Lista oculta de imprescindibles</li>
+        </ul>
+      </div>
+      <div class="cb-section">
+        <div class="cb-label">REGLAS</div>
+        <ul class="check-list" onclick="handleCheck(event)">
+          <li>⏱ Tiene <strong>7 minutos</strong> exactos</li>
+          <li>Puede hacer <strong>5 preguntas máximo</strong></li>
+          <li>Solo se responde: <strong>"sí"</strong>, <strong>"no"</strong> o <strong>"depende"</strong></li>
+          <li>Cada pregunta extra <strong>resta 1 punto</strong></li>
+        </ul>
+      </div>
+      <div class="cb-section">
+        <div class="cb-label">LISTA QUE DEBERÍA METER</div>
+        <ul class="check-list" onclick="handleCheck(event)">
+          <li>🩲 Bañador</li>
+          <li>👟 Ropa de deporte + zapatillas</li>
+          <li>👔 Ropa de salir</li>
+          <li>🧥 Algo de abrigo</li>
+          <li>🪪 DNI</li>
+          <li>🕶️ Gafas de sol</li>
+          <li>🔌 Cargador</li>
+          <li>🎽 Algo "gallego" (camiseta, pulsera…)</li>
+        </ul>
+      </div>
+      <div class="cb-section">
+        <div class="penalty-box">
+          <div class="cb-label">PENALIZACIÓN</div>
+          <div class="penalty-text">Si se deja algo clave → se le asigna el <strong>"Objeto de la Vergüenza"</strong>: riñonera, gorra absurda o libreta de auditoría.</div>
+        </div>
+      </div>
+      <div class="speech-box">
+        <div class="speech-text">"Fer, como hombre perfecto, organizado, metódico y gallego funcional, deberías ser capaz de preparar una maleta sin saber destino, clima ni plan. Tienes 7 minutos. Empieza la auditoría."</div>
+      </div>
+      <button class="complete-btn" onclick="markDone(1, 5)">☐ MARCAR COMO SUPERADA (+5 PTS)</button>
+    </div>
+  </div>
+
+  <!-- PRUEBA 2 -->
+  <div class="mission-card" id="card-2">
+    <div class="card-header" onclick="toggleCard(2)">
+      <div class="card-num">02</div>
+      <div class="card-title-block">
+        <div class="card-title">CONTROL DE ANSIEDAD</div>
+        <div class="card-subtitle">CAMINO AL AEROPUERTO // DESTINO SECRETO</div>
+      </div>
+      <div class="card-meta">
+        <span class="tag tag-caos">CAOS</span>
+        <span class="tag tag-galicia">GAL</span>
+      </div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="card-body" id="body-2">
+      <div class="cb-section">
+        <div class="cb-label">OBJETIVO</div>
+        <div class="cb-text">Que Fer adivine el destino (Lisboa / Portugal) mediante pistas progresivas. Una pista cada 5–10 minutos. Puede apostar por cada pista.</div>
+      </div>
+      <div class="cb-section">
+        <div class="cb-label">PISTAS — DESVELAR DE UNA EN UNA</div>
+        <div class="hints-list" id="hints-2">
+          <div class="hint-item">
+            <div class="hint-num">PISTA 1<br>GALICIA</div>
+            <div style="flex:1">
+              <div class="hint-text">Vamos a un sitio donde tu morriña gallega no va a sufrir tanto.</div>
+              <div class="hint-reveal">Porque Portugal se parece culturalmente a Galicia.</div>
+            </div>
+            <button class="hint-btn" onclick="revealHint(this)">VER PISTA</button>
+          </div>
+          <div class="hint-item">
+            <div class="hint-num">PISTA 2<br>IDIOMA</div>
+            <div style="flex:1">
+              <div class="hint-text">Vas a entender cosas… pero no todas.</div>
+              <div class="hint-reveal">Como cuando alguien habla gallego muy cerrado.</div>
+            </div>
+            <button class="hint-btn" onclick="revealHint(this)">VER PISTA</button>
+          </div>
+          <div class="hint-item">
+            <div class="hint-num">PISTA 3<br>SURF</div>
+            <div style="flex:1">
+              <div class="hint-text">Hay agua, olas y gente que cree que sabe surfear mejor de lo que sabe.</div>
+              <div class="hint-reveal"></div>
+            </div>
+            <button class="hint-btn" onclick="revealHint(this)">VER PISTA</button>
+          </div>
+          <div class="hint-item">
+            <div class="hint-num">PISTA 4<br>ENERGÍA</div>
+            <div style="flex:1">
+              <div class="hint-text">Es un sitio con mucho viento, mucho sol y mucho postureo de sostenibilidad.</div>
+              <div class="hint-reveal"></div>
+            </div>
+            <button class="hint-btn" onclick="revealHint(this)">VER PISTA</button>
+          </div>
+          <div class="hint-item">
+            <div class="hint-num">PISTA 5<br>MÚSICA</div>
+            <div style="flex:1">
+              <div class="hint-text">Aquí la música triste es patrimonio emocional.</div>
+              <div class="hint-reveal">Fado.</div>
+            </div>
+            <button class="hint-btn" onclick="revealHint(this)">VER PISTA</button>
+          </div>
+          <div class="hint-item">
+            <div class="hint-num">PISTA 6<br>COMIDA</div>
+            <div style="flex:1">
+              <div class="hint-text">No vamos a comer tortilla, pero igual acabas comiendo bacalao.</div>
+              <div class="hint-reveal"></div>
+            </div>
+            <button class="hint-btn" onclick="revealHint(this)">VER PISTA</button>
+          </div>
+          <div class="hint-item">
+            <div class="hint-num">PISTA 7<br>GEO</div>
+            <div style="flex:1">
+              <div class="hint-text">No salimos de la península, pero sí salimos de España.</div>
+              <div class="hint-reveal"></div>
+            </div>
+            <button class="hint-btn" onclick="revealHint(this)">VER PISTA</button>
+          </div>
+          <div class="hint-item">
+            <div class="hint-num">PISTA 8<br>CIUDAD</div>
+            <div style="flex:1">
+              <div class="hint-text">Es una capital con cuestas, tranvías y miradores.</div>
+              <div class="hint-reveal"></div>
+            </div>
+            <button class="hint-btn" onclick="revealHint(this)">VER PISTA</button>
+          </div>
+          <div class="hint-item">
+            <div class="hint-num">PISTA 9<br>FINAL</div>
+            <div style="flex:1">
+              <div class="hint-text">Si no lo has pillado ya, preocúpate.</div>
+              <div class="hint-reveal">Vas camino de Lisboa.</div>
+            </div>
+            <button class="hint-btn" onclick="revealHint(this)">REVELAR</button>
+          </div>
+        </div>
+      </div>
+      <div class="cb-section">
+        <div class="penalty-box">
+          <div class="cb-label">PENALIZACIONES POR FALLO</div>
+          <div class="penalty-text">
+            <strong>Fallo 1:</strong> Tiene que decir en voz alta: "estoy perdiendo el control y no me gusta."<br>
+            <strong>Fallo 2:</strong> Manda audio a Elena: "no sé dónde voy, pero voy perfectamente preparado."<br>
+            <strong>Fallo 3:</strong> Se le pone una pegatina: "Organizador en prácticas."
+          </div>
+        </div>
+      </div>
+      <button class="complete-btn" onclick="markDone(2, 5)">☐ MARCAR COMO SUPERADA (+5 PTS)</button>
+    </div>
+  </div>
+
+  <!-- PRUEBA 3 -->
+  <div class="mission-card" id="card-3">
+    <div class="card-header" onclick="toggleCard(3)">
+      <div class="card-num">03</div>
+      <div class="card-title-block">
+        <div class="card-title">EL EXCEL HUMANO</div>
+        <div class="card-subtitle">AEROPUERTO // BRIEFING ABSURDO</div>
+      </div>
+      <div class="card-meta"><span class="tag tag-org">ORG</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="card-body" id="body-3">
+      <div class="cb-section">
+        <div class="cb-label">OBJETIVO</div>
+        <div class="cb-text">Reírse de que Fer siempre organiza todo. Le dais 8 tarjetas con datos mezclados y tiene que ordenar la "logística".</div>
+      </div>
+      <div class="cb-section">
+        <div class="cb-label">TARJETAS A PREPARAR (imprimir o escribir)</div>
+        <ul class="check-list" onclick="handleCheck(event)">
+          <li>📋 "Vuelo: 18:00"</li>
+          <li>🚪 "Puerta: desconocida"</li>
+          <li>🎯 "Destino: secreto"</li>
+          <li>💸 "Presupuesto: emocionalmente inestable"</li>
+          <li>👤 "Responsable: nadie"</li>
+          <li>🙏 "Plan B: rezar"</li>
+          <li>✈️ "Check-in: hecho, creemos"</li>
+          <li>🏠 "Alojamiento: existe"</li>
+        </ul>
+      </div>
+      <div class="cb-section">
+        <div class="cb-label">RETO</div>
+        <div class="cb-text">Tiene <strong>30 segundos</strong> para hacer un briefing: <em>"Equipo, situación actual, riesgos y próximos pasos."</em></div>
+      </div>
+      <div class="penalty-box" style="margin-top:10px">
+        <div class="cb-label">PENALIZACIÓN</div>
+        <div class="penalty-text">Si se pone demasiado serio → castigo suave: "Exceso de consultoría logística."</div>
+      </div>
+      <button class="complete-btn" onclick="markDone(3, 5)">☐ MARCAR COMO SUPERADA (+5 PTS)</button>
+    </div>
+  </div>
+
+  <!-- PRUEBA 4 -->
+  <div class="mission-card" id="card-4">
+    <div class="card-header" onclick="toggleCard(4)">
+      <div class="card-num">04</div>
+      <div class="card-title-block">
+        <div class="card-title">CARTILLA DEL HOMBRE PERFECTO</div>
+        <div class="card-subtitle">LLEGADA APARTAMENTO // AUDITORÍA OFICIAL</div>
+      </div>
+      <div class="card-meta"><span class="tag tag-org">ORG</span><span class="tag tag-elena">ELENA</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="card-body" id="body-4">
+      <div class="cb-section">
+        <div class="cb-label">MATERIAL</div>
+        <ul class="check-list" onclick="handleCheck(event)">
+          <li>📁 Carpeta o librito impreso</li>
+          <li>🪪 Carnet con foto de Fer</li>
+          <li>⭐ Pegatinas de puntos</li>
+        </ul>
+      </div>
+      <div class="cb-section">
+        <div class="cb-label">CATEGORÍAS DE EVALUACIÓN</div>
+        <ul class="check-list" onclick="handleCheck(event)">
+          <li>Organización</li>
+          <li>Deporte</li>
+          <li>Teatro</li>
+          <li>Morriña</li>
+          <li>Energía</li>
+          <li>Surf</li>
+          <li>Elena</li>
+          <li>Capacidad de perder el control</li>
+        </ul>
+      </div>
+      <div class="speech-box">
+        <div class="speech-text">"Fer, durante años has ejercido de adulto responsable, organizador oficial, señor de las reservas, controlador de cuentas, gestor de horarios y Excel humano del grupo. Pero este fin de semana pasa algo grave: no organizas tú. Por eso activamos la auditoría definitiva para comprobar si eres realmente el hombre perfecto o simplemente un gallego muy fuerte con Google Calendar. Cada prueba evaluará una parte esencial de tu perfil: cuerpo, mente, energía, teatro, morriña, surf, música y amor por Elena. La certificación no se concede. Se gana."</div>
+      </div>
+      <button class="complete-btn" onclick="markDone(4, 3)">☐ MARCAR COMO SUPERADA (+3 PTS)</button>
+    </div>
+  </div>
+
+  <!-- PRUEBA 5 -->
+  <div class="mission-card" id="card-5">
+    <div class="card-header" onclick="toggleCard(5)">
+      <div class="card-num">05</div>
+      <div class="card-title-block">
+        <div class="card-title">COMPRA RESPONSABLE ENERGÉTICA</div>
+        <div class="card-subtitle">SÚPER // VIERNES NOCHE</div>
+      </div>
+      <div class="card-meta"><span class="tag tag-org">ORG</span><span class="tag tag-elena">ELENA</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="card-body" id="body-5">
+      <div class="cb-section">
+        <div class="cb-label">LISTA DE COMPRA OFICIAL</div>
+        <ul class="check-list" onclick="handleCheck(event)">
+          <li>☕ Café</li>
+          <li>💧 Agua</li>
+          <li>🥐 Desayuno</li>
+          <li>💊 Algo para resaca</li>
+          <li>🍿 Snacks</li>
+          <li>🧻 Papel higiénico</li>
+          <li>🇵🇹 Algo gallego o portugués</li>
+          <li>💚 Algo que Elena aprobaría</li>
+          <li>🍺 Algo que un heterobásico compraría sin dudar</li>
+        </ul>
+      </div>
+      <div class="cb-section">
+        <div class="cb-label">CONDICIÓN</div>
+        <div class="cb-text">Tiene que <strong>justificar cada compra</strong> como si fuera una inversión energética.<br><em>Ejemplo: "El café es una fuente renovable de energía grupal."</em></div>
+      </div>
+      <button class="complete-btn" onclick="markDone(5, 5)">☐ MARCAR COMO SUPERADA (+5 PTS)</button>
+    </div>
+  </div>
+
+  <!-- PRUEBA 6 -->
+  <div class="mission-card" id="card-6">
+    <div class="card-header" onclick="toggleCard(6)">
+      <div class="card-num">06</div>
+      <div class="card-title-block">
+        <div class="card-title">CATA DEL HOMBRE SENSIBLE</div>
+        <div class="card-subtitle">BITE WINE BAR</div>
+      </div>
+      <div class="card-meta"><span class="tag tag-galicia">GAL</span><span class="tag tag-teatro">TEATRO</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="card-body" id="body-6">
+      <div class="cb-section">
+        <div class="cb-label">PRUEBA</div>
+        <div class="cb-text">Cata vino y lo describe en <strong>3 dimensiones</strong>:</div>
+        <div class="roles-grid" style="margin-top:8px">
+          <div class="role-item"><strong>ROL 1</strong>Como ingeniero de energía</div>
+          <div class="role-item"><strong>ROL 2</strong>Como actor de teatro</div>
+          <div class="role-item"><strong>ROL 3</strong>Como gallego con morriña</div>
+        </div>
+      </div>
+      <div class="cb-section">
+        <div class="cb-label">RESPUESTAS OBJETIVO</div>
+        <ul class="check-list" onclick="handleCheck(event)">
+          <li>"Tiene tensión en boca"</li>
+          <li>"Me recuerda a una tarde en Galicia"</li>
+          <li>"Este vino tiene más estructura que nuestro planning"</li>
+        </ul>
+      </div>
+      <div class="penalty-box" style="margin-top:10px">
+        <div class="cb-label">CASTIGO SI SE QUEDA CORTO</div>
+        <div class="penalty-text">Tiene que brindar diciendo: <strong>"Por Elena, por Galicia y por este grupo que por una vez no me ha dejado organizar."</strong></div>
+      </div>
+      <button class="complete-btn" onclick="markDone(6, 5)">☐ MARCAR COMO SUPERADA (+5 PTS)</button>
+    </div>
+  </div>
+
+  <!-- PRUEBA 7 -->
+  <div class="mission-card" id="card-7">
+    <div class="card-header" onclick="toggleCard(7)">
+      <div class="card-num">07</div>
+      <div class="card-title-block">
+        <div class="card-title">EL ACTOR INFILTRADO</div>
+        <div class="card-subtitle">BARRIO ALTO</div>
+      </div>
+      <div class="card-meta"><span class="tag tag-teatro">TEATRO</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="card-body" id="body-7">
+      <div class="cb-section">
+        <div class="cb-label">PRUEBA</div>
+        <div class="cb-text">Le dáis un papel dramático que debe interpretar <strong>3 minutos en un bar</strong>. Objetivo: que un desconocido le siga la conversación.</div>
+      </div>
+      <div class="cb-section">
+        <div class="cb-label">ROLES POSIBLES (elegid uno)</div>
+        <ul class="check-list" onclick="handleCheck(event)">
+          <li>🌊 Gallego que ha perdido el norte</li>
+          <li>⚡ Ingeniero que se enamora de una farola</li>
+          <li>🏄 Surfista que nunca encuentra la ola perfecta</li>
+          <li>🤯 Hombre perfecto en crisis de control</li>
+          <li>💍 Novio que descubre que Elena organizaba mejor que él</li>
+        </ul>
+      </div>
+      <button class="complete-btn" onclick="markDone(7, 8)">☐ MARCAR COMO SUPERADA (+8 PTS)</button>
+    </div>
+  </div>
+
+  <!-- PRUEBA 8 -->
+  <div class="mission-card" id="card-8">
+    <div class="card-header" onclick="toggleCard(8)">
+      <div class="card-num">08</div>
+      <div class="card-title-block">
+        <div class="card-title">FEREMATÓN</div>
+        <div class="card-subtitle">PINK STREET // TODA LA NOCHE</div>
+      </div>
+      <div class="card-meta"><span class="tag tag-caos">CAOS</span><span class="tag tag-galicia">GAL</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="card-body" id="body-8">
+      <div class="cb-section">
+        <div class="cb-label">MISIONES (conseguir fotos/vídeos con...)</div>
+        <ul class="check-list" onclick="handleCheck(event)">
+          <li>🌊 Alguien que haya estado en Galicia</li>
+          <li>👤 Alguien que se llame como alguien del grupo</li>
+          <li>🏄 Alguien que haya hecho surf</li>
+          <li>🎵 Alguien que vaya a un concierto en Lisboa</li>
+          <li>💍 Alguien que le dé un consejo matrimonial</li>
+          <li>🎉 Otro novio / otra despedida</li>
+          <li>📹 Alguien que diga en vídeo: "Fer, deja de organizar"</li>
+        </ul>
+      </div>
+      <div class="cb-section">
+        <div class="cb-label">PREMIO SI COMPLETA 5/7</div>
+        <div class="cb-text">Puede elegir la <strong>primera ronda del sábado noche</strong>.</div>
+      </div>
+      <button class="complete-btn" onclick="markDone(8, 10)">☐ MARCAR COMO SUPERADA (+10 PTS)</button>
+    </div>
+  </div>
+
+</div><!-- /viernes -->
+
+
+<!-- ────────── SÁBADO ────────── -->
+<div class="day-section" id="day-sabado">
+  <div class="section-header">
+    <div class="section-day-badge">DÍA 2</div>
+    <div>
+      <div class="section-title">SÁBADO</div>
+      <div class="section-subtitle">09 MAYO 2026 // SURF + GYMKANA + NOCHE</div>
+    </div>
+  </div>
+
+  <!-- PRUEBA 9 -->
+  <div class="mission-card" id="card-9">
+    <div class="card-header" onclick="toggleCard(9)">
+      <div class="card-num">09</div>
+      <div class="card-title-block">
+        <div class="card-title">BRIEFING TÉCNICO DE OLAS</div>
+        <div class="card-subtitle">ANTES DEL SURF // INGENIERÍA ATLÁNTICA</div>
+      </div>
+      <div class="card-meta"><span class="tag tag-surf">SURF</span><span class="tag tag-org">ORG</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="card-body" id="body-9">
+      <div class="cb-section">
+        <div class="cb-label">PRUEBA</div>
+        <div class="cb-text">Antes de que sepa la actividad, le decís: <em>"Como ingeniero energético, necesitamos que evalúes el recurso natural disponible esta mañana."</em><br><br>Le dáis opciones para que ordene por potencial:</div>
+        <ul class="check-list" onclick="handleCheck(event)">
+          <li>💨 Viento</li>
+          <li>☀️ Sol</li>
+          <li>🌊 Mareas</li>
+          <li>🏄 Olas</li>
+          <li>🤕 Resaca humana del grupo</li>
+        </ul>
+      </div>
+      <div class="cb-section">
+        <div class="cb-label">NOTA</div>
+        <div class="cb-text">Cuando llegue al surf, encaja la sorpresa.</div>
+      </div>
+      <button class="complete-btn" onclick="markDone(9, 4)">☐ MARCAR COMO SUPERADA (+4 PTS)</button>
+    </div>
+  </div>
+
+  <!-- PRUEBA 10 -->
+  <div class="mission-card" id="card-10">
+    <div class="card-header" onclick="toggleCard(10)">
+      <div class="card-num">10</div>
+      <div class="card-title-block">
+        <div class="card-title">EQUILIBRIO DEL HOMBRE PERFECTO</div>
+        <div class="card-subtitle">SURF ATLÁNTICO</div>
+      </div>
+      <div class="card-meta"><span class="tag tag-surf">SURF</span><span class="tag tag-deporte">DEPORTE</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="card-body" id="body-10">
+      <div class="cb-section">
+        <div class="cb-label">SISTEMA DE PUNTUACIÓN EN VIVO</div>
+        <div class="points-grid">
+          <div class="point-item">Se pone de pie <span class="point-val pos">+3</span></div>
+          <div class="point-item">Anima a otro <span class="point-val pos">+2</span></div>
+          <div class="point-item">Da instrucciones sin pedir <span class="point-val neg">-1</span></div>
+          <div class="point-item">Dice "lo habría organizado yo" <span class="point-val neg">-5</span></div>
+        </div>
+      </div>
+      <div class="speech-box">
+        <div class="speech-text">"Hoy evaluamos equilibrio, humildad y capacidad de no convertir una actividad divertida en una masterclass."</div>
+      </div>
+      <button class="complete-btn" onclick="markDone(10, 8)">☐ MARCAR COMO SUPERADA (+8 PTS)</button>
+    </div>
+  </div>
+
+  <!-- PRUEBA 11 -->
+  <div class="mission-card" id="card-11">
+    <div class="card-header" onclick="toggleCard(11)">
+      <div class="card-num">11</div>
+      <div class="card-title-block">
+        <div class="card-title">ASIGNACIÓN PRESUPUESTARIA</div>
+        <div class="card-subtitle">TIME OUT MARKET // COMIDA</div>
+      </div>
+      <div class="card-meta"><span class="tag tag-org">ORG</span><span class="tag tag-caos">CAOS</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="card-body" id="body-11">
+      <div class="cb-section">
+        <div class="cb-label">PRUEBA</div>
+        <div class="cb-text">Tiene <strong>10 minutos</strong> para diseñar el plan de comida perfecto del grupo.</div>
+      </div>
+      <div class="cb-section">
+        <div class="cb-label">REGLAS</div>
+        <ul class="check-list" onclick="handleCheck(event)">
+          <li>Incluir proteína, carbohidrato y "algo para compartir"</li>
+          <li><strong>No puede decir</strong> "yo haría un Excel"</li>
+          <li>Cerrar presupuesto aproximado</li>
+        </ul>
+      </div>
+      <div class="cb-section">
+        <div class="penalty-box">
+          <div class="cb-label">TRAMPA</div>
+          <div class="penalty-text">Cada persona cambia de opinión <strong>una vez</strong>. Se evalúa: paciencia, flexibilidad y no perder la sonrisa.</div>
+        </div>
+      </div>
+      <button class="complete-btn" onclick="markDone(11, 5)">☐ MARCAR COMO SUPERADA (+5 PTS)</button>
+    </div>
+  </div>
+
+  <!-- GYMKANA HEADER -->
+  <div class="section-header" style="margin-top:12px; border-top:1px solid var(--navy-light)">
+    <div class="section-day-badge" style="background:var(--navy-light); color:var(--orange);">TARDE</div>
+    <div>
+      <div class="section-title">GYMKANA POR LISBOA</div>
+      <div class="section-subtitle">PRAÇA DO COMÉRCIO → ALFAMA → MIRADOUROS → SÃO PEDRO</div>
+    </div>
+  </div>
+
+  <!-- PRUEBA 12 -->
+  <div class="mission-card" id="card-12">
+    <div class="card-header" onclick="toggleCard(12)">
+      <div class="card-num">12</div>
+      <div class="card-title-block">
+        <div class="card-title">CONSEJO DE ADMINISTRACIÓN</div>
+        <div class="card-subtitle">PRAÇA DO COMÉRCIO</div>
+      </div>
+      <div class="card-meta"><span class="tag tag-org">ORG</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="card-body" id="body-12">
+      <div class="cb-section">
+        <div class="cb-label">PRUEBA</div>
+        <div class="cb-text">Speech de <strong>1 minuto</strong> como CEO de <strong>"Hombre Perfecto S.A."</strong></div>
+      </div>
+      <div class="cb-section">
+        <div class="cb-label">CONTENIDO OBLIGATORIO</div>
+        <ul class="check-list" onclick="handleCheck(event)">
+          <li>Misión de la empresa</li>
+          <li>Visión de futuro</li>
+          <li>Valores corporativos</li>
+          <li>Plan de expansión con Elena</li>
+          <li>Gestión de riesgos del matrimonio</li>
+        </ul>
+      </div>
+      <div class="cb-section">
+        <div class="cb-label">PALABRAS OBLIGATORIAS</div>
+        <div class="cb-text" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px">
+          <span class="tag tag-galicia">GALICIA</span>
+          <span class="tag tag-deporte">ENERGÍA</span>
+          <span class="tag tag-surf">SURF</span>
+          <span class="tag tag-teatro">TEATRO</span>
+          <span class="tag tag-elena">ELENA</span>
+          <span class="tag tag-org">EXCEL</span>
+        </div>
+      </div>
+      <button class="complete-btn" onclick="markDone(12, 8)">☐ MARCAR COMO SUPERADA (+8 PTS)</button>
+    </div>
+  </div>
+
+  <!-- PRUEBA 13 -->
+  <div class="mission-card" id="card-13">
+    <div class="card-header" onclick="toggleCard(13)">
+      <div class="card-num">13</div>
+      <div class="card-title-block">
+        <div class="card-title">PICOS DE RENDIMIENTO</div>
+        <div class="card-subtitle">CASA DOS BICOS // CROSSFIT URBANO</div>
+      </div>
+      <div class="card-meta"><span class="tag tag-deporte">DEPORTE</span><span class="tag tag-teatro">TEATRO</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="card-body" id="body-13">
+      <div class="cb-section">
+        <div class="cb-label">MINI RUTINA FUNCIONAL (versión épica)</div>
+        <ul class="check-list" onclick="handleCheck(event)">
+          <li>10 sentadillas</li>
+          <li>5 flexiones o burpees</li>
+          <li>Pose teatral final</li>
+          <li>Grito: "¡Pico de rendimiento alcanzado!"</li>
+        </ul>
+      </div>
+      <div class="cb-section">
+        <div class="cb-label">VERSIÓN DISCRETA (en su defecto)</div>
+        <div class="cb-text">Diseña el WOD del matrimonio:<br>
+          10 abrazos · 20 decisiones compartidas · 5 discusiones resueltas · 1 cena mensual sin móvil
+        </div>
+      </div>
+      <button class="complete-btn" onclick="markDone(13, 6)">☐ MARCAR COMO SUPERADA (+6 PTS)</button>
+    </div>
+  </div>
+
+  <!-- PRUEBA 14 -->
+  <div class="mission-card" id="card-14">
+    <div class="card-header" onclick="toggleCard(14)">
+      <div class="card-num">14</div>
+      <div class="card-title-block">
+        <div class="card-title">MORRIÑÓMETRO</div>
+        <div class="card-subtitle">MIRADOR // ALFAMA</div>
+      </div>
+      <div class="card-meta"><span class="tag tag-galicia">GAL</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="card-body" id="body-14">
+      <div class="cb-section">
+        <div class="cb-label">PRUEBA</div>
+        <div class="cb-text">Tiene que ordenar de <strong>más a menos morriña</strong> las siguientes opciones:</div>
+        <ul class="check-list" onclick="handleCheck(event)">
+          <li>🐙 Pulpo</li>
+          <li>🌧️ Lluvia</li>
+          <li>🍺 Estrella Galicia</li>
+          <li>🏖️ Playa con viento</li>
+          <li>📞 Hablar con su madre</li>
+          <li>🥧 Empanada</li>
+          <li>⛰️ Una cuesta de Lisboa</li>
+          <li>💬 Elena diciendo "Fer, relájate"</li>
+          <li>🎵 Un concierto</li>
+          <li>😴 Un domingo sin plan</li>
+        </ul>
+      </div>
+      <div class="speech-box">
+        <div class="speech-text">"A Galicia, que me hizo; a Madrid, que me adoptó; y a Elena, que me aguanta."</div>
+      </div>
+      <button class="complete-btn" onclick="markDone(14, 6)">☐ MARCAR COMO SUPERADA (+6 PTS)</button>
+    </div>
+  </div>
+
+  <!-- PRUEBA 15 -->
+  <div class="mission-card" id="card-15">
+    <div class="card-header" onclick="toggleCard(15)">
+      <div class="card-num">15</div>
+      <div class="card-title-block">
+        <div class="card-title">CASTING DE TEATRO</div>
+        <div class="card-subtitle">ZONA CONCURRIDA // IMPROV CON DESCONOCIDOS</div>
+      </div>
+      <div class="card-meta"><span class="tag tag-teatro">TEATRO</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="card-body" id="body-15">
+      <div class="cb-section">
+        <div class="cb-label">MISIÓN</div>
+        <div class="cb-text">Reclutar <strong>2 desconocidos</strong> para una escena de 30 segundos:<br><em>"El hombre perfecto descubre que no controla el planning de su despedida."</em></div>
+      </div>
+      <div class="cb-section">
+        <div class="cb-label">ROLES</div>
+        <div class="roles-grid">
+          <div class="role-item"><strong>FER</strong>El hombre perfecto</div>
+          <div class="role-item"><strong>DESCONOCIDO 1</strong>El caos</div>
+          <div class="role-item"><strong>DESCONOCIDO 2</strong>El destino</div>
+          <div class="role-item"><strong>UNO DE VOSOTROS</strong>Elena imaginaria</div>
+        </div>
+      </div>
+      <div class="cb-section">
+        <div class="cb-label">FRASE OBLIGATORIA DE FER</div>
+        <div class="speech-box">
+          <div class="speech-text">"Necesito saber la hora exacta de la siguiente actividad."</div>
+        </div>
+      </div>
+      <button class="complete-btn" onclick="markDone(15, 10)">☐ MARCAR COMO SUPERADA (+10 PTS)</button>
+    </div>
+  </div>
+
+  <!-- PRUEBA 16 -->
+  <div class="mission-card" id="card-16">
+    <div class="card-header" onclick="toggleCard(16)">
+      <div class="card-num">16</div>
+      <div class="card-title-block">
+        <div class="card-title">PLAYLIST VITAL</div>
+        <div class="card-subtitle">CAMINO A SÃO PEDRO // MÚSICA</div>
+      </div>
+      <div class="card-meta"><span class="tag tag-musica">MÚSICA</span><span class="tag tag-galicia">GAL</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="card-body" id="body-16">
+      <div class="cb-section">
+        <div class="cb-label">5 CANCIONES QUE DEBE ELEGIR</div>
+        <ul class="check-list" onclick="handleCheck(event)">
+          <li>🌊 Una para Galicia</li>
+          <li>💕 Una para Elena</li>
+          <li>🏄 Una para surfear</li>
+          <li>💪 Una para entrenar</li>
+          <li>👥 Una para este grupo</li>
+        </ul>
+      </div>
+      <div class="cb-section">
+        <div class="cb-label">RETO EXTRA</div>
+        <div class="cb-text">Tiene que <strong>cantar 20 segundos</strong> de una de ellas en público.</div>
+      </div>
+      <button class="complete-btn" onclick="markDone(16, 6)">☐ MARCAR COMO SUPERADA (+6 PTS)</button>
+    </div>
+  </div>
+
+  <!-- PRUEBA 17 -->
+  <div class="mission-card" id="card-17">
+    <div class="card-header" onclick="toggleCard(17)">
+      <div class="card-num">17</div>
+      <div class="card-title-block">
+        <div class="card-title">ATARDECER CERTIFICADO</div>
+        <div class="card-subtitle">MIRADOURO SÃO PEDRO DE ALCÂNTARA</div>
+      </div>
+      <div class="card-meta"><span class="tag tag-elena">ELENA</span><span class="tag tag-galicia">GAL</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="card-body" id="body-17">
+      <div class="cb-section">
+        <div class="cb-label">PRUEBA EMOCIONAL</div>
+        <div class="cb-text">Cada uno del grupo dice una frase sobre Fer:</div>
+        <ul class="check-list" onclick="handleCheck(event)">
+          <li>"Fer es perfecto porque…"</li>
+          <li>"Fer no es perfecto cuando…"</li>
+          <li>"Fer con Elena…"</li>
+        </ul>
+        <div class="cb-text" style="margin-top:8px">Luego Fer responde con un <strong>brindis</strong>.</div>
+      </div>
+      <div class="speech-box">
+        <div class="speech-text">"Fer, auditoría parcial superada. Sigues siendo insoportablemente organizado, pero también bastante querible."</div>
+      </div>
+      <button class="complete-btn" onclick="markDone(17, 5)">☐ MARCAR COMO SUPERADA (+5 PTS)</button>
+    </div>
+  </div>
+
+  <!-- PRUEBA 18 -->
+  <div class="mission-card" id="card-18">
+    <div class="card-header" onclick="toggleCard(18)">
+      <div class="card-num">18</div>
+      <div class="card-title-block">
+        <div class="card-title">EL MENÚ SIN CONTROL</div>
+        <div class="card-subtitle">CENA SÁBADO NOCHE</div>
+      </div>
+      <div class="card-meta"><span class="tag tag-caos">CAOS</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="card-body" id="body-18">
+      <div class="cb-section">
+        <div class="cb-label">REGLA</div>
+        <div class="cb-text">Fer <strong>no puede elegir plato directamente</strong>. Tiene que dejar que otro elija por él.</div>
+      </div>
+      <div class="cb-section">
+        <div class="cb-label">SOLO PUEDE HACER 3 PREGUNTAS</div>
+        <ul class="check-list" onclick="handleCheck(event)">
+          <li>¿Pica?</li>
+          <li>¿Lleva pescado?</li>
+          <li>¿Me va a gustar?</li>
+        </ul>
+      </div>
+      <button class="complete-btn" onclick="markDone(18, 5)">☐ MARCAR COMO SUPERADA (+5 PTS)</button>
+    </div>
+  </div>
+
+  <!-- PRUEBA 19 -->
+  <div class="mission-card" id="card-19">
+    <div class="card-header" onclick="toggleCard(19)">
+      <div class="card-num">19</div>
+      <div class="card-title-block">
+        <div class="card-title">MODO CONCIERTO</div>
+        <div class="card-subtitle">DISCOTECA / PUB</div>
+      </div>
+      <div class="card-meta"><span class="tag tag-musica">MÚSICA</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="card-body" id="body-19">
+      <div class="cb-section">
+        <div class="cb-label">CUANDO SUENE LA CANCIÓN, DEBE:</div>
+        <ul class="check-list" onclick="handleCheck(event)">
+          <li>🤘 Montar un pogo elegante</li>
+          <li>🎸 Hacer air guitar</li>
+          <li>💕 Cantar a Elena</li>
+          <li>🎤 Dirigir al grupo como frontman</li>
+        </ul>
+      </div>
+      <div class="cb-section">
+        <div class="cb-label">VERSIÓN FÁCIL</div>
+        <div class="cb-text">Que consiga que <strong>3 desconocidos</strong> canten el estribillo de una canción con él.</div>
+      </div>
+      <button class="complete-btn" onclick="markDone(19, 8)">☐ MARCAR COMO SUPERADA (+8 PTS)</button>
+    </div>
+  </div>
+
+</div><!-- /sábado -->
+
+
+<!-- ────────── DOMINGO ────────── -->
+<div class="day-section" id="day-domingo">
+  <div class="section-header">
+    <div class="section-day-badge">DÍA 3</div>
+    <div>
+      <div class="section-title">DOMINGO</div>
+      <div class="section-subtitle">10 MAYO 2026 // BRUNCH + TUK TUK + AEROPUERTO</div>
+    </div>
+  </div>
+
+  <!-- PRUEBA 20 -->
+  <div class="mission-card" id="card-20">
+    <div class="card-header" onclick="toggleCard(20)">
+      <div class="card-num">20</div>
+      <div class="card-title-block">
+        <div class="card-title">COMITÉ DE RESACA</div>
+        <div class="card-subtitle">BRUNCH DOMINGO</div>
+      </div>
+      <div class="card-meta"><span class="tag tag-org">ORG</span><span class="tag tag-caos">CAOS</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="card-body" id="body-20">
+      <div class="cb-section">
+        <div class="cb-label">BALANCE DEL VIAJE (formato reunión)</div>
+        <ul class="check-list" onclick="handleCheck(event)">
+          <li>✅ Qué ha salido bien</li>
+          <li>❌ Qué ha salido mal</li>
+          <li>⚠️ Riesgos pendientes</li>
+          <li>📅 Próximos pasos hasta la boda</li>
+          <li>📚 Lecciones aprendidas</li>
+        </ul>
+      </div>
+      <div class="penalty-box" style="margin-top:10px">
+        <div class="cb-label">PALABRAS PROHIBIDAS</div>
+        <div class="penalty-text">
+          "Yo lo habría organizado…" — "Esto estaba mal optimizado" — "Había una opción mejor"
+        </div>
+      </div>
+      <button class="complete-btn" onclick="markDone(20, 6)">☐ MARCAR COMO SUPERADA (+6 PTS)</button>
+    </div>
+  </div>
+
+  <!-- PRUEBA 21 -->
+  <div class="mission-card" id="card-21">
+    <div class="card-header" onclick="toggleCard(21)">
+      <div class="card-num">21</div>
+      <div class="card-title-block">
+        <div class="card-title">DIRECCIÓN PROHIBIDA</div>
+        <div class="card-subtitle">TUK TUK // 15 PREGUNTAS RÁPIDAS</div>
+      </div>
+      <div class="card-meta"><span class="tag tag-caos">CAOS</span><span class="tag tag-galicia">GAL</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="card-body" id="body-21">
+      <div class="cb-section">
+        <div class="cb-label">REGLA</div>
+        <div class="cb-text"><strong>15 preguntas rápidas.</strong> No puede decir: <strong style="color:var(--red)">SÍ</strong>, <strong style="color:var(--red)">NO</strong> ni <strong style="color:var(--red)">GALICIA</strong>.</div>
+      </div>
+      <div class="cb-section">
+        <div class="cb-label">PREGUNTAS</div>
+        <ul class="check-list" onclick="handleCheck(event)">
+          <li>¿Eres el hombre perfecto?</li>
+          <li>¿Echas de menos Galicia?</li>
+          <li>¿Elena tiene más paciencia que tú?</li>
+          <li>¿Te gusta tenerlo todo organizado?</li>
+          <li>¿Has sufrido no saber el planning?</li>
+          <li>¿Prefieres surf o crossfit?</li>
+          <li>¿Te casarías otra vez con Elena?</li>
+          <li>¿Has pensado en hacer un Excel mental del viaje?</li>
+          <li>¿Madrid te ha ablandado?</li>
+          <li>¿Portugal se parece a Galicia?</li>
+          <li>¿Te ha gustado la sorpresa?</li>
+          <li>¿Te ves viviendo sin calendario?</li>
+          <li>¿Crees que somos organizados?</li>
+          <li>¿Te fías de nosotros?</li>
+          <li>¿Certificamos al hombre perfecto?</li>
+        </ul>
+      </div>
+      <div class="penalty-box" style="margin-top:10px">
+        <div class="cb-label">PENALIZACIÓN POR FALLO</div>
+        <div class="penalty-text">Reiniciar contador o decir: <strong>"Acepto el caos como fuente de energía renovable."</strong></div>
+      </div>
+      <button class="complete-btn" onclick="markDone(21, 8)">☐ MARCAR COMO SUPERADA (+8 PTS)</button>
+    </div>
+  </div>
+
+</div><!-- /domingo -->
+
+
+<!-- ────────── CIERRE ────────── -->
+<div class="day-section" id="day-cierre">
+  <div class="section-header">
+    <div class="section-day-badge">CIERRE</div>
+    <div>
+      <div class="section-title">CERTIFICACIÓN FINAL</div>
+      <div class="section-subtitle">AEROPUERTO DE LISBOA // PRUEBA 22</div>
+    </div>
+  </div>
+
+  <!-- PRUEBA 22 -->
+  <div class="mission-card" id="card-22">
+    <div class="card-header" onclick="toggleCard(22)">
+      <div class="card-num">22</div>
+      <div class="card-title-block">
+        <div class="card-title">ENTREGA DEL CERTIFICADO</div>
+        <div class="card-subtitle">AEROPUERTO // CEREMONIA FINAL</div>
+      </div>
+      <div class="card-meta"><span class="tag tag-elena">ELENA</span><span class="tag tag-org">ORG</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="card-body" id="body-22">
+      <div class="cb-section">
+        <div class="cb-label">MATERIAL</div>
+        <ul class="check-list" onclick="handleCheck(event)">
+          <li>📜 Certificado impreso (usar el poster HTML)</li>
+          <li>⭐ Puntuación final calculada</li>
+        </ul>
+      </div>
+      <div class="cb-section">
+        <div class="cb-label">TEXTO OFICIAL DEL CERTIFICADO</div>
+        <div class="speech-box">
+          <div class="speech-text">"Se certifica que Fer ha superado con éxito razonable la Auditoría del Hombre Perfecto™, demostrando niveles aceptables de organización, morriña, energía, surf, teatro, amor por Elena y tolerancia al caos."</div>
+        </div>
+      </div>
+      <button class="complete-btn" onclick="markDone(22, 10)">☐ MARCAR COMO SUPERADA (+10 PTS)</button>
+    </div>
+  </div>
+
+  <!-- CERT FINAL BOX -->
+  <div class="cert-box">
+    <div class="cert-title">CERTIFICACIÓN OFICIAL</div>
+    <div class="cert-sub">HOMBRE PERFECTO™ // AUDITORÍA ATLÁNTICA 2026</div>
+    <div class="cert-text">
+      En función de la puntuación final obtenida, Fer queda clasificado como:
+    </div>
+    <div class="cert-cats">
+      <div class="cert-cat">HOMBRE PERFECTO CERTIFICADO</div>
+      <div class="cert-cat">GALLEGO FUNCIONAL</div>
+      <div class="cert-cat">ORGANIZADOR EN EXCEDENCIA</div>
+      <div class="cert-cat">MARIDO EN FASE BETA</div>
+    </div>
+    <div style="margin-top:16px; font-family:'Share Tech Mono',monospace; font-size:9px; color:#556677; letter-spacing:2px; border-top:1px dashed rgba(255,107,0,0.2); padding-top:10px;">
+      F-ER-90 · UNIDAD DE VALIDACIÓN ATLÁNTICA · LISBOA 2026
+    </div>
+  </div>
+
+</div><!-- /cierre -->
+
+</div><!-- /main -->
+
+<!-- BOTTOM BAR -->
+<div class="bottom-bar">
+  <div class="bottom-status">ESTADO: <span id="statusText">EN PRUEBAS</span></div>
+  <div class="bottom-status"><span id="doneCount">0</span>/22 PRUEBAS · <span id="ptsCount">0</span> PTS</div>
+  <div class="hatching-mini">
+    <i style="height:60%"></i><i style="height:100%"></i><i style="height:40%"></i><i style="height:80%"></i><i style="height:60%"></i>
+  </div>
+</div>
+
+<!-- SCORE MODAL -->
+<div class="modal-overlay" id="scoreModal" onclick="closeModalOutside(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">MARCADOR F-ER-90</div>
+      <button class="modal-close" onclick="closeModal()">✕ CERRAR</button>
+    </div>
+    <div class="modal-body">
+      <div id="scoreCategories">
+        <div class="score-cat">
+          <div class="score-cat-name">Organización</div>
+          <div class="score-controls">
+            <button class="score-btn" onclick="adjScore('org',-1)">−</button>
+            <div class="score-val" id="sc-org">0</div>
+            <button class="score-btn" onclick="adjScore('org',1)">+</button>
+          </div>
+        </div>
+        <div class="score-cat">
+          <div class="score-cat-name">Deporte</div>
+          <div class="score-controls">
+            <button class="score-btn" onclick="adjScore('dep',-1)">−</button>
+            <div class="score-val" id="sc-dep">0</div>
+            <button class="score-btn" onclick="adjScore('dep',1)">+</button>
+          </div>
+        </div>
+        <div class="score-cat">
+          <div class="score-cat-name">Teatro</div>
+          <div class="score-controls">
+            <button class="score-btn" onclick="adjScore('tea',-1)">−</button>
+            <div class="score-val" id="sc-tea">0</div>
+            <button class="score-btn" onclick="adjScore('tea',1)">+</button>
+          </div>
+        </div>
+        <div class="score-cat">
+          <div class="score-cat-name">Morriña</div>
+          <div class="score-controls">
+            <button class="score-btn" onclick="adjScore('mor',-1)">−</button>
+            <div class="score-val" id="sc-mor">0</div>
+            <button class="score-btn" onclick="adjScore('mor',1)">+</button>
+          </div>
+        </div>
+        <div class="score-cat">
+          <div class="score-cat-name">Energía</div>
+          <div class="score-controls">
+            <button class="score-btn" onclick="adjScore('ene',-1)">−</button>
+            <div class="score-val" id="sc-ene">0</div>
+            <button class="score-btn" onclick="adjScore('ene',1)">+</button>
+          </div>
+        </div>
+        <div class="score-cat">
+          <div class="score-cat-name">Surf</div>
+          <div class="score-controls">
+            <button class="score-btn" onclick="adjScore('sur',-1)">−</button>
+            <div class="score-val" id="sc-sur">0</div>
+            <button class="score-btn" onclick="adjScore('sur',1)">+</button>
+          </div>
+        </div>
+        <div class="score-cat">
+          <div class="score-cat-name">Elena</div>
+          <div class="score-controls">
+            <button class="score-btn" onclick="adjScore('ele',-1)">−</button>
+            <div class="score-val" id="sc-ele">0</div>
+            <button class="score-btn" onclick="adjScore('ele',1)">+</button>
+          </div>
+        </div>
+        <div class="score-cat">
+          <div class="score-cat-name">Control del Caos</div>
+          <div class="score-controls">
+            <button class="score-btn" onclick="adjScore('cao',-1)">−</button>
+            <div class="score-val" id="sc-cao">0</div>
+            <button class="score-btn" onclick="adjScore('cao',1)">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="score-total-row">
+        <div class="score-total-label">PUNTUACIÓN TOTAL</div>
+        <div class="score-total-val" id="modalTotal">0</div>
+      </div>
+      <div class="score-cert" id="certLevel">
+        AUDITORÍA EN CURSO — CATEGORÍA: PENDIENTE DE EVALUACIÓN
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ─── STATE ───
+const state = {
+  completed: new Set(JSON.parse(localStorage.getItem('fer90_done') || '[]')),
+  points: parseInt(localStorage.getItem('fer90_pts') || '0'),
+  scores: JSON.parse(localStorage.getItem('fer90_scores') || '{"org":0,"dep":0,"tea":0,"mor":0,"ene":0,"sur":0,"ele":0,"cao":0}')
+};
+
+// ─── INIT ───
+document.addEventListener('DOMContentLoaded', () => {
+  buildTimeline();
+  updateUI();
+  // Restore completed state visually
+  state.completed.forEach(id => {
+    const card = document.getElementById('card-' + id);
+    const btn = card ? card.querySelector('.complete-btn') : null;
+    if (card) { card.classList.add('completed'); }
+    if (btn) { btn.textContent = '✓ PRUEBA SUPERADA'; btn.classList.add('done'); }
+  });
+});
+
+// ─── TIMELINE ───
+function buildTimeline() {
+  const track = document.getElementById('timelineTrack');
+  for (let i = 1; i <= 22; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'timeline-dot';
+    dot.id = 'dot-' + i;
+    dot.title = 'Prueba ' + i;
+    dot.onclick = () => jumpToCard(i);
+    track.appendChild(dot);
+  }
+  updateTimeline();
+}
+
+function updateTimeline() {
+  for (let i = 1; i <= 22; i++) {
+    const dot = document.getElementById('dot-' + i);
+    if (!dot) continue;
+    dot.classList.toggle('done', state.completed.has(i));
+  }
+}
+
+function jumpToCard(id) {
+  const dayMap = {1:'viernes',2:'viernes',3:'viernes',4:'viernes',5:'viernes',6:'viernes',7:'viernes',8:'viernes',9:'sabado',10:'sabado',11:'sabado',12:'sabado',13:'sabado',14:'sabado',15:'sabado',16:'sabado',17:'sabado',18:'sabado',19:'sabado',20:'domingo',21:'domingo',22:'cierre'};
+  switchDay(dayMap[id]);
+  setTimeout(() => {
+    const card = document.getElementById('card-' + id);
+    if (card) { card.scrollIntoView({behavior:'smooth', block:'center'}); }
+  }, 100);
+}
+
+// ─── DAY TABS ───
+function switchDay(day) {
+  document.querySelectorAll('.day-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.day-tab').forEach(t => t.classList.remove('active'));
+  const section = document.getElementById('day-' + day);
+  if (section) section.classList.add('active');
+  const dayOrder = ['viernes','sabado','domingo','cierre'];
+  const idx = dayOrder.indexOf(day);
+  document.querySelectorAll('.day-tab')[idx]?.classList.add('active');
+  window.scrollTo({top: 0, behavior:'smooth'});
+}
+
+// ─── CARD TOGGLE ───
+function toggleCard(id) {
+  const header = document.querySelector('#card-' + id + ' .card-header');
+  const body = document.getElementById('body-' + id);
+  if (!body) return;
+  const isOpen = body.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.card-body.open').forEach(b => b.classList.remove('open'));
+  document.querySelectorAll('.card-header.open').forEach(h => h.classList.remove('open'));
+  if (!isOpen) {
+    body.classList.add('open');
+    header.classList.add('open');
+  }
+}
+
+// ─── CHECKLIST ───
+function handleCheck(e) {
+  const li = e.target.closest('li');
+  if (li) li.classList.toggle('checked');
+}
+
+// ─── HINTS ───
+function revealHint(btn) {
+  const item = btn.closest('.hint-item');
+  item.classList.add('revealed');
+  btn.textContent = '✓ REVELADA';
+  btn.style.color = '#4AB8FF';
+  btn.disabled = true;
+}
+
+// ─── MARK DONE ───
+function markDone(id, pts) {
+  const card = document.getElementById('card-' + id);
+  const btn = card ? card.querySelector('.complete-btn') : null;
+  if (state.completed.has(id)) {
+    // Undo
+    state.completed.delete(id);
+    state.points = Math.max(0, state.points - pts);
+    if (card) card.classList.remove('completed');
+    if (btn) { btn.textContent = '☐ MARCAR COMO SUPERADA (+' + pts + ' PTS)'; btn.classList.remove('done'); }
+  } else {
+    state.completed.add(id);
+    state.points += pts;
+    if (card) card.classList.add('completed');
+    if (btn) { btn.textContent = '✓ PRUEBA SUPERADA'; btn.classList.add('done'); }
+  }
+  saveState();
+  updateUI();
+  updateTimeline();
+}
+
+// ─── SCORES ───
+function adjScore(cat, delta) {
+  state.scores[cat] = Math.max(0, (state.scores[cat] || 0) + delta);
+  document.getElementById('sc-' + cat).textContent = state.scores[cat];
+  const total = Object.values(state.scores).reduce((a,b) => a+b, 0);
+  document.getElementById('modalTotal').textContent = total;
+  document.getElementById('stat-pts').textContent = state.points + total;
+  document.getElementById('ptsCount').textContent = state.points + total;
+  updateCertLevel(total);
+  saveState();
+}
+
+function updateCertLevel(total) {
+  const el = document.getElementById('certLevel');
+  if (total >= 50) el.textContent = '★★★ CATEGORÍA: HOMBRE PERFECTO CERTIFICADO';
+  else if (total >= 35) el.textContent = '★★ CATEGORÍA: GALLEGO FUNCIONAL';
+  else if (total >= 20) el.textContent = '★ CATEGORÍA: ORGANIZADOR EN EXCEDENCIA';
+  else el.textContent = 'CATEGORÍA: MARIDO EN FASE BETA — SIGUE INTENTÁNDOLO';
+}
+
+// ─── UI UPDATE ───
+function updateUI() {
+  const done = state.completed.size;
+  document.getElementById('stat-done').textContent = done;
+  document.getElementById('doneCount').textContent = done;
+  document.getElementById('ptsCount').textContent = state.points;
+  document.getElementById('stat-pts').textContent = state.points;
+  const statusEl = document.getElementById('statusText');
+  if (done === 22) statusEl.textContent = '✓ CERTIFICADO';
+  else if (done > 15) statusEl.textContent = 'FASE FINAL';
+  else if (done > 8) statusEl.textContent = 'EN CURSO';
+  else statusEl.textContent = 'EN PRUEBAS';
+}
+
+// ─── MODAL ───
+function openModal() {
+  document.getElementById('scoreModal').classList.add('open');
+  // Sync score displays
+  Object.keys(state.scores).forEach(k => {
+    const el = document.getElementById('sc-' + k);
+    if (el) el.textContent = state.scores[k];
+  });
+  const total = Object.values(state.scores).reduce((a,b) => a+b, 0);
+  document.getElementById('modalTotal').textContent = total;
+  updateCertLevel(total);
+}
+function closeModal() { document.getElementById('scoreModal').classList.remove('open'); }
+function closeModalOutside(e) { if (e.target === document.getElementById('scoreModal')) closeModal(); }
+
+// ─── SAVE/LOAD ───
+function saveState() {
+  try {
+    localStorage.setItem('fer90_done', JSON.stringify([...state.completed]));
+    localStorage.setItem('fer90_pts', state.points.toString());
+    localStorage.setItem('fer90_scores', JSON.stringify(state.scores));
+  } catch(e) {}
+}
+</script>
+</body>
+</html>
