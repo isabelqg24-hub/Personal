@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OPERACIÓN ATLÁNTICA — Evaluación F-ER-90</title>
+  <link rel="stylesheet" href="evaluacion.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="hdr">
+    <div class="hdr-left">
+      <span class="hdr-label">UNIDAD DE VALIDACIÓN ATLÁNTICA</span>
+      <h1 class="hdr-title">OPERACIÓN <em>ATLÁNTICA</em></h1>
+      <span class="hdr-code">F-ER-90 · v2.6 · SEC-LEVEL DELTA-4</span>
+    </div>
+
+    <div class="hdr-score-block">
+      <span class="hdr-score-label">PUNTUACIÓN TOTAL</span>
+      <div class="hdr-score-num">
+        <span id="liveTotal">0</span>
+        <span class="hdr-score-max">/21</span>
+      </div>
+      <div class="hdr-gauge-track">
+        <div class="hdr-gauge-fill" id="gaugeBar"></div>
+        <span class="hdr-gauge-pct" id="gaugePct">0%</span>
+      </div>
+    </div>
+
+    <div class="hdr-right">
+      <div class="hdr-badge" id="statusBadge">EN PRUEBAS</div>
+      <div class="hdr-meta">
+        <span><strong>MODO</strong> CAOS ACTIVADO</span>
+        <span><strong>FECHA</strong> 08–11 MAY 2026</span>
+        <span><strong>ZONA</strong> ATLÁNTICA NORTE</span>
+        <span><strong>CAND.</strong> F-ER-90-2026</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- MISSION BANNER -->
+  <div class="mission-banner">
+    <div class="mission-banner-line"></div>
+    <div class="mission-banner-text">
+      <span class="mission-icon">◈</span>
+      OBJETIVO: Demostrar que incluso sin el control del plan, puede liderar, disfrutar y conectar con lo esencial.
+      <span class="mission-icon">◈</span>
+    </div>
+    <div class="mission-banner-line"></div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <!-- STAGES GRID -->
+    <div class="stages-grid">
+
+      <article class="stage-card" data-idx="0">
+        <div class="stage-card-top">
+          <div class="stage-hex-wrap">
+            <div class="stage-hex">🧳</div>
+          </div>
+          <div class="stage-num">01</div>
+        </div>
+        <h2 class="stage-title">Maleta a Ciegas</h2>
+        <p class="stage-desc">Hacer la maleta sin saber el destino. Test de confianza y adaptación al caos logístico.</p>
+        <div class="score-zone">
+          <span class="score-zone-label">PUNTUACIÓN</span>
+          <div class="score-btns">
+            <button class="sbtn sbtn-1" data-val="1">1<span>APROBADO</span></button>
+            <button class="sbtn sbtn-2" data-val="2">2<span>NOTABLE</span></button>
+            <button class="sbtn sbtn-3" data-val="3">3<span>ÉLITE</span></button>
+          </div>
+        </div>
+        <div class="stage-score-display" id="sd0">—</div>
+      </article>
+
+      <article class="stage-card" data-idx="1">
+        <div class="stage-card-top">
+          <div class="stage-hex-wrap">
+            <div class="stage-hex">🧠</div>
+          </div>
+          <div class="stage-num">02</div>
+        </div>
+        <h2 class="stage-title">Control Ansiedade</h2>
+        <p class="stage-desc">Mantener la calma cuando todo el plan explota. Respiración táctica y gestión de caos mental.</p>
+        <div class="score-zone">
+          <span class="score-zone-label">PUNTUACIÓN</span>
+          <div class="score-btns">
+            <button class="sbtn sbtn-1" data-val="1">1<span>APROBADO</span></button>
+            <button class="sbtn sbtn-2" data-val="2">2<span>NOTABLE</span></button>
+            <button class="sbtn sbtn-3" data-val="3">3<span>ÉLITE</span></button>
+          </div>
+        </div>
+        <div class="stage-score-display" id="sd1">—</div>
+      </article>
+
+      <article class="stage-card" data-idx="2">
+        <div class="stage-card-top">
+          <div class="stage-hex-wrap">
+            <div class="stage-hex">🛒</div>
+          </div>
+          <div class="stage-num">03</div>
+        </div>
+        <h2 class="stage-title">Compras Intelixentes</h2>
+        <p class="stage-desc">Ir al mercado sin lista y sin salirse del presupuesto. Misión de supervivencia económica.</p>
+        <div class="score-zone">
+          <span class="score-zone-label">PUNTUACIÓN</span>
+          <div class="score-btns">
+            <button class="sbtn sbtn-1" data-val="1">1<span>APROBADO</span></button>
+            <button class="sbtn sbtn-2" data-val="2">2<span>NOTABLE</span></button>
+            <button class="sbtn sbtn-3" data-val="3">3<span>ÉLITE</span></button>
+          </div>
+        </div>
+        <div class="stage-score-display" id="sd2">—</div>
+      </article>
+
+      <article class="stage-card" data-idx="3">
+        <div class="stage-card-top">
+          <div class="stage-hex-wrap">
+            <div class="stage-hex">🏄</div>
+          </div>
+          <div class="stage-num">04</div>
+        </div>
+        <h2 class="stage-title">Surf Test Atlántico</h2>
+        <p class="stage-desc">Dominar las olas del Atlántico o que las olas te dominen. Ambos resultados son igualmente válidos.</p>
+        <div class="score-zone">
+          <span class="score-zone-label">PUNTUACIÓN</span>
+          <div class="score-btns">
+            <button class="sbtn sbtn-1" data-val="1">1<span>APROBADO</span></button>
+            <button class="sbtn sbtn-2" data-val="2">2<span>NOTABLE</span></button>
+            <button class="sbtn sbtn-3" data-val="3">3<span>ÉLITE</span></button>
+          </div>
+        </div>
+        <div class="stage-score-display" id="sd3">—</div>
+      </article>
+
+      <article class="stage-card" data-idx="4">
+        <div class="stage-card-top">
+          <div class="stage-hex-wrap">
+            <div class="stage-hex">🎭</div>
+          </div>
+          <div class="stage-num">05</div>
+        </div>
+        <h2 class="stage-title">Escena Improvisada</h2>
+        <p class="stage-desc">Teatro sin guión. La vida real como escenario principal. Solo existe el momento.</p>
+        <div class="score-zone">
+          <span class="score-zone-label">PUNTUACIÓN</span>
+          <div class="score-btns">
+            <button class="sbtn sbtn-1" data-val="1">1<span>APROBADO</span></button>
+            <button class="sbtn sbtn-2" data-val="2">2<span>NOTABLE</span></button>
+            <button class="sbtn sbtn-3" data-val="3">3<span>ÉLITE</span></button>
+          </div>
+        </div>
+        <div class="stage-score-display" id="sd4">—</div>
+      </article>
+
+      <article class="stage-card" data-idx="5">
+        <div class="stage-card-top">
+          <div class="stage-hex-wrap">
+            <div class="stage-hex">🎵</div>
+          </div>
+          <div class="stage-num">06</div>
+        </div>
+        <h2 class="stage-title">Música &amp; Conexión</h2>
+        <p class="stage-desc">Sintonizar con el momento. Que la música hable cuando las palabras ya no son suficientes.</p>
+        <div class="score-zone">
+          <span class="score-zone-label">PUNTUACIÓN</span>
+          <div class="score-btns">
+            <button class="sbtn sbtn-1" data-val="1">1<span>APROBADO</span></button>
+            <button class="sbtn sbtn-2" data-val="2">2<span>NOTABLE</span></button>
+            <button class="sbtn sbtn-3" data-val="3">3<span>ÉLITE</span></button>
+          </div>
+        </div>
+        <div class="stage-score-display" id="sd5">—</div>
+      </article>
+
+      <article class="stage-card" data-idx="6">
+        <div class="stage-card-top">
+          <div class="stage-hex-wrap">
+            <div class="stage-hex">📍</div>
+          </div>
+          <div class="stage-num">07</div>
+        </div>
+        <h2 class="stage-title">Ruta da Morriña</h2>
+        <p class="stage-desc">El camino de vuelta al origen. Galicia siempre espera. La morriña es el combustible del alma.</p>
+        <div class="score-zone">
+          <span class="score-zone-label">PUNTUACIÓN</span>
+          <div class="score-btns">
+            <button class="sbtn sbtn-1" data-val="1">1<span>APROBADO</span></button>
+            <button class="sbtn sbtn-2" data-val="2">2<span>NOTABLE</span></button>
+            <button class="sbtn sbtn-3" data-val="3">3<span>ÉLITE</span></button>
+          </div>
+        </div>
+        <div class="stage-score-display" id="sd6">—</div>
+      </article>
+
+    </div><!-- /stages-grid -->
+
+  </main>
+
+  <!-- RESULTS PANEL -->
+  <footer class="results-panel" id="resultsPanel">
+    <div class="results-inner">
+
+      <div class="results-left">
+        <span class="results-label">NOTA FINAL</span>
+        <div class="results-total">
+          <span id="resultScore">0</span>
+          <span class="results-denom">/21</span>
+        </div>
+        <div class="results-classif" id="resultClassif">SIN CALIFICAR</div>
+      </div>
+
+      <div class="results-center">
+        <span class="results-label">DESGLOSE</span>
+        <div class="results-chips" id="resultChips">
+          <span class="chip chip-empty">🧳 —</span>
+          <span class="chip chip-empty">🧠 —</span>
+          <span class="chip chip-empty">🛒 —</span>
+          <span class="chip chip-empty">🏄 —</span>
+          <span class="chip chip-empty">🎭 —</span>
+          <span class="chip chip-empty">🎵 —</span>
+          <span class="chip chip-empty">📍 —</span>
+        </div>
+        <div class="results-scale">
+          <span class="scale-dot dot-1"></span> 1 APROBADO &nbsp;
+          <span class="scale-dot dot-2"></span> 2 NOTABLE &nbsp;
+          <span class="scale-dot dot-3"></span> 3 ÉLITE
+        </div>
+      </div>
+
+      <div class="results-right">
+        <div class="results-seal" id="resultSeal">
+          <svg viewBox="0 0 80 80" width="80" height="80">
+            <circle cx="40" cy="40" r="37" fill="none" stroke="#FF6B00" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <circle cx="40" cy="40" r="31" fill="none" stroke="#FF6B00" stroke-width="0.7"/>
+            <circle cx="40" cy="40" r="26" fill="rgba(255,107,0,0.07)"/>
+            <defs>
+              <path id="st" d="M 9,40 A 31,31 0 0,1 71,40"/>
+              <path id="sb" d="M 11,44 A 31,31 0 0,0 69,44"/>
+            </defs>
+            <text font-family="'Share Tech Mono',monospace" font-size="5.5" fill="#FF6B00" letter-spacing="2">
+              <textPath href="#st" startOffset="6%">CERTIFICACIÓN ATLÁNTICA</textPath>
+            </text>
+            <text id="sealTxt" font-family="'Share Tech Mono',monospace" font-size="6" fill="#FF6B00" letter-spacing="2.5">
+              <textPath href="#sb" startOffset="14%">PENDIENTE</textPath>
+            </text>
+            <text id="sealScore" x="40" y="43" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="18" fill="#FF6B00" letter-spacing="2">0</text>
+          </svg>
+        </div>
+        <button class="btn-reset" id="btnReset">↺ REINICIAR</button>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast" id="toast"></div>
+
+  <script src="evaluacion.js"></script>
+</body>
+</html>
