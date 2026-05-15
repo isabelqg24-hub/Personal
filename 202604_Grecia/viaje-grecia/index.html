@@ -1,406 +1,1008 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Gran Boda Griega y la Odisea de los Garrido</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grecia Continental · Guía de Viaje 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1e1a14;--cream:#f4ede0;--cream2:#ede3d2;--parchment:#d9cab0;--terra:#b85c35;--terra2:#d4724a;--gold:#b8862e;--gold2:#d4a843;--stone:#7a6a52;--stone2:#a89070;--olive:#4a5e30;--sky:#3a6a8a;--white:#fdf8f0}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Crimson Pro',Georgia,serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
+.meander{height:14px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='14'%3E%3Cpath d='M0,7 h5 v-5 h5 v5 h5 v5 h5 v-5 h5 v-5 h5' fill='none' stroke='%23b8862e' stroke-width='1.4'/%3E%3C/svg%3E");background-repeat:repeat-x;background-position:center;opacity:.55}
+header{background:var(--ink);color:var(--cream);text-align:center;padding:3.5rem 2rem 2.5rem;position:relative;overflow:hidden}
+header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 25% 50%,rgba(184,134,46,.14) 0%,transparent 55%),radial-gradient(ellipse at 75% 50%,rgba(184,92,53,.11) 0%,transparent 55%)}
+.h-orn{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.55em;color:var(--gold);opacity:.8;margin-bottom:1rem;text-transform:uppercase}
+header h1{font-family:'Cinzel',serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;color:var(--cream);letter-spacing:.04em;line-height:1.1;margin-bottom:.5rem}
+header h1 span{color:var(--gold2)}
+.h-sub{font-family:'Crimson Pro',serif;font-style:italic;font-size:1.15rem;color:var(--parchment);opacity:.85;margin-bottom:1.5rem}
+.h-meta{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;font-family:'Source Sans 3',sans-serif;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--stone2)}
+.h-meta span{display:flex;align-items:center;gap:.4rem}
+nav{background:var(--ink);border-top:1px solid rgba(184,134,46,.2);position:sticky;top:0;z-index:100;box-shadow:0 4px 20px rgba(0,0,0,.3)}
+.nav-inner{display:flex;overflow-x:auto;scrollbar-width:none;max-width:1100px;margin:0 auto}
+.nav-inner::-webkit-scrollbar{display:none}
+.tab-btn{background:none;border:none;color:var(--stone2);font-family:'Source Sans 3',sans-serif;font-size:.76rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:1.05rem 1.3rem;cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent;transition:all .25s}
+.tab-btn:hover{color:var(--cream)}
+.tab-btn.active{color:var(--gold2);border-bottom-color:var(--gold2)}
+main{max-width:1100px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+.tab-pane{display:none}
+.tab-pane.active{display:block}
+.sec-title{font-family:'Cinzel',serif;font-size:1.75rem;font-weight:700;color:var(--terra);margin-bottom:.4rem;letter-spacing:.03em}
+.sec-sub{font-family:'Crimson Pro',serif;font-style:italic;color:var(--stone);font-size:1.05rem;margin-bottom:2rem}
+
+/* KPI */
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1rem;margin-bottom:2.5rem}
+.kpi{background:var(--ink);border-radius:4px;padding:1.3rem 1rem;text-align:center;position:relative;overflow:hidden}
+.kpi::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--gold)}
+.kpi-n{font-family:'Cinzel',serif;font-size:2rem;font-weight:700;color:var(--gold2);display:block;line-height:1;margin-bottom:.4rem}
+.kpi-l{font-family:'Source Sans 3',sans-serif;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--stone2)}
+
+/* OPCIONES ITINERARIO */
+.opciones-intro{background:var(--ink);color:var(--cream);border-radius:6px;padding:1.5rem;margin-bottom:2rem}
+.opciones-intro h3{font-family:'Cinzel',serif;font-size:.9rem;color:var(--gold2);letter-spacing:.08em;margin-bottom:.8rem}
+.opciones-intro p{font-size:.92rem;line-height:1.7;color:var(--parchment)}
+
+.opcion-card{border:1px solid var(--parchment);border-radius:6px;overflow:hidden;margin-bottom:1.5rem;background:var(--white);box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.opcion-header{background:var(--terra);color:white;padding:.9rem 1.3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+.opcion-header h3{font-family:'Cinzel',serif;font-size:.98rem;font-weight:700;letter-spacing:.04em}
+.opcion-badge{background:rgba(255,255,255,.2);font-family:'Source Sans 3',sans-serif;font-size:.72rem;padding:.2rem .7rem;border-radius:20px;letter-spacing:.08em}
+.opcion-body{padding:1.3rem 1.5rem}
+.opcion-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+@media(max-width:600px){.opcion-grid{grid-template-columns:1fr}}
+.opcion-col h4{font-family:'Cinzel',serif;font-size:.78rem;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.7rem;padding-bottom:.4rem;border-bottom:1px solid var(--parchment)}
+.opcion-col ul{list-style:none;padding:0}
+.opcion-col ul li{font-size:.9rem;line-height:1.65;padding:.3rem 0 .3rem 1.2rem;position:relative;border-bottom:1px solid var(--cream2);color:var(--ink)}
+.opcion-col ul li:last-child{border-bottom:none}
+.opcion-col ul li::before{content:'◆';position:absolute;left:0;color:var(--terra);font-size:.48rem;top:.6rem}
+.opcion-col ul li strong{color:var(--terra)}
+.encuentro-box{background:rgba(184,134,46,.08);border-left:3px solid var(--gold);border-radius:0 4px 4px 0;padding:.8rem 1.1rem;margin-top:1.2rem;font-size:.88rem;color:var(--stone)}
+.encuentro-box strong{color:var(--ink);display:block;margin-bottom:.2rem;font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:.08em}
+.pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.2rem}
+@media(max-width:500px){.pros-cons{grid-template-columns:1fr}}
+.pros{background:rgba(74,94,48,.07);border-radius:4px;padding:.8rem 1rem}
+.cons{background:rgba(184,92,53,.07);border-radius:4px;padding:.8rem 1rem}
+.pros h5,.cons h5{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.1em;margin-bottom:.5rem}
+.pros h5{color:var(--olive)}
+.cons h5{color:var(--terra)}
+.pros ul,.cons ul{list-style:none;padding:0;font-size:.82rem;line-height:1.6;color:var(--stone)}
+.pros ul li,.cons ul li{padding-left:.9rem;position:relative}
+.pros ul li::before{content:'✓';position:absolute;left:0;color:var(--olive)}
+.cons ul li::before{content:'✗';position:absolute;left:0;color:var(--terra)}
+
+.recomendada{border-color:var(--gold) !important;box-shadow:0 2px 16px rgba(184,134,46,.2) !important}
+.recomendada .opcion-header{background:var(--gold)}
+.rec-badge{display:inline-block;background:var(--gold);color:white;font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.12em;padding:.2rem .6rem;border-radius:3px;margin-bottom:.5rem}
+
+/* DIAS */
+.day-acc{border:1px solid var(--parchment);border-radius:4px;margin-bottom:.75rem;overflow:hidden;background:var(--white);box-shadow:0 1px 6px rgba(0,0,0,.05)}
+.day-hdr{display:flex;align-items:center;gap:.9rem;padding:.9rem 1.1rem;cursor:pointer;user-select:none;border-left:4px solid var(--terra);transition:background .2s}
+.day-hdr:hover,.day-acc.open .day-hdr{background:var(--cream)}
+.day-num{font-family:'Cinzel',serif;font-size:.72rem;font-weight:700;color:white;background:var(--terra);padding:.2rem .55rem;border-radius:2px;flex-shrink:0;min-width:42px;text-align:center}
+.day-date{font-family:'Source Sans 3',sans-serif;font-size:.73rem;color:var(--stone);letter-spacing:.09em;text-transform:uppercase;flex-shrink:0;min-width:110px}
+.day-sum{font-family:'Crimson Pro',serif;font-size:.97rem;color:var(--ink);flex:1}
+.day-sum strong{color:var(--terra)}
+.day-chev{font-style:normal;color:var(--stone2);transition:transform .3s;flex-shrink:0}
+.day-acc.open .day-chev{transform:rotate(180deg)}
+.day-body{display:none;padding:1.1rem 1.4rem 1.4rem;border-top:1px solid var(--cream2)}
+.day-acc.open .day-body{display:block}
+.day-body h4{font-family:'Cinzel',serif;font-size:.76rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:1.1rem 0 .45rem}
+.day-body h4:first-child{margin-top:0}
+.day-body p{font-size:.95rem;line-height:1.65;color:var(--ink);margin-bottom:.45rem}
+.day-body ul{list-style:none;padding:0}
+.day-body ul li{font-size:.93rem;line-height:1.6;padding:.2rem 0 .2rem 1.15rem;position:relative;color:var(--ink)}
+.day-body ul li::before{content:'◆';position:absolute;left:0;color:var(--terra);font-size:.48rem;top:.52rem}
+.aloj-pill{display:inline-flex;align-items:center;gap:.35rem;background:var(--sky);color:white;font-family:'Source Sans 3',sans-serif;font-size:.76rem;padding:.28rem .75rem;border-radius:20px;margin-top:.75rem}
+.cena-pill{display:inline-flex;align-items:center;gap:.35rem;background:var(--olive);color:white;font-family:'Source Sans 3',sans-serif;font-size:.76rem;padding:.28rem .75rem;border-radius:20px;margin-top:.45rem;margin-left:.35rem}
+.tip-box{background:rgba(184,134,46,.08);border-left:3px solid var(--gold);padding:.65rem .95rem;margin-top:.75rem;border-radius:0 4px 4px 0;font-size:.88rem;font-style:italic;color:var(--stone)}
+
+/* PUEBLOS */
+.town-nav{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:1.8rem}
+.town-btn{background:var(--white);border:1px solid var(--parchment);border-radius:3px;padding:.45rem .9rem;font-family:'Source Sans 3',sans-serif;font-size:.76rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;cursor:pointer;color:var(--stone);transition:all .2s}
+.town-btn:hover,.town-btn.active{background:var(--terra);border-color:var(--terra);color:white}
+.town-pane{display:none}
+.town-pane.active{display:block}
+.town-hdr{display:grid;grid-template-columns:1fr auto;gap:1.2rem;align-items:start;margin-bottom:1.3rem;padding-bottom:1.3rem;border-bottom:1px solid var(--parchment)}
+.town-hdr h2{font-family:'Cinzel',serif;font-size:1.5rem;font-weight:700;color:var(--terra);margin-bottom:.3rem}
+.town-hdr p{font-family:'Crimson Pro',serif;font-style:italic;color:var(--stone);font-size:.97rem}
+.town-meta{text-align:right;font-family:'Source Sans 3',sans-serif;font-size:.76rem;color:var(--stone);letter-spacing:.04em}
+.town-meta strong{color:var(--ink);display:block;margin-bottom:.15rem}
+.town-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
+@media(max-width:600px){.town-grid{grid-template-columns:1fr}.town-hdr{grid-template-columns:1fr}.town-meta{text-align:left}}
+.town-block h3{font-family:'Cinzel',serif;font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.65rem;padding-bottom:.35rem;border-bottom:1px solid var(--parchment)}
+.town-block p{font-size:.93rem;line-height:1.65;color:var(--ink);margin-bottom:.45rem}
+.town-block ul{list-style:none;padding:0}
+.town-block ul li{font-size:.91rem;line-height:1.6;padding:.22rem 0 .22rem 1.2rem;position:relative;color:var(--ink)}
+.town-block ul li::before{content:'→';position:absolute;left:0;color:var(--terra);font-size:.78rem}
+.juana-note{background:rgba(90,107,58,.08);border:1px solid rgba(90,107,58,.22);border-radius:4px;padding:.65rem .95rem;font-size:.86rem;color:var(--olive);margin-top:.9rem;font-family:'Source Sans 3',sans-serif}
+
+/* GASTRO */
+.gastro-gen{background:var(--ink);color:var(--cream);border-radius:4px;padding:1.4rem;margin-bottom:2rem}
+.gastro-gen h3{font-family:'Cinzel',serif;font-size:.92rem;color:var(--gold2);margin-bottom:.9rem;letter-spacing:.05em}
+.gastro-gen-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:.9rem}
+.gen-item{font-size:.88rem;line-height:1.5}
+.gen-item strong{color:var(--gold2);display:block;margin-bottom:.15rem;font-family:'Cinzel',serif;font-size:.76rem;letter-spacing:.07em}
+.gastro-city{margin-bottom:2.2rem;background:var(--white);border-radius:4px;overflow:hidden;box-shadow:0 1px 8px rgba(0,0,0,.05)}
+.gastro-city-hdr{background:var(--terra);color:white;padding:.75rem 1.1rem;font-family:'Cinzel',serif;font-size:.9rem;font-weight:700;letter-spacing:.04em}
+.gastro-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:1px;background:var(--parchment)}
+.gastro-item{background:var(--white);padding:.9rem 1rem}
+.gastro-item-name{font-family:'Crimson Pro',serif;font-weight:600;font-size:.97rem;color:var(--ink);margin-bottom:.15rem}
+.gastro-item-cat{font-family:'Source Sans 3',sans-serif;font-size:.67rem;letter-spacing:.09em;text-transform:uppercase;color:var(--gold);margin-bottom:.35rem}
+.gastro-item p{font-size:.83rem;line-height:1.5;color:var(--stone)}
+
+footer{background:var(--ink);color:var(--stone2);text-align:center;padding:2rem;font-family:'Source Sans 3',sans-serif;font-size:.77rem;letter-spacing:.07em}
+footer span{color:var(--gold)}
+</style>
 </head>
 <body>
+<header>
+  <p class="h-orn">✦ Grecia Continental · Mayo 2026 ✦</p>
+  <h1>ΕΛΛΆΣ · <span>Grecia</span></h1>
+  <p class="h-sub">Tesalónica · Meteora · Delfos · Nafplio · Atenas</p>
+  <div class="meander" style="background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='14'%3E%3Cpath d='M0,7 h5 v-5 h5 v5 h5 v5 h5 v-5 h5 v-5 h5' fill='none' stroke='%23f4ede0' stroke-width='1.4'/%3E%3C/svg%3E\");opacity:.35;margin-bottom:1.2rem"></div>
+  <div class="h-meta">
+    <span>📅 21 Mayo – 1 Junio 2026</span>
+    <span>👥 21 viajeros</span>
+    <span>🚗 ~800 km</span>
+    <span>🏛️ 5 destinos</span>
+  </div>
+</header>
 
-    <!-- Navegación -->
-    <nav class="navbar">
-        <a href="#hero" class="nav-logo">Los Garrido</a>
-        <div class="hamburger" id="hamburger">☰</div>
-        <ul class="nav-links" id="nav-links">
-            <li><a href="#hero">1. Resumen</a></li>
-            <li><a href="#itinerary">2. Día a día</a></li>
-            <li><a href="#hotels">3. Pueblos</a></li>
-            <li><a href="#gastronomy">4. Gastronomía</a></li>
-            <li><a href="#map">5. Mapa y Rutas</a></li>
-            <li><a href="#logistics">6. Consejos</a></li>
-            <li><a href="#culture">7. Curiosidades</a></li>
+<nav>
+  <div class="nav-inner">
+    <button class="tab-btn active" onclick="showTab('resumen')">Resumen</button>
+    <button class="tab-btn" onclick="showTab('opciones')">Opciones de Ruta</button>
+    <button class="tab-btn" onclick="showTab('pueblos')">Pueblos</button>
+    <button class="tab-btn" onclick="showTab('gastronomia')">Gastronomía</button>
+    <button class="tab-btn" onclick="showTab('distancias')">Distancias</button>
+  </div>
+</nav>
+
+<main>
+
+<!-- RESUMEN -->
+<div id="tab-resumen" class="tab-pane active">
+  <div class="sec-title" style="margin-top:.5rem">El Viaje</div>
+  <p class="sec-sub">Grecia continental · 21 Mayo – 1 Junio 2026 · 21 viajeros</p>
+
+  <div class="kpi-grid">
+    <div class="kpi"><span class="kpi-n">5</span><span class="kpi-l">Destinos</span></div>
+    <div class="kpi"><span class="kpi-n">~800</span><span class="kpi-l">Kilómetros</span></div>
+    <div class="kpi"><span class="kpi-n">21</span><span class="kpi-l">Viajeros</span></div>
+    <div class="kpi"><span class="kpi-n">10</span><span class="kpi-l">Noches</span></div>
+    <div class="kpi"><span class="kpi-n">3</span><span class="kpi-l">UNESCO</span></div>
+  </div>
+
+  <div class="sec-title" style="font-size:1.2rem;margin-bottom:1rem">Los dos grupos</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem">
+    <div style="background:var(--white);border:1px solid var(--parchment);border-radius:6px;overflow:hidden">
+      <div style="background:var(--terra);color:white;padding:.7rem 1.1rem;font-family:'Cinzel',serif;font-size:.88rem;font-weight:700">Grupo A · Salen el 21 mayo</div>
+      <div style="padding:1rem 1.1rem;font-size:.88rem;line-height:1.7;color:var(--stone)">
+        Llegan a Tesalónica el <strong style="color:var(--ink)">jueves 21 mayo</strong>.<br>
+        Tras la boda, salen el lunes 25 hacia Meteora.<br>
+        <span style="color:var(--terra)">→ Meteora · Delfos · Nafplio · Atenas</span>
+      </div>
+    </div>
+    <div style="background:var(--white);border:1px solid var(--parchment);border-radius:6px;overflow:hidden">
+      <div style="background:var(--sky);color:white;padding:.7rem 1.1rem;font-family:'Cinzel',serif;font-size:.88rem;font-weight:700">Grupo B · Salen el 26 mayo</div>
+      <div style="padding:1rem 1.1rem;font-size:.88rem;line-height:1.7;color:var(--stone)">
+        Duermen en Perea el <strong style="color:var(--ink)">lunes 25 mayo</strong>.<br>
+        Salen el martes 26 — un día después que el Grupo A.<br>
+        <a href="#" onclick="showTab('opciones');return false;" style="color:var(--sky)">→ Ver opciones de ruta →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-title" style="font-size:1.2rem;margin-bottom:1rem">Itinerario Grupo A</div>
+  <table style="width:100%;border-collapse:collapse;font-size:.9rem;background:var(--white);border-radius:4px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.06);margin-bottom:2rem">
+    <thead><tr style="background:var(--ink)">
+      <th style="color:var(--gold2);font-family:'Source Sans 3',sans-serif;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;padding:.8rem 1rem;text-align:left">Día</th>
+      <th style="color:var(--gold2);font-family:'Source Sans 3',sans-serif;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;padding:.8rem 1rem;text-align:left">Fecha</th>
+      <th style="color:var(--gold2);font-family:'Source Sans 3',sans-serif;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;padding:.8rem 1rem;text-align:left">Actividad</th>
+      <th style="color:var(--gold2);font-family:'Source Sans 3',sans-serif;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;padding:.8rem 1rem;text-align:left">Noche en</th>
+    </tr></thead>
+    <tbody>
+      <tr><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2)"><span style="background:var(--terra);color:white;font-family:'Cinzel',serif;font-size:.68rem;font-weight:700;padding:.12rem .45rem;border-radius:2px">D1</span></td><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2);color:var(--stone);font-size:.82rem">Jue 21 May</td><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2)">Llegada Tesalónica</td><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2)"><span style="background:var(--sky);color:white;font-family:'Source Sans 3',sans-serif;font-size:.68rem;padding:.08rem .4rem;border-radius:2px">Perea</span></td></tr>
+      <tr><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2)"><span style="background:var(--terra);color:white;font-family:'Cinzel',serif;font-size:.68rem;font-weight:700;padding:.12rem .45rem;border-radius:2px">D2</span></td><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2);color:var(--stone);font-size:.82rem">Vie 22 May</td><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2)">Tesalónica + Preboda 18h</td><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2)"><span style="background:var(--sky);color:white;font-family:'Source Sans 3',sans-serif;font-size:.68rem;padding:.08rem .4rem;border-radius:2px">Perea</span></td></tr>
+      <tr><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2)"><span style="background:var(--terra);color:white;font-family:'Cinzel',serif;font-size:.68rem;font-weight:700;padding:.12rem .45rem;border-radius:2px">D3</span></td><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2);color:var(--stone);font-size:.82rem">Sáb 23 May</td><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2)">Día libre · Playa</td><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2)"><span style="background:var(--sky);color:white;font-family:'Source Sans 3',sans-serif;font-size:.68rem;padding:.08rem .4rem;border-radius:2px">Perea</span></td></tr>
+      <tr><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2)"><span style="background:var(--terra);color:white;font-family:'Cinzel',serif;font-size:.68rem;font-weight:700;padding:.12rem .45rem;border-radius:2px">D4</span></td><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2);color:var(--stone);font-size:.82rem">Dom 24 May</td><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2)">⭐ Boda de Raúl y María</td><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2)"><span style="background:var(--sky);color:white;font-family:'Source Sans 3',sans-serif;font-size:.68rem;padding:.08rem .4rem;border-radius:2px">Perea</span></td></tr>
+      <tr><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2)"><span style="background:var(--terra);color:white;font-family:'Cinzel',serif;font-size:.68rem;font-weight:700;padding:.12rem .45rem;border-radius:2px">D5</span></td><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2);color:var(--stone);font-size:.82rem">Lun 25 May</td><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2)">Perea → Katerini → Kalambaka · Mirador Psaropetra</td><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2)"><span style="background:var(--sky);color:white;font-family:'Source Sans 3',sans-serif;font-size:.68rem;padding:.08rem .4rem;border-radius:2px">Meteora</span></td></tr>
+      <tr><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2)"><span style="background:var(--terra);color:white;font-family:'Cinzel',serif;font-size:.68rem;font-weight:700;padding:.12rem .45px;border-radius:2px">D6</span></td><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2);color:var(--stone);font-size:.82rem">Mar 26 May</td><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2)">⭐ Monasterios Meteora → Delfos/Arachova</td><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2)"><span style="background:var(--sky);color:white;font-family:'Source Sans 3',sans-serif;font-size:.68rem;padding:.08rem .4rem;border-radius:2px">Arachova</span></td></tr>
+      <tr><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2)"><span style="background:var(--terra);color:white;font-family:'Cinzel',serif;font-size:.68rem;font-weight:700;padding:.12rem .45rem;border-radius:2px">D7</span></td><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2);color:var(--stone);font-size:.82rem">Mié 27 May</td><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2)">⭐ Delfos · Puente Río-Antirio · Canal Corinto → Nafplio</td><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2)"><span style="background:var(--sky);color:white;font-family:'Source Sans 3',sans-serif;font-size:.68rem;padding:.08rem .4rem;border-radius:2px">Nafplio</span></td></tr>
+      <tr><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2)"><span style="background:var(--terra);color:white;font-family:'Cinzel',serif;font-size:.68rem;font-weight:700;padding:.12rem .45rem;border-radius:2px">D8</span></td><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2);color:var(--stone);font-size:.82rem">Jue 28 May</td><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2)">Epidauro · Tolo · Micenas</td><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2)"><span style="background:var(--sky);color:white;font-family:'Source Sans 3',sans-serif;font-size:.68rem;padding:.08rem .4rem;border-radius:2px">Nafplio</span></td></tr>
+      <tr><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2)"><span style="background:var(--terra);color:white;font-family:'Cinzel',serif;font-size:.68rem;font-weight:700;padding:.12rem .45rem;border-radius:2px">D9</span></td><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2);color:var(--stone);font-size:.82rem">Vie 29 May</td><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2)">Nafplio → Atenas · Plaka · Anafiotika</td><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2)"><span style="background:var(--sky);color:white;font-family:'Source Sans 3',sans-serif;font-size:.68rem;padding:.08rem .4rem;border-radius:2px">Atenas</span></td></tr>
+      <tr><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2)"><span style="background:var(--terra);color:white;font-family:'Cinzel',serif;font-size:.68rem;font-weight:700;padding:.12rem .45rem;border-radius:2px">D10</span></td><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2);color:var(--stone);font-size:.82rem">Sáb 30 May</td><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2)">⭐ Acrópolis · Museo Arqueológico · Licabeto</td><td style="padding:.65rem 1rem;border-bottom:1px solid var(--cream2)"><span style="background:var(--sky);color:white;font-family:'Source Sans 3',sans-serif;font-size:.68rem;padding:.08rem .4rem;border-radius:2px">Atenas</span></td></tr>
+      <tr><td style="padding:.65rem 1rem"><span style="background:var(--terra);color:white;font-family:'Cinzel',serif;font-size:.68rem;font-weight:700;padding:.12rem .45rem;border-radius:2px">D11</span></td><td style="padding:.65rem 1rem;color:var(--stone);font-size:.82rem">Dom 31 May</td><td style="padding:.65rem 1rem">Ágora · Mercadillo dominical · Vuelo noche</td><td style="padding:.65rem 1rem"><span style="background:var(--stone);color:white;font-family:'Source Sans 3',sans-serif;font-size:.68rem;padding:.08rem .4rem;border-radius:2px">✈ Valencia</span></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- OPCIONES DE RUTA -->
+<div id="tab-opciones" class="tab-pane">
+  <div class="sec-title" style="margin-top:.5rem">Opciones de Ruta — Grupo B</div>
+  <p class="sec-sub">El Grupo B sale un día después · Tres formas de cuadrar los itinerarios</p>
+
+  <div class="opciones-intro">
+    <h3>🗓 LA SITUACIÓN</h3>
+    <p>El Grupo B duerme en Perea el lunes 25 y sale el <strong>martes 26</strong>, un día después que el Grupo A. El reto es decidir qué paradas hacer para ir convergiendo progresivamente hasta estar todos juntos en Atenas. Las opciones difieren en si se duerme en Meteora, en Delfos/Arachova, o si se combina algún tramo en un solo día.</p>
+  </div>
+
+  <!-- OPCIÓN A -->
+  <div class="opcion-card recomendada">
+    <div class="opcion-header">
+      <h3>Opción A — Meteora + Delfos de paso + Nafplio</h3>
+      <span class="opcion-badge">⭐ RECOMENDADA</span>
+    </div>
+    <div class="opcion-body">
+      <span class="rec-badge">LA MÁS EQUILIBRADA</span>
+      <div class="opcion-grid">
+        <div class="opcion-col">
+          <h4>Grupo A</h4>
+          <ul>
+            <li><strong>Mar 26:</strong> Meteora → Arachova (dormir)</li>
+            <li><strong>Mié 27:</strong> Delfos → Nafplio (dormir)</li>
+            <li><strong>Jue 28:</strong> Nafplio — Epidauro, Tolo, Micenas</li>
+            <li><strong>Vie 29:</strong> Nafplio → Atenas</li>
+            <li><strong>Sáb 30:</strong> Acrópolis 12h · Museos · Licabeto</li>
+            <li><strong>Dom 31:</strong> Atenas · Vuelo noche</li>
+          </ul>
+        </div>
+        <div class="opcion-col">
+          <h4>Grupo B</h4>
+          <ul>
+            <li><strong>Mar 26:</strong> Perea → Meteora (dormir)</li>
+            <li><strong>Mié 27:</strong> Meteora → Delfos (visita, sin dormir) → <strong>Nafplio</strong> (dormir)</li>
+            <li><strong>Jue 28:</strong> Nafplio — Epidauro, Tolo, Micenas</li>
+            <li><strong>Vie 29:</strong> Nafplio → Atenas</li>
+            <li><strong>Sáb 30:</strong> Acrópolis ~12h · Museos · Licabeto</li>
+            <li><strong>Dom 31:</strong> Atenas · Vuelo noche</li>
+          </ul>
+        </div>
+      </div>
+      <div class="encuentro-box">
+        <strong>🤝 PUNTOS DE ENCUENTRO</strong>
+        Mié 27 noche — todos en <strong>Nafplio</strong> · Jue 28 completo juntos · Vie 29 → Dom 31 todos en <strong>Atenas</strong>
+      </div>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>✓ VENTAJAS</h5>
+          <ul>
+            <li>El Grupo B ve Meteora Y Delfos</li>
+            <li>3 días juntos en Nafplio y Atenas</li>
+            <li>Delfos de paso es factible (2h de visita)</li>
+            <li>Nafplio + Atenas juntos al completo</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>✗ INCONVENIENTES</h5>
+          <ul>
+            <li>El Grupo B no duerme en Arachova</li>
+            <li>El mié 27 es un día largo para el Grupo B (Meteora → Delfos → Nafplio, ~330 km)</li>
+            <li>El Grupo A llega a Nafplio el miércoles — un día sin el Grupo B</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPCIÓN B -->
+  <div class="opcion-card">
+    <div class="opcion-header">
+      <h3>Opción B — Meteora + Nafplio directo</h3>
+      <span class="opcion-badge">MÁS SIMPLE</span>
+    </div>
+    <div class="opcion-body">
+      <div class="opcion-grid">
+        <div class="opcion-col">
+          <h4>Grupo A</h4>
+          <ul>
+            <li><strong>Mar 26:</strong> Meteora → Arachova (dormir)</li>
+            <li><strong>Mié 27:</strong> Delfos → Nafplio (dormir)</li>
+            <li><strong>Jue 28:</strong> Nafplio — excursiones</li>
+            <li><strong>Vie 29:</strong> Nafplio → Atenas</li>
+            <li><strong>Sáb 30 + Dom 31:</strong> Atenas</li>
+          </ul>
+        </div>
+        <div class="opcion-col">
+          <h4>Grupo B</h4>
+          <ul>
+            <li><strong>Mar 26:</strong> Perea → Meteora (dormir)</li>
+            <li><strong>Mié 27:</strong> Meteora → <strong>Nafplio directo</strong> (dormir) · ~280 km · 3h30</li>
+            <li><strong>Jue 28:</strong> Nafplio — excursiones</li>
+            <li><strong>Vie 29:</strong> Nafplio → Atenas</li>
+            <li><strong>Sáb 30 + Dom 31:</strong> Atenas</li>
+          </ul>
+        </div>
+      </div>
+      <div class="encuentro-box">
+        <strong>🤝 PUNTOS DE ENCUENTRO</strong>
+        Mié 27 noche — todos en <strong>Nafplio</strong> · Jue 28 completo juntos · Vie 29 → Dom 31 todos en <strong>Atenas</strong>
+      </div>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>✓ VENTAJAS</h5>
+          <ul>
+            <li>Mié 27 más llevadero para el Grupo B</li>
+            <li>Mismos puntos de encuentro que Opción A</li>
+            <li>Más sencillo de organizar</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>✗ INCONVENIENTES</h5>
+          <ul>
+            <li>El Grupo B no ve Delfos — una pena</li>
+            <li>Delfos es de los sitios más impresionantes del viaje</li>
+            <li>El Grupo A llega a Nafplio el miércoles sin el Grupo B — no coinciden hasta el jueves</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPCIÓN C -->
+  <div class="opcion-card">
+    <div class="opcion-header">
+      <h3>Opción C — Saltarse Meteora, ir directo a Delfos</h3>
+      <span class="opcion-badge">SE UNEN ANTES</span>
+    </div>
+    <div class="opcion-body">
+      <div class="opcion-grid">
+        <div class="opcion-col">
+          <h4>Grupo A</h4>
+          <ul>
+            <li><strong>Mar 26:</strong> Meteora → Arachova (dormir)</li>
+            <li><strong>Mié 27:</strong> Delfos → Nafplio (dormir)</li>
+            <li><strong>Jue 28:</strong> Nafplio — excursiones</li>
+            <li><strong>Vie 29:</strong> Nafplio → Atenas</li>
+            <li><strong>Sáb 30 + Dom 31:</strong> Atenas</li>
+          </ul>
+        </div>
+        <div class="opcion-col">
+          <h4>Grupo B</h4>
+          <ul>
+            <li><strong>Mar 26:</strong> Perea → <strong>Arachova/Delfos directo</strong> (dormir) · ~330 km · 4h</li>
+            <li><strong>Mié 27:</strong> Delfos → Nafplio (dormir)</li>
+            <li><strong>Jue 28:</strong> Nafplio — excursiones</li>
+            <li><strong>Vie 29:</strong> Nafplio → Atenas</li>
+            <li><strong>Sáb 30 + Dom 31:</strong> Atenas</li>
+          </ul>
+        </div>
+      </div>
+      <div class="encuentro-box">
+        <strong>🤝 PUNTOS DE ENCUENTRO</strong>
+        Mar 26 noche — todos en <strong>Arachova</strong> · Mié 27 → Dom 31 completamente juntos
+      </div>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>✓ VENTAJAS</h5>
+          <ul>
+            <li>Se unen antes — más días todos juntos</li>
+            <li>Delfos, Nafplio y Atenas completamente juntos</li>
+            <li>El Grupo A tiene compañía desde el martes noche</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>✗ INCONVENIENTES</h5>
+          <ul>
+            <li>El Grupo B no ve Meteora — la mayor pérdida</li>
+            <li>330 km el primer día de roadtrip — trayecto largo</li>
+            <li>Meteora es irreemplazable</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- OPCIÓN D -->
+  <div class="opcion-card">
+    <div class="opcion-header">
+      <h3>Opción D — Nafplio 3 noches, Atenas 1 noche</h3>
+      <span class="opcion-badge">MÁS TIEMPO JUNTOS EN NAFPLIO</span>
+    </div>
+    <div class="opcion-body">
+      <p style="font-size:.88rem;color:var(--stone);margin-bottom:1rem;font-style:italic">Si el Grupo B llega tarde a Nafplio, el Grupo A alarga una noche allí y llega un día después a Atenas — que aún no tiene reservado. Atenas quedaría en 1 noche.</p>
+      <div class="opcion-grid">
+        <div class="opcion-col">
+          <h4>Grupo A (noche extra Nafplio)</h4>
+          <ul>
+            <li><strong>Mar 26:</strong> Meteora → Arachova (dormir)</li>
+            <li><strong>Mié 27:</strong> Delfos → Nafplio (dormir)</li>
+            <li><strong>Jue 28:</strong> Nafplio — excursiones</li>
+            <li><strong>Vie 29:</strong> Nafplio — noche extra</li>
+            <li><strong>Sáb 30:</strong> Nafplio → Atenas · Acrópolis ~12h</li>
+            <li><strong>Dom 31:</strong> Atenas · Vuelo noche</li>
+          </ul>
+        </div>
+        <div class="opcion-col">
+          <h4>Grupo B</h4>
+          <ul>
+            <li><strong>Mar 26:</strong> Meteora (dormir)</li>
+            <li><strong>Mié 27:</strong> Meteora → Delfos (paso) → Nafplio (dormir)</li>
+            <li><strong>Jue 28:</strong> Nafplio — excursiones</li>
+            <li><strong>Vie 29:</strong> Nafplio (dormir)</li>
+            <li><strong>Sáb 30:</strong> Nafplio → Atenas · Acrópolis ~12h</li>
+            <li><strong>Dom 31:</strong> Atenas · Vuelo noche</li>
+          </ul>
+        </div>
+      </div>
+      <div class="encuentro-box">
+        <strong>🤝 PUNTOS DE ENCUENTRO</strong>
+        Mié 27 en Nafplio · Jue, Vie y Sáb juntos · Acrópolis juntos · Atenas solo <strong>1 noche</strong> para el Grupo A
+      </div>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>✓ VENTAJAS</h5>
+          <ul>
+            <li>Más días juntos en Nafplio</li>
+            <li>Todos llegan a Atenas el mismo día</li>
+            <li>Acrópolis y Licabeto juntos</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>✗ INCONVENIENTES</h5>
+          <ul>
+            <li>Solo 1 noche en Atenas para el Grupo A — muy poco para la ciudad</li>
+            <li>Museo Arq. + Acrópolis + Licabeto en un solo día es agotador</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPCIÓN E -->
+  <div class="opcion-card">
+    <div class="opcion-header">
+      <h3>Opción E — Delfos con calma, Nafplio 1 noche para el Grupo B</h3>
+      <span class="opcion-badge">DELFOS Y ARACHOVA SIN PRISA</span>
+    </div>
+    <div class="opcion-body">
+      <p style="font-size:.88rem;color:var(--stone);margin-bottom:1rem;font-style:italic">El Grupo B no tiene prisa en Meteora ni Delfos — duerme en Arachova — y llega a Nafplio el jueves con solo una noche allí. Más tranquilo en ruta, pero Nafplio queda muy corto.</p>
+      <div class="opcion-grid">
+        <div class="opcion-col">
+          <h4>Grupo A (sin cambios)</h4>
+          <ul>
+            <li><strong>Mar 26:</strong> Meteora → Arachova (dormir)</li>
+            <li><strong>Mié 27:</strong> Delfos → Nafplio (dormir)</li>
+            <li><strong>Jue 28:</strong> Nafplio — excursiones</li>
+            <li><strong>Vie 29:</strong> Nafplio → Atenas</li>
+            <li><strong>Sáb 30 + Dom 31:</strong> Atenas</li>
+          </ul>
+        </div>
+        <div class="opcion-col">
+          <h4>Grupo B</h4>
+          <ul>
+            <li><strong>Mar 26:</strong> Meteora (dormir)</li>
+            <li><strong>Mié 27:</strong> Arachova/Delfos (dormir) — sin prisa</li>
+            <li><strong>Jue 28:</strong> Delfos → <strong>Nafplio</strong> (dormir) — 1 sola noche</li>
+            <li><strong>Vie 29:</strong> Nafplio → Atenas</li>
+            <li><strong>Sáb 30 + Dom 31:</strong> Atenas</li>
+          </ul>
+        </div>
+      </div>
+      <div class="encuentro-box">
+        <strong>🤝 PUNTOS DE ENCUENTRO</strong>
+        Jue 28 noche en <strong>Nafplio</strong> (1 sola noche juntos) · Vie 29 → Dom 31 todos juntos en <strong>Atenas</strong>
+      </div>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>✓ VENTAJAS</h5>
+          <ul>
+            <li>Grupo B disfruta Delfos y Arachova con calma</li>
+            <li>Atenas completa juntos (2 noches)</li>
+            <li>Sin costes extra para nadie</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>✗ INCONVENIENTES</h5>
+          <ul>
+            <li>Solo 1 noche juntos en Nafplio</li>
+            <li>El Grupo A pasa 2 noches en Nafplio sin coincidir con el Grupo B hasta la segunda</li>
+            <li>Epidauro, Tolo y Micenas muy comprimidos para el Grupo B</li>
+            <li>Nafplio merece más tiempo — es de los mejores del viaje</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="background:var(--ink);color:var(--cream);border-radius:4px;padding:1.3rem;margin-top:1rem">
+    <div style="font-family:'Cinzel',serif;font-size:.88rem;color:var(--gold2);letter-spacing:.06em;margin-bottom:.8rem">📌 NUESTRA RECOMENDACIÓN</div>
+    <p style="font-size:.92rem;line-height:1.7;color:var(--parchment)"><strong style="color:var(--gold2)">Opción A</strong> si lo que prima es que el Grupo B vea el máximo posible sin renunciar a Meteora ni a Delfos, y juntarse en Nafplio desde el miércoles. El miércoles es largo para el Grupo B pero llevadero saliendo temprano de Kalambaka.</p>
+    <p style="font-size:.92rem;line-height:1.7;color:var(--parchment);margin-top:.6rem"><strong style="color:var(--gold2)">Opción D</strong> si lo que prima es estar más tiempo todos juntos en Nafplio y llegar a Atenas el mismo día — a costa de tener solo 1 noche en Atenas, que es poco.</p>
+    <p style="font-size:.92rem;line-height:1.7;color:var(--parchment);margin-top:.6rem"><strong style="color:var(--gold2)">Opciones B, C y E</strong> son válidas según lo que cada grupo quiera sacrificar. La clave es decidir si Meteora y Delfos son innegociables para el Grupo B — si lo son, B y C quedan descartadas.</p>
+  </div>
+
+
+</div>
+
+<!-- PUEBLOS -->
+<div id="tab-pueblos" class="tab-pane">
+  <div class="sec-title" style="margin-top:.5rem">Guía de Destinos</div>
+  <p class="sec-sub">Historia, qué ver y curiosidades de cada parada del viaje</p>
+  <div class="town-nav">
+    <button class="town-btn active" onclick="showTown('t1')">Tesalónica</button>
+    <button class="town-btn" onclick="showTown('t2')">Meteora</button>
+    <button class="town-btn" onclick="showTown('t3')">Delfos</button>
+    <button class="town-btn" onclick="showTown('t4')">Arachova</button>
+    <button class="town-btn" onclick="showTown('t5')">Nafplio</button>
+    <button class="town-btn" onclick="showTown('t6')">Epidauro</button>
+    <button class="town-btn" onclick="showTown('t7')">Micenas</button>
+    <button class="town-btn" onclick="showTown('t8')">Atenas</button>
+  </div>
+
+  <div id="town-t1" class="town-pane active">
+    <div class="town-hdr">
+      <div><h2>Tesalónica</h2><p>Θεσσαλονίκη · La segunda ciudad de Grecia · 15 sitios UNESCO</p></div>
+      <div class="town-meta"><strong>Cuándo</strong>D1–D4 · 21–24 May<br><strong>Desde Perea</strong>12 km · 20 min</div>
+    </div>
+    <div class="town-grid">
+      <div class="town-block">
+        <h3>Qué ver</h3>
+        <ul>
+          <li><strong>Torre Blanca:</strong> Símbolo de la ciudad junto al paseo marítimo. Museo ~4€.</li>
+          <li><strong>Rotonda de Galerio:</strong> Mausoleo romano s. IV con mosaicos únicos. UNESCO.</li>
+          <li><strong>Arco de Galerio (Kamara):</strong> Arco triunfal del 298 d.C.</li>
+          <li><strong>Ano Poli:</strong> Barrio otomano en la colina. Vistas panorámicas al golfo.</li>
+          <li><strong>Mercado Modiano:</strong> Mercado cubierto de 1922. El más fotogénico.</li>
+          <li><strong>Mercado Kapani:</strong> El más auténtico. Street food y ambiente local.</li>
         </ul>
-    </nav>
+      </div>
+      <div class="town-block">
+        <h3>Historia y curiosidades</h3>
+        <ul>
+          <li>Fundada por Casandro de Macedonia en 315 a.C., nombrada así por su esposa Tesalónica, hermanastra de Alejandro Magno.</li>
+          <li>Es la ciudad griega con más sitios Patrimonio UNESCO — 15 monumentos paleocristianos y bizantinos.</li>
+          <li>Los tesalonicenses presumen de tener la mejor gastronomía de Grecia. El bougatsa, el trigono y el soutzoukakia son inventos de aquí.</li>
+          <li>El apóstol Pablo predicó aquí dos veces — las Epístolas a los Tesalonicenses son las cartas más antiguas del Nuevo Testamento.</li>
+        </ul>
+        <h3 style="margin-top:1rem">Para los niños</h3>
+        <p style="font-size:.88rem;color:var(--stone)">El paseo marítimo es plano y amplio. Los mercados son estimulantes. Ano Poli tiene escaleras — portabebés.</p>
+      </div>
+    </div>
+  </div>
 
-    <!-- 1) Resumen (Hero Section) -->
-    <header id="hero" class="hero">
-        <div class="hero-content">
-            <h1>Mi Gran Boda Griega</h1>
-            <p><strong>(y la Odisea de los Garrido)</strong></p>
-            <p>21 de Mayo — 1 de Junio de 2026<br>De la Torre Blanca de Salónica al majestuoso Peloponeso.</p>
-            <a href="#itinerary" class="hero-btn">Ver el Itinerario</a>
-        </div>
-    </header>
+  <div id="town-t2" class="town-pane">
+    <div class="town-hdr">
+      <div><h2>Meteora</h2><p>Μετέωρα · "Suspendido en el aire" · UNESCO · Maravilla del mundo</p></div>
+      <div class="town-meta"><strong>Cuándo</strong>D5–D6 · 25–26 May<br><strong>Desde Perea</strong>220 km · ~3h</div>
+    </div>
+    <div class="town-grid">
+      <div class="town-block">
+        <h3>Los monasterios</h3>
+        <ul>
+          <li><strong>Agios Stefanos:</strong> El más accesible — puente, sin escalones. Monjas. Perfecto para todos.</li>
+          <li><strong>Gran Meteoro:</strong> El más grande (s. XIV). 422 escalones. El más impresionante.</li>
+          <li><strong>Varlaam:</strong> Frescos del s. XVI extraordinarios. Muy cerca del Gran Meteoro.</li>
+          <li><strong>Roussanou:</strong> El más fotogénico visualmente. Regentado por monjas.</li>
+          <li><strong>Agia Triada:</strong> El más cinematográfico — apareció en una película de James Bond.</li>
+          <li>Entrada ~3€ por monasterio. Hombros y rodillas cubiertos.</li>
+        </ul>
+      </div>
+      <div class="town-block">
+        <h3>Historia y curiosidades</h3>
+        <ul>
+          <li>Las formaciones rocosas tienen 60 millones de años — esculpidas por la erosión de un antiguo mar interior.</li>
+          <li>En el s. XIV, monjes ortodoxos empezaron a construir monasterios en las cimas. Durante siglos solo se accedía en redes y canastos tirados a mano.</li>
+          <li>"Meteoron" significa en griego "suspendido en el aire".</li>
+          <li>Originalmente había 24 monasterios. Hoy solo 6 están habitados y activos.</li>
+          <li>UNESCO desde 1988 — doble declaración: patrimonio natural y cultural.</li>
+        </ul>
+        <div class="juana-note">👶 <strong>Niños pequeños:</strong> Agios Stefanos es el único sin escaleras. Para el resto: portabebés obligatorio. Madrugar para evitar el calor y las aglomeraciones.</div>
+      </div>
+    </div>
+  </div>
 
-    <!-- 2) Día a Día -->
-    <section id="itinerary" class="container fade-in-section">
-        <h2 class="section-title">2. Día a Día Exhaustivo</h2>
-        
-        <div class="flat-itinerary-list">
-            
-            <div class="day-card">
-                <div class="day-header">
-                    <span class="date-badge">Jueves 21 Mayo</span>
-                    <h3>Llegada a Salónica</h3>
-                </div>
-                <div class="day-body">
-                    <p>Llegada escalonada de la familia a Salónica. Traslado al alojamiento. Paseo inicial por la céntrica <strong>Plaza de Aristóteles</strong>. Primera toma de contacto con la cocina griega y cena tranquila por el histórico barrio de Ladadika.</p>
-                </div>
-            </div>
+  <div id="town-t3" class="town-pane">
+    <div class="town-hdr">
+      <div><h2>Delfos</h2><p>Δελφοί · El Ombligo del Mundo · UNESCO</p></div>
+      <div class="town-meta"><strong>Cuándo</strong>D7 · 27 May<br><strong>Desde Meteora</strong>230 km · ~2h45</div>
+    </div>
+    <div class="town-grid">
+      <div class="town-block">
+        <h3>Qué ver</h3>
+        <ul>
+          <li><strong>Sitio arqueológico:</strong> El Templo de Apolo, el Camino Sagrado flanqueado de tesoros, el Teatro con vistas al valle, el Estadio más alto de Grecia.</li>
+          <li><strong>Tholos de Marmaria:</strong> Tres columnas en círculo — la imagen icónica. Zona más llana.</li>
+          <li><strong>Museo Arqueológico:</strong> El <em>Auriga de Bronce</em> (478 a.C.) — la escultura de bronce griega mejor conservada. Entrada combinada ~12€.</li>
+        </ul>
+        <h3 style="margin-top:1rem">El Oráculo</h3>
+        <p>Durante siglos, reyes y generales de todo el Mediterráneo viajaban a Delfos para consultar a la Pitia. La sacerdotisa entraba en trance y profetizaba en versos ambiguos. Sus oráculos podían decidir guerras y destinos de naciones.</p>
+      </div>
+      <div class="town-block">
+        <h3>Historia y curiosidades</h3>
+        <ul>
+          <li>Los griegos creían que Delfos era el centro exacto del mundo — el omphalos (ombligo). Una piedra sagrada marcaba el punto exacto.</li>
+          <li>"Conócete a ti mismo" (Gnóthi seautón) estaba grabado en el templo de Apolo.</li>
+          <li>El oráculo funcionó desde el s. VIII a.C. hasta el s. IV d.C. — más de 1.000 años.</li>
+          <li>Los gases que emanaban de una grieta en la roca producían el trance de la Pitia. Investigaciones modernas han confirmado que eran vapores de etileno.</li>
+          <li>El valle que se ve desde el sitio arqueológico es el mayor olivar de Grecia: 1.200.000 olivos.</li>
+        </ul>
+        <div class="juana-note">👶 <strong>Niños pequeños:</strong> El sitio es empinado — portabebés. La zona de la Tholos es más llana. El Museo tiene suelo liso.</div>
+      </div>
+    </div>
+  </div>
 
-            <div class="day-card">
-                <div class="day-header">
-                    <span class="date-badge">Viernes 22 Mayo</span>
-                    <h3>Paseo Marítimo y Preboda</h3>
-                </div>
-                <div class="day-body">
-                    <p><strong>Mañana:</strong> Paseo obligatorio por el larguísimo frente marítimo. Visita por fuera a la Torre Blanca y foto en la famosa escultura de los "Paraguas de Zongolopoulos".</p>
-                    <p><strong>Mediodía:</strong> ¡Comida familiar todos juntos!</p>
-                    <p><strong>Tarde/Noche:</strong> Evento de la preboda de Raúl para ir calentando motores.</p>
-                </div>
-            </div>
+  <div id="town-t4" class="town-pane">
+    <div class="town-hdr">
+      <div><h2>Arachova</h2><p>Αράχωβα · El pueblo de montaña más bonito de Grecia</p></div>
+      <div class="town-meta"><strong>Cuándo</strong>D6–D7 · noche<br><strong>Desde Delfos</strong>10 km · 15 min</div>
+    </div>
+    <div class="town-grid">
+      <div class="town-block">
+        <h3>Qué hacer</h3>
+        <ul>
+          <li>Paseo por la calle principal: tiendas de formaela, miel del Parnaso, vino local, mantas tejidas a mano.</li>
+          <li>Cenar en alguna taberna con vistas al Parnaso y chimenea.</li>
+          <li>El pueblo de noche es precioso — calles empedradas iluminadas, ambiente animado.</li>
+        </ul>
+        <h3 style="margin-top:1rem">Productos locales</h3>
+        <ul>
+          <li><strong>Formaela DOP:</strong> Queso semiduro único de Arachova. Perfecto para saganaki (frito).</li>
+          <li><strong>Miel del Parnaso:</strong> De tomillo y flores de montaña. Una de las mejores de Grecia.</li>
+          <li><strong>Vino local:</strong> Tradición vinícola de la región. Pedir el vino de la casa.</li>
+        </ul>
+      </div>
+      <div class="town-block">
+        <h3>Historia y curiosidades</h3>
+        <ul>
+          <li>A 1.200 m de altitud en las laderas del Parnaso — la montaña sagrada de Apolo y las Musas.</li>
+          <li>En invierno es la "Mykonos de la nieve" para los atenienses — la estación de esquí del Parnaso está cerca.</li>
+          <li>La Fiesta de San Jorge (23 abril) incluye carreras de ancianos — tradición centenaria única.</li>
+          <li>Es preferible dormir aquí que en Delfos: más ambiente, mejores restaurantes y las ruinas están a solo 10 minutos.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-            <div class="day-card">
-                <div class="day-header">
-                    <span class="date-badge">Sábado 23 Mayo</span>
-                    <h3>Día Libre por la Zona</h3>
-                </div>
-                <div class="day-body">
-                    <p>Día para recuperar fuerzas o explorar. <strong>Sugerencias:</strong></p>
-                    <ul>
-                        <li><strong>Plan A (Playa):</strong> Coger los coches y bajar a las playas de la península de Kassandra (Halkidiki), a 1h de distancia.</li>
-                        <li><strong>Plan B (Cultura local):</strong> Quedarse en Salónica, subir al barrio de <em>Ano Poli</em> (Ciudad Alta) para ver las murallas bizantinas y unas vistas espectaculares de la bahía.</li>
-                    </ul>
-                </div>
-            </div>
+  <div id="town-t5" class="town-pane">
+    <div class="town-hdr">
+      <div><h2>Nafplio</h2><p>Ναύπλιο · La joya del Peloponeso · Primera capital de Grecia</p></div>
+      <div class="town-meta"><strong>Cuándo</strong>D7–D9 · 2 noches<br><strong>Desde Delfos</strong>255 km · ~3h</div>
+    </div>
+    <div class="town-grid">
+      <div class="town-block">
+        <h3>Qué ver</h3>
+        <ul>
+          <li><strong>Castillo de Palamidi:</strong> Fortaleza veneciana del s. XVIII. 999 escalones (o carretera por detrás). Vistas absolutas sobre la bahía. Entrada ~8€.</li>
+          <li><strong>Castillo de Boúrtzi:</strong> Pequeño castillo en una islita en la bahía. Barca desde el puerto.</li>
+          <li><strong>Casco histórico veneciano:</strong> Calles adoquinadas, casas con balcones de madera, neoclásicos del s. XIX.</li>
+          <li><strong>Platía Syntagma:</strong> La plaza central — el salón de Nafplio.</li>
+          <li><strong>Antica Gelateria di Roma:</strong> Los mejores helados del Peloponeso desde 1900. Obligatorio.</li>
+        </ul>
+      </div>
+      <div class="town-block">
+        <h3>Historia y curiosidades</h3>
+        <ul>
+          <li>Primera capital del estado griego independiente (1823–1834), cuando Grecia se liberó del Imperio Otomano.</li>
+          <li>El primer presidente de Grecia, Ioannis Kapodistrias, fue asesinado aquí en 1831 — a la salida de la iglesia de San Spyridon, que todavía existe.</li>
+          <li>La ciudad tiene tres castillos superpuestos de tres épocas distintas: francos, venecianos y turcos.</li>
+          <li>El nombre Nafplio viene de Nauplio, hijo de Poseidón según la mitología griega.</li>
+        </ul>
+        <div class="juana-note">👶 <strong>Niños pequeños:</strong> El paseo marítimo y las calles del casco histórico son planas — cochecito posible. Palamidi: solo para los valientes (999 escalones). Gelateria di Roma: imprescindible para ellos también.</div>
+      </div>
+    </div>
+  </div>
 
-            <div class="day-card">
-                <div class="day-header">
-                    <span class="date-badge">Domingo 24 Mayo</span>
-                    <h3>¡El Gran Día de la Boda!</h3>
-                </div>
-                <div class="day-body">
-                    <p><strong>Mañana:</strong> Mañana muy relajada de preparativos. Recomendamos ir al Mercado Central Modiano o sentarse en una cafetería a pedir el clásico <em>Frappé griego</em> sin prisa.</p>
-                    <p><strong>Tarde:</strong> La boda de Raúl. A celebrar por todo lo alto.</p>
-                </div>
-            </div>
+  <div id="town-t6" class="town-pane">
+    <div class="town-hdr">
+      <div><h2>Epidauro</h2><p>Επίδαυρος · El teatro más perfecto de la Antigüedad · UNESCO</p></div>
+      <div class="town-meta"><strong>Cuándo</strong>D8 · 28 May<br><strong>Desde Nafplio</strong>32 km · 35 min</div>
+    </div>
+    <div class="town-grid">
+      <div class="town-block">
+        <h3>El teatro</h3>
+        <p>El Teatro de Epidauro (s. IV a.C.) es el teatro antiguo mejor conservado del mundo. Aforo para 14.000 espectadores. La acústica es la más perfecta jamás diseñada — ingenieros modernos no han podido replicarla completamente.</p>
+        <ul>
+          <li><strong>La prueba:</strong> Deja caer una moneda en el centro de la orquesta — se escucha perfectamente desde la fila 55.</li>
+          <li>Diseñado por Policleto el Joven.</li>
+          <li>Todavía en uso hoy: el Festival de Epidauro se celebra cada verano.</li>
+          <li>Entrada ~12€. Terreno más llano que Delfos.</li>
+        </ul>
+      </div>
+      <div class="town-block">
+        <h3>El santuario de Asclepio</h3>
+        <ul>
+          <li>Asclepio era el dios griego de la medicina. Su símbolo — la serpiente enroscada en un bastón — sigue siendo el símbolo médico universal hoy.</li>
+          <li>El santuario era el hospital más famoso del mundo antiguo. Enfermos de todo el Mediterráneo venían a ser curados a través de sueños y rituales.</li>
+          <li>Las ruinas del santuario rodean el teatro: templos, estadio, abaton (dormitorio de enfermos).</li>
+          <li>El pequeño museo tiene objetos médicos de hace 2.500 años — fascinante.</li>
+        </ul>
+        <div class="juana-note">👶 <strong>Niños pequeños:</strong> Terreno más llano que Delfos — cochecito posible en parte. Las gradas del teatro son de piedra — llevar algo para sentarse.</div>
+      </div>
+    </div>
+  </div>
 
-            <div class="day-card">
-                <div class="day-header">
-                    <span class="date-badge">Lunes 25 Mayo</span>
-                    <h3>Empieza el Roadtrip: Katerini y Meteora</h3>
-                </div>
-                <div class="day-body">
-                    <p>Dejamos Salónica. Conducimos hacia el sur. Primera parada: zona de <strong>Katerini</strong>. Subida al pintoresco pueblo de <strong>Litochoro</strong> a los pies del imponente Monte Olimpo para comer.</p>
-                    <p>Por la tarde, conducimos cruzando Tesalia hasta los impresionantes meteoros. Check-in y noche en <strong>Kastraki</strong> o Kalambaka.</p>
-                </div>
-            </div>
+  <div id="town-t7" class="town-pane">
+    <div class="town-hdr">
+      <div><h2>Micenas</h2><p>Μυκήνες · La ciudad del rey Agamenón · UNESCO</p></div>
+      <div class="town-meta"><strong>Cuándo</strong>D8 · 28 May<br><strong>Desde Tolo</strong>38 km · 40 min</div>
+    </div>
+    <div class="town-grid">
+      <div class="town-block">
+        <h3>Qué ver</h3>
+        <ul>
+          <li><strong>Puerta de los Leones:</strong> La única escultura monumental de la Grecia prehistórica (1250 a.C.). Dos leones en relieve sobre el dintel — impresionante desde cerca.</li>
+          <li><strong>Ciudadela de Micenas:</strong> El palacio, el megaron, el círculo de tumbas de fosa donde Schliemann encontró la Máscara de Agamenón.</li>
+          <li><strong>Tesoro de Atreo (Tumba de Agamenón):</strong> Tumba de colmena de 14 m de altura. La cúpula más grande del mundo antiguo hasta el Panteón de Roma. Entrada gratuita, a 300 m de la ciudadela.</li>
+          <li>Entrada conjunto: ~12€.</li>
+        </ul>
+      </div>
+      <div class="town-block">
+        <h3>Historia y curiosidades</h3>
+        <ul>
+          <li>Micenas fue la ciudad más poderosa del mundo griego entre 1600 y 1100 a.C.</li>
+          <li>El rey Agamenón, según la Ilíada de Homero, lideró los griegos en la guerra de Troya.</li>
+          <li>Heinrich Schliemann excavó Micenas en 1876 y encontró la Máscara de Agamenón — hoy en el Museo Arqueológico de Atenas.</li>
+          <li>Los muros de la ciudadela son tan enormes que los griegos posteriores los llamaron "ciclópeos" — creían que solo los Cíclopes podían moverlos.</li>
+          <li>La civilización micénica colapsó misteriosamente alrededor del 1200 a.C. — una de las grandes incógnitas de la historia.</li>
+        </ul>
+        <div class="juana-note">👶 <strong>Niños pequeños:</strong> Terreno pedregoso e irregular — portabebés obligatorio. La Tumba de Agamenón (fuera del sitio principal) es la más accesible.</div>
+      </div>
+    </div>
+  </div>
 
-            <div class="day-card">
-                <div class="day-header">
-                    <span class="date-badge">Martes 26 Mayo</span>
-                    <h3>Los Monasterios del Cielo</h3>
-                </div>
-                <div class="day-body">
-                    <p>Día entero dedicado a <strong>Meteora</strong>. Imprescindible visitar el interior de <em>Gran Meteoro</em> y <em>Rousanou</em> (cuidado con los cientos de escalones).</p>
-                    <p>Comemos por la zona. Sobre las 19:30, nos dirigimos con los coches al increíble mirador de <strong>Psaropetra</strong> para coger sitio y ver uno de los atardeceres más bonitos del mundo.</p>
-                </div>
-            </div>
+  <div id="town-t8" class="town-pane">
+    <div class="town-hdr">
+      <div><h2>Atenas</h2><p>Αθήνα · La cuna de la civilización occidental</p></div>
+      <div class="town-meta"><strong>Cuándo</strong>D9–D11 · 2 noches<br><strong>Desde Nafplio</strong>140 km · ~1h45</div>
+    </div>
+    <div class="town-grid">
+      <div class="town-block">
+        <h3>Imprescindible</h3>
+        <ul>
+          <li><strong>⭐ La Acrópolis:</strong> El Partenón, el Erecteion, los Propileos. Reservar entradas en odysseus.culture.gr con semanas de antelación.</li>
+          <li><strong>Museo Arqueológico Nacional:</strong> La Máscara de Agamenón, el Efebo de Anticitera, el oro micénico.</li>
+          <li><strong>Nuevo Museo de la Acrópolis:</strong> Las esculturas originales del Partenón. Extraordinario.</li>
+          <li><strong>Anafiotika:</strong> El barrio secreto a los pies de la Acrópolis.</li>
+          <li><strong>Monte Licabeto:</strong> Vistas de 360° sobre Atenas en teleférico.</li>
+          <li><strong>Ágora Antigua:</strong> Templo de Hefesto — el mejor conservado de Grecia.</li>
+        </ul>
+      </div>
+      <div class="town-block">
+        <h3>Barrios</h3>
+        <ul>
+          <li><strong>Plaka:</strong> El más antiguo y turístico. Calles adoquinadas, casas neoclásicas.</li>
+          <li><strong>Monastiraki:</strong> Mercadillo, antigüedades, ambiente. Los domingos es especial.</li>
+          <li><strong>Koukaki:</strong> Residencial, tranquilo, cerca de la Acrópolis. Recomendado para alojarse.</li>
+          <li><strong>Psirri:</strong> Antiguo barrio artesanal reconvertido. Restaurantes y bares con carácter.</li>
+          <li><strong>Exarchia:</strong> Bohemio y alternativo. La Atenas que no ve el turista.</li>
+        </ul>
+        <div class="juana-note">👶 <strong>Niños pequeños:</strong> Acrópolis — portabebés obligatorio (mármol resbaladizo). Nuevo Museo — ascensor. Jardín Nacional: perfecto para que corran. Plaka y Monastiraki: transitables en cochecito.</div>
+      </div>
+    </div>
+  </div>
+</div>
 
-            <div class="day-card">
-                <div class="day-header">
-                    <span class="date-badge">Miércoles 27 Mayo</span>
-                    <h3>De Trikala al Ombligo del Mundo</h3>
-                </div>
-                <div class="day-body">
-                    <p>Ruta escénica por montaña hacia el sur. Breve parada en <strong>Trikala</strong> para estirar las piernas en su pintoresco casco antiguo y la fortaleza.</p>
-                    <p>Seguimos conduciendo hasta llegar al pueblo alpino de <strong>Arachova</strong> (el "Baqueira" griego). Noche en Arachova de tabernas y compras.</p>
-                </div>
-            </div>
+<!-- GASTRONOMÍA -->
+<div id="tab-gastronomia" class="tab-pane">
+  <div class="sec-title" style="margin-top:.5rem">Gastronomía</div>
+  <p class="sec-sub">Los sabores que definen la Grecia continental — de Tesalónica al Peloponeso</p>
 
-            <div class="day-card">
-                <div class="day-header">
-                    <span class="date-badge">Jueves 28 Mayo</span>
-                    <h3>Delfos y Salto al Peloponeso</h3>
-                </div>
-                <div class="day-body">
-                    <p><strong>Mañana:</strong> Visita al alucinante recinto arqueológico de <strong>Delfos</strong> y su museo, ubicado en la ladera del Monte Parnaso.</p>
-                    <p><strong>Tarde:</strong> Bajamos de las montañas para cruzar el golfo de Corinto (o por el espectacular puente colgante de Río-Antírio). Llegada a la romántica <strong>Nauplia (Nafplio)</strong>. Noche allí.</p>
-                </div>
-            </div>
+  <div class="gastro-gen">
+    <h3>🍷 LO IMPRESCINDIBLE EN TODA GRECIA</h3>
+    <div class="gastro-gen-grid">
+      <div class="gen-item"><strong>Tzatziki</strong>Yogur espeso, ajo, pepino, eneldo y aceite de oliva. Con pan de pita. En cada mesa griega.</div>
+      <div class="gen-item"><strong>Ensalada griega (Horiatiki)</strong>Tomate, pepino, cebolla, aceitunas Kalamata, feta en bloque. Sin lechuga. Solo aceite.</div>
+      <div class="gen-item"><strong>Souvlaki</strong>Brochetas de cerdo o pollo a la brasa, en pita con tzatziki. El fast food griego por excelencia.</div>
+      <div class="gen-item"><strong>Moussaka</strong>Berenjena, carne picada especiada y bechamel al horno. El plato más internacional de Grecia.</div>
+      <div class="gen-item"><strong>Spanakopita</strong>Hojaldre crujiente relleno de espinacas y feta. Desayuno o aperitivo.</div>
+      <div class="gen-item"><strong>Feta DOP</strong>Solo el producido en ciertas regiones griegas puede llamarse feta. Probar en saganaki (frito).</div>
+      <div class="gen-item"><strong>Yogur griego</strong>Espeso y cremoso con miel del Himeto y nueces. El mejor desayuno posible.</div>
+      <div class="gen-item"><strong>Loukoumades</strong>Buñuelos de miel, canela y sésamo. El postre callejero griego. Para los niños: adicción garantizada.</div>
+      <div class="gen-item"><strong>Aceite de oliva</strong>El mejor del mundo. Comprar una lata para llevar a casa — especialmente el de Amfisa (Delfos).</div>
+      <div class="gen-item"><strong>Frappé</strong>Café instantáneo batido con hielo y leche. Inventado en Tesalónica en 1957. El refresco griego del verano.</div>
+    </div>
+  </div>
 
-            <div class="day-card">
-                <div class="day-header">
-                    <span class="date-badge">Viernes 29 Mayo</span>
-                    <h3>Epidauro, Micenas y llegada a Atenas</h3>
-                </div>
-                <div class="day-body">
-                    <p>Recorremos las joyas del Peloponeso. Visita al grandioso <strong>Teatro de Epidauro</strong> (probad la acústica tirando una moneda en el centro del escenario) y las ruinas ciclópeas de <strong>Micenas</strong>.</p>
-                    <p>Por la tarde, entregamos el coche o conducimos hasta el centro de <strong>Atenas</strong>. Cena de Souvlaki con vistas a la Acrópolis iluminada.</p>
-                </div>
-            </div>
+  <div class="gastro-city">
+    <div class="gastro-city-hdr">🏛 Tesalónica y Macedonia</div>
+    <div class="gastro-grid">
+      <div class="gastro-item"><div class="gastro-item-name">Bougatsa</div><div class="gastro-item-cat">Desayuno · Pastelería</div><p>Hojaldre fino relleno de crema pastelera (o queso) con azúcar glas y canela. La especialidad de Tesalónica. Desayuno obligatorio.</p></div>
+      <div class="gastro-item"><div class="gastro-item-name">Trigona Panoramatos</div><div class="gastro-item-cat">Postre</div><p>Cucurucho de hojaldre crujiente relleno de crema. Inventado en Tesalónica. Ahora imitado en toda Grecia, pero el original es único.</p></div>
+      <div class="gastro-item"><div class="gastro-item-name">Soutzoukakia</div><div class="gastro-item-cat">Plato principal</div><p>Albóndigas especiadas con comino en salsa de tomate. De origen greco-turco, llegaron con los refugiados de Esmirna en 1922. Emblema de Tesalónica.</p></div>
+      <div class="gastro-item"><div class="gastro-item-name">Tsipouro (Τσίπουρο)</div><div class="gastro-item-cat">Destilado · Cultura social</div><p>Aguardiente de uva sin anís, la bebida de Macedonia. Se toma en tsipouro (taberna especializada) con mezedes incluidos — pides una ronda de tsipouro y te traen platitos para picar. Ritual social auténtico y muy diferente a un bar normal.</p></div>
+      <div class="gastro-item"><div class="gastro-item-name">Ouzo (Ούζο)</div><div class="gastro-item-cat">Aperitivo anisado</div><p>El licor nacional griego — aguardiente aromatizado con anís. Se vuelve blanco lechoso al añadir agua o hielo. Se toma como aperitivo, siempre con mezedes. Más suave que el tsipouro y con el aroma del anís. Pedir "ouzo me pagoto" (con hielo).</p></div>
+      <div class="gastro-item"><div class="gastro-item-name">Mezedes (Μεζέδες)</div><div class="gastro-item-cat">Cultura de la mesa</div><p>Pequeños platos para compartir que acompañan siempre a las bebidas. Taramas (huevas de carpa), melitzanosalata (crema de berenjena), htapodi (pulpo a la brasa), saganaki (queso frito), dolmades (hojas de parra rellenas). La manera griega de comer — despacio, compartiendo y hablando.</p></div>
+    </div>
+  </div>
 
-            <div class="day-card">
-                <div class="day-header">
-                    <span class="date-badge">Sábado 30 Mayo</span>
-                    <h3>Atenas Clásica</h3>
-                </div>
-                <div class="day-body">
-                    <p>Madrugón innegociable a las 8:00 AM para visitar la <strong>Acrópolis</strong> antes de que lleguen los cruceros y el sol apriete.</p>
-                    <p>Bajada andando para perderse por las callejuelas de <strong>Plaka</strong>, ver el Ágora Antigua y disfrutar del bullicioso mercado de <strong>Monastiraki</strong>.</p>
-                </div>
-            </div>
+  <div class="gastro-city">
+    <div class="gastro-city-hdr">⛰ Tesalia (Meteora / Kalambaka)</div>
+    <div class="gastro-grid">
+      <div class="gastro-item"><div class="gastro-item-name">Kokoras Krasatos</div><div class="gastro-item-cat">Plato principal</div><p>Gallo de corral estofado en vino tinto de Tesalia con hierbas. El plato más representativo de la región. Lento, sabroso y reconfortante.</p></div>
+      <div class="gastro-item"><div class="gastro-item-name">Horta</div><div class="gastro-item-cat">Acompañamiento</div><p>Verduras silvestres (achicoria, cardos, espinacas) hervidas y aliñadas con aceite y limón. Sano, delicioso y sorprendentemente sabroso.</p></div>
+      <div class="gastro-item"><div class="gastro-item-name">Feta de Tesalia</div><div class="gastro-item-cat">Queso</div><p>La región produce una de las mejores fetas de Grecia — más cremosa que las del sur. Probar el saganaki (feta frita) como aperitivo.</p></div>
+    </div>
+  </div>
 
-            <div class="day-card">
-                <div class="day-header">
-                    <span class="date-badge">Domingo 31 Mayo</span>
-                    <h3>Cultura y Atardeceres</h3>
-                </div>
-                <div class="day-body">
-                    <p><strong>Mañana:</strong> Espectacular y moderno <em>Museo de la Acrópolis</em>. Luego, ver el curioso cambio de guardia de los Evzones en la plaza <strong>Syntagma</strong>.</p>
-                    <p><strong>Tarde:</strong> Paseo por los Jardines Nacionales y subida al <strong>Monte Licabeto</strong> (andando o en funicular) para ver atardecer sobre toda la inmensa ciudad de Atenas.</p>
-                </div>
-            </div>
+  <div class="gastro-city">
+    <div class="gastro-city-hdr">🏺 Delfos y Arachova</div>
+    <div class="gastro-grid">
+      <div class="gastro-item"><div class="gastro-item-name">Formaela de Arachova DOP</div><div class="gastro-item-cat">Queso único</div><p>Queso semiduro con Denominación de Origen Protegida. Solo se puede llamar formaela el de Arachova. Perfecto frito en sartén como saganaki.</p></div>
+      <div class="gastro-item"><div class="gastro-item-name">Cordero del Parnaso</div><div class="gastro-item-cat">Plato principal</div><p>Cordero de montaña alimentado con hierbas aromáticas. Asado en horno de leña o estofado. Uno de los mejores corderos de toda Grecia.</p></div>
+      <div class="gastro-item"><div class="gastro-item-name">Miel de Arachova</div><div class="gastro-item-cat">Producto local</div><p>Miel de tomillo y flores del Parnaso. Una de las más aromáticas de Grecia. Comprar directamente en las tiendas del pueblo.</p></div>
+      <div class="gastro-item"><div class="gastro-item-name">Aceite de Amfisa DOP</div><div class="gastro-item-cat">Aceite de oliva</div><p>El valle que se ve desde Delfos tiene 1.200.000 olivos. El aceite de Amfisa tiene DOP. Verde intenso y afrutado. El souvenir comestible perfecto.</p></div>
+    </div>
+  </div>
 
-            <div class="day-card">
-                <div class="day-header">
-                    <span class="date-badge">Lunes 1 Junio</span>
-                    <h3>Aprovechando el Último Día</h3>
-                </div>
-                <div class="day-body">
-                    <p>Como el vuelo sale tarde, dejamos maletas en el hotel o consigna. ¡El día es nuestro!</p>
-                    <ul>
-                        <li><strong>Mañana opcional:</strong> Hacer una pequeña excursión al <strong>Cabo Sounion</strong> para ver el templo de Poseidón frente al mar.</li>
-                        <li><strong>O bien:</strong> Últimas compras en Plaka, visita al Museo Arqueológico Nacional y una comida de despedida larga y abundante.</li>
-                    </ul>
-                    <p>Por la noche, traslado al aeropuerto y fin de la Odisea.</p>
-                </div>
-            </div>
+  <div class="gastro-city">
+    <div class="gastro-city-hdr">🌊 Argólida (Nafplio · Epidauro)</div>
+    <div class="gastro-grid">
+      <div class="gastro-item"><div class="gastro-item-name">Pescado del Golfo Argólico</div><div class="gastro-item-cat">Mariscos y pescado</div><p>Lubina, dorada, salmonete, pulpo. Siempre pedir el pescado del día (psari tis meras). A la brasa o al horno con limón y aceite.</p></div>
+      <div class="gastro-item"><div class="gastro-item-name">Aceitunas Kalamata</div><div class="gastro-item-cat">Producto local</div><p>Las más famosas del mundo crecen en esta región. Grandes, carnosas, con sabor a fruta. Comprar en el mercado local de Nafplio.</p></div>
+      <div class="gastro-item"><div class="gastro-item-name">Vino de Nemea</div><div class="gastro-item-cat">Vino DOP</div><p>A 30 km de Nafplio. El vino tinto más premiado de Grecia. Uva Agiorgitiko. Cuerpo, fruta negra, taninos sedosos. Pedir en cualquier restaurante.</p></div>
+      <div class="gastro-item"><div class="gastro-item-name">Helado Gelateria di Roma</div><div class="gastro-item-cat">Postre histórico</div><p>La Antica Gelateria di Roma (1900) en Nafplio. Los helados artesanales más famosos del Peloponeso. Mastiha, miel del Parnaso, pistachos de Egina. Obligatorio.</p></div>
+    </div>
+  </div>
 
-        </div>
-    </section>
+  <div class="gastro-city">
+    <div class="gastro-city-hdr">🏛 Atenas y Ática</div>
+    <div class="gastro-grid">
+      <div class="gastro-item"><div class="gastro-item-name">Gyros y souvlaki ateniense</div><div class="gastro-item-cat">Street food</div><p>En pita con tzatziki, tomate, cebolla y patatas fritas dentro. Los mejores: O Thanasis en Monastiraki y Kostas en Plaka. Comida al paso obligatoria.</p></div>
+      <div class="gastro-item"><div class="gastro-item-name">Miel del Himeto</div><div class="gastro-item-cat">Producto legendario</div><p>La miel del monte Himeto (al este de Atenas) fue considerada la mejor del mundo en la Antigüedad. Intensamente aromática. Comprar en tiendas del centro.</p></div>
+      <div class="gastro-item"><div class="gastro-item-name">Loukoumades atenienses</div><div class="gastro-item-cat">Postre callejero</div><p>Buñuelos pequeños fritos al momento, bañados en miel, canela y sésamo. Lukumades en Monastiraki es el más famoso. Para los niños: perfectos.</p></div>
+      <div class="gastro-item"><div class="gastro-item-name">Café griego (ellinikos)</div><div class="gastro-item-cat">Bebida</div><p>Café turco sin filtrar, preparado en briki. Muy fuerte. Pedir "metrios" (semidulce). La cultura de la kafeneio (cafetería de barrio) es un ritual social.</p></div>
+    </div>
+  </div>
+</div>
 
-    <!-- 3) Pueblos / Hoteles -->
-    <section id="hotels" class="bg-light fade-in-section">
-        <div class="container">
-            <h2 class="section-title">3. Pueblos y Sugerencias de Hotel</h2>
-            <div class="grid-section">
-                <div class="card">
-                    <span class="card-icon">🏙️</span>
-                    <h3>Salónica</h3>
-                    <p>Recomendado buscar cerca del paseo marítimo o el barrio de Ladadika para no depender del coche en la boda.</p>
-                    <ul class="dish-list mt-3">
-                        <li><span class="dish-name">The Modernist:</span> Céntrico, moderno, boutique.</li>
-                        <li><span class="dish-name">Electra Palace:</span> Clásico lujoso en la misma plaza Aristóteles.</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <span class="card-icon">⛰️</span>
-                    <h3>Meteora (Kastraki / Kalambaka)</h3>
-                    <p>Dormir en Kastraki (pueblo pequeño) tiene más encanto y vistas directas a las rocas que Kalambaka.</p>
-                    <ul class="dish-list mt-3">
-                        <li><span class="dish-name">Doupiani House:</span> Vistas insuperables a los meteoros.</li>
-                        <li><span class="dish-name">Hotel Kastraki:</span> Cómodo, familiar y con buen parking.</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <span class="card-icon">⛷️</span>
-                    <h3>Arachova</h3>
-                    <p>Pueblo de montaña muy turístico en invierno. Aparcar dentro es difícil; mejor buscar hoteles con parking.</p>
-                    <ul class="dish-list mt-3">
-                        <li><span class="dish-name">Domotel Anemolia:</span> Vistas al valle de Delfos.</li>
-                        <li><span class="dish-name">Aegli Resort:</span> Elegante y a pocos minutos del centro.</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <span class="card-icon">🏰</span>
-                    <h3>Nauplia (Nafplio)</h3>
-                    <p>Dormir en el casco viejo italiano (sin coches) o cerca del puerto.</p>
-                    <ul class="dish-list mt-3">
-                        <li><span class="dish-name">3Sixty Hotel:</span> Lujo histórico en el centro.</li>
-                        <li><span class="dish-name">Amalia Hotel:</span> Si preferís algo más grande y a las afueras.</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <span class="card-icon">🏛️</span>
-                    <h3>Atenas</h3>
-                    <p>Imprescindible buscar alojamiento en Plaka, Monastiraki o Syntagma. ¡Nunca en la plaza Omonia o Victoria!</p>
-                    <ul class="dish-list mt-3">
-                        <li><span class="dish-name">Electra Metropolis:</span> Tiene una piscina/restaurante en la azotea con la mejor vista a la Acrópolis.</li>
-                        <li><span class="dish-name">A for Athens / Plaka Hotel:</span> Genial ubicación.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+</main>
 
-    <!-- 4) Gastronomía -->
-    <section id="gastronomy" class="container fade-in-section">
-        <h2 class="section-title">4. Gastronomía Local</h2>
-        <div class="grid-section">
-            <div class="card">
-                <span class="card-icon">🍖</span>
-                <h3>Katerini y Olimpo</h3>
-                <ul class="dish-list mt-3">
-                    <li><span class="dish-name">Kokoretsi:</span> Asado de cordero al espeto (con casquería).</li>
-                    <li><span class="dish-name">Queso feta asado:</span> En horno de barro con sésamo y miel.</li>
-                </ul>
-            </div>
-            <div class="card">
-                <span class="card-icon">🧀</span>
-                <h3>Arachova</h3>
-                <ul class="dish-list mt-3">
-                    <li><span class="dish-name">Formaela:</span> Queso ahumado cilíndrico, frito o a la plancha exclusivo del pueblo.</li>
-                    <li><span class="dish-name">Hilopites:</span> Pasta artesanal cocinada en caldo de carne.</li>
-                </ul>
-            </div>
-            <div class="card">
-                <span class="card-icon">🐟</span>
-                <h3>Nauplia</h3>
-                <ul class="dish-list mt-3">
-                    <li><span class="dish-name">Pescado del golfo:</span> En cualquier taberna de la calle <em>Bouboulinas</em>.</li>
-                    <li><span class="dish-name">Gelato artesanal:</span> Famosísimos por la influencia italiana.</li>
-                </ul>
-            </div>
-            <div class="card">
-                <span class="card-icon">🥙</span>
-                <h3>Atenas</h3>
-                <ul class="dish-list mt-3">
-                    <li><span class="dish-name">Souvlaki:</span> El clásico pan de pita enrollado con carne, tzatziki, tomate, cebolla... ¡y patatas fritas dentro!</li>
-                    <li><span class="dish-name">Loukoumades:</span> Buñuelos fritos bañados en miel para la merienda.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+<!-- DISTANCIAS -->
+<div id="tab-distancias" class="tab-pane">
+  <div class="sec-title" style="margin-top:.5rem">Mapas y Distancias</div>
+  <p class="sec-sub">Ruta completa · ~800 km por la Grecia continental</p>
 
-    <!-- 5) Mapa y Rutas -->
-    <section id="map" class="bg-light fade-in-section">
-        <div class="container">
-            <h2 class="section-title">5. Mapa y Rutas GPS</h2>
-            
-            <div class="map-container" style="text-align: center; margin-bottom: 3rem;">
-                <!-- Placeholder frame, since embedding actual full driving route in Gmaps iframe requires complex API, we use a nice link box -->
-                <div style="background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); display: inline-block;">
-                    <span style="font-size: 3rem;">🗺️</span>
-                    <h3 style="color: var(--primary-blue); font-family: 'Inter', sans-serif; margin-top: 10px;">Llevad el móvil preparado</h3>
-                    <p style="color: var(--text-light); max-width: 400px; margin: 10px auto;">Haz click en los botones de abajo cada día para abrir la ruta directamente en la app de Google Maps de vuestros móviles.</p>
-                </div>
-            </div>
+  <!-- MAPA IMAGEN -->
+  <div style="background:var(--white);border:1px solid var(--parchment);border-radius:8px;overflow:hidden;margin-bottom:1.5rem;box-shadow:0 2px 12px rgba(0,0,0,.06)">
+    <div style="background:var(--ink);padding:.8rem 1.2rem">
+      <span style="font-family:'Cinzel',serif;font-size:.88rem;color:var(--gold2);letter-spacing:.05em">🗺 RUTA DEL VIAJE</span>
+      <a href="https://www.google.com/maps/dir/Thessaloniki,+Grecia/Kalambaka,+Grecia/Delphi,+Grecia/Nafplio,+Grecia/Athens,+Grecia" target="_blank" style="color:var(--sky);font-size:.8rem;float:right;margin-top:.1rem">Ver ruta completa en Google Maps →</a>
+    </div>
+    <div style="padding:1rem;text-align:center">
+      <div style="display:inline-block;position:relative">
+        <svg viewBox="0 0 340 460" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:340px;display:block;margin:0 auto">
+          <rect width="340" height="460" fill="#d8eaf2"/>
+          <!-- Mar Egeo -->
+          <path d="M260,0 L340,0 L340,460 L270,380 L280,280 L290,180 Z" fill="#b8d4e8" opacity="0.8"/>
+          <!-- Mar Jónico -->
+          <path d="M0,290 L45,270 L48,330 L38,390 L0,410 Z" fill="#b8d4e8" opacity="0.7"/>
+          <!-- Golfo Corinto -->
+          <path d="M92,270 L108,262 L130,258 L155,258 L170,264 L176,273 L170,282 L148,285 L118,284 L94,278 Z" fill="#a8c8e0" opacity="0.9"/>
+          <!-- Golfo Termaico -->
+          <path d="M218,46 L242,42 L258,50 L262,65 L254,76 L238,80 L222,74 L214,60 Z" fill="#a8c8e0" opacity="0.9"/>
+          <!-- Golfo Argólico -->
+          <path d="M200,352 L212,345 L224,352 L227,368 L220,380 L208,385 L198,374 L195,360 Z" fill="#a8c8e0" opacity="0.9"/>
+          <!-- TIERRA -->
+          <path d="M100,18 L145,12 L185,10 L220,18 L248,32 L262,46 L258,62 L246,72 L230,80 L220,70 L218,46 L205,38 L185,32 L162,30 L138,34 L118,42 L104,52 L96,44 Z" fill="#e2d5bc" stroke="#c4aa88" stroke-width=".8"/>
+          <path d="M60,30 L100,18 L96,44 L104,52 L118,42 L115,58 L104,72 L90,78 L72,72 L58,56 Z" fill="#ddd0b5" stroke="#c4aa88" stroke-width=".8"/>
+          <path d="M104,72 L115,58 L118,42 L138,34 L162,30 L185,32 L205,38 L218,46 L220,70 L218,84 L208,100 L192,110 L172,114 L152,112 L134,104 L118,92 Z" fill="#e8dcc5" stroke="#c4aa88" stroke-width=".8"/>
+          <path d="M44,138 L58,124 L72,116 L90,110 L104,114 L104,72 L118,92 L134,104 L130,120 L120,136 L106,148 L90,156 L72,158 L56,152 Z" fill="#ddd0b5" stroke="#c4aa88" stroke-width=".8"/>
+          <path d="M44,214 L56,200 L68,190 L82,184 L96,182 L106,186 L106,148 L120,136 L130,168 L128,194 L120,216 L108,230 L92,238 L74,240 L58,234 Z" fill="#ddd0b5" stroke="#c4aa88" stroke-width=".8"/>
+          <path d="M106,148 L118,136 L130,120 L134,104 L152,112 L172,114 L192,110 L208,118 L218,134 L220,154 L214,174 L202,188 L186,196 L168,200 L150,196 L134,186 L120,172 L110,158 Z" fill="#e0d3ba" stroke="#c4aa88" stroke-width=".8"/>
+          <path d="M44,214 L58,234 L74,240 L92,238 L108,230 L120,240 L118,262 L112,278 L92,270 L94,278 L118,284 L148,285 L170,282 L176,273 L190,282 L194,304 L192,328 L185,348 L174,364 L162,376 L152,382 L142,374 L132,358 L124,338 L118,314 L114,290 L110,268 L108,248 L100,234 L86,224 Z" fill="#ddd0b5" stroke="#c4aa88" stroke-width=".8"/>
+          <path d="M176,273 L185,264 L196,268 L208,278 L216,294 L220,316 L218,338 L212,356 L202,370 L192,378 L182,374 L174,360 L168,342 L168,320 L170,298 Z" fill="#e2d5bc" stroke="#c4aa88" stroke-width=".8"/>
+          <!-- RUTA -->
+          <path d="M232,52 Q218,58 208,68 Q196,82 188,100 Q180,120 172,138 Q164,158 162,170" fill="none" stroke="#b85c35" stroke-width="2.2" stroke-dasharray="1,0" marker-end="url(#arr)" opacity="0.9"/>
+          <path d="M160,172 Q158,190 155,210 Q152,228 150,242" fill="none" stroke="#b85c35" stroke-width="2.2" marker-end="url(#arr)" opacity="0.9"/>
+          <path d="M148,244 Q140,258 128,268 Q114,272 92,270 Q78,272 72,282 Q68,294 72,308 Q82,318 96,324 Q114,328 128,328" fill="none" stroke="#b85c35" stroke-width="2.2" marker-end="url(#arr)" opacity="0.9"/>
+          <path d="M130,330 Q148,340 162,352 Q174,364 174,376" fill="none" stroke="#b85c35" stroke-width="1.6" stroke-dasharray="5,3" opacity="0.6"/>
+          <path d="M130,330 Q148,322 162,316 Q180,310 196,306" fill="none" stroke="#b85c35" stroke-width="2.2" marker-end="url(#arr)" opacity="0.9"/>
+          <defs>
+            <marker id="arr" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L7,3 z" fill="#b85c35" opacity="0.9"/>
+            </marker>
+          </defs>
+          <!-- CIUDADES -->
+          <circle cx="234" cy="50" r="7" fill="#b85c35" stroke="white" stroke-width="1.8"/>
+          <text x="244" y="46" font-family="Cinzel,serif" font-size="9" fill="#1e1a14" font-weight="700">Tesalónica</text>
+          <text x="246" y="57" font-family="Source Sans 3,sans-serif" font-size="7" fill="#7a6a52">Perea · D1–D4</text>
+          <circle cx="160" cy="172" r="7" fill="#b85c35" stroke="white" stroke-width="1.8"/>
+          <text x="90" y="168" font-family="Cinzel,serif" font-size="9" fill="#1e1a14" font-weight="700">Kalambaka</text>
+          <text x="98" y="179" font-family="Source Sans 3,sans-serif" font-size="7" fill="#7a6a52">Meteora · D5–D6</text>
+          <circle cx="148" cy="244" r="7" fill="#b85c35" stroke="white" stroke-width="1.8"/>
+          <text x="158" y="240" font-family="Cinzel,serif" font-size="9" fill="#1e1a14" font-weight="700">Delfos</text>
+          <text x="160" y="251" font-family="Source Sans 3,sans-serif" font-size="7" fill="#7a6a52">Arachova · D6–D7</text>
+          <rect x="87" y="270" width="14" height="3.5" fill="#4a5e30" rx="1.5"/>
+          <text x="62" y="267" font-family="Source Sans 3,sans-serif" font-size="7" fill="#4a5e30">Río-Antirio</text>
+          <rect x="168" y="298" width="3" height="12" fill="#3a6a8a" rx="1"/>
+          <text x="172" y="307" font-family="Source Sans 3,sans-serif" font-size="7" fill="#3a6a8a">Canal</text>
+          <circle cx="128" cy="330" r="7" fill="#b85c35" stroke="white" stroke-width="1.8"/>
+          <text x="138" y="326" font-family="Cinzel,serif" font-size="9" fill="#1e1a14" font-weight="700">Nafplio</text>
+          <text x="140" y="337" font-family="Source Sans 3,sans-serif" font-size="7" fill="#7a6a52">D7–D9</text>
+          <circle cx="174" cy="378" r="5" fill="#b8862e" stroke="white" stroke-width="1.5"/>
+          <text x="180" y="382" font-family="Source Sans 3,sans-serif" font-size="7" fill="#7a6a52">Epidauro/Micenas</text>
+          <circle cx="198" cy="304" r="9" fill="#b85c35" stroke="white" stroke-width="2"/>
+          <text x="210" y="300" font-family="Cinzel,serif" font-size="10" fill="#1e1a14" font-weight="700">ATENAS</text>
+          <text x="212" y="312" font-family="Source Sans 3,sans-serif" font-size="7" fill="#7a6a52">D9–D11 · ATH ✈</text>
+          <!-- Leyenda -->
+          <rect x="8" y="388" width="148" height="60" fill="white" rx="3" stroke="#d9cab0" stroke-width=".8" opacity=".95"/>
+          <text x="16" y="402" font-family="Cinzel,serif" font-size="7" fill="#b8862e" letter-spacing=".1em">LEYENDA</text>
+          <circle cx="16" cy="414" r="4" fill="#b85c35"/>
+          <text x="24" y="418" font-family="Source Sans 3,sans-serif" font-size="7" fill="#1e1a14">Ciudad con noche</text>
+          <circle cx="16" cy="426" r="3" fill="#b8862e"/>
+          <text x="24" y="430" font-family="Source Sans 3,sans-serif" font-size="7" fill="#1e1a14">Excursión</text>
+          <line x1="10" y1="440" x2="24" y2="440" stroke="#b85c35" stroke-width="2"/>
+          <text x="28" y="444" font-family="Source Sans 3,sans-serif" font-size="7" fill="#1e1a14">Ruta principal</text>
+          <!-- Mar labels -->
+          <text x="290" y="180" font-family="Crimson Pro,serif" font-size="9" fill="#5a8aaa" font-style="italic" text-anchor="middle" transform="rotate(-20,290,180)">Mar Egeo</text>
+          <text x="26" y="360" font-family="Crimson Pro,serif" font-size="8" fill="#5a8aaa" font-style="italic" text-anchor="middle" transform="rotate(-70,26,360)">Mar Jónico</text>
+          <text x="130" y="275" font-family="Crimson Pro,serif" font-size="7" fill="#5a8aaa" font-style="italic" text-anchor="middle">G. de Corinto</text>
+        </svg>
+      </div>
+    </div>
+  </div>
 
-            <div class="route-timeline">
-                
-                <div class="route-item">
-                    <div class="route-dot"></div>
-                    <div class="route-content">
-                        <div>
-                            <h4>Día 25: Salónica ➔ Litochoro ➔ Meteora</h4>
-                            <span class="dist">~250 km | 3h 15m</span>
-                        </div>
-                        <a href="https://goo.gl/maps/Q67y45oD1Qx5HhJw9" target="_blank" class="map-link">📍 Abrir Ruta en Maps</a>
-                    </div>
-                </div>
+  <!-- TABLA DISTANCIAS -->
+  <div class="sec-title" style="font-size:1.2rem;margin-bottom:.5rem">Tabla de Distancias</div>
+  <p style="font-family:'Crimson Pro',serif;font-style:italic;color:var(--stone);font-size:.88rem;margin-bottom:1rem">Haz clic en cualquier tramo para abrirlo en Google Maps</p>
+  <table style="width:100%;border-collapse:collapse;font-size:.88rem;background:var(--white);border-radius:4px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,.05);margin-bottom:2rem">
+    <thead><tr style="background:var(--ink)">
+      <th style="color:var(--gold2);font-family:'Source Sans 3',sans-serif;font-size:.67rem;letter-spacing:.12em;text-transform:uppercase;padding:.7rem 1rem;text-align:left">Tramo</th>
+      <th style="color:var(--gold2);font-family:'Source Sans 3',sans-serif;font-size:.67rem;letter-spacing:.12em;text-transform:uppercase;padding:.7rem 1rem;text-align:left">Km</th>
+      <th style="color:var(--gold2);font-family:'Source Sans 3',sans-serif;font-size:.67rem;letter-spacing:.12em;text-transform:uppercase;padding:.7rem 1rem;text-align:left">Tiempo</th>
+      <th style="color:var(--gold2);font-family:'Source Sans 3',sans-serif;font-size:.67rem;letter-spacing:.12em;text-transform:uppercase;padding:.7rem 1rem;text-align:left">Maps</th>
+    </tr></thead>
+    <tbody>
+      <tr style="background:rgba(184,134,46,.05)"><td colspan="4" style="padding:.5rem 1rem;font-family:'Cinzel',serif;font-size:.72rem;color:var(--gold);letter-spacing:.1em">GRUPO A · Lunes 25 mayo</td></tr>
+      <tr><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2)"><strong>Perea → Kalambaka</strong><br><span style="font-size:.78rem;color:var(--stone)">Parada en Katerini</span></td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2);font-family:'Cinzel',serif;color:var(--terra);font-weight:600">~220 km</td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2);color:var(--stone)">~2h45</td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2)"><a href="https://www.google.com/maps/dir/Perea,+Grecia/Kalambaka,+Grecia" target="_blank" style="color:var(--sky);font-size:.8rem">🗺 Abrir</a></td></tr>
 
-                <div class="route-item">
-                    <div class="route-dot"></div>
-                    <div class="route-content">
-                        <div>
-                            <h4>Día 27: Meteora ➔ Trikala ➔ Delfos / Arachova</h4>
-                            <span class="dist">~230 km | 3h 30m</span>
-                        </div>
-                        <a href="https://goo.gl/maps/bY5Fq3P9aUvj5t8a9" target="_blank" class="map-link">📍 Abrir Ruta en Maps</a>
-                    </div>
-                </div>
+      <tr style="background:rgba(184,134,46,.05)"><td colspan="4" style="padding:.5rem 1rem;font-family:'Cinzel',serif;font-size:.72rem;color:var(--gold);letter-spacing:.1em">GRUPO A · Martes 26 mayo · GRUPO B · Martes 26 mayo</td></tr>
+      <tr><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2)"><strong>Kalambaka → Arachova</strong><br><span style="font-size:.78rem;color:var(--stone)">Vía Lamia · E65</span></td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2);font-family:'Cinzel',serif;color:var(--terra);font-weight:600">~230 km</td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2);color:var(--stone)">~2h45</td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2)"><a href="https://www.google.com/maps/dir/Kalambaka,+Grecia/Arachova,+Grecia" target="_blank" style="color:var(--sky);font-size:.8rem">🗺 Abrir</a></td></tr>
+      <tr><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2)"><strong>Perea → Kalambaka</strong><br><span style="font-size:.78rem;color:var(--stone)">Grupo B · mismo tramo que Grupo A el lunes</span></td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2);font-family:'Cinzel',serif;color:var(--terra);font-weight:600">~220 km</td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2);color:var(--stone)">~2h45</td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2)"><a href="https://www.google.com/maps/dir/Perea,+Grecia/Kalambaka,+Grecia" target="_blank" style="color:var(--sky);font-size:.8rem">🗺 Abrir</a></td></tr>
 
-                <div class="route-item">
-                    <div class="route-dot"></div>
-                    <div class="route-content">
-                        <div>
-                            <h4>Día 28: Delfos ➔ Puente de Río ➔ Nauplia</h4>
-                            <span class="dist">~260 km | 3h 45m</span>
-                        </div>
-                        <a href="https://goo.gl/maps/9hF25QWpLqZkG9F38" target="_blank" class="map-link">📍 Abrir Ruta en Maps</a>
-                    </div>
-                </div>
+      <tr style="background:rgba(184,134,46,.05)"><td colspan="4" style="padding:.5rem 1rem;font-family:'Cinzel',serif;font-size:.72rem;color:var(--gold);letter-spacing:.1em">MIÉRCOLES 27 mayo · Todos a Nafplio</td></tr>
+      <tr><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2)"><strong>Arachova → Delfos</strong><br><span style="font-size:.78rem;color:var(--stone)">Solo 10 min</span></td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2);font-family:'Cinzel',serif;color:var(--terra);font-weight:600">10 km</td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2);color:var(--stone)">10 min</td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2)"><a href="https://www.google.com/maps/dir/Arachova,+Grecia/Delphi,+Grecia" target="_blank" style="color:var(--sky);font-size:.8rem">🗺 Abrir</a></td></tr>
+      <tr><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2)"><strong>Delfos → Puente Río-Antirio</strong><br><span style="font-size:.78rem;color:var(--stone)">Bajada a la costa</span></td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2);font-family:'Cinzel',serif;color:var(--terra);font-weight:600">100 km</td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2);color:var(--stone)">~1h15</td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2)"><a href="https://www.google.com/maps/dir/Delphi,+Grecia/Rio-Antirrio+Bridge" target="_blank" style="color:var(--sky);font-size:.8rem">🗺 Abrir</a></td></tr>
+      <tr><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2)"><strong>Puente Río-Antirio → Canal de Corinto</strong><br><span style="font-size:.78rem;color:var(--stone)">A8 autopista · peaje ~14€</span></td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2);font-family:'Cinzel',serif;color:var(--terra);font-weight:600">95 km</td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2);color:var(--stone)">~1h</td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2)"><a href="https://www.google.com/maps/dir/Rio-Antirrio+Bridge/Corinth+Canal,+Grecia" target="_blank" style="color:var(--sky);font-size:.8rem">🗺 Abrir</a></td></tr>
+      <tr><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2)"><strong>Canal de Corinto → Nafplio</strong><br><span style="font-size:.78rem;color:var(--stone)">E65 · A7</span></td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2);font-family:'Cinzel',serif;color:var(--terra);font-weight:600">60 km</td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2);color:var(--stone)">~50 min</td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2)"><a href="https://www.google.com/maps/dir/Corinth+Canal,+Grecia/Nafplio,+Grecia" target="_blank" style="color:var(--sky);font-size:.8rem">🗺 Abrir</a></td></tr>
 
-                <div class="route-item">
-                    <div class="route-dot"></div>
-                    <div class="route-content">
-                        <div>
-                            <h4>Día 29: Nauplia ➔ Epidauro ➔ Atenas</h4>
-                            <span class="dist">~170 km | 2h 30m</span>
-                        </div>
-                        <a href="https://goo.gl/maps/kH72o4P8uZyH3jT89" target="_blank" class="map-link">📍 Abrir Ruta en Maps</a>
-                    </div>
-                </div>
+      <tr style="background:rgba(184,134,46,.05)"><td colspan="4" style="padding:.5rem 1rem;font-family:'Cinzel',serif;font-size:.72rem;color:var(--gold);letter-spacing:.1em">JUEVES 28 mayo · Excursiones desde Nafplio</td></tr>
+      <tr><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2)"><strong>Nafplio → Epidauro</strong></td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2);font-family:'Cinzel',serif;color:var(--terra);font-weight:600">32 km</td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2);color:var(--stone)">35 min</td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2)"><a href="https://www.google.com/maps/dir/Nafplio,+Grecia/Ancient+Epidaurus,+Grecia" target="_blank" style="color:var(--sky);font-size:.8rem">🗺 Abrir</a></td></tr>
+      <tr><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2)"><strong>Epidauro → Tolo</strong><br><span style="font-size:.78rem;color:var(--stone)">Playa y almuerzo</span></td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2);font-family:'Cinzel',serif;color:var(--terra);font-weight:600">18 km</td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2);color:var(--stone)">20 min</td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2)"><a href="https://www.google.com/maps/dir/Ancient+Epidaurus,+Grecia/Tolo,+Grecia" target="_blank" style="color:var(--sky);font-size:.8rem">🗺 Abrir</a></td></tr>
+      <tr><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2)"><strong>Tolo → Micenas</strong></td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2);font-family:'Cinzel',serif;color:var(--terra);font-weight:600">38 km</td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2);color:var(--stone)">40 min</td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2)"><a href="https://www.google.com/maps/dir/Tolo,+Grecia/Mycenae,+Grecia" target="_blank" style="color:var(--sky);font-size:.8rem">🗺 Abrir</a></td></tr>
+      <tr><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2)"><strong>Micenas → Nafplio</strong></td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2);font-family:'Cinzel',serif;color:var(--terra);font-weight:600">22 km</td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2);color:var(--stone)">25 min</td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2)"><a href="https://www.google.com/maps/dir/Mycenae,+Grecia/Nafplio,+Grecia" target="_blank" style="color:var(--sky);font-size:.8rem">🗺 Abrir</a></td></tr>
 
-            </div>
-        </div>
-    </section>
+      <tr style="background:rgba(184,134,46,.05)"><td colspan="4" style="padding:.5rem 1rem;font-family:'Cinzel',serif;font-size:.72rem;color:var(--gold);letter-spacing:.1em">VIERNES 29 mayo · Nafplio → Atenas</td></tr>
+      <tr><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2)"><strong>Nafplio → Atenas</strong><br><span style="font-size:.78rem;color:var(--stone)">A7 · E65 autopista</span></td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2);font-family:'Cinzel',serif;color:var(--terra);font-weight:600">140 km</td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2);color:var(--stone)">~1h45</td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2)"><a href="https://www.google.com/maps/dir/Nafplio,+Grecia/Athens,+Grecia" target="_blank" style="color:var(--sky);font-size:.8rem">🗺 Abrir</a></td></tr>
 
-    <!-- 6) Consejos (Logistics) -->
-    <section id="logistics" class="container fade-in-section">
-        <h2 class="section-title">6. Logística y Consejos de Coche</h2>
-        <div class="logistics-box">
-            <div class="logistics-item">
-                <h4>🚗 Conducción</h4>
-                <p>En las carreteras secundarias de un solo carril, los griegos tienen la costumbre de conducir por el arcén para dejarse adelantar. Conducid con precaución por la montaña.</p>
-            </div>
-            <div class="logistics-item">
-                <h4>🎫 Peajes (Tolls)</h4>
-                <p>La autovía principal está llena de peajes muy frecuentes que cobran tramos cortos (1,20€ - 3,00€). En el puente de Río-Antírio el peaje ronda los 14€. Llevad tarjetas y suelto.</p>
-            </div>
-            <div class="logistics-item">
-                <h4>📑 Parking</h4>
-                <ul>
-                    <li>El carné de conducir español europeo sirve sin problema.</li>
-                    <li>En Atenas <strong>mejor no usar el coche</strong>. Dejadlo o movedos en metro.</li>
-                    <li>En Arachova preguntad al alojamiento por los parkings públicos gratuitos.</li>
-                </ul>
-            </div>
-            <div class="logistics-item">
-                <h4>⛽ Gasolineras</h4>
-                <p>No perdáis tiempo buscando autoservicio; en Grecia siempre hay un operario que te echa la gasolina y te cobra directamente en la ventanilla. ¡Súper cómodo!</p>
-            </div>
-        </div>
-    </section>
+      <tr style="background:rgba(184,134,46,.05)"><td colspan="4" style="padding:.5rem 1rem;font-family:'Cinzel',serif;font-size:.72rem;color:var(--gold);letter-spacing:.1em">DOMINGO 31 mayo · Traslado aeropuerto</td></tr>
+      <tr><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2)"><strong>Centro Atenas → Aeropuerto ATH</strong><br><span style="font-size:.78rem;color:var(--stone)">A6 Attiki Odos · o metro línea 3</span></td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2);font-family:'Cinzel',serif;color:var(--terra);font-weight:600">35 km</td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2);color:var(--stone)">~40 min</td><td style="padding:.6rem 1rem;border-bottom:1px solid var(--cream2)"><a href="https://www.google.com/maps/dir/Monastiraki,+Athens/Athens+International+Airport" target="_blank" style="color:var(--sky);font-size:.8rem">🗺 Abrir</a></td></tr>
 
-    <!-- 7) Curiosidades -->
-    <section id="culture" class="bg-light fade-in-section">
-        <div class="container">
-            <h2 class="section-title">7. El "Guía" Virtual (Curiosidades)</h2>
-            <div class="grid-section">
-                <div class="card">
-                    <span class="card-icon">🧗‍♂️</span>
-                    <h3>Meteora: Monjes Araña</h3>
-                    <p>Construidos a cientos de metros de altura en el siglo XIV con redes y poleas. Cuando un visitante preguntó cada cuánto cambiaban las cuerdas desgastadas, el abad respondió: <em>"Solo cuando el Señor deja que se rompan"</em>.</p>
-                </div>
-                <div class="card">
-                    <span class="card-icon">🦅</span>
-                    <h3>Delfos: El Ombligo (Omphalos)</h3>
-                    <p>Zeus soltó dos águilas en extremos opuestos del mundo, y chocaron exactamente sobre Delfos. La pitonisa (Oráculo) predecía aquí el futuro entrando en trance con los vapores alucinógenos que salían de las rocas.</p>
-                </div>
-                <div class="card">
-                    <span class="card-icon">🏛️</span>
-                    <h3>Nauplia: Los 999 escalones</h3>
-                    <p>La fortaleza veneciana de Palamidi domina Nauplia. La leyenda dice que tenía 1000 escalones, pero el caballo del general griego Kolokotronis pisó el último y lo rompió. Hoy dicen que quedan 999.</p>
-                </div>
-                <div class="card">
-                    <span class="card-icon">🫒</span>
-                    <h3>Atenas: El árbol de Atenea</h3>
-                    <p>Poseidón y Atenea compitieron por dominar la ciudad. Poseidón dio agua salada. Atenea hizo brotar un olivo (comida, aceite, sombra). Los atenienses, muy pragmáticos, le dieron la ciudad a Atenea.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+      <tr style="background:rgba(184,134,46,.1)">
+        <td style="padding:.7rem 1rem"><strong>TOTAL APROXIMADO</strong></td>
+        <td style="padding:.7rem 1rem;font-family:'Cinzel',serif;color:var(--terra);font-weight:700;font-size:1rem">~800 km</td>
+        <td style="padding:.7rem 1rem;color:var(--stone)">~14h conducción</td>
+        <td style="padding:.7rem 1rem"><a href="https://www.google.com/maps/dir/Thessaloniki/Kalambaka/Delphi/Nafplio/Athens" target="_blank" style="color:var(--terra);font-size:.8rem;font-weight:600">🗺 Ruta completa</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-    <footer>
-        <p>Familia Garrido &copy; 2026. Preparado con mucho feta y amor.</p>
-    </footer>
+<div class="meander" style="margin-top:1rem"></div>
+<footer>
+  <p>✦ Grecia Continental · Mayo 2026 ✦</p>
+  <p style="margin-top:.4rem">Tesalónica · Meteora · Delfos · Nafplio · Atenas · <span>¡Καλό ταξίδι! · Buen viaje!</span></p>
+</footer>
 
-    <script src="app.js"></script>
+<script>
+function showTab(id){
+  document.querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function toggleDay(id){
+  const a=document.getElementById(id);
+  a.classList.toggle('open');
+}
+function showTown(id){
+  document.querySelectorAll('.town-pane').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.town-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('town-'+id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
 </body>
 </html>
