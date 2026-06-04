@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#4d182a" />
+  <title>Fiestas de Casas del Río 2026 · Virgen de la Asunción</title>
+  <meta name="description" content="Programa de las Fiestas en honor a la Virgen de la Asunción de Casas del Río — Agosto 2026. Saludo de la comisión, programa día a día, calendario y colaboradores." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Fiestas de Casas del Río 2026" />
+  <meta property="og:description" content="Programa de fiestas · Agosto 2026 · Casas del Río" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/img/logo-2026.jpeg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============ TOKENS ============ */
+    /* Identidad 2026: burdeos #4D182A + arena/beige #C8B08E, con neutros, ocre y un verde-petróleo de apoyo */
+    :root {
+      --sand:       #c8b08e;   /* arena/beige — color de marca */
+      --sand-deep:  #b1966e;   /* arena más profundo (acentos/bordes) */
+      --cream:      #f1e7d6;   /* fondo de página (tinte claro de arena) */
+      --cream-2:    #faf4ea;   /* secciones tintadas (más claro) */
+      --paper:      #fffdf8;   /* tarjetas */
+      --ink:        #20141a;   /* casi negro cálido (toque burdeos) */
+      --ink-soft:   #574048;
+      --muted:      #8a786c;
+      --maroon:     #4d182a;   /* burdeos — color de marca */
+      --maroon-700: #36101e;   /* burdeos más oscuro (hover) */
+      --terra:      #944055;   /* granate-rosa (hermano claro del burdeos) */
+      --gold:       #b6862c;   /* ocre/dorado de apoyo */
+      --gold-soft:  #e3c886;
+      --blue:       #3c6b66;   /* verde-petróleo sobrio (acento frío) */
+      --line:       #e7dac4;
+      --line-strong:#d5c2a2;
+
+      --shadow-sm: 0 1px 2px rgba(43,24,32,.06), 0 2px 8px rgba(43,24,32,.05);
+      --shadow-md: 0 6px 18px rgba(43,24,32,.10), 0 2px 6px rgba(43,24,32,.06);
+      --shadow-lg: 0 18px 50px rgba(43,24,32,.16);
+
+      --r-sm: 10px;  --r-md: 16px;  --r-lg: 24px;  --r-xl: 32px;
+      --maxw: 1120px;
+      --nav-h: 66px;
+
+      --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+      --font-body: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    }
+
+    /* ============ RESET ============ */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 14px); -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--ink);
+      background: var(--cream);
+      background-image:
+        radial-gradient(1200px 600px at 80% -10%, rgba(200,176,142,.28), transparent 60%),
+        radial-gradient(900px 500px at -10% 10%, rgba(77,24,42,.08), transparent 55%);
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; line-height: 1.12; letter-spacing: -.01em; margin: 0; overflow-wrap: break-word; }
+
+    .wrap { width: min(100% - 40px, var(--maxw)); margin-inline: auto; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: .5em;
+      font-family: var(--font-body); font-weight: 700; font-size: .76rem;
+      letter-spacing: .18em; text-transform: uppercase; color: var(--terra);
+    }
+    .eyebrow::before { content: ""; width: 26px; height: 2px; background: var(--sand-deep); border-radius: 2px; }
+
+    /* ============ NAVBAR ============ */
+    .nav {
+      position: fixed; inset: 12px 12px auto 12px; z-index: 50;
+      height: var(--nav-h);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 14px 0 18px;
+      background: rgba(251, 247, 236, .82);
+      backdrop-filter: saturate(140%) blur(12px);
+      -webkit-backdrop-filter: saturate(140%) blur(12px);
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      box-shadow: var(--shadow-md);
+      transition: box-shadow .25s ease, background .25s ease;
+    }
+    .nav__brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--font-display); font-weight: 700; color: var(--maroon); }
+    .nav__brand .mark {
+      width: 34px; height: 34px; flex: 0 0 auto; border-radius: 50%;
+      background: var(--sand); color: var(--maroon);
+      display: grid; place-items: center; font-size: 17px; font-weight: 900;
+      box-shadow: inset 0 0 0 2px rgba(77,24,42,.28);
+    }
+    .nav__brand b { font-size: 1.02rem; letter-spacing: -.02em; white-space: nowrap; }
+    .nav__brand small { display: block; font-family: var(--font-body); font-weight: 600; font-size: .64rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+
+    .nav__links { display: flex; align-items: center; gap: 2px; }
+    .nav__links a {
+      text-decoration: none; color: var(--ink-soft); font-weight: 600; font-size: .92rem;
+      padding: 9px 13px; border-radius: 999px; transition: color .2s ease, background .2s ease;
+    }
+    .nav__links a:hover { color: var(--maroon); background: rgba(77,24,42,.07); }
+    .nav__cta {
+      text-decoration: none; font-weight: 700; font-size: .9rem; color: var(--cream-2) !important;
+      background: var(--maroon); padding: 9px 18px !important; border-radius: 999px !important;
+      box-shadow: var(--shadow-sm); transition: background .2s ease, transform .2s ease;
+    }
+    .nav__cta:hover { background: var(--maroon-700) !important; transform: translateY(-1px); }
+
+    .nav__toggle {
+      display: none; width: 44px; height: 44px; border: 0; background: transparent;
+      cursor: pointer; border-radius: 12px; padding: 0;
+    }
+    .nav__toggle span, .nav__toggle span::before, .nav__toggle span::after {
+      content: ""; display: block; width: 22px; height: 2px; background: var(--maroon);
+      border-radius: 2px; margin-inline: auto; transition: transform .25s ease, opacity .2s ease;
+    }
+    .nav__toggle span::before { transform: translateY(-7px); }
+    .nav__toggle span::after  { transform: translateY(5px); }
+    .nav.is-open .nav__toggle span { background: transparent; }
+    .nav.is-open .nav__toggle span::before { transform: rotate(45deg); }
+    .nav.is-open .nav__toggle span::after  { transform: rotate(-45deg); }
+
+    /* ============ HERO ============ */
+    .hero { position: relative; padding: calc(var(--nav-h) + 54px) 0 64px; text-align: center; }
+    .hero__inner { display: flex; flex-direction: column; align-items: center; gap: 22px; }
+    .hero__inner > * { max-width: 100%; }
+    .hero__logo {
+      width: min(560px, 86vw); height: auto;
+      filter: drop-shadow(0 12px 26px rgba(43,32,24,.18));
+      mix-blend-mode: multiply;
+    }
+    .hero__kicker {
+      font-family: var(--font-body); font-weight: 700; letter-spacing: .26em; text-transform: uppercase;
+      font-size: .82rem; color: var(--terra);
+    }
+    .hero h1 {
+      font-size: clamp(2.05rem, 7vw, 4.6rem); font-weight: 900; color: var(--maroon);
+      max-width: 16ch; text-wrap: balance;
+    }
+    .hero h1 em { font-style: italic; font-weight: 600; color: var(--terra); }
+    .hero__sub { max-width: 56ch; color: var(--ink-soft); font-size: 1.08rem; }
+    .hero__date {
+      display: inline-flex; align-items: center; gap: 12px; margin-top: 4px;
+      font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--ink);
+    }
+    .hero__date .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+    .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 8px; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 9px; text-decoration: none; cursor: pointer;
+      font-weight: 700; font-size: 1rem; padding: 13px 24px; border-radius: 999px; border: 1.5px solid transparent;
+      transition: transform .18s ease, background .2s ease, color .2s ease, border-color .2s ease, box-shadow .2s ease;
+    }
+    .btn svg { width: 18px; height: 18px; }
+    .btn--primary { background: var(--maroon); color: var(--cream-2); box-shadow: var(--shadow-md); }
+    .btn--primary:hover { background: var(--maroon-700); transform: translateY(-2px); }
+    .btn--ghost { background: transparent; color: var(--maroon); border-color: var(--line-strong); }
+    .btn--ghost:hover { border-color: var(--maroon); background: rgba(77,24,42,.05); transform: translateY(-2px); }
+
+    .hero__rule { width: min(420px, 70vw); height: 1px; background: linear-gradient(90deg, transparent, var(--line-strong), transparent); margin: 10px auto 0; }
+
+    /* ============ SECTION SHELL ============ */
+    section { padding: 64px 0; scroll-margin-top: calc(var(--nav-h) + 18px); }
+    .section__head { max-width: 64ch; margin-bottom: 36px; }
+    .section__head h2 { font-size: clamp(1.9rem, 4.4vw, 2.9rem); color: var(--ink); margin-top: 10px; }
+    .section__head p { color: var(--ink-soft); margin: 12px 0 0; font-size: 1.06rem; }
+    .section--tint { background: var(--cream-2); border-block: 1px solid var(--line); }
+
+    /* ============ TABS (panel switching) ============ */
+    .tab { display: none; }
+    .tab.is-active { display: block; animation: tabIn .45s cubic-bezier(.22,.61,.36,1); }
+    .tab:not(.hero) { padding-top: calc(var(--nav-h) + 54px); min-height: 60vh; }
+    @keyframes tabIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+    .nav__links a.is-active { color: var(--maroon); background: rgba(77,24,42,.10); }
+
+    /* ============ SALUDO ============ */
+    .saludo {
+      position: relative; background: var(--paper); border: 1px solid var(--line);
+      border-radius: var(--r-xl); padding: clamp(28px, 5vw, 56px);
+      box-shadow: var(--shadow-md); max-width: 860px; margin-inline: auto;
+    }
+    .saludo::before {
+      content: "“"; position: absolute; top: -.18em; left: .28em;
+      font-family: var(--font-display); font-size: 7rem; line-height: 1; color: var(--gold-soft); z-index: 0;
+    }
+    .saludo > * { position: relative; z-index: 1; }
+    .saludo p { color: var(--ink-soft); margin: 0 0 1.05em; }
+    .saludo p:first-of-type { font-family: var(--font-display); font-size: 1.32rem; font-weight: 600; color: var(--maroon); font-style: italic; }
+    .saludo p:last-of-type { margin-bottom: 0; }
+    .saludo__sign { margin-top: 26px; padding-top: 22px; border-top: 1px dashed var(--line-strong); }
+    .saludo__sign b { font-family: var(--font-display); font-size: 1.2rem; color: var(--ink); }
+    .saludo__sign span { display: block; color: var(--muted); font-size: .92rem; font-weight: 600; letter-spacing: .04em; }
+
+    /* ============ COMISIÓN ============ */
+    .commission { display: grid; grid-template-columns: 1.05fr 1fr; gap: 36px; align-items: center; }
+    .commission__photo {
+      aspect-ratio: 4 / 3; border-radius: var(--r-lg); border: 1px solid var(--line);
+      background:
+        repeating-linear-gradient(45deg, rgba(77,24,42,.05) 0 12px, transparent 12px 24px),
+        var(--cream-2);
+      display: grid; place-items: center; text-align: center; color: var(--muted);
+      box-shadow: var(--shadow-sm); padding: 24px;
+    }
+    .commission__photo svg { width: 46px; height: 46px; color: var(--line-strong); margin-bottom: 10px; }
+    .commission__photo b { display: block; font-family: var(--font-body); font-weight: 700; color: var(--ink-soft); }
+    .commission__photo small { font-size: .82rem; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+    .chip {
+      font-size: .9rem; font-weight: 600; color: var(--ink-soft);
+      background: var(--paper); border: 1px solid var(--line-strong);
+      padding: 7px 14px; border-radius: 999px;
+    }
+    .chip--ph { color: var(--muted); border-style: dashed; font-style: italic; }
+
+    /* ============ PROGRAMA ============ */
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+    .filters button {
+      font-family: var(--font-body); font-weight: 600; font-size: .9rem; cursor: pointer;
+      color: var(--ink-soft); background: var(--paper); border: 1px solid var(--line-strong);
+      padding: 8px 16px; border-radius: 999px; transition: all .2s ease;
+    }
+    .filters button:hover { border-color: var(--maroon); color: var(--maroon); }
+    .filters button.is-active { background: var(--maroon); color: var(--cream-2); border-color: var(--maroon); }
+
+    .timeline { display: grid; gap: 18px; }
+    .day {
+      display: grid; grid-template-columns: 96px 1fr; gap: 22px;
+      background: var(--paper); border: 1px solid var(--line);
+      border-radius: var(--r-lg); padding: 22px; box-shadow: var(--shadow-sm);
+      transition: box-shadow .25s ease, transform .25s ease, border-color .25s ease;
+    }
+    .day:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); border-color: var(--line-strong); }
+    .day--big { border-color: var(--gold); background: linear-gradient(180deg, #fffaf0, var(--paper)); }
+    .day__date { text-align: center; border-right: 1px solid var(--line); padding-right: 18px; }
+    .day__num { font-family: var(--font-display); font-size: 2.8rem; font-weight: 900; line-height: 1; color: var(--maroon); }
+    .day--big .day__num { color: var(--gold); }
+    .day__dow { display: block; font-weight: 700; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
+    .day__month { display: block; font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--line-strong); font-weight: 700; }
+    .day__body h3 { font-size: 1.32rem; color: var(--ink); margin-bottom: 4px; }
+    .day__tags { display: flex; flex-wrap: wrap; gap: 7px; margin: 10px 0 12px; }
+    .tag {
+      font-size: .76rem; font-weight: 700; letter-spacing: .03em; padding: 4px 11px; border-radius: 999px;
+      background: rgba(77,24,42,.09); color: var(--maroon);
+    }
+    .tag--gold { background: rgba(182,134,44,.18); color: #7d5a13; }
+    .tag--blue { background: rgba(60,107,102,.16); color: #2c534e; }
+    .day__body p { margin: 0 0 .7em; color: var(--ink-soft); font-size: .98rem; }
+    .day__body p:last-child { margin-bottom: 0; }
+    .day--ph { background: var(--cream-2); border-style: dashed; }
+    .day--ph .day__num { color: var(--line-strong); }
+    .day--ph .day__body p { font-style: italic; color: var(--muted); }
+    .ph-badge {
+      display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      color: var(--terra); background: rgba(148,64,85,.12); padding: 3px 10px; border-radius: 6px;
+    }
+
+    /* ============ CALENDARIO ============ */
+    .cal { background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-lg); padding: clamp(16px, 3vw, 30px); box-shadow: var(--shadow-md); }
+    .cal__grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+    .cal__dow { text-align: center; font-weight: 700; font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding-bottom: 6px; }
+    .cal__cell {
+      position: relative; min-height: 92px; border: 1px solid var(--line); border-radius: var(--r-sm);
+      background: var(--cream-2); padding: 8px; display: flex; flex-direction: column; gap: 4px;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .cal__cell:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+    .cal__cell.is-empty { background: transparent; border-color: transparent; }
+    .cal__cell .n { font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; color: var(--ink); }
+    .cal__cell .ev { font-size: .68rem; line-height: 1.25; font-weight: 600; color: var(--ink-soft); }
+    .cal__cell.big { background: linear-gradient(180deg, #fff7e6, var(--paper)); border-color: var(--gold); }
+    .cal__cell.big .n { color: var(--gold); }
+    .cal__cell.big::after { content: "★"; position: absolute; top: 6px; right: 8px; color: var(--gold); font-size: .8rem; }
+    .cal__cell.ph .ev { color: var(--muted); font-style: italic; }
+    .cal__note { margin-top: 16px; font-size: .86rem; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+
+    /* ============ COLABORADORES ============ */
+    .sponsor-tier { margin-bottom: 40px; }
+    .sponsor-tier:last-child { margin-bottom: 0; }
+    .sponsor-tier h3 {
+      text-align: center; font-family: var(--font-body); font-weight: 700; font-size: .82rem;
+      letter-spacing: .22em; text-transform: uppercase; color: var(--terra); margin-bottom: 20px;
+    }
+    .sponsor-grid { display: grid; gap: 18px; justify-content: center; }
+    .sponsor-grid--lg { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); max-width: 760px; margin-inline: auto; }
+    .sponsor-grid--md { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+    .sponsor {
+      background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-md);
+      padding: 22px; display: grid; place-items: center; gap: 12px; min-height: 130px;
+      box-shadow: var(--shadow-sm); transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .sponsor:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .sponsor img { max-height: 78px; width: auto; object-fit: contain; }
+    .sponsor span { font-size: .8rem; font-weight: 600; color: var(--muted); text-align: center; }
+    .sponsor--ph { border-style: dashed; background: var(--cream-2); color: var(--muted); }
+    .sponsor--ph .ph-logo {
+      width: 54px; height: 54px; border-radius: 14px; border: 2px dashed var(--line-strong);
+      display: grid; place-items: center; color: var(--line-strong); font-size: 1.6rem; font-weight: 800;
+      font-family: var(--font-display);
+    }
+    .sponsor--ph b { font-family: var(--font-body); font-weight: 700; color: var(--ink-soft); font-size: .92rem; text-align: center; }
+
+    /* ============ AVISOS ============ */
+    .notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+    .note {
+      background: var(--paper); border: 1px solid var(--line); border-left: 4px solid var(--gold);
+      border-radius: var(--r-md); padding: 22px; box-shadow: var(--shadow-sm);
+    }
+    .note .ico { width: 38px; height: 38px; border-radius: 10px; background: rgba(182,134,44,.16); color: #7d5a13; display: grid; place-items: center; margin-bottom: 12px; }
+    .note .ico svg { width: 20px; height: 20px; }
+    .note h4 { font-family: var(--font-body); font-weight: 700; font-size: 1.02rem; color: var(--ink); margin-bottom: 6px; }
+    .note p { margin: 0; font-size: .92rem; color: var(--ink-soft); }
+
+    /* ============ FOOTER ============ */
+    .footer { background: var(--maroon); color: #f2e4cf; padding: 56px 0 30px; }
+    .footer__top { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 36px; }
+    .footer h4 { font-family: var(--font-body); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: .76rem; color: var(--sand); margin-bottom: 14px; }
+    .footer__brand b { font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; color: #fff; display: block; }
+    .footer__brand p { color: rgba(242,228,207,.8); font-size: .95rem; max-width: 38ch; margin: 10px 0 0; }
+    .footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 9px; }
+    .footer ul a { text-decoration: none; color: rgba(242,228,207,.85); font-size: .95rem; transition: color .2s ease; }
+    .footer ul a:hover { color: #fff; }
+    .social { display: flex; gap: 10px; }
+    .social a {
+      width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center;
+      background: rgba(255,255,255,.1); color: #f2e4cf; transition: background .2s ease, transform .2s ease;
+    }
+    .social a:hover { background: rgba(255,255,255,.22); transform: translateY(-2px); }
+    .social svg { width: 20px; height: 20px; }
+    .footer__bottom {
+      margin-top: 40px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.16);
+      display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; align-items: center;
+      font-size: .84rem; color: rgba(242,228,207,.7);
+    }
+
+    /* ============ REVEAL ============ */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 900px) {
+      .commission { grid-template-columns: 1fr; }
+      .footer__top { grid-template-columns: 1fr 1fr; }
+      .footer__brand { grid-column: 1 / -1; }
+    }
+    @media (max-width: 900px) {
+      body { font-size: 16px; }
+      .nav__links {
+        position: fixed; inset: calc(var(--nav-h) + 22px) 12px auto 12px;
+        flex-direction: column; align-items: stretch; gap: 4px; padding: 12px;
+        background: rgba(251,247,236,.98); border: 1px solid var(--line-strong);
+        border-radius: var(--r-lg); box-shadow: var(--shadow-lg);
+        transform: translateY(-12px) scale(.98); opacity: 0; pointer-events: none;
+        transform-origin: top; transition: opacity .2s ease, transform .2s ease;
+      }
+      .nav.is-open .nav__links { transform: none; opacity: 1; pointer-events: auto; }
+      .nav__links a { padding: 13px 16px; border-radius: 12px; }
+      .nav__cta { text-align: center; padding: 13px 16px !important; }
+      .nav__toggle { display: block; }
+      .day { grid-template-columns: 70px 1fr; gap: 14px; padding: 18px; }
+      .day__date { padding-right: 12px; }
+      .day__num { font-size: 2.1rem; }
+      .cal__cell { min-height: 76px; padding: 6px; }
+      .cal__cell .ev { font-size: .6rem; }
+      .footer__top { grid-template-columns: 1fr; gap: 26px; }
+    }
+    @media (max-width: 460px) {
+      .cal__cell .ev { display: none; }
+      .cal__cell { min-height: 52px; align-items: center; justify-content: center; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1 !important; transform: none !important; transition: none; }
+      *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ===================== NAV ===================== -->
+  <nav class="nav" id="nav" aria-label="Navegación principal">
+    <a class="nav__brand" href="#inicio" data-tab="inicio" aria-label="Inicio — Fiestas Casas del Río 2026">
+      <span class="mark" aria-hidden="true">CdR</span>
+      <span><b>Casas del Río</b><small>Fiestas 2026</small></span>
+    </a>
+    <div class="nav__links" id="navLinks" role="tablist">
+      <a href="#inicio" data-tab="inicio" role="tab">Inicio</a>
+      <a href="#saludo" data-tab="saludo" role="tab">Saludo</a>
+      <a href="#comision" data-tab="comision" role="tab">Comisión</a>
+      <a href="#programa" data-tab="programa" role="tab">Programa</a>
+      <a href="#calendario" data-tab="calendario" role="tab">Calendario</a>
+      <a href="#colaboradores" data-tab="colaboradores" role="tab">Colaboradores</a>
+      <a href="#avisos" data-tab="avisos" role="tab">Avisos</a>
+    </div>
+    <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <header class="hero tab is-active" id="inicio" data-tab="inicio" role="tabpanel" aria-label="Inicio">
+    <div class="wrap hero__inner">
+      <p class="hero__kicker reveal">Casas del Río · Agosto 2026</p>
+      <img class="hero__logo reveal" src="assets/img/logo-2026.jpeg"
+           alt="Ilustración de Casas del Río: la noria, la plaza, la iglesia, el río Cabriel y la gente del pueblo" />
+      <h1 class="reveal">Fiestas en honor a la <em>Virgen de la Asunción</em></h1>
+      <p class="hero__sub reveal">Dos semanas en el mejor pueblo del mundo. Verbenas, cenas populares, concursos, sardinas, farolillo y playbacks. Bienvenidos a otro agosto en Casas del Río.</p>
+      <div class="hero__date reveal"><span class="dot"></span> 1 — 15 de agosto de 2026 <span class="dot"></span></div>
+      <div class="hero__actions reveal">
+        <a class="btn btn--primary" href="#programa" data-tab="programa">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          Ver el programa
+        </a>
+        <a class="btn btn--ghost" href="#calendario" data-tab="calendario">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          Calendario
+        </a>
+      </div>
+      <div class="hero__rule reveal" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <!-- ===================== SALUDO ===================== -->
+  <section id="saludo" class="tab" data-tab="saludo" role="tabpanel" aria-label="Saludo de la Comisión">
+    <div class="wrap">
+      <div class="section__head" style="text-align:center; margin-inline:auto;">
+        <span class="eyebrow">Saludo de la Comisión</span>
+        <h2>Rianos y rianas, bienvenidos</h2>
+      </div>
+      <article class="saludo reveal">
+        <p>Rianos y rianas, bienvenidos a otro agosto en el mejor pueblo del mundo.</p>
+        <p>Un año más, la comisión ha organizado, llamado, negociado y soñado con estas dos semanas que hacen que todo lo demás merezca la pena. Y aquí estamos. Las calles ya huelen a fiesta, el pueblo empieza a llenarse de caras conocidas, y la noria sigue girando como lleva haciendo desde siempre.</p>
+        <p>Este verano queremos que Casas del Río sea exactamente lo que siempre ha sido: un lugar donde el tiempo se para, donde los niños corren por la calle sin mirar el reloj, donde los mayores sacan las sillas a la puerta y donde nadie es forastero después del primer día.</p>
+        <p>Hemos preparado un programa que mezcla lo de siempre con alguna sorpresa. Las cenas populares, las verbenas, el concurso de tortillas, las sardinas, el farolillo, los playbacks… todo lo que hace que estas fiestas sean nuestras.</p>
+        <p>Solo os pedimos una cosa: disfrutad. Salid a la calle, bailad aunque no sepáis, cantad aunque desafinéis, y quedaos un rato más cuando penséis en iros. Las fiestas duran solo unos días, pero los recuerdos duran mucho más.</p>
+        <div class="saludo__sign">
+          <b>¡Que viva Casas del Río!</b>
+          <span>La Comisión de Fiestas 2026</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===================== COMISIÓN ===================== -->
+  <section id="comision" class="section--tint tab" data-tab="comision" role="tabpanel" aria-label="La Comisión 2026">
+    <div class="wrap">
+      <div class="commission">
+        <div class="commission__photo reveal" role="img" aria-label="Espacio reservado para la foto de la Comisión de Fiestas 2026">
+          <div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <b>Foto de la Comisión 2026</b>
+            <small>[ PLACEHOLDER · sustituir por la foto del grupo ]</small>
+          </div>
+        </div>
+        <div class="reveal">
+          <span class="eyebrow">Quiénes lo hacen posible</span>
+          <h2 style="font-size:clamp(1.8rem,4vw,2.6rem); margin-top:10px;">La Comisión 2026</h2>
+          <p style="color:var(--ink-soft); margin-top:12px;">Detrás de cada verbena, cada cena y cada farolillo hay un grupo de rianos y rianas que lo hacen posible. Estas son las 25 personas que forman la comisión de este año.</p>
+          <div class="chips">
+            <span class="chip">Adrián Pradas</span>
+            <span class="chip">Aitana Martínez</span>
+            <span class="chip">Aitana M.</span>
+            <span class="chip">Alex Ponce</span>
+            <span class="chip">Andrea Escriig</span>
+            <span class="chip">Angelines Rodríguez</span>
+            <span class="chip">Belén Quiles</span>
+            <span class="chip">Carla</span>
+            <span class="chip">Carmen Andrés</span>
+            <span class="chip">Cristian</span>
+            <span class="chip">David Bresco</span>
+            <span class="chip">David Cebrián</span>
+            <span class="chip">Hugo Uixera</span>
+            <span class="chip">Isabel Quiles</span>
+            <span class="chip">Juan Gómez</span>
+            <span class="chip">Pablo López</span>
+            <span class="chip">Pau</span>
+            <span class="chip">Paula Haba</span>
+            <span class="chip">Paula Rincón</span>
+            <span class="chip">Paula</span>
+            <span class="chip">Raúl Bru</span>
+            <span class="chip">Natalia</span>
+            <span class="chip">Hanna</span>
+            <span class="chip">Susana</span>
+            <span class="chip">Naya</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROGRAMA ===================== -->
+  <section id="programa" class="tab" data-tab="programa" role="tabpanel" aria-label="Programa día a día">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="eyebrow">Programa día a día</span>
+        <h2>Quince días de fiesta</h2>
+        <p>Del 1 al 15 de agosto. Los horarios pueden variar si la comisión lo estima oportuno.</p>
+      </div>
+
+      <div class="timeline" id="timeline">
+
+        <!-- DÍA 1 -->
+        <article class="day reveal" data-state="confirmado">
+          <div class="day__date"><span class="day__num">1</span><span class="day__dow">Sábado</span><span class="day__month">Agosto</span></div>
+          <div class="day__body">
+            <h3>Discomóvil de apertura</h3>
+            <div class="day__tags"><span class="tag tag--blue">Discomóvil</span></div>
+            <p>El primer sábado de agosto se enciende la mecha. Todavía no es el pregón, pero el verano riano ya arranca con la primera discomóvil del año en el Frontón. A partir de las <strong>00:30</strong>, luces, música y las primeras caras conocidas que vuelven al pueblo. La mejor manera de avisar de que agosto, por fin, ha llegado a Casas del Río.</p>
+          </div>
+        </article>
+
+        <!-- DÍA 2 -->
+        <article class="day day--ph reveal">
+          <div class="day__date"><span class="day__num">2</span><span class="day__dow">Domingo</span><span class="day__month">Agosto</span></div>
+          <div class="day__body">
+            <h3>Sin acto programado</h3>
+          </div>
+        </article>
+
+        <!-- DÍA 3 -->
+        <article class="day day--ph reveal">
+          <div class="day__date"><span class="day__num">3</span><span class="day__dow">Lunes</span><span class="day__month">Agosto</span></div>
+          <div class="day__body">
+            <h3>Sin acto programado</h3>
+          </div>
+        </article>
+
+        <!-- DÍA 4 -->
+        <article class="day reveal" data-state="confirmado">
+          <div class="day__date"><span class="day__num">4</span><span class="day__dow">Martes</span><span class="day__month">Agosto</span></div>
+          <div class="day__body">
+            <h3>Pregón + Discomóvil</h3>
+            <div class="day__tags"><span class="tag">Pregón</span><span class="tag tag--blue">Discomóvil</span></div>
+            <p>Hoy sí: se abren oficialmente las fiestas. Nos vemos en la plaza a las <strong>20:30</strong> para el Pregón, el momento en que el pueblo entero se reúne para dar el pistoletazo de salida a estos días.</p>
+            <p>Y cuando se apaguen los aplausos, la fiesta se traslada al Frontón: a las <strong>00:00</strong>, discomóvil para estrenar como toca la primera gran noche del verano.</p>
+          </div>
+        </article>
+
+        <!-- DÍA 5 -->
+        <article class="day reveal" data-state="confirmado">
+          <div class="day__date"><span class="day__num">5</span><span class="day__dow">Miércoles</span><span class="day__month">Agosto</span></div>
+          <div class="day__body">
+            <h3>Cena Popular + Bingo Musical</h3>
+            <div class="day__tags"><span class="tag">Cena popular</span><span class="tag tag--gold">Bingo Musical</span></div>
+            <p>Una de las noches más esperadas por todo el pueblo. A partir de las <strong>19:30</strong> la comisión abre la reserva de sitios en la Calle de Abajo: poneos de acuerdo con amigos y familia, porque las mesas vuelan.</p>
+            <p>La cena popular empieza a las <strong>22:00</strong>. Ya sabéis cómo va esto: cada uno trae lo suyo, la calle se llena de olores, de risas y de sillas que aparecen de no se sabe dónde. Y cuando ya no queda sitio en la mesa, llega el momento que muchos llevan esperando desde el año pasado: el Bingo. Cartones, premios y mucho cachondeo. Contaremos además con la segunda edición del <strong>Bingo Musical Riano</strong>. No faltéis.</p>
+          </div>
+        </article>
+
+        <!-- DÍA 6 -->
+        <article class="day day--ph reveal">
+          <div class="day__date"><span class="day__num">6</span><span class="day__dow">Jueves</span><span class="day__month">Agosto</span></div>
+          <div class="day__body">
+            <h3>Sin acto programado</h3>
+          </div>
+        </article>
+
+        <!-- DÍA 7 -->
+        <article class="day reveal" data-state="confirmado">
+          <div class="day__date"><span class="day__num">7</span><span class="day__dow">Viernes</span><span class="day__month">Agosto</span></div>
+          <div class="day__body">
+            <h3>Fiesta de la Tapa + Discomóvil</h3>
+            <div class="day__tags"><span class="tag">Fiesta de la Tapa</span><span class="tag tag--blue">Discomóvil</span></div>
+            <p>El viernes es uno de los días más completos del programa. Desde las <strong>19:00</strong> la Calle de Abajo se convierte en el escenario de la Fiesta de la Tapa: la comisión ha preparado sus famosas tapas. Traed hambre.</p>
+            <p>Y para cerrar, a las <strong>00:00</strong> el Frontón abre de nuevo con la discomóvil.</p>
+          </div>
+        </article>
+
+        <!-- DÍA 8 -->
+        <article class="day reveal" data-state="confirmado">
+          <div class="day__date"><span class="day__num">8</span><span class="day__dow">Sábado</span><span class="day__month">Agosto</span></div>
+          <div class="day__body">
+            <h3>Verbena</h3>
+            <div class="day__tags"><span class="tag tag--blue">Verbena</span><span class="tag">Orquesta Enjoy</span></div>
+            <p>Nos vemos a partir de las <strong>00:30</strong> en la Calle de Abajo para bailar al ritmo de la orquesta <strong>Enjoy</strong>.</p>
+          </div>
+        </article>
+
+        <!-- DÍA 9 -->
+        <article class="day reveal" data-state="confirmado">
+          <div class="day__date"><span class="day__num">9</span><span class="day__dow">Domingo</span><span class="day__month">Agosto</span></div>
+          <div class="day__body">
+            <h3>Concurso de Pintura + Horchata y Fartons</h3>
+            <div class="day__tags"><span class="tag">Concurso de pintura</span><span class="tag tag--gold">Horchata y fartons</span></div>
+            <p>El domingo es el día más artístico del programa. Por la mañana, el pueblo se convierte en un estudio al aire libre: arranca el Concurso de Pintura para adultos, con caballetes, colores y todo el paisaje del pueblo como modelo. Podéis inscribiros en el momento.</p>
+            <p>Por la tarde, a partir de las <strong>17:00</strong>, es el turno de los más pequeños con el Concurso de Pintura y Poesía. Una tarde ideal para que los peques de Casas del Río brillen como los artistas que son.</p>
+            <p>Y para cerrar la tarde, a las <strong>19:30</strong>, horchata y fartons para todos. Que merendar con la gente del pueblo tiene su cosa.</p>
+          </div>
+        </article>
+
+        <!-- DÍA 10 -->
+        <article class="day day--ph reveal">
+          <div class="day__date"><span class="day__num">10</span><span class="day__dow">Lunes</span><span class="day__month">Agosto</span></div>
+          <div class="day__body">
+            <h3>Sin acto programado</h3>
+          </div>
+        </article>
+
+        <!-- DÍA 11 -->
+        <article class="day reveal" data-state="confirmado">
+          <div class="day__date"><span class="day__num">11</span><span class="day__dow">Martes</span><span class="day__month">Agosto</span></div>
+          <div class="day__body">
+            <h3>Segunda Cena Popular + Tributo La Oreja de Van Gogh</h3>
+            <div class="day__tags"><span class="tag">Cena popular</span><span class="tag tag--gold">Tributo musical</span></div>
+            <p>El martes 11 trae la segunda y gran cena popular. Como siempre, la reserva de sitios empieza a las <strong>19:30</strong> en la Calle de Abajo. Después de cenar, la gran pregunta del año: ¿Team Amaia o Team Leire? Nosotros seremos Team Dulce Obsesión y disfrutaremos del mejor <strong>Tributo a La Oreja de Van Gogh</strong> de Valencia.</p>
+          </div>
+        </article>
+
+        <!-- DÍA 12 -->
+        <article class="day reveal" data-state="confirmado">
+          <div class="day__date"><span class="day__num">12</span><span class="day__dow">Miércoles</span><span class="day__month">Agosto</span></div>
+          <div class="day__body">
+            <h3>Concurso de Tortillas y Gachas</h3>
+            <div class="day__tags"><span class="tag">Concurso gastronómico</span><span class="tag tag--gold">Premios</span></div>
+            <p>¡Que se preparen los cocineros y cocineras! El miércoles 12 es el día del Concurso de Tortillas y Gachas, uno de los más participativos de las fiestas. Desde las <strong>21:00</strong> en la Calle de Abajo, cada participante presenta su creación ante el jurado y ante el pueblo entero.</p>
+            <p>No hacen falta estrellas Michelin: lo que se valora es el sabor, el cariño y la autenticidad. Traed vuestra receta de toda la vida, cuidad mucho al jurado (dicen que ayuda) y que gane el mejor plato. Habrá premios.</p>
+            <p>Si no queréis concursar, venid igualmente: con suerte probáis algún plato.</p>
+          </div>
+        </article>
+
+        <!-- DÍA 13 -->
+        <article class="day reveal" data-state="confirmado">
+          <div class="day__date"><span class="day__num">13</span><span class="day__dow">Jueves</span><span class="day__month">Agosto</span></div>
+          <div class="day__body">
+            <h3>Discomóvil de Disfraces</h3>
+            <div class="day__tags"><span class="tag tag--blue">Discomóvil</span><span class="tag">Concurso de disfraces</span></div>
+            <p>La noche más gamberra de las fiestas. El jueves 13, la discomóvil del Frontón tiene una norma no escrita: el que no se disfraza, se aburre. Id preparando el look y que se note el arte riano con la performance de entrada.</p>
+            <p>Habrá concurso de disfraces con premios para los más originales, los más trabajados y los que más hagan reír.</p>
+            <p>La fiesta empieza a las <strong>00:00</strong>. Llegad disfrazados, venid con ganas y dejad los complejos en casa.</p>
+          </div>
+        </article>
+
+        <!-- DÍA 14 -->
+        <article class="day reveal" data-state="confirmado">
+          <div class="day__date"><span class="day__num">14</span><span class="day__dow">Viernes</span><span class="day__month">Agosto</span></div>
+          <div class="day__body">
+            <h3>Sardinas + Gran Verbena · Farolillo · Atuná</h3>
+            <div class="day__tags"><span class="tag">Sardinas</span><span class="tag tag--blue">Verbena · Orquesta Next</span><span class="tag tag--gold">Farolillo</span></div>
+            <p>La noche de las sardinas es una de las más especiales de todas las fiestas. En las Pistas, desde las <strong>22:00</strong>, la comisión prepara la parrilla para que disfrutéis del plato estrella del verano: sardinas a la brasa, pan y buen vino. Una cena sencilla, al aire libre, con la gente del pueblo. No hay más que pedir.</p>
+            <p>Después nos veremos en la Calle de Abajo. La orquesta <strong>Next</strong> pondrá el escenario a reventar desde las <strong>00:30</strong>. Y a las <strong>02:00</strong> llega el momento más emocionante: el baile del farolillo. Ese instante en que el pueblo entero para, respira, y baila junto. Si no lo habéis vivido, no sabéis lo que es Casas del Río.</p>
+            <p>Y para los más resistentes, a las <strong>06:00</strong> de la madrugada: el mítico bocadillo de atún. Premio mayor para quien llega hasta el final.</p>
+          </div>
+        </article>
+
+        <!-- DÍA 15 — GRANDE -->
+        <article class="day day--big reveal" data-state="confirmado">
+          <div class="day__date"><span class="day__num">15</span><span class="day__dow">Sábado</span><span class="day__month">Agosto</span></div>
+          <div class="day__body">
+            <div class="day__tags"><span class="tag tag--gold">★ Día Grande</span><span class="tag">Pan Bendito</span><span class="tag">Procesión</span><span class="tag">Playbacks</span></div>
+            <h3>Día Grande — Pan Bendito · Procesión · Playbacks</h3>
+            <p>Ha llegado el día más importante de las fiestas: el <strong>15 de agosto</strong>, festividad de la Virgen de la Asunción, nuestra Patrona.</p>
+            <p>La mañana empieza con el reparto del pan bendito en la plaza y la subasta: un acto cargado de tradición que el pueblo lleva en el corazón desde siempre.</p>
+            <p>Por la tarde, sobre las <strong>18:00</strong>, la Procesión de la Virgen de la Asunción recorre las calles del pueblo.</p>
+            <p>Y por la noche, el broche más esperado: los playbacks. A partir de las <strong>23:00</strong>, los rianos y rianas de Casas del Río suben al escenario para despedir las fiestas como solo saben hacerlo aquí. Con humor, con emoción y con el pueblo entero como público. El mejor final para el mejor agosto.</p>
+            <p style="font-family:var(--font-display); font-style:italic; font-weight:600; color:var(--maroon);">¡Que viva Casas del Río!</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CALENDARIO ===================== -->
+  <section id="calendario" class="section--tint tab" data-tab="calendario" role="tabpanel" aria-label="Calendario">
+    <div class="wrap">
+      <div class="section__head" style="text-align:center; margin-inline:auto;">
+        <span class="eyebrow">De un vistazo</span>
+        <h2>Calendario · Agosto 2026</h2>
+      </div>
+      <div class="cal reveal">
+        <div class="cal__grid">
+          <div class="cal__dow">Lun</div><div class="cal__dow">Mar</div><div class="cal__dow">Mié</div>
+          <div class="cal__dow">Jue</div><div class="cal__dow">Vie</div><div class="cal__dow">Sáb</div><div class="cal__dow">Dom</div>
+
+          <!-- Semana 1: 1 sáb, 2 dom -->
+          <div class="cal__cell is-empty"></div>
+          <div class="cal__cell is-empty"></div>
+          <div class="cal__cell is-empty"></div>
+          <div class="cal__cell is-empty"></div>
+          <div class="cal__cell is-empty"></div>
+          <div class="cal__cell"><span class="n">1</span><span class="ev">Discomóvil de apertura</span></div>
+          <div class="cal__cell ph"><span class="n">2</span></div>
+
+          <!-- Semana 2: 3–9 -->
+          <div class="cal__cell ph"><span class="n">3</span></div>
+          <div class="cal__cell"><span class="n">4</span><span class="ev">Pregón · Discomóvil</span></div>
+          <div class="cal__cell"><span class="n">5</span><span class="ev">Cena Popular · Bingo Musical</span></div>
+          <div class="cal__cell ph"><span class="n">6</span></div>
+          <div class="cal__cell"><span class="n">7</span><span class="ev">Fiesta de la Tapa · Discomóvil</span></div>
+          <div class="cal__cell"><span class="n">8</span><span class="ev">Verbena · Enjoy</span></div>
+          <div class="cal__cell"><span class="n">9</span><span class="ev">Concurso Pintura · Horchata</span></div>
+
+          <!-- Semana 3: 10–15 -->
+          <div class="cal__cell ph"><span class="n">10</span></div>
+          <div class="cal__cell"><span class="n">11</span><span class="ev">2ª Cena Popular · Tributo OVG</span></div>
+          <div class="cal__cell"><span class="n">12</span><span class="ev">Tortillas y Gachas</span></div>
+          <div class="cal__cell"><span class="n">13</span><span class="ev">Discomóvil de Disfraces</span></div>
+          <div class="cal__cell"><span class="n">14</span><span class="ev">Sardinas · Verbena · Farolillo</span></div>
+          <div class="cal__cell big"><span class="n">15</span><span class="ev">Día Grande · Procesión · Playbacks</span></div>
+          <div class="cal__cell is-empty"></div>
+        </div>
+        <p class="cal__note">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+          ★ Día Grande · 15 de agosto, Virgen de la Asunción. Los días en gris no tienen acto programado.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== COLABORADORES ===================== -->
+  <section id="colaboradores" class="tab" data-tab="colaboradores" role="tabpanel" aria-label="Colaboradores">
+    <div class="wrap">
+      <div class="section__head" style="text-align:center; margin-inline:auto;">
+        <span class="eyebrow">Gracias a todos</span>
+        <h2>Colaboradores</h2>
+        <p>Estas fiestas son posibles gracias a quienes las organizan, patrocinan y colaboran año tras año.</p>
+      </div>
+
+      <div class="sponsor-tier reveal">
+        <h3>Organiza</h3>
+        <div class="sponsor-grid sponsor-grid--lg" style="grid-template-columns:minmax(220px,300px); max-width:300px;">
+          <div class="sponsor">
+            <img src="assets/img/sponsors/comision.png" alt="Logo de la Comisión de Fiestas de Casas del Río" />
+            <span>Comisión de Fiestas de Casas del Río</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sponsor-tier reveal">
+        <h3>Patrocinan</h3>
+        <div class="sponsor-grid sponsor-grid--lg">
+          <div class="sponsor">
+            <img src="assets/img/sponsors/moragete.png" alt="Logo de Campus Moragete, complejo educativo" />
+            <span>Campus Moragete</span>
+          </div>
+          <div class="sponsor">
+            <img src="assets/img/sponsors/ca-rafa.png" alt="Logo de Ca'Rafa Bar Restaurante" />
+            <span>Ca'Rafa Bar Restaurante</span>
+          </div>
+          <div class="sponsor">
+            <img src="assets/img/sponsors/hogres.png" alt="Logo de Grupo Hogres Inmobiliarias" />
+            <span>Grupo Hogres Inmobiliarias</span>
+          </div>
+          <!-- PLACEHOLDER: añadir aquí nuevos patrocinadores de 2026 -->
+          <div class="sponsor sponsor--ph">
+            <div class="ph-logo" aria-hidden="true">+</div>
+            <b>Tu logo aquí</b>
+          </div>
+        </div>
+      </div>
+
+      <div class="sponsor-tier reveal">
+        <h3>Colaboran</h3>
+        <div class="sponsor-grid sponsor-grid--md">
+          <div class="sponsor">
+            <img src="assets/img/sponsors/ayto-requena.png" alt="Escudo del Ayuntamiento de Requena" />
+            <span>Concejalía de Cultura · M.I. Ayuntamiento de Requena</span>
+          </div>
+          <div class="sponsor">
+            <img src="assets/img/sponsors/construcciones-rafa.png" alt="Logo de Construcciones Rafa (Alborea)" />
+            <span>Construcciones Rafa (Alborea)</span>
+          </div>
+          <div class="sponsor sponsor--ph">
+            <div class="ph-logo" aria-hidden="true">CA</div>
+            <b>Círculo Artístico Requenense</b>
+            <span>[ logo pendiente ]</span>
+          </div>
+          <!-- PLACEHOLDER: añadir aquí nuevos colaboradores de 2026 -->
+          <div class="sponsor sponsor--ph">
+            <div class="ph-logo" aria-hidden="true">+</div>
+            <b>Tu logo aquí</b>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== AVISOS ===================== -->
+  <section id="avisos" class="section--tint tab" data-tab="avisos" role="tabpanel" aria-label="Avisos">
+    <div class="wrap">
+      <div class="section__head" style="text-align:center; margin-inline:auto;">
+        <span class="eyebrow">Os recordamos que…</span>
+        <h2>Antes de salir a la calle</h2>
+      </div>
+      <div class="notes">
+        <div class="note reveal">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <h4>Los horarios pueden variar</h4>
+          <p>Cualquier actividad puede cambiar de hora si la Comisión de Fiestas lo estima oportuno. Estad atentos al grupo de difusión.</p>
+        </div>
+        <div class="note reveal">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h18M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M6 7l1 13h10l1-13"/></svg></div>
+          <h4>Mantengamos el pueblo limpio</h4>
+          <p>Es muy importante respetar el medio ambiente y dejar las calles como nos gusta encontrarlas. Entre todos cuidamos Casas del Río.</p>
+        </div>
+        <div class="note reveal">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"/><path d="M2 7h20v5H2zM12 22V7M12 7H8.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h3.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
+          <h4>El bono de fiestas (pulsera)</h4>
+          <p>Será imprescindible presentar el bono de fiestas (pulsera) para acceder a orquestas, cenas populares o cualquier otro acto. En su defecto, los actos se abonarán de forma individual.</p>
+        </div>
+        <div class="note reveal">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></div>
+          <h4>Fiestas alternativas</h4>
+          <p>La comisión no se responsabiliza de las posibles fiestas alternativas que se realicen en los distintos puntos de la aldea.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <h4>Fiestas Casas del Río</h4>
+          <b>Que viva Casas del Río</b>
+          <p>Fiestas en honor a la Virgen de la Asunción · Agosto 2026. Organiza la Comisión de Fiestas de Casas del Río.</p>
+        </div>
+        <div>
+          <h4>Programa</h4>
+          <ul>
+            <li><a href="#saludo" data-tab="saludo">Saludo de la Comisión</a></li>
+            <li><a href="#programa" data-tab="programa">Programa día a día</a></li>
+            <li><a href="#calendario" data-tab="calendario">Calendario</a></li>
+            <li><a href="#colaboradores" data-tab="colaboradores">Colaboradores</a></li>
+            <li><a href="#avisos" data-tab="avisos">Avisos</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Síguenos</h4>
+          <ul>
+            <li><a href="https://instagram.com/fiestascdr" target="_blank" rel="noopener">@fiestascdr</a></li>
+            <li><a href="https://instagram.com/alcaldia_cdr" target="_blank" rel="noopener">@alcaldia_cdr</a></li>
+          </ul>
+          <div class="social" style="margin-top:14px;">
+            <a href="https://instagram.com/fiestascdr" target="_blank" rel="noopener" aria-label="Instagram @fiestascdr">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 Comisión de Fiestas de Casas del Río.</span>
+        <span>Fiestas en honor a la Virgen de la Asunción · 1–15 de agosto</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+
+    // ---- Tab navigation (no infinite scroll) ----
+    const panels = Array.from(document.querySelectorAll('.tab'));
+    const navLinks = Array.from(links.querySelectorAll('a[data-tab]'));
+    const tabIds = panels.map(p => p.dataset.tab);
+
+    function showTab(id, push = true) {
+      if (!tabIds.includes(id)) id = 'inicio';
+      panels.forEach(p => {
+        const active = p.dataset.tab === id;
+        p.classList.toggle('is-active', active);
+        if (active) p.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+      });
+      navLinks.forEach(a => {
+        const active = a.dataset.tab === id;
+        a.classList.toggle('is-active', active);
+        if (a.getAttribute('role') === 'tab') a.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+      if (push && location.hash.slice(1) !== id) history.pushState({ tab: id }, '', '#' + id);
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+
+    // Any element with data-tab switches tabs
+    document.addEventListener('click', e => {
+      const link = e.target.closest('[data-tab]');
+      if (!link) return;
+      e.preventDefault();
+      showTab(link.dataset.tab);
+      nav.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+
+    // Back/forward buttons
+    window.addEventListener('popstate', () => showTab(location.hash.slice(1) || 'inicio', false));
+
+    // Initial tab from URL hash
+    showTab(location.hash.slice(1) || 'inicio', false);
+
+    // ---- Mobile menu ----
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    });
+
+  </script>
+</body>
+</html>
