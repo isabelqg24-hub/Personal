@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#4d182a" />
+  <meta name="theme-color" content="#59162c" />
   <title>Fiestas de Casas del Río 2026 · Virgen de la Asunción</title>
   <meta name="description" content="Programa de las Fiestas en honor a la Virgen de la Asunción de Casas del Río — Agosto 2026. Saludo de la comisión, programa día a día, calendario y colaboradores." />
 
@@ -19,28 +19,29 @@
 
   <style>
     /* ============ TOKENS ============ */
-    /* Identidad 2026: burdeos #4D182A + arena/beige #C8B08E, con neutros, ocre y un verde-petróleo de apoyo */
+    /* Identidad 2026: burdeos vino #59162C + arena/caqui #CCB893 + detalles coral #D2A597 */
     :root {
-      --sand:       #c8b08e;   /* arena/beige — color de marca */
-      --sand-deep:  #b1966e;   /* arena más profundo (acentos/bordes) */
-      --cream:      #f1e7d6;   /* fondo de página (tinte claro de arena) */
+      --sand:       #ccb893;   /* arena/caqui — color de marca 2026 */
+      --sand-deep:  #b09b72;   /* arena más profundo (acentos/bordes) */
+      --cream:      #f2e8d8;   /* fondo de página (tinte claro de arena) */
       --cream-2:    #faf4ea;   /* secciones tintadas (más claro) */
       --paper:      #fffdf8;   /* tarjetas */
       --ink:        #20141a;   /* casi negro cálido (toque burdeos) */
       --ink-soft:   #574048;
       --muted:      #8a786c;
-      --maroon:     #4d182a;   /* burdeos — color de marca */
-      --maroon-700: #36101e;   /* burdeos más oscuro (hover) */
-      --terra:      #944055;   /* granate-rosa (hermano claro del burdeos) */
+      --maroon:     #59162c;   /* burdeos vino — color de marca 2026 */
+      --maroon-700: #3d0f1d;   /* burdeos más oscuro (hover) */
+      --terra:      #b04d68;   /* granate-rosa (hermano claro del burdeos) */
+      --blush:      #d2a597;   /* coral/arena — tercer color de marca 2026 */
       --gold:       #b6862c;   /* ocre/dorado de apoyo */
       --gold-soft:  #e3c886;
       --blue:       #3c6b66;   /* verde-petróleo sobrio (acento frío) */
-      --line:       #e7dac4;
-      --line-strong:#d5c2a2;
+      --line:       #ead9c4;
+      --line-strong:#d9c5a3;
 
-      --shadow-sm: 0 1px 2px rgba(43,24,32,.06), 0 2px 8px rgba(43,24,32,.05);
-      --shadow-md: 0 6px 18px rgba(43,24,32,.10), 0 2px 6px rgba(43,24,32,.06);
-      --shadow-lg: 0 18px 50px rgba(43,24,32,.16);
+      --shadow-sm: 0 1px 2px rgba(52,15,28,.06), 0 2px 8px rgba(52,15,28,.05);
+      --shadow-md: 0 6px 18px rgba(52,15,28,.10), 0 2px 6px rgba(52,15,28,.06);
+      --shadow-lg: 0 18px 50px rgba(52,15,28,.16);
 
       --r-sm: 10px;  --r-md: 16px;  --r-lg: 24px;  --r-xl: 32px;
       --maxw: 1120px;
@@ -61,8 +62,8 @@
       color: var(--ink);
       background: var(--cream);
       background-image:
-        radial-gradient(1200px 600px at 80% -10%, rgba(200,176,142,.28), transparent 60%),
-        radial-gradient(900px 500px at -10% 10%, rgba(77,24,42,.08), transparent 55%);
+        radial-gradient(1200px 600px at 80% -10%, rgba(204,184,147,.28), transparent 60%),
+        radial-gradient(900px 500px at -10% 10%, rgba(89,22,44,.08), transparent 55%);
       overflow-x: hidden;
     }
     img { max-width: 100%; display: block; }
@@ -75,7 +76,7 @@
       font-family: var(--font-body); font-weight: 700; font-size: .76rem;
       letter-spacing: .18em; text-transform: uppercase; color: var(--terra);
     }
-    .eyebrow::before { content: ""; width: 26px; height: 2px; background: var(--sand-deep); border-radius: 2px; }
+    .eyebrow::before { content: ""; width: 26px; height: 2px; background: var(--blush); border-radius: 2px; }
 
     /* ============ NAVBAR ============ */
     .nav {
@@ -83,7 +84,7 @@
       height: var(--nav-h);
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 14px 0 18px;
-      background: rgba(251, 247, 236, .82);
+      background: rgba(250, 244, 234, .82);
       backdrop-filter: saturate(140%) blur(12px);
       -webkit-backdrop-filter: saturate(140%) blur(12px);
       border: 1px solid var(--line-strong);
@@ -96,7 +97,7 @@
       width: 34px; height: 34px; flex: 0 0 auto; border-radius: 50%;
       background: var(--sand); color: var(--maroon);
       display: grid; place-items: center; font-size: 17px; font-weight: 900;
-      box-shadow: inset 0 0 0 2px rgba(77,24,42,.28);
+      box-shadow: inset 0 0 0 2px rgba(89,22,44,.28);
     }
     .nav__brand b { font-size: 1.02rem; letter-spacing: -.02em; white-space: nowrap; }
     .nav__brand small { display: block; font-family: var(--font-body); font-weight: 600; font-size: .64rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
@@ -106,7 +107,7 @@
       text-decoration: none; color: var(--ink-soft); font-weight: 600; font-size: .92rem;
       padding: 9px 13px; border-radius: 999px; transition: color .2s ease, background .2s ease;
     }
-    .nav__links a:hover { color: var(--maroon); background: rgba(77,24,42,.07); }
+    .nav__links a:hover { color: var(--maroon); background: rgba(89,22,44,.07); }
     .nav__cta {
       text-decoration: none; font-weight: 700; font-size: .9rem; color: var(--cream-2) !important;
       background: var(--maroon); padding: 9px 18px !important; border-radius: 999px !important;
@@ -128,31 +129,31 @@
     .nav.is-open .nav__toggle span::before { transform: rotate(45deg); }
     .nav.is-open .nav__toggle span::after  { transform: rotate(-45deg); }
 
-    /* ============ HERO ============ */
-    .hero { position: relative; padding: calc(var(--nav-h) + 54px) 0 64px; text-align: center; }
-    .hero__inner { display: flex; flex-direction: column; align-items: center; gap: 22px; }
-    .hero__inner > * { max-width: 100%; }
+    /* ============ HERO (horizontal) ============ */
+    .hero { position: relative; padding: calc(var(--nav-h) + 34px) 0 44px; display: flex; align-items: center; }
+    .hero__inner { display: grid; grid-template-columns: 1.02fr 1fr; align-items: center; gap: clamp(28px, 5vw, 64px); width: min(100% - 40px, var(--maxw)); }
+    .hero__media { display: flex; justify-content: center; }
     .hero__logo {
-      width: min(560px, 86vw); height: auto;
-      filter: drop-shadow(0 12px 26px rgba(43,32,24,.18));
-      mix-blend-mode: multiply;
+      width: 100%; max-width: 520px; height: auto;
+      filter: drop-shadow(0 12px 26px rgba(52,15,28,.18));
     }
+    .hero__text { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; text-align: left; min-width: 0; }
     .hero__kicker {
-      font-family: var(--font-body); font-weight: 700; letter-spacing: .26em; text-transform: uppercase;
-      font-size: .82rem; color: var(--terra);
+      font-family: var(--font-body); font-weight: 700; letter-spacing: .24em; text-transform: uppercase;
+      font-size: .8rem; color: var(--terra); margin: 0;
     }
     .hero h1 {
-      font-size: clamp(2.05rem, 7vw, 4.6rem); font-weight: 900; color: var(--maroon);
-      max-width: 16ch; text-wrap: balance;
+      font-size: clamp(2rem, 4.6vw, 3.8rem); font-weight: 900; color: var(--maroon);
+      text-wrap: balance; margin: 0;
     }
     .hero h1 em { font-style: italic; font-weight: 600; color: var(--terra); }
-    .hero__sub { max-width: 56ch; color: var(--ink-soft); font-size: 1.08rem; }
+    .hero__sub { color: var(--ink-soft); font-size: 1.05rem; margin: 0; max-width: 46ch; }
     .hero__date {
-      display: inline-flex; align-items: center; gap: 12px; margin-top: 4px;
-      font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--ink);
+      display: inline-flex; align-items: center; gap: 12px;
+      font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: var(--ink);
     }
-    .hero__date .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
-    .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 8px; }
+    .hero__date .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blush); }
+    .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; }
 
     .btn {
       display: inline-flex; align-items: center; gap: 9px; text-decoration: none; cursor: pointer;
@@ -163,9 +164,7 @@
     .btn--primary { background: var(--maroon); color: var(--cream-2); box-shadow: var(--shadow-md); }
     .btn--primary:hover { background: var(--maroon-700); transform: translateY(-2px); }
     .btn--ghost { background: transparent; color: var(--maroon); border-color: var(--line-strong); }
-    .btn--ghost:hover { border-color: var(--maroon); background: rgba(77,24,42,.05); transform: translateY(-2px); }
-
-    .hero__rule { width: min(420px, 70vw); height: 1px; background: linear-gradient(90deg, transparent, var(--line-strong), transparent); margin: 10px auto 0; }
+    .btn--ghost:hover { border-color: var(--maroon); background: rgba(89,22,44,.05); transform: translateY(-2px); }
 
     /* ============ SECTION SHELL ============ */
     section { padding: 64px 0; scroll-margin-top: calc(var(--nav-h) + 18px); }
@@ -179,7 +178,7 @@
     .tab.is-active { display: block; animation: tabIn .45s cubic-bezier(.22,.61,.36,1); }
     .tab:not(.hero) { padding-top: calc(var(--nav-h) + 54px); min-height: 60vh; }
     @keyframes tabIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
-    .nav__links a.is-active { color: var(--maroon); background: rgba(77,24,42,.10); }
+    .nav__links a.is-active { color: var(--maroon); background: rgba(89,22,44,.10); }
 
     /* ============ SALUDO ============ */
     .saludo {
@@ -200,11 +199,11 @@
     .saludo__sign span { display: block; color: var(--muted); font-size: .92rem; font-weight: 600; letter-spacing: .04em; }
 
     /* ============ COMISIÓN ============ */
-    .commission { display: grid; grid-template-columns: 1.05fr 1fr; gap: 36px; align-items: center; }
     .commission__photo {
-      aspect-ratio: 4 / 3; border-radius: var(--r-lg); border: 1px solid var(--line);
+      aspect-ratio: 16 / 9; max-width: 680px; margin: 0 auto 34px;
+      border-radius: var(--r-lg); border: 1px solid var(--line);
       background:
-        repeating-linear-gradient(45deg, rgba(77,24,42,.05) 0 12px, transparent 12px 24px),
+        repeating-linear-gradient(45deg, rgba(89,22,44,.05) 0 12px, transparent 12px 24px),
         var(--cream-2);
       display: grid; place-items: center; text-align: center; color: var(--muted);
       box-shadow: var(--shadow-sm); padding: 24px;
@@ -212,13 +211,14 @@
     .commission__photo svg { width: 46px; height: 46px; color: var(--line-strong); margin-bottom: 10px; }
     .commission__photo b { display: block; font-family: var(--font-body); font-weight: 700; color: var(--ink-soft); }
     .commission__photo small { font-size: .82rem; }
-    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
-    .chip {
-      font-size: .9rem; font-weight: 600; color: var(--ink-soft);
-      background: var(--paper); border: 1px solid var(--line-strong);
-      padding: 7px 14px; border-radius: 999px;
+    .members {
+      list-style: none; padding: 0; margin: 0 auto; max-width: 880px;
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 10px;
     }
-    .chip--ph { color: var(--muted); border-style: dashed; font-style: italic; }
+    .members li {
+      background: var(--paper); border: 1px solid var(--line-strong); border-radius: 999px;
+      padding: 10px 14px; text-align: center; font-weight: 600; color: var(--ink-soft); font-size: .92rem;
+    }
 
     /* ============ PROGRAMA ============ */
     .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
@@ -248,7 +248,7 @@
     .day__tags { display: flex; flex-wrap: wrap; gap: 7px; margin: 10px 0 12px; }
     .tag {
       font-size: .76rem; font-weight: 700; letter-spacing: .03em; padding: 4px 11px; border-radius: 999px;
-      background: rgba(77,24,42,.09); color: var(--maroon);
+      background: rgba(89,22,44,.09); color: var(--maroon);
     }
     .tag--gold { background: rgba(182,134,44,.18); color: #7d5a13; }
     .tag--blue { background: rgba(60,107,102,.16); color: #2c534e; }
@@ -259,7 +259,7 @@
     .day--ph .day__body p { font-style: italic; color: var(--muted); }
     .ph-badge {
       display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
-      color: var(--terra); background: rgba(148,64,85,.12); padding: 3px 10px; border-radius: 6px;
+      color: var(--terra); background: rgba(176,77,104,.12); padding: 3px 10px; border-radius: 6px;
     }
 
     /* ============ CALENDARIO ============ */
@@ -273,12 +273,13 @@
     }
     .cal__cell:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
     .cal__cell.is-empty { background: transparent; border-color: transparent; }
+    .cal__cell .dow { display: none; }
     .cal__cell .n { font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; color: var(--ink); }
     .cal__cell .ev { font-size: .68rem; line-height: 1.25; font-weight: 600; color: var(--ink-soft); }
     .cal__cell.big { background: linear-gradient(180deg, #fff7e6, var(--paper)); border-color: var(--gold); }
     .cal__cell.big .n { color: var(--gold); }
     .cal__cell.big::after { content: "★"; position: absolute; top: 6px; right: 8px; color: var(--gold); font-size: .8rem; }
-    .cal__cell.ph .ev { color: var(--muted); font-style: italic; }
+    .cal__cell.ph .ev { display: none; }
     .cal__note { margin-top: 16px; font-size: .86rem; color: var(--muted); display: flex; align-items: center; gap: 8px; }
 
     /* ============ COLABORADORES ============ */
@@ -307,6 +308,54 @@
     }
     .sponsor--ph b { font-family: var(--font-body); font-weight: 700; color: var(--ink-soft); font-size: .92rem; text-align: center; }
 
+    /* ============ CARTELES (espacios de publicidad) ============ */
+    .posters { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 920px; margin-inline: auto; }
+    .poster {
+      margin: 0; cursor: pointer; border-radius: var(--r-md); overflow: hidden;
+      border: 1px solid var(--line); background: var(--paper); box-shadow: var(--shadow-sm);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .poster:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .poster:focus-visible { outline: 3px solid var(--maroon); outline-offset: 2px; }
+    .poster--full { grid-column: 1 / -1; }
+    .poster img { width: 100%; height: auto; display: block; }
+    .poster figcaption {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      padding: 12px 16px; font-size: .9rem; color: var(--ink-soft);
+    }
+    .poster .badge {
+      flex: 0 0 auto; font-weight: 700; font-size: .68rem; letter-spacing: .07em; text-transform: uppercase;
+      color: var(--maroon); background: rgba(89,22,44,.09); padding: 4px 10px; border-radius: 999px;
+    }
+    /* Placeholder de cartel (sin imagen aún) */
+    .poster--ph { cursor: default; }
+    .poster--ph .poster__ph {
+      display: grid; place-items: center; text-align: center; gap: 8px; padding: 24px;
+      color: var(--muted); border-bottom: 1px dashed var(--line-strong);
+      background:
+        repeating-linear-gradient(45deg, rgba(204,184,147,.16) 0 14px, transparent 14px 28px),
+        var(--cream-2);
+    }
+    .poster--full .poster__ph { aspect-ratio: 16 / 6; }
+    .poster--half .poster__ph { aspect-ratio: 3 / 4; }
+    .poster--ph .poster__ph svg { width: 40px; height: 40px; color: var(--line-strong); }
+    .poster--ph .poster__ph b { font-family: var(--font-body); font-weight: 700; color: var(--ink-soft); }
+    .poster--ph .poster__ph small { font-size: .8rem; max-width: 30ch; }
+
+    /* ============ LIGHTBOX ============ */
+    .lightbox {
+      position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center;
+      padding: 24px; background: rgba(36,12,18,.92); backdrop-filter: blur(3px);
+    }
+    .lightbox[hidden] { display: none; }
+    .lightbox img { max-width: min(900px, 92vw); max-height: 90vh; width: auto; height: auto; border-radius: 10px; box-shadow: var(--shadow-lg); }
+    .lightbox__close {
+      position: absolute; top: 18px; right: 22px; width: 46px; height: 46px; border: 0; cursor: pointer;
+      border-radius: 50%; background: rgba(255,255,255,.16); color: #fff; font-size: 1.7rem; line-height: 1;
+      display: grid; place-items: center; transition: background .2s ease;
+    }
+    .lightbox__close:hover { background: rgba(255,255,255,.3); }
+
     /* ============ AVISOS ============ */
     .notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
     .note {
@@ -322,6 +371,11 @@
     .footer { background: var(--maroon); color: #f2e4cf; padding: 56px 0 30px; }
     .footer__top { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 36px; }
     .footer h4 { font-family: var(--font-body); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: .76rem; color: var(--sand); margin-bottom: 14px; }
+    .footer__brand-logo {
+      width: 120px; height: auto; margin-bottom: 14px; display: block;
+      /* BLANCO SVG sobre fondo granate → tintado a arena/dorado con CSS filter */
+      filter: brightness(0) saturate(100%) invert(85%) sepia(25%) saturate(400%) hue-rotate(5deg) brightness(1.05);
+    }
     .footer__brand b { font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; color: #fff; display: block; }
     .footer__brand p { color: rgba(242,228,207,.8); font-size: .95rem; max-width: 38ch; margin: 10px 0 0; }
     .footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 9px; }
@@ -346,44 +400,224 @@
 
     /* ============ RESPONSIVE ============ */
     @media (max-width: 900px) {
-      .commission { grid-template-columns: 1fr; }
+      body { font-size: 16px; }
       .footer__top { grid-template-columns: 1fr 1fr; }
       .footer__brand { grid-column: 1 / -1; }
-    }
-    @media (max-width: 900px) {
-      body { font-size: 16px; }
       .nav__links {
         position: fixed; inset: calc(var(--nav-h) + 22px) 12px auto 12px;
         flex-direction: column; align-items: stretch; gap: 4px; padding: 12px;
-        background: rgba(251,247,236,.98); border: 1px solid var(--line-strong);
+        background: rgba(250,244,234,.98); border: 1px solid var(--line-strong);
         border-radius: var(--r-lg); box-shadow: var(--shadow-lg);
         transform: translateY(-12px) scale(.98); opacity: 0; pointer-events: none;
         transform-origin: top; transition: opacity .2s ease, transform .2s ease;
       }
       .nav.is-open .nav__links { transform: none; opacity: 1; pointer-events: auto; }
       .nav__links a { padding: 13px 16px; border-radius: 12px; }
-      .nav__cta { text-align: center; padding: 13px 16px !important; }
       .nav__toggle { display: block; }
       .day { grid-template-columns: 70px 1fr; gap: 14px; padding: 18px; }
       .day__date { padding-right: 12px; }
       .day__num { font-size: 2.1rem; }
-      .cal__cell { min-height: 76px; padding: 6px; }
-      .cal__cell .ev { font-size: .6rem; }
+      .cal__cell { min-height: 70px; padding: 6px; }
+      .cal__cell .ev { font-size: .62rem; }
+    }
+    @media (max-width: 760px) {
+      .hero { padding: calc(var(--nav-h) + 20px) 0 30px; }
+      .hero__inner { grid-template-columns: 1fr; gap: 22px; }
+      .hero__media { order: -1; }
+      .hero__logo { max-width: 280px; }
+      .hero__text { align-items: center; text-align: center; }
+      .hero__sub { max-width: 52ch; }
+      .posters { grid-template-columns: 1fr; }
+      .poster--full .poster__ph { aspect-ratio: 4 / 3; }
       .footer__top { grid-template-columns: 1fr; gap: 26px; }
     }
-    @media (max-width: 460px) {
-      .cal__cell .ev { display: none; }
-      .cal__cell { min-height: 52px; align-items: center; justify-content: center; }
+    /* Calendario en móvil: vista de lista/agenda */
+    @media (max-width: 600px) {
+      .cal { padding: 14px; }
+      .cal__grid { display: flex; flex-direction: column; gap: 8px; }
+      .cal__dow { display: none; }
+      .cal__cell.is-empty { display: none; }
+      .cal__cell { flex-direction: row; align-items: center; gap: 12px; min-height: 0; padding: 12px 14px; }
+      .cal__cell .dow { display: block; flex: 0 0 36px; font-family: var(--font-body); font-weight: 700; font-size: .7rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+      .cal__cell .n { flex: 0 0 22px; text-align: center; font-size: 1.2rem; }
+      .cal__cell .ev { display: block; flex: 1; font-size: .92rem; line-height: 1.3; }
+      .cal__cell.ph { background: var(--cream-2); }
+      .cal__cell.ph .ev { display: block; color: var(--muted); font-style: italic; }
+      .cal__cell.big::after { top: 50%; transform: translateY(-50%); right: 14px; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       .reveal { opacity: 1 !important; transform: none !important; transition: none; }
       *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
     }
+
+    /* ============ PORTADA PDF Y NAV IMPRESIÓN (ocultos en pantalla) ============ */
+    .print-cover { display: none; }
+    .print-nav   { display: none; }
+
+    /* ============ PRINT / PDF EXPORT ============ */
+    @media print {
+      * { print-color-adjust: exact !important; -webkit-print-color-adjust: exact !important; }
+      /* Margen superior mayor para dejar espacio a la barra de nav fija */
+      @page { margin: 22mm 14mm 15mm 14mm; size: A4 portrait; }
+
+      body { background: var(--cream) !important; background-image: none !important; font-size: 10.5pt; }
+
+      /* === BARRA DE NAV FIJA (aparece en todas las páginas) === */
+      .print-nav {
+        display: flex !important;
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        background: var(--maroon) !important;
+        padding: 5px 14mm;
+        font-family: var(--font-body);
+        font-size: 7pt;
+        font-weight: 600;
+        gap: 12px;
+        align-items: center;
+        z-index: 1000;
+      }
+      .print-nav .pnav__brand { color: var(--sand) !important; font-size: 7.5pt; font-weight: 800; margin-right: 4px; white-space: nowrap; }
+      .print-nav a { color: rgba(255,255,255,.85) !important; text-decoration: none; white-space: nowrap; }
+      .print-nav .pnav__sep { color: rgba(255,255,255,.28) !important; font-weight: 300; }
+
+      /* === MOSTRAR TODAS LAS PESTAÑAS === */
+      .tab { display: block !important; animation: none !important; }
+      /* Despejar el nav fijo (~16px) al inicio de cada sección */
+      .tab:not(.hero) { padding-top: 30px !important; min-height: auto !important; }
+
+      /* Animaciones apagadas */
+      .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+
+      /* Ocultar elementos interactivos */
+      .nav, .lightbox, .filters, .hero__actions, .nav__toggle { display: none !important; }
+
+      /* Hero */
+      .hero { position: static !important; padding: 22px 0 12px !important; }
+      .hero__logo { max-width: 290px !important; }
+
+      /* === PORTADA + ÍNDICE === */
+      .print-cover {
+        display: flex !important; flex-direction: column; align-items: center; justify-content: center;
+        min-height: 97vh; text-align: center; gap: 18px;
+        padding-top: 20px !important;
+        page-break-after: always !important; break-after: page !important;
+      }
+
+      /* === SALTOS DE PÁGINA entre secciones === */
+      #saludo        { break-before: page; }
+      #comision      { break-before: page; }
+      #programa      { break-before: page; }
+      #calendario    { break-before: page; }
+      #colaboradores { break-before: page; }
+      #avisos        { break-before: page; }
+
+      /* === COMISIÓN: todo en una sola página === */
+      #comision { break-inside: avoid !important; }
+      #comision .section__head { margin-bottom: 16px !important; }
+      #comision .section__head h2 { font-size: 1.9rem !important; }
+      #comision .section__head p { font-size: .88rem !important; margin-top: 6px !important; }
+      /* Ocultar el placeholder de foto (sin imagen real aún) */
+      #comision .commission__photo { display: none !important; }
+      #comision .members {
+        grid-template-columns: repeat(5, 1fr) !important;
+        gap: 6px !important;
+        max-width: 100% !important;
+      }
+      #comision .members li { padding: 6px 8px !important; font-size: .76rem !important; line-height: 1.2 !important; }
+
+      /* === PROGRAMA: dos columnas para aprovechar espacio === */
+      .timeline { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 10px !important; align-items: start !important; }
+      .day--big { grid-column: 1 / -1 !important; }
+      .day { break-inside: avoid; page-break-inside: avoid; padding: 12px 14px !important; gap: 12px !important; }
+      .day--ph { padding: 9px 14px !important; }
+      .day--ph .day__body h3 { font-size: 1rem !important; }
+      .day__date { padding-right: 10px !important; }
+      .day__num { font-size: 2rem !important; }
+      .day__body h3 { font-size: 1.1rem !important; }
+      .day__body p { font-size: .9rem !important; }
+      .tag { font-size: .68rem !important; padding: 3px 8px !important; }
+      .note, .saludo { break-inside: avoid; page-break-inside: avoid; }
+
+      /* === CALENDARIO: lista vertical centrada === */
+      #calendario .cal { max-width: 520px !important; margin-inline: auto !important; break-inside: avoid !important; padding: 12px 16px !important; }
+      #calendario .cal__grid { display: flex !important; flex-direction: column !important; gap: 5px !important; }
+      #calendario .cal__dow { display: none !important; }
+      #calendario .cal__cell.is-empty { display: none !important; }
+      #calendario .cal__cell { flex-direction: row !important; align-items: center !important; gap: 12px !important; min-height: auto !important; padding: 8px 12px !important; }
+      #calendario .cal__cell .dow { display: block !important; flex: 0 0 32px; font-size: .68rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+      #calendario .cal__cell .n { flex: 0 0 26px; text-align: center; font-size: 1.1rem; }
+      #calendario .cal__cell .ev { display: block !important; flex: 1; font-size: .88rem; line-height: 1.3; }
+      #calendario .cal__cell.ph .ev { display: block !important; font-style: italic; color: var(--muted); font-size: .8rem; }
+      #calendario .cal__cell.big::after { top: 50% !important; transform: translateY(-50%) !important; right: 12px !important; }
+
+      /* === COLABORADORES: sin cortes === */
+      #colaboradores .sponsor-tier { break-inside: avoid !important; page-break-inside: avoid !important; }
+      .sponsor { break-inside: avoid; page-break-inside: avoid; padding: 14px !important; min-height: 90px !important; }
+      .sponsor img { max-height: 56px !important; }
+      /* Ocultar sección de carteles (sin imágenes aún) */
+      .posters, #colaboradores > .section__head:last-of-type { display: none !important; }
+      .poster--ph { display: none !important; }
+
+      /* === AVISOS === */
+      .notes { grid-template-columns: 1fr 1fr !important; }
+      .note { break-inside: avoid; }
+
+      /* === FOOTER === */
+      .footer { padding: 18px 0 12px !important; }
+      .footer__top { grid-template-columns: 1fr 1fr !important; gap: 16px !important; }
+      .footer__brand { grid-column: auto !important; }
+      .footer__brand-logo { width: 90px !important; }
+    }
   </style>
 </head>
 
 <body>
+
+  <!-- ==================== PORTADA + ÍNDICE — solo visible en PDF/impresión ==================== -->
+  <div class="print-cover" aria-hidden="true">
+    <img src="assets/img/logo-2026-negro.svg" alt="Logo Fiestas CDR 2026"
+         style="width:200px;height:auto;margin-bottom:8px;" />
+    <h1 style="font-family:var(--font-display);font-size:2.1rem;font-weight:900;color:var(--maroon);margin:0;line-height:1.15;">
+      Fiestas en honor a la<br>
+      <em style="font-style:italic;color:var(--terra);">Virgen de la Asunción</em>
+    </h1>
+    <p style="margin:0;font-size:1.05rem;color:var(--ink-soft);font-family:var(--font-body);">Casas del Río &nbsp;·&nbsp; 1–15 de agosto de 2026</p>
+    <p style="margin:0;font-size:.85rem;color:var(--muted);font-family:var(--font-body);">Comisión de Fiestas · Fiestas de la Virgen de la Asunción</p>
+
+    <div style="margin-top:10px;max-width:400px;width:100%;border:1px solid var(--line-strong);border-radius:16px;padding:22px 30px;background:var(--paper);">
+      <p style="font-family:var(--font-body);font-weight:700;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--terra);margin:0 0 14px;">Índice</p>
+      <ol style="list-style:none;padding:0;margin:0;display:grid;gap:9px;">
+        <li><a href="#inicio"        style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-family:var(--font-body);font-size:.96rem;font-weight:600;"><span style="width:24px;height:24px;border-radius:50%;background:var(--maroon);color:#fff;display:grid;place-items:center;font-size:.72rem;font-weight:700;flex:0 0 auto;">1</span>Inicio — Bienvenida</a></li>
+        <li><a href="#saludo"        style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-family:var(--font-body);font-size:.96rem;font-weight:600;"><span style="width:24px;height:24px;border-radius:50%;background:var(--maroon);color:#fff;display:grid;place-items:center;font-size:.72rem;font-weight:700;flex:0 0 auto;">2</span>Saludo de la Comisión</a></li>
+        <li><a href="#comision"      style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-family:var(--font-body);font-size:.96rem;font-weight:600;"><span style="width:24px;height:24px;border-radius:50%;background:var(--maroon);color:#fff;display:grid;place-items:center;font-size:.72rem;font-weight:700;flex:0 0 auto;">3</span>La Comisión 2026</a></li>
+        <li><a href="#programa"      style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-family:var(--font-body);font-size:.96rem;font-weight:600;"><span style="width:24px;height:24px;border-radius:50%;background:var(--maroon);color:#fff;display:grid;place-items:center;font-size:.72rem;font-weight:700;flex:0 0 auto;">4</span>Programa día a día</a></li>
+        <li><a href="#calendario"    style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-family:var(--font-body);font-size:.96rem;font-weight:600;"><span style="width:24px;height:24px;border-radius:50%;background:var(--maroon);color:#fff;display:grid;place-items:center;font-size:.72rem;font-weight:700;flex:0 0 auto;">5</span>Calendario · Agosto 2026</a></li>
+        <li><a href="#colaboradores" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-family:var(--font-body);font-size:.96rem;font-weight:600;"><span style="width:24px;height:24px;border-radius:50%;background:var(--maroon);color:#fff;display:grid;place-items:center;font-size:.72rem;font-weight:700;flex:0 0 auto;">6</span>Colaboradores</a></li>
+        <li><a href="#avisos"        style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-family:var(--font-body);font-size:.96rem;font-weight:600;"><span style="width:24px;height:24px;border-radius:50%;background:var(--maroon);color:#fff;display:grid;place-items:center;font-size:.72rem;font-weight:700;flex:0 0 auto;">7</span>Avisos</a></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ==================== BARRA NAV PDF (fija en cada página, oculta en pantalla) ==================== -->
+  <nav class="print-nav" aria-hidden="true">
+    <span class="pnav__brand">CDR 2026</span>
+    <span class="pnav__sep">|</span>
+    <a href="#inicio">Inicio</a>
+    <span class="pnav__sep">·</span>
+    <a href="#saludo">Saludo</a>
+    <span class="pnav__sep">·</span>
+    <a href="#comision">Comisión</a>
+    <span class="pnav__sep">·</span>
+    <a href="#programa">Programa</a>
+    <span class="pnav__sep">·</span>
+    <a href="#calendario">Calendario</a>
+    <span class="pnav__sep">·</span>
+    <a href="#colaboradores">Colaboradores</a>
+    <span class="pnav__sep">·</span>
+    <a href="#avisos">Avisos</a>
+  </nav>
+
   <!-- ===================== NAV ===================== -->
   <nav class="nav" id="nav" aria-label="Navegación principal">
     <a class="nav__brand" href="#inicio" data-tab="inicio" aria-label="Inicio — Fiestas Casas del Río 2026">
@@ -406,24 +640,27 @@
 
   <!-- ===================== HERO ===================== -->
   <header class="hero tab is-active" id="inicio" data-tab="inicio" role="tabpanel" aria-label="Inicio">
-    <div class="wrap hero__inner">
-      <p class="hero__kicker reveal">Casas del Río · Agosto 2026</p>
-      <img class="hero__logo reveal" src="assets/img/logo-2026.jpeg"
-           alt="Ilustración de Casas del Río: la noria, la plaza, la iglesia, el río Cabriel y la gente del pueblo" />
-      <h1 class="reveal">Fiestas en honor a la <em>Virgen de la Asunción</em></h1>
-      <p class="hero__sub reveal">Dos semanas en el mejor pueblo del mundo. Verbenas, cenas populares, concursos, sardinas, farolillo y playbacks. Bienvenidos a otro agosto en Casas del Río.</p>
-      <div class="hero__date reveal"><span class="dot"></span> 1 — 15 de agosto de 2026 <span class="dot"></span></div>
-      <div class="hero__actions reveal">
-        <a class="btn btn--primary" href="#programa" data-tab="programa">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-          Ver el programa
-        </a>
-        <a class="btn btn--ghost" href="#calendario" data-tab="calendario">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-          Calendario
-        </a>
+    <div class="hero__inner">
+      <div class="hero__media reveal">
+        <img class="hero__logo" src="assets/img/logo-2026-negro.svg"
+             alt="Ilustración de Casas del Río: la noria, la plaza, la iglesia, el río Cabriel y la gente del pueblo" />
       </div>
-      <div class="hero__rule reveal" aria-hidden="true"></div>
+      <div class="hero__text reveal">
+        <p class="hero__kicker">Casas del Río · Agosto 2026</p>
+        <h1>Fiestas en honor a la <em>Virgen de la Asunción</em></h1>
+        <p class="hero__sub">Dos semanas en el mejor pueblo del mundo. Verbenas, cenas populares, concursos, sardinas, farolillo y playbacks. Bienvenidos a otro agosto en Casas del Río.</p>
+        <div class="hero__date"><span class="dot"></span> 1 — 15 de agosto de 2026 <span class="dot"></span></div>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#programa" data-tab="programa">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            Ver el programa
+          </a>
+          <a class="btn btn--ghost" href="#calendario" data-tab="calendario">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            Calendario
+          </a>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -451,47 +688,45 @@
   <!-- ===================== COMISIÓN ===================== -->
   <section id="comision" class="section--tint tab" data-tab="comision" role="tabpanel" aria-label="La Comisión 2026">
     <div class="wrap">
-      <div class="commission">
-        <div class="commission__photo reveal" role="img" aria-label="Espacio reservado para la foto de la Comisión de Fiestas 2026">
-          <div>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            <b>Foto de la Comisión 2026</b>
-            <small>[ PLACEHOLDER · sustituir por la foto del grupo ]</small>
-          </div>
-        </div>
-        <div class="reveal">
-          <span class="eyebrow">Quiénes lo hacen posible</span>
-          <h2 style="font-size:clamp(1.8rem,4vw,2.6rem); margin-top:10px;">La Comisión 2026</h2>
-          <p style="color:var(--ink-soft); margin-top:12px;">Detrás de cada verbena, cada cena y cada farolillo hay un grupo de rianos y rianas que lo hacen posible. Estas son las 25 personas que forman la comisión de este año.</p>
-          <div class="chips">
-            <span class="chip">Adrián Pradas</span>
-            <span class="chip">Aitana Martínez</span>
-            <span class="chip">Aitana M.</span>
-            <span class="chip">Alex Ponce</span>
-            <span class="chip">Andrea Escriig</span>
-            <span class="chip">Angelines Rodríguez</span>
-            <span class="chip">Belén Quiles</span>
-            <span class="chip">Carla</span>
-            <span class="chip">Carmen Andrés</span>
-            <span class="chip">Cristian</span>
-            <span class="chip">David Bresco</span>
-            <span class="chip">David Cebrián</span>
-            <span class="chip">Hugo Uixera</span>
-            <span class="chip">Isabel Quiles</span>
-            <span class="chip">Juan Gómez</span>
-            <span class="chip">Pablo López</span>
-            <span class="chip">Pau</span>
-            <span class="chip">Paula Haba</span>
-            <span class="chip">Paula Rincón</span>
-            <span class="chip">Paula</span>
-            <span class="chip">Raúl Bru</span>
-            <span class="chip">Natalia</span>
-            <span class="chip">Hanna</span>
-            <span class="chip">Susana</span>
-            <span class="chip">Naya</span>
-          </div>
+      <div class="section__head" style="text-align:center; margin-inline:auto;">
+        <span class="eyebrow">Quiénes lo hacen posible</span>
+        <h2>La Comisión 2026</h2>
+        <p>Detrás de cada verbena, cada cena y cada farolillo hay un grupo de rianos y rianas que lo hacen posible. Estas son las 25 personas que forman la comisión de este año.</p>
+      </div>
+      <div class="commission__photo reveal" role="img" aria-label="Espacio reservado para la foto de la Comisión de Fiestas 2026">
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <b>Foto de la Comisión 2026</b>
+          <small>[ PLACEHOLDER · sustituir por la foto del grupo ]</small>
         </div>
       </div>
+      <ul class="members reveal">
+        <li>Adrián Pradas</li>
+        <li>Aitana M.</li>
+        <li>Aitana Martínez</li>
+        <li>Alex Ponce</li>
+        <li>Andrea Escriig</li>
+        <li>Angelines Rodríguez</li>
+        <li>Belén Quiles</li>
+        <li>Carla</li>
+        <li>Carmen Andrés</li>
+        <li>Cristian</li>
+        <li>David Bresco</li>
+        <li>David Cebrián</li>
+        <li>Hanna</li>
+        <li>Hugo Uixera</li>
+        <li>Isabel Quiles</li>
+        <li>Juan Gómez</li>
+        <li>Natalia</li>
+        <li>Naya</li>
+        <li>Pablo López</li>
+        <li>Pau</li>
+        <li>Paula</li>
+        <li>Paula Haba</li>
+        <li>Paula Rincón</li>
+        <li>Raúl Bru</li>
+        <li>Susana</li>
+      </ul>
     </div>
   </section>
 
@@ -685,25 +920,25 @@
           <div class="cal__cell is-empty"></div>
           <div class="cal__cell is-empty"></div>
           <div class="cal__cell is-empty"></div>
-          <div class="cal__cell"><span class="n">1</span><span class="ev">Discomóvil de apertura</span></div>
-          <div class="cal__cell ph"><span class="n">2</span></div>
+          <div class="cal__cell"><span class="dow">Sáb</span><span class="n">1</span><span class="ev">Discomóvil de apertura</span></div>
+          <div class="cal__cell ph"><span class="dow">Dom</span><span class="n">2</span><span class="ev">Sin acto programado</span></div>
 
           <!-- Semana 2: 3–9 -->
-          <div class="cal__cell ph"><span class="n">3</span></div>
-          <div class="cal__cell"><span class="n">4</span><span class="ev">Pregón · Discomóvil</span></div>
-          <div class="cal__cell"><span class="n">5</span><span class="ev">Cena Popular · Bingo Musical</span></div>
-          <div class="cal__cell ph"><span class="n">6</span></div>
-          <div class="cal__cell"><span class="n">7</span><span class="ev">Fiesta de la Tapa · Discomóvil</span></div>
-          <div class="cal__cell"><span class="n">8</span><span class="ev">Verbena · Enjoy</span></div>
-          <div class="cal__cell"><span class="n">9</span><span class="ev">Concurso Pintura · Horchata</span></div>
+          <div class="cal__cell ph"><span class="dow">Lun</span><span class="n">3</span><span class="ev">Sin acto programado</span></div>
+          <div class="cal__cell"><span class="dow">Mar</span><span class="n">4</span><span class="ev">Pregón · Discomóvil</span></div>
+          <div class="cal__cell"><span class="dow">Mié</span><span class="n">5</span><span class="ev">Cena Popular · Bingo Musical</span></div>
+          <div class="cal__cell ph"><span class="dow">Jue</span><span class="n">6</span><span class="ev">Sin acto programado</span></div>
+          <div class="cal__cell"><span class="dow">Vie</span><span class="n">7</span><span class="ev">Fiesta de la Tapa · Discomóvil</span></div>
+          <div class="cal__cell"><span class="dow">Sáb</span><span class="n">8</span><span class="ev">Verbena · Enjoy</span></div>
+          <div class="cal__cell"><span class="dow">Dom</span><span class="n">9</span><span class="ev">Concurso Pintura · Horchata</span></div>
 
           <!-- Semana 3: 10–15 -->
-          <div class="cal__cell ph"><span class="n">10</span></div>
-          <div class="cal__cell"><span class="n">11</span><span class="ev">2ª Cena Popular · Tributo OVG</span></div>
-          <div class="cal__cell"><span class="n">12</span><span class="ev">Tortillas y Gachas</span></div>
-          <div class="cal__cell"><span class="n">13</span><span class="ev">Discomóvil de Disfraces</span></div>
-          <div class="cal__cell"><span class="n">14</span><span class="ev">Sardinas · Verbena · Farolillo</span></div>
-          <div class="cal__cell big"><span class="n">15</span><span class="ev">Día Grande · Procesión · Playbacks</span></div>
+          <div class="cal__cell ph"><span class="dow">Lun</span><span class="n">10</span><span class="ev">Sin acto programado</span></div>
+          <div class="cal__cell"><span class="dow">Mar</span><span class="n">11</span><span class="ev">2ª Cena Popular · Tributo OVG</span></div>
+          <div class="cal__cell"><span class="dow">Mié</span><span class="n">12</span><span class="ev">Tortillas y Gachas</span></div>
+          <div class="cal__cell"><span class="dow">Jue</span><span class="n">13</span><span class="ev">Discomóvil de Disfraces</span></div>
+          <div class="cal__cell"><span class="dow">Vie</span><span class="n">14</span><span class="ev">Sardinas · Verbena · Farolillo</span></div>
+          <div class="cal__cell big"><span class="dow">Sáb</span><span class="n">15</span><span class="ev">Día Grande · Procesión · Playbacks</span></div>
           <div class="cal__cell is-empty"></div>
         </div>
         <p class="cal__note">
@@ -720,22 +955,11 @@
       <div class="section__head" style="text-align:center; margin-inline:auto;">
         <span class="eyebrow">Gracias a todos</span>
         <h2>Colaboradores</h2>
-        <p>Estas fiestas son posibles gracias a quienes las organizan, patrocinan y colaboran año tras año.</p>
+        <p>Estas fiestas son posibles gracias a quienes colaboran con nosotros año tras año.</p>
       </div>
 
       <div class="sponsor-tier reveal">
-        <h3>Organiza</h3>
-        <div class="sponsor-grid sponsor-grid--lg" style="grid-template-columns:minmax(220px,300px); max-width:300px;">
-          <div class="sponsor">
-            <img src="assets/img/sponsors/comision.png" alt="Logo de la Comisión de Fiestas de Casas del Río" />
-            <span>Comisión de Fiestas de Casas del Río</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="sponsor-tier reveal">
-        <h3>Patrocinan</h3>
-        <div class="sponsor-grid sponsor-grid--lg">
+        <div class="sponsor-grid sponsor-grid--md">
           <div class="sponsor">
             <img src="assets/img/sponsors/moragete.png" alt="Logo de Campus Moragete, complejo educativo" />
             <span>Campus Moragete</span>
@@ -748,17 +972,6 @@
             <img src="assets/img/sponsors/hogres.png" alt="Logo de Grupo Hogres Inmobiliarias" />
             <span>Grupo Hogres Inmobiliarias</span>
           </div>
-          <!-- PLACEHOLDER: añadir aquí nuevos patrocinadores de 2026 -->
-          <div class="sponsor sponsor--ph">
-            <div class="ph-logo" aria-hidden="true">+</div>
-            <b>Tu logo aquí</b>
-          </div>
-        </div>
-      </div>
-
-      <div class="sponsor-tier reveal">
-        <h3>Colaboran</h3>
-        <div class="sponsor-grid sponsor-grid--md">
           <div class="sponsor">
             <img src="assets/img/sponsors/ayto-requena.png" alt="Escudo del Ayuntamiento de Requena" />
             <span>Concejalía de Cultura · M.I. Ayuntamiento de Requena</span>
@@ -779,8 +992,54 @@
           </div>
         </div>
       </div>
+
+      <!-- ===== CARTELES / ESPACIOS DE PUBLICIDAD ===== -->
+      <div class="section__head" style="text-align:center; margin:60px auto 28px;">
+        <span class="eyebrow">Espacios de publicidad</span>
+        <h2>Carteles de nuestros patrocinadores</h2>
+        <p>Quienes contratan un espacio publicitario muestran aquí su cartel completo, como antes en las páginas del llibret. Toca un cartel para verlo a tamaño grande.</p>
+      </div>
+
+      <div class="posters reveal">
+        <!-- CARTEL A PÁGINA COMPLETA (espacio destacado, ancho completo) -->
+        <!-- Cuando tengáis la imagen, sustituir el bloque .poster--ph por:
+             <figure class="poster poster--full"><img src="assets/img/sponsors/posters/NOMBRE.jpg" alt="Cartel de NOMBRE"><figcaption><span>NOMBRE</span><span class="badge">Página completa</span></figcaption></figure> -->
+        <figure class="poster poster--full poster--ph">
+          <div class="poster__ph">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/><circle cx="8.5" cy="8.5" r="1.5"/></svg>
+            <b>Cartel a página completa</b>
+            <small>[ PLACEHOLDER · espacio destacado, ancho completo. Subir la imagen del patrocinador. ]</small>
+          </div>
+          <figcaption><span>Patrocinador destacado</span><span class="badge">Página completa</span></figcaption>
+        </figure>
+
+        <!-- CARTEL A MEDIA PÁGINA (media anchura) -->
+        <figure class="poster poster--half poster--ph">
+          <div class="poster__ph">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/><circle cx="8.5" cy="8.5" r="1.5"/></svg>
+            <b>Cartel a media página</b>
+            <small>[ PLACEHOLDER · media anchura. ]</small>
+          </div>
+          <figcaption><span>Patrocinador</span><span class="badge">Media página</span></figcaption>
+        </figure>
+
+        <figure class="poster poster--half poster--ph">
+          <div class="poster__ph">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/><circle cx="8.5" cy="8.5" r="1.5"/></svg>
+            <b>Cartel a media página</b>
+            <small>[ PLACEHOLDER · media anchura. ]</small>
+          </div>
+          <figcaption><span>Patrocinador</span><span class="badge">Media página</span></figcaption>
+        </figure>
+      </div>
     </div>
   </section>
+
+  <!-- ===================== LIGHTBOX (carteles a tamaño grande) ===================== -->
+  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Cartel a tamaño grande">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Cerrar">×</button>
+    <img id="lightboxImg" src="" alt="" />
+  </div>
 
   <!-- ===================== AVISOS ===================== -->
   <section id="avisos" class="section--tint tab" data-tab="avisos" role="tabpanel" aria-label="Avisos">
@@ -819,7 +1078,7 @@
     <div class="wrap">
       <div class="footer__top">
         <div class="footer__brand">
-          <h4>Fiestas Casas del Río</h4>
+          <img class="footer__brand-logo" src="assets/img/logo-2026-blanco.svg" alt="Logo Fiestas Casas del Río 2026" />
           <b>Que viva Casas del Río</b>
           <p>Fiestas en honor a la Virgen de la Asunción · Agosto 2026. Organiza la Comisión de Fiestas de Casas del Río.</p>
         </div>
@@ -901,6 +1160,26 @@
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
       toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
     });
+
+    // ---- Lightbox para los carteles ----
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    document.querySelectorAll('.poster:not(.poster--ph)').forEach(fig => {
+      const img = fig.querySelector('img');
+      if (!img) return;
+      fig.setAttribute('tabindex', '0');
+      fig.setAttribute('role', 'button');
+      const open = () => { lightboxImg.src = img.src; lightboxImg.alt = img.alt; lightbox.hidden = false; document.body.style.overflow = 'hidden'; };
+      fig.addEventListener('click', open);
+      fig.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+    });
+
+    function closeLightbox() { lightbox.hidden = true; lightboxImg.src = ''; document.body.style.overflow = ''; }
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && !lightbox.hidden) closeLightbox(); });
 
   </script>
 </body>
