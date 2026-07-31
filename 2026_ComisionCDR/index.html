@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cuadrante CDR 2026</title>
+<style>
+:root{--v:#2e7d32;--vl:#4caf50;--bg:#f5f5f0;--w:#fff;--tx:#1a1a1a;--gr:#757575}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh}
+header{background:var(--v);color:#fff;padding:13px 16px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:99;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+header h1{font-size:1rem;font-weight:700;line-height:1.2}
+header p{font-size:.72rem;opacity:.85}
+.bk{background:none;border:none;color:#fff;font-size:1.2rem;cursor:pointer;padding:4px 8px;border-radius:6px;flex-shrink:0}
+.bk:hover{background:rgba(255,255,255,.2)}
+/* LANDING */
+#ld{padding:18px 14px}
+.lt{text-align:center;margin-bottom:18px}
+.lt h2{font-size:1.3rem;color:var(--v)}
+.lt p{color:var(--gr);margin-top:4px;font-size:.88rem}
+.sb{max-width:400px;margin:0 auto 14px;display:flex;align-items:center;background:var(--w);border:1.5px solid #ddd;border-radius:10px;padding:7px 11px;gap:7px}
+.sb input{border:none;outline:none;font-size:.93rem;width:100%;background:none}
+.pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(115px,1fr));gap:9px;max-width:540px;margin:0 auto}
+.pc{background:var(--w);border:2px solid #e0e0e0;border-radius:11px;padding:11px 7px;text-align:center;cursor:pointer;transition:all .15s;font-size:.86rem;font-weight:600}
+.pc:hover{border-color:var(--vl);background:#f1f8e9;transform:translateY(-2px);box-shadow:0 4px 10px rgba(46,125,50,.15)}
+.pc.hid{display:none}
+.pc .ic{font-size:1.3rem;display:block;margin-bottom:3px}
+.pc .cn{font-size:.7rem;color:#888;font-weight:400}
+.ld-btns{display:flex;justify-content:center;gap:10px;padding:18px 0 6px;flex-wrap:wrap}
+.ld-btns button{background:none;border:1.5px solid #bbb;border-radius:8px;padding:7px 16px;color:var(--gr);cursor:pointer;font-size:.8rem}
+.ld-btns button:hover{border-color:var(--v);color:var(--v)}
+/* VISTA PERSONA */
+#vp{display:none}
+.ph{padding:14px 16px;background:linear-gradient(135deg,#e8f5e9,#f9fbe7);border-bottom:1px solid #c8e6c9}
+.ph-n{font-size:1.4rem;font-weight:700;color:var(--v)}
+.ph-s{display:flex;gap:14px;margin-top:5px;font-size:.76rem;color:var(--gr);flex-wrap:wrap}
+/* FILTROS */
+.fi{padding:9px 13px;display:flex;gap:6px;overflow-x:auto;background:var(--w);border-bottom:1px solid #e0e0e0;scrollbar-width:none}
+.fi::-webkit-scrollbar{display:none}
+.fb{white-space:nowrap;padding:5px 12px;border-radius:20px;border:1.5px solid #e0e0e0;background:var(--w);font-size:.76rem;cursor:pointer;font-weight:500;transition:all .15s}
+.fb.on{background:var(--v);border-color:var(--v);color:#fff}
+/* TIMELINE */
+.tl{padding:13px}
+.dg{margin-bottom:16px}
+.dh{margin-bottom:8px}
+.df{display:inline-block;background:var(--v);color:#fff;border-radius:7px;padding:3px 10px;font-size:.78rem;font-weight:700}
+.tc{background:var(--w);border-radius:9px;padding:10px 12px;margin-bottom:6px;border-left:4px solid #ccc;box-shadow:0 1px 3px rgba(0,0,0,.07)}
+.th2{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.tn{font-weight:600;font-size:.9rem;line-height:1.3}
+.hr{font-size:.73rem;color:var(--gr);white-space:nowrap;background:#f0f0f0;padding:2px 7px;border-radius:10px;flex-shrink:0}
+.tm{display:flex;align-items:center;gap:6px;margin-top:5px;flex-wrap:wrap}
+.bd{font-size:.66rem;font-weight:700;padding:2px 7px;border-radius:10px;text-transform:uppercase;letter-spacing:.3px}
+.co{font-size:.73rem;color:var(--gr)}
+.emp{text-align:center;padding:36px 20px;color:var(--gr)}
+.emp span{font-size:2rem;display:block;margin-bottom:10px}
+/* Colores tipo */
+.tBARRA{border-left-color:#1565c0}.tBARRA .bd{background:#e3f2fd;color:#1565c0}
+.tCENA{border-left-color:#6a1b9a}.tCENA .bd{background:#f3e5f5;color:#6a1b9a}
+.tNEVERA{border-left-color:#00838f}.tNEVERA .bd{background:#e0f7fa;color:#00838f}
+.tBONOS{border-left-color:#e65100}.tBONOS .bd{background:#fff3e0;color:#e65100}
+.tBINGO{border-left-color:#f57f17}.tBINGO .bd{background:#fffde7;color:#f57f17}
+.tNINOS{border-left-color:#388e3c}.tNINOS .bd{background:#e8f5e9;color:#2e7d32}
+.tSARDINAS{border-left-color:#4e342e}.tSARDINAS .bd{background:#efebe9;color:#4e342e}
+.tPAN{border-left-color:#e65100}.tPAN .bd{background:#fff8e1;color:#bf360c}
+.tVERBENA{border-left-color:#c62828}.tVERBENA .bd{background:#ffebee;color:#c62828}
+.tOTRA{border-left-color:#616161}.tOTRA .bd{background:#f5f5f5;color:#424242}
+.tdefault{border-left-color:#9e9e9e}.tdefault .bd{background:#f5f5f5;color:#616161}
+/* MATRICES */
+#vm{display:none}
+.mat-tabs{display:flex;gap:6px;padding:10px 14px;overflow-x:auto;background:var(--w);border-bottom:1px solid #e0e0e0;scrollbar-width:none}
+.mat-tabs::-webkit-scrollbar{display:none}
+.mt-btn{white-space:nowrap;padding:6px 14px;border-radius:20px;border:1.5px solid #e0e0e0;background:var(--w);font-size:.78rem;cursor:pointer;font-weight:600;transition:all .15s}
+.mt-btn.on{background:var(--v);border-color:var(--v);color:#fff}
+.mat-content{padding:14px}
+.mat-section{display:none}
+.mat-section.show{display:block}
+.mat-title{font-size:1rem;font-weight:700;color:var(--v);margin-bottom:4px}
+.mat-sub{font-size:.78rem;color:var(--gr);margin-bottom:12px}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,.1)}
+table{border-collapse:collapse;width:100%;min-width:340px;background:var(--w);font-size:.78rem}
+th{background:var(--v);color:#fff;padding:7px 10px;text-align:center;white-space:nowrap;font-weight:700;font-size:.74rem}
+th.name-col{text-align:left;min-width:90px}
+td{padding:6px 10px;text-align:center;border-bottom:1px solid #f0f0f0;white-space:nowrap}
+td.name-col{text-align:left;font-weight:600;font-size:.8rem;padding-left:12px}
+tr.grupo-row td{background:#f9fbe7;font-style:italic;font-size:.72rem;color:#555;text-align:left;padding:4px 12px;border-bottom:1px solid #e8f5e9}
+tr:hover td{background:#f9fbe7}
+tr.grupo-row:hover td{background:#f9fbe7}
+.cell-t1{background:#e3f2fd;color:#0d47a1;font-weight:700;border-radius:4px}
+.cell-t2{background:#e8eaf6;color:#283593;font-weight:700;border-radius:4px}
+.cell-t3{background:#f3e5f5;color:#4a148c;font-weight:700;border-radius:4px}
+.cell-t4{background:#fff8e1;color:#e65100;font-weight:700;border-radius:4px}
+.cell-t5{background:#fce4ec;color:#880e4f;font-weight:700;border-radius:4px}
+.cell-t6,.cell-tlim{background:#ffebee;color:#b71c1c;font-weight:700;border-radius:4px}
+.cell-ok{background:#e8f5e9;color:#1b5e20;font-weight:700;border-radius:4px}
+.cell-prev{background:#e0f7fa;color:#006064;font-weight:600;border-radius:4px;font-size:.7rem}
+.cell-sub{background:#fff8e1;color:#e65100;font-weight:700;border-radius:4px}
+.cell-no{color:#bbb}
+.cell-hora{background:#e8eaf6;color:#283593;font-weight:700;border-radius:4px;font-size:.72rem}
+@media(max-width:370px){.pg{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+
+<header>
+  <button class="bk" id="bkBtn" style="display:none" onclick="goBack()">&#8592;</button>
+  <div>
+    <h1 id="hT">&#127881; Cuadrante CDR 2026</h1>
+    <p id="hS">Agosto 2026 &middot; Casas del R&iacute;o</p>
+  </div>
+</header>
+
+<div id="ld">
+  <div class="lt">
+    <h2>&#128075; &iquest;Qui&eacute;n eres?</h2>
+    <p>Toca tu nombre para ver tus tareas</p>
+  </div>
+  <div class="sb">
+    <span>&#128269;</span>
+    <input type="text" id="bq" placeholder="Buscar nombre..." oninput="fChips(this.value)">
+  </div>
+  <div class="pg" id="pg"></div>
+  <div class="ld-btns">
+    <button onclick="verAll()">&#128203; Todas las tareas</button>
+    <button onclick="verMatrices()">&#128200; Ver matrices</button>
+  </div>
+</div>
+
+<!-- VISTA PERSONA -->
+<div id="vp">
+  <div class="ph">
+    <div class="ph-n" id="pN"></div>
+    <div class="ph-s" id="pS"></div>
+  </div>
+  <div class="fi" id="fi"></div>
+  <div class="tl" id="tl"></div>
+</div>
+
+<!-- VISTA MATRICES -->
+<div id="vm">
+  <div class="mat-tabs">
+    <button class="mt-btn on" onclick="showMat('barra',this)">&#127866; Barra</button>
+    <button class="mt-btn"    onclick="showMat('neveras',this)">&#129398; Neveras</button>
+    <button class="mt-btn"    onclick="showMat('cenas',this)">&#127869; Cenas</button>
+    <button class="mt-btn"    onclick="showMat('pan',this)">&#127838; Pan Bendito</button>
+  </div>
+  <div class="mat-content" id="matContent"></div>
+</div>
+
+<script>
+﻿const DATOS = {
+"Adri": [{"f":"Previo","s":"PREVIO · Logística","t":"Comprar bebida","p":"Isa, Adri, Raúl","h":"—","tp":"OTRA"},{"f":"31-jul","s":"31-jul · Neveras","t":"Llenar neveras para Sáb 1","p":"Isa, Aitana, Carmen, Adri","h":"Tarde","tp":"NEVERA"},{"f":"1-ago","s":"SÁB 1 · Barra discomóvil","t":"Barra T5","p":"Adri, David Ceb, Paula Rincón, Natalia","h":"~05:00","tp":"BARRA"},{"f":"4-ago","s":"MAR 4 · Barra discomóvil","t":"Barra T3","p":"Adri, David Ceb, Carmen","h":"~03:00","tp":"BARRA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Utensilios a la vista (platos, cubiertos, picaeta…)","p":"David C., Adri, Angelines","h":"Antes cena","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Café previo","p":"Isa, Angelines, Adri","h":"Antes cena","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Montar","p":"Isa, Natalia, Paula Rincón, Aitana, Cifuentes, Hugo, Carmen, David Bresó, Adri, David Ceb, Angelines","h":"Tarde","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Cafés","p":"Natalia, Paula Rincón, Aitana, Cifuentes, Hugo, David Ceb, Adri","h":"Post-cena","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Bingo Musical — venta cartones","p":"Juan, Alex, Pablo, Natalia, Paula Rincón, Cifuentes, Hugo, Adri, David Ceb","h":"~23:00","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Utensilios a la vista (platos, cubiertos, picaeta…)","p":"Adri, David Ceb, Isa, Angelines","h":"Antes cena","tp":"CENA"},{"f":"13-ago","s":"JUE 13 · Barra disfraces","t":"Barra T6 🧹 (limpieza)","p":"Aitana, Adri, Paula Haba, Hugo","h":"Cierre","tp":"BARRA"},{"f":"14-ago","s":"VIE 14 · Verbena","t":"Barra T4","p":"Adri, David Ceb, Natalia, Carla","h":"~04:00","tp":"BARRA"},{"f":"15-ago","s":"SÁB 15 · Pan Bendito","t":"Pan Bendito — Turno B (reparten pan)","p":"Belén, Natalia, Paula Rincón, Adri, David Ceb, Carla, Hanna, Paula Bauset, Naya, Susana","h":"11:00","tp":"PAN"},{"f":"15-ago","s":"SÁB 15 · Playbacks","t":"Montar escenario","p":"Adri, David Ceb, Raúl, Cristian","h":"","tp":"OTRA"}],
+"Aitana": [{"f":"31-jul","s":"31-jul · Neveras","t":"Llenar neveras para Sáb 1","p":"Isa, Aitana, Carmen, Adri","h":"Tarde","tp":"NEVERA"},{"f":"1-ago","s":"SÁB 1 · Barra discomóvil","t":"Barra T3","p":"Aitana, Cifuentes, Hugo","h":"~03:00","tp":"BARRA"},{"f":"2-ago","s":"dom 2 · BONOS","t":"Venta bonos puerta a puerta","p":"Hugo, Aitana, Natalia, Paula Rincón","h":"—","tp":"BONOS"},{"f":"4-ago","s":"MAR 4 · Pregón","t":"Sonido","p":"Aitana","h":"19:30","tp":"OTRA"},{"f":"4-ago","s":"MAR 4 · Barra discomóvil","t":"Barra T4","p":"Aitana, Cifuentes, Hugo","h":"~04:00","tp":"BARRA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Montar","p":"Isa, Natalia, Paula Rincón, Aitana, Cifuentes, Hugo, Carmen, David Bresó, Adri, David Ceb, Angelines","h":"Tarde","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Bingo Musical — organizar","p":"Aitana · Cifuentes · Isa · David C.","h":"~23:00","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Cafés","p":"Natalia, Paula Rincón, Aitana, Cifuentes, Hugo, David Ceb, Adri","h":"Post-cena","tp":"CENA"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Montar (Grupo A)","p":"Carmen, Aitana, Hugo, Hanna, Paula Bauset, Naya, Juan, Alex, Pablo","h":"~17:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Camareros","p":"Isa, Belén, Aitana, Cifuentes, Hugo, Pau","h":"19:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Barra discomóvil","t":"Barra T1","p":"Angelines, Carmen, Aitana, Hugo","h":"00:00","tp":"BARRA"},{"f":"8-ago","s":"SÁB 8 · Verbena","t":"Barra T2","p":"Aitana, Cifuentes, Hugo, David Ceb","h":"~02:00","tp":"BARRA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Papas","p":"Isa, Belén, Natalia, Paula Rincón, Raúl, Cristian, David Ceb, Aitana, Hugo, Carla","h":"21:00","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Desmontar","p":"Isa · Belén · Natalia · Paula Rincón · David Ceb · Cristian · Raúl · Carla · Hugo · Aitana ","h":"Post-cena","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Barra 21-22","p":"Natalia, Paula Rincón, Aitana, Paula Haba","h":"","tp":"CENA"},{"f":"12-ago","s":"MIÉ 12 · Tortillas","t":"Música","p":"Aitana","h":"21:00","tp":"OTRA"},{"f":"13-ago","s":"JUE 13 · Disfraces","t":"Concurso de disfraces + premios (~01:00)","p":"Natalia, Paula Rincón, Aitana, Cifuentes","h":"~01:00","tp":"OTRA"},{"f":"13-ago","s":"JUE 13 · Barra disfraces","t":"Barra T6 🧹 (limpieza)","p":"Aitana, Adri, Paula Haba, Hugo","h":"Cierre","tp":"BARRA"},{"f":"14-ago","s":"VIE 14 · Verbena","t":"Preparar bocadillos de atún","p":"Isa, Belén, Paula Rincón, Natalia, Aitana, Paula Haba","h":"","tp":"VERBENA"},{"f":"14-ago","s":"VIE 14 · Verbena","t":"Barra T5","p":"Aitana, Hugo, Paula Haba","h":"~05:00","tp":"BARRA"},{"f":"15-ago","s":"SÁB 15 · Pan Bendito","t":"Pan Bendito — Turno A (parten pan)","p":"Andrea, Pau, Raúl, Cristian, Juan, Alex, Pablo, Aitana, Hugo, Paula Haba, Angelines","h":"11:00","tp":"PAN"},{"f":"15-ago","s":"SÁB 15 · Playbacks","t":"Montar sonido","p":"Aitana, Hugo","h":"21:00","tp":"OTRA"},{"f":"15-ago","s":"SÁB 15 · Playbacks","t":"Recoger sillas","p":"Aitana, Paula Haba, Paula Rincón, Natalia","h":"Final","tp":"OTRA"}],
+"Alex": [{"f":"1-ago","s":"SÁB 1 · Barra discomóvil","t":"Barra T2","p":"Juan, Alex, Pablo","h":"~02:00","tp":"BARRA"},{"f":"2-ago","s":"dom 2 · BINGO","t":"Preparar bingo","p":"Alex, Pablo, Juan","h":"—","tp":"BINGO"},{"f":"4-ago","s":"MAR 4 · Barra discomóvil","t":"Barra T1","p":"Angelines, Juan, Alex, Pablo","h":"00:00","tp":"BARRA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Papas","p":"Juan, Alex, Pablo, Hanna, Paula Bauset, Naya, Susana","h":"21:00","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Desmontar","p":"Juan, Alex, Pablo, Carmen, David Bresó","h":"Post-cena","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Bingo Musical — venta cartones","p":"Juan, Alex, Pablo, Natalia, Paula Rincón, Cifuentes, Hugo, Adri, David Ceb","h":"~23:00","tp":"CENA"},{"f":"6-ago","s":"6-ago · Neveras","t":"Llenar neveras para Vie 7","p":"Juan, Alex, Pablo, Susana","h":"Mañana","tp":"NEVERA"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Montar (Grupo A)","p":"Carmen, Aitana, Hugo, Hanna, Paula Bauset, Naya, Juan, Alex, Pablo","h":"~17:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Barra tapa","p":"Juan, Alex, Pablo","h":"19:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Barra discomóvil","t":"Barra T3","p":"Juan, Alex, Pablo","h":"~03:00","tp":"BARRA"},{"f":"8-ago","s":"SÁB 8 · Verbena","t":"Barra T4","p":"Juan, Alex, Pablo, Pau","h":"~04:00","tp":"BARRA"},{"f":"9-ago","s":"DOM 9 · Comida","t":"Desmontar y recoger casa del cura","p":"Alex, Pablo, Juan, Hugo","h":"14:00","tp":"OTRA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Montar","p":"Juan, Alex, Pablo, Carmen, David Bresó, Angelines, Paula Haba","h":"Tarde","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Cafés","p":"Juan · Alex · Pablo · Paula Haba · Hanna · Paula B. · Naya · Susana · Carmen · David Bresó","h":"Post-cena","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Barra 23-00","p":"Juan, Alex, Pablo, Raúl","h":"","tp":"CENA"},{"f":"14-ago","s":"VIE 14 · Verbena","t":"Barra T6 🧹 (limpieza)","p":"Juan, Alex, Pablo","h":"Cierre","tp":"BARRA"},{"f":"15-ago","s":"SÁB 15 · Pan Bendito","t":"Pan Bendito — Turno A (parten pan)","p":"Andrea, Pau, Raúl, Cristian, Juan, Alex, Pablo, Aitana, Hugo, Paula Haba, Angelines","h":"11:00","tp":"PAN"},{"f":"15-ago","s":"SÁB 15 · Playbacks","t":"Montar sillas","p":"Alex, Pablo, Juan, Naya, Hanna, Carla, Susana","h":"","tp":"OTRA"}],
+"Andrea": [{"f":"1-ago","s":"SÁB 1 · Barra discomóvil","t":"Barra T1","p":"Isa, Belén, Andrea","h":"00:00","tp":"BARRA"},{"f":"4-ago","s":"MAR 4 · Barra discomóvil","t":"Barra T2","p":"Andrea, Pau, Cristian","h":"~02:00","tp":"BARRA"},{"f":"13-ago","s":"JUE 13 · Barra disfraces","t":"Barra T2","p":"Isa, Belén, Andrea","h":"~02:00","tp":"BARRA"},{"f":"13-ago","s":"13-ago · Neveras","t":"Llenar neveras para Sáb 14","p":"Andrea, Pau, Raúl, Cristian","h":"Mañana","tp":"NEVERA"},{"f":"14-ago","s":"VIE 14 · Verbena","t":"Barra T3","p":"Isa, Belén, Andrea, Paula Rincón","h":"~03:00","tp":"BARRA"},{"f":"15-ago","s":"SÁB 15 · Pan Bendito","t":"Pan Bendito — Turno A (parten pan)","p":"Andrea, Pau, Raúl, Cristian, Juan, Alex, Pablo, Aitana, Hugo, Paula Haba, Angelines","h":"11:00","tp":"PAN"}],
+"Angelines": [{"f":"Previo","s":"PREVIO · Logística","t":"Compra meriendas + tapas","p":"Angelines","h":"—","tp":"OTRA"},{"f":"4-ago","s":"MAR 4 · Pregón","t":"Presentar al pregonero/a","p":"Angelines","h":"20:30","tp":"OTRA"},{"f":"4-ago","s":"MAR 4 · Pregón","t":"Venta camisetas y bonos (pregón - KQ)","p":"Isa, Angelines, David Ceb, Cifuentes","h":"19:30","tp":"OTRA"},{"f":"4-ago","s":"MAR 4 · Barra discomóvil","t":"Barra T1","p":"Angelines, Juan, Alex, Pablo","h":"00:00","tp":"BARRA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Utensilios a la vista (platos, cubiertos, picaeta…)","p":"David C., Adri, Angelines","h":"Antes cena","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Distribución de sitios","p":"Angelines","h":"20:30","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Café previo","p":"Isa, Angelines, Adri","h":"Antes cena","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Montar","p":"Isa, Natalia, Paula Rincón, Aitana, Cifuentes, Hugo, Carmen, David Bresó, Adri, David Ceb, Angelines","h":"Tarde","tp":"CENA"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Compra + cocina","p":"Angelines","h":"Mañana","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Barra discomóvil","t":"Barra T1","p":"Angelines, Carmen, Aitana, Hugo","h":"00:00","tp":"BARRA"},{"f":"8-ago","s":"SÁB 8 · Verbena","t":"Barra T1","p":"Angelines, Natalia, Paula Rincón, Raúl, Cristian","h":"00:30","tp":"BARRA"},{"f":"10-ago","s":"LUN 10 · Niños","t":"Hablar con Pepe para cargar las mesas y material","p":"Angelines","h":"","tp":"NIÑOS"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Distribución de sitios","p":"Angelines","h":"20:30","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Café previo","p":"Isa, Angelines, Belén","h":"Antes cena","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Utensilios a la vista (platos, cubiertos, picaeta…)","p":"Adri, David Ceb, Isa, Angelines","h":"Antes cena","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Montar","p":"Juan, Alex, Pablo, Carmen, David Bresó, Angelines, Paula Haba","h":"Tarde","tp":"CENA"},{"f":"13-ago","s":"JUE 13 · Barra disfraces","t":"Barra T1","p":"Angelines, Paula Rincón, Natalia, Carla, Susana","h":"00:00","tp":"BARRA"},{"f":"14-ago","s":"VIE 14 · Verbena","t":"Barra T1","p":"Angelines, Hanna, Paula Bauset, Naya, Susana","h":"00:30","tp":"BARRA"},{"f":"15-ago","s":"SÁB 15 · Pan Bendito","t":"Pan Bendito — Turno A (parten pan)","p":"Andrea, Pau, Raúl, Cristian, Juan, Alex, Pablo, Aitana, Hugo, Paula Haba, Angelines","h":"11:00","tp":"PAN"},{"f":"15-ago","s":"SÁB 15 · Pan Bendito","t":"Subasta","p":"Angelines","h":"11:00","tp":"PAN"}],
+"Belén": [{"f":"1-ago","s":"SÁB 1 · Barra discomóvil","t":"Barra T1","p":"Isa, Belén, Andrea","h":"00:00","tp":"BARRA"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Caja tickets","p":"Isa, Belén","h":"19:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Camareros","p":"Isa, Belén, Aitana, Cifuentes, Hugo, Pau","h":"19:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Desmontar (Grupo B)","p":"Natalia, Paula Rincón, Belén, Pau, Raúl, Cristian, Cifuentes, David Ceb, Susana, Isa","h":"~23:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Barra discomóvil","t":"Barra T4","p":"Natalia, Paula Rincón, Belén, Isa","h":"~04:00","tp":"BARRA"},{"f":"7-ago","s":"7-ago · Neveras","t":"Llenar neveras para Sáb 8","p":"Belén, Natalia, Paula Rincón, David Ceb","h":"Tarde","tp":"NEVERA"},{"f":"8-ago","s":"SÁB 8 · Verbena","t":"Barra T5 🧹 (limpieza)","p":"Isa, Belén, Carla, Susana","h":"Cierre","tp":"BARRA"},{"f":"10-ago","s":"lun 10 · Vino","t":"Meter vino a neveras","p":"Belén","h":"Tarde","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Café previo","p":"Isa, Angelines, Belén","h":"Antes cena","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Papas","p":"Isa, Belén, Natalia, Paula Rincón, Raúl, Cristian, David Ceb, Aitana, Hugo, Carla","h":"21:00","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Desmontar","p":"Isa, Belén, Natalia, Paula Rincón, David Ceb, Cristian, Raúl, Carla","h":"Post-cena","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Barra 22-23","p":"Isa, Belén, Cristian, David Ceb","h":"","tp":"CENA"},{"f":"13-ago","s":"JUE 13 · Barra disfraces","t":"Barra T2","p":"Isa, Belén, Andrea","h":"~02:00","tp":"BARRA"},{"f":"14-ago","s":"VIE 14 · Verbena","t":"Preparar bocadillos de atún","p":"Isa, Belén, Paula Rincón, Natalia, Aitana, Paula Haba","h":"","tp":"VERBENA"},{"f":"14-ago","s":"VIE 14 · Verbena","t":"Barra T3","p":"Isa, Belén, Andrea, Paula Rincón","h":"~03:00","tp":"BARRA"},{"f":"15-ago","s":"SÁB 15 · Pan Bendito","t":"Pan Bendito — Turno B (reparten pan)","p":"Belén, Natalia, Paula Rincón, Adri, David Ceb, Carla, Hanna, Paula Bauset, Naya, Susana","h":"11:00","tp":"PAN"},{"f":"15-ago","s":"SÁB 15 · Playbacks","t":"Preparar premios","p":"Hugo, Belén, Paula Bauset","h":"Tarde","tp":"OTRA"}],
+"Carla": [{"f":"6-ago","s":"6-ago · Niños","t":"Taller de manualidades + merienda","p":"Hanna, Paula Bauset, Naya, Carla, Susana","h":"Tarde","tp":"NIÑOS"},{"f":"8-ago","s":"SÁB 8 · Mesas pinturas","t":"Montar mesas concurso pintura (tras sardinas)","p":"David Ceb, Cristian, Carmen, Carla","h":"Post-sardinas","tp":"OTRA"},{"f":"8-ago","s":"SÁB 8 · Verbena","t":"Barra T5 🧹 (limpieza)","p":"Isa, Belén, Carla, Susana","h":"Cierre","tp":"BARRA"},{"f":"10-ago","s":"LUN 10 · Niños","t":"Ayuda carga material","p":"Carla, David Bresó, Paula Rincón, Natalia","h":"","tp":"NIÑOS"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Recibir grupo (Tributo OVG)","p":"Isa, Belén, Natalia, Paula Rincón, David Ceb, Hugo, Carla","h":"Post-cena","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Papas","p":"Isa, Belén, Natalia, Paula Rincón, Raúl, Cristian, David Ceb, Aitana, Hugo, Carla","h":"21:00","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Desmontar","p":"Isa, Belén, Natalia, Paula Rincón, David Ceb, Cristian, Raúl, Carla","h":"Post-cena","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Barra 00-01 (otro turno)","p":"Hugo, Carmen, Carla, David Bresó","h":"~23:00","tp":"CENA"},{"f":"13-ago","s":"JUE 13 · NIÑOS","t":"Disfraces niños","p":"Hanna, Paula Bauset, Naya, Carla, Susana","h":"Tarde","tp":"NIÑOS"},{"f":"13-ago","s":"JUE 13 · Barra disfraces","t":"Barra T1","p":"Angelines, Paula Rincón, Natalia, Carla, Susana","h":"00:00","tp":"BARRA"},{"f":"14-ago","s":"VIE 14 · Verbena","t":"Barra T4","p":"Adri, David Ceb, Natalia, Carla","h":"~04:00","tp":"BARRA"},{"f":"15-ago","s":"SÁB 15 · Pan Bendito","t":"Pan Bendito — Turno B (reparten pan)","p":"Belén, Natalia, Paula Rincón, Adri, David Ceb, Carla, Hanna, Paula Bauset, Naya, Susana","h":"11:00","tp":"PAN"},{"f":"15-ago","s":"SÁB 15 · Playbacks","t":"Montar sillas","p":"Alex, Pablo, Juan, Naya, Hanna, Carla, Susana","h":"","tp":"OTRA"}],
+"Carmen": [{"f":"31-jul","s":"31-jul · Neveras","t":"Llenar neveras para Sáb 1","p":"Isa, Aitana, Carmen, Adri","h":"Tarde","tp":"NEVERA"},{"f":"1-ago","s":"SÁB 1 · BONOS","t":"Venta bonos puerta a puerta","p":"Carmen, Paula Rincón, Natalia","h":"—","tp":"BONOS"},{"f":"1-ago","s":"SÁB 1 · Barra discomóvil","t":"Barra T6 🧹 (limpieza)","p":"Carmen, Hanna, Paula Bauset, Naya","h":"Cierre","tp":"BARRA"},{"f":"4-ago","s":"MAR 4 · Barra discomóvil","t":"Barra T3","p":"Adri, David Ceb, Carmen","h":"~03:00","tp":"BARRA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Cafés","p":"Cristian · Natalia · Paula Rincón · Aitana · Cifuentes · Hugo · Carmen · David Bresó · David Ceb · Adri ","h":"Post-cena","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Barra","p":"TODOS disponibles","h":"21:00-00:00","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Bingo Musical — venta cartones","p":"Juan · Alex · Pablo · Natalia · Paula Rincón · Cifuentes · Hugo · Adri · David Ceb · Carmen · David B. · Hanna · Naya · Paula B. · Susana","h":"~23:00","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Desmontar","p":"Juan, Alex, Pablo, Carmen, David Bresó","h":"Post-cena","tp":"CENA"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Montar (Grupo A)","p":"Carmen, Aitana, Hugo, Hanna, Paula Bauset, Naya, Juan, Alex, Pablo","h":"~17:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Barra discomóvil","t":"Barra T1","p":"Angelines, Carmen, Aitana, Hugo","h":"00:00","tp":"BARRA"},{"f":"8-ago","s":"SÁB 8 · Mesas pinturas","t":"Montar mesas concurso pintura (tras sardinas)","p":"David Ceb, Cristian, Carmen, Carla","h":"Post-sardinas","tp":"OTRA"},{"f":"8-ago","s":"SÁB 8 · Verbena","t":"Barra T3","p":"Carmen, Hanna, Paula Bauset, Naya","h":"~03:00","tp":"BARRA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Montar","p":"Juan, Alex, Pablo, Carmen, David Bresó, Angelines, Paula Haba","h":"Tarde","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Cafés","p":"Paula Haba, Hanna, Paula Bauset, Naya, Susana, Carmen, David Bresó","h":"Post-cena","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Barra 00-01 (otro turno)","p":"Hugo, Carmen, Carla, David Bresó","h":"~23:00","tp":"CENA"},{"f":"12-ago","s":"12-ago · Neveras","t":"Llenar neveras para Vie 13","p":"Paula Haba, Hugo, David Ceb, Carmen","h":"Mañana","tp":"NEVERA"},{"f":"12-ago","s":"MIÉ 12 · Tortillas","t":"Sacar harina y platos","p":"David Bresó, Carmen","h":"21:00","tp":"OTRA"}],
+"Cifuentes": [{"f":"1-ago","s":"SÁB 1 · Barra discomóvil","t":"Barra T3","p":"Aitana, Cifuentes, Hugo","h":"~03:00","tp":"BARRA"},{"f":"3-ago","s":"lun 3 · Neveras","t":"Llenar neveras para Mar 4","p":"Cifuentes, Hanna, Paula Bauset, Naya","h":"Tarde","tp":"NEVERA"},{"f":"4-ago","s":"MAR 4 · Pregón","t":"Venta camisetas y bonos (pregón - KQ)","p":"Isa, Angelines, David Ceb, Cifuentes","h":"19:30","tp":"OTRA"},{"f":"4-ago","s":"MAR 4 · Barra discomóvil","t":"Barra T4","p":"Aitana, Cifuentes, Hugo","h":"~04:00","tp":"BARRA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Montar","p":"Isa, Natalia, Paula Rincón, Aitana, Cifuentes, Hugo, Carmen, David Bresó, Adri, David Ceb, Angelines","h":"Tarde","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Cafés","p":"Natalia, Paula Rincón, Aitana, Cifuentes, Hugo, David Ceb, Adri","h":"Post-cena","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Bingo Musical — venta cartones","p":"Juan, Alex, Pablo, Natalia, Paula Rincón, Cifuentes, Hugo, Adri, David Ceb","h":"~23:00","tp":"CENA"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Camareros","p":"Isa, Belén, Aitana, Cifuentes, Hugo, Pau","h":"19:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Desmontar (Grupo B)","p":"Natalia, Paula Rincón, Belén, Pau, Raúl, Cristian, Cifuentes, David Ceb, Susana, Isa","h":"~23:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Barra discomóvil","t":"Barra T6 🧹 (limpieza)","p":"Cifuentes, David Ceb, Susana","h":"Cierre","tp":"BARRA"},{"f":"8-ago","s":"SÁB 8 · Verbena","t":"Barra T2","p":"Aitana, Cifuentes, Hugo, David Ceb","h":"~02:00","tp":"BARRA"},{"f":"9-ago","s":"DOM 9 · Horchata","t":"Preparar y servir","p":"Natalia, Paula Rincón, Raúl, Cifuentes","h":"19:30","tp":"OTRA"},{"f":"13-ago","s":"JUE 13 · Disfraces","t":"Concurso de disfraces + premios (~01:00)","p":"Natalia, Paula Rincón, Aitana, Cifuentes","h":"~01:00","tp":"OTRA"}],
+"Cristian": [{"f":"1-ago","s":"SÁB 1 · Barra discomóvil","t":"Barra T4","p":"Pau, Raúl, Cristian","h":"~04:00","tp":"BARRA"},{"f":"4-ago","s":"MAR 4 · Barra discomóvil","t":"Barra T2","p":"Andrea, Pau, Cristian","h":"~02:00","tp":"BARRA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Montar","p":"Isa · Cristian · Natalia · Paula Rincón · Aitana · Cifuentes · Hugo  · Adri · David Ceb · Angelines","h":"Tarde","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Cafés","p":"Cristian · Natalia · Paula Rincón · Aitana · Cifuentes · Hugo · Carmen · David Bresó · David Ceb · Adri ","h":"Post-cena","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Barra","p":"TODOS disponibles","h":"21:00-00:00","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Bingo Musical — contar caja","p":"Cristian","h":"Post-bingo","tp":"CENA"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Caja bebidas","p":"Raúl, Cristian, David Ceb","h":"19:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Desmontar (Grupo B)","p":"Natalia, Paula Rincón, Belén, Pau, Raúl, Cristian, Cifuentes, David Ceb, Susana, Isa","h":"~23:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Barra discomóvil","t":"Barra T5","p":"Pau, Raúl, Cristian","h":"~05:00","tp":"BARRA"},{"f":"8-ago","s":"SÁB 8 · Mesas pinturas","t":"Montar mesas concurso pintura (tras sardinas)","p":"David Ceb, Cristian, Carmen, Carla","h":"Post-sardinas","tp":"OTRA"},{"f":"8-ago","s":"SÁB 8 · Verbena","t":"Barra T1","p":"Angelines, Natalia, Paula Rincón, Raúl, Cristian","h":"00:30","tp":"BARRA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Papas","p":"Isa, Belén, Natalia, Paula Rincón, Raúl, Cristian, David Ceb, Aitana, Hugo, Carla","h":"21:00","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Desmontar","p":"Isa, Belén, Natalia, Paula Rincón, David Ceb, Cristian, Raúl, Carla","h":"Post-cena","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Barra 22-23","p":"Isa, Belén, Cristian, David Ceb","h":"","tp":"CENA"},{"f":"13-ago","s":"JUE 13 · Barra disfraces","t":"Barra T3","p":"Pau, Raúl, Cristian","h":"~03:00","tp":"BARRA"},{"f":"13-ago","s":"13-ago · Neveras","t":"Llenar neveras para Sáb 14","p":"Andrea, Pau, Raúl, Cristian","h":"Mañana","tp":"NEVERA"},{"f":"14-ago","s":"VIE 14 · Verbena","t":"Barra T2","p":"Pau, Raúl, Cristian","h":"~02:00","tp":"BARRA"},{"f":"15-ago","s":"SÁB 15 · Pan Bendito","t":"Pan Bendito — Turno A (parten pan)","p":"Andrea, Pau, Raúl, Cristian, Juan, Alex, Pablo, Aitana, Hugo, Paula Haba, Angelines","h":"11:00","tp":"PAN"},{"f":"15-ago","s":"SÁB 15 · Playbacks","t":"Montar escenario","p":"Adri, David Ceb, Raúl, Cristian","h":"","tp":"OTRA"}],
+"David Bresó": [{"f":"4-ago","s":"MAR 4 · Barra discomóvil","t":"Barra T6 🧹 (limpieza)","p":"David Bresó, Natalia, Paula Rincón","h":"Cierre","tp":"BARRA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Cafés","p":"Cristian · Natalia · Paula Rincón · Aitana · Cifuentes · Hugo · Carmen · David Bresó · David Ceb · Adri ","h":"Tarde","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Barra","p":"TODOS disponibles","h":"21:00-00:00","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Bingo Musical — venta cartones","p":"Juan · Alex · Pablo · Natalia · Paula Rincón · Cifuentes · Hugo · Adri · David Ceb · Carmen · David B. · Hanna · Naya · Paula B. · Susana","h":"~23:00","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Desmontar","p":"Juan, Alex, Pablo, Carmen, David Bresó","h":"Post-cena","tp":"CENA"},{"f":"10-ago","s":"LUN 10 · Niños","t":"Ayuda carga material","p":"Carla, David Bresó, Paula Rincón, Natalia","h":"","tp":"NIÑOS"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Montar","p":"Juan, Alex, Pablo, Carmen, David Bresó, Angelines, Paula Haba","h":"Tarde","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Cafés","p":"Paula Haba, Hanna, Paula Bauset, Naya, Susana, Carmen, David Bresó","h":"Post-cena","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Barra 00-01 (otro turno)","p":"Hugo, Carmen, Carla, David Bresó","h":"~23:00","tp":"CENA"},{"f":"12-ago","s":"MIÉ 12 · Tortillas","t":"Sacar harina y platos","p":"David Bresó, Carmen","h":"21:00","tp":"OTRA"},{"f":"13-ago","s":"JUE 13 · Barra disfraces","t":"Barra T5","p":"David Bresó, Hugo, Susana","h":"~05:00","tp":"BARRA"}],
+"David Ceb": [{"f":"Previo","s":"PREVIO · Logística","t":"Compra leche y carbón","p":"Raúl, David Ceb","h":"—","tp":"OTRA"},{"f":"1-ago","s":"SÁB 1 · Barra discomóvil","t":"Barra T5","p":"Adri, David Ceb, Paula Rincón, Natalia","h":"~05:00","tp":"BARRA"},{"f":"4-ago","s":"MAR 4 · Pregón","t":"Venta camisetas y bonos (pregón - KQ)","p":"Isa, Angelines, David Ceb, Cifuentes","h":"19:30","tp":"OTRA"},{"f":"4-ago","s":"MAR 4 · Barra discomóvil","t":"Barra T3","p":"Adri, David Ceb, Carmen","h":"~03:00","tp":"BARRA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Utensilios a la vista (platos, cubiertos, picaeta…)","p":"David C., Adri, Angelines","h":"Antes cena","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Montar","p":"Isa, Natalia, Paula Rincón, Aitana, Cifuentes, Hugo, Carmen, David Bresó, Adri, David Ceb, Angelines","h":"Tarde","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Cafés","p":"Natalia, Paula Rincón, Aitana, Cifuentes, Hugo, David Ceb, Adri","h":"Post-cena","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Bingo Musical — organizar","p":"Aitana · Cifuentes · Isa · David C.","h":"~23:00","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Bingo Musical — venta cartones","p":"Juan, Alex, Pablo, Natalia, Paula Rincón, Cifuentes, Hugo, Adri, David Ceb","h":"~23:00","tp":"CENA"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Caja bebidas","p":"Raúl, Cristian, David Ceb","h":"19:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Desmontar (Grupo B)","p":"Natalia, Paula Rincón, Belén, Pau, Raúl, Cristian, Cifuentes, David Ceb, Susana, Isa","h":"~23:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Barra discomóvil","t":"Barra T6 🧹 (limpieza)","p":"Cifuentes, David Ceb, Susana","h":"Cierre","tp":"BARRA"},{"f":"7-ago","s":"7-ago · Neveras","t":"Llenar neveras para Sáb 8","p":"Belén, Natalia, Paula Rincón, David Ceb","h":"Tarde","tp":"NEVERA"},{"f":"8-ago","s":"SÁB 8 · Mesas pinturas","t":"Montar mesas concurso pintura (tras sardinas)","p":"David Ceb, Cristian, Carmen, Carla","h":"Post-sardinas","tp":"OTRA"},{"f":"8-ago","s":"SÁB 8 · Verbena","t":"Barra T2","p":"Aitana, Cifuentes, Hugo, David Ceb","h":"~02:00","tp":"BARRA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Utensilios a la vista (platos, cubiertos, picaeta…)","p":"Adri, David Ceb, Isa, Angelines","h":"Antes cena","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Recibir grupo (Tributo OVG)","p":"Isa, Belén, Natalia, Paula Rincón, David Ceb, Hugo, Carla","h":"Post-cena","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Papas","p":"Isa, Belén, Natalia, Paula Rincón, Raúl, Cristian, David Ceb, Aitana, Hugo, Carla","h":"21:00","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Desmontar","p":"Isa, Belén, Natalia, Paula Rincón, David Ceb, Cristian, Raúl, Carla","h":"Post-cena","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Barra 22-23","p":"Isa, Belén, Cristian, David Ceb","h":"","tp":"CENA"},{"f":"12-ago","s":"12-ago · Neveras","t":"Llenar neveras para Vie 13","p":"Paula Haba, Hugo, David Ceb, Carmen","h":"Mañana","tp":"NEVERA"},{"f":"14-ago","s":"VIE 14 · Verbena","t":"Barra T4","p":"Adri, David Ceb, Natalia, Carla","h":"~04:00","tp":"BARRA"},{"f":"15-ago","s":"SÁB 15 · Pan Bendito","t":"Pan Bendito — Turno B (reparten pan)","p":"Belén, Natalia, Paula Rincón, Adri, David Ceb, Carla, Hanna, Paula Bauset, Naya, Susana","h":"11:00","tp":"PAN"},{"f":"15-ago","s":"SÁB 15 · Playbacks","t":"Montar escenario","p":"Adri, David Ceb, Raúl, Cristian","h":"","tp":"OTRA"}],
+"Hanna": [{"f":"1-ago","s":"SÁB 1 · BONOS","t":"Venta bonos puerta a puerta otro lado","p":"Hanna, Paula Bauset, Naya","h":"—","tp":"BONOS"},{"f":"1-ago","s":"SÁB 1 · Barra discomóvil","t":"Barra T6 🧹 (limpieza)","p":"Carmen, Hanna, Paula Bauset, Naya","h":"Cierre","tp":"BARRA"},{"f":"3-ago","s":"lun 3 · Neveras","t":"Llenar neveras para Mar 4","p":"Cifuentes, Hanna, Paula Bauset, Naya","h":"Tarde","tp":"NEVERA"},{"f":"4-ago","s":"MAR 4 · Barra discomóvil","t":"Barra T5","p":"Hanna, Paula Bauset, Naya","h":"~05:00","tp":"BARRA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Papas","p":"Juan, Alex, Pablo, Hanna, Paula Bauset, Naya, Susana","h":"21:00","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Desmontar","p":"Juan · Alex · Pablo · Carmen · David Bresó · Hanna · Paula B. · Naya · Susana","h":"","tp":""},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Barra","p":"TODOS disponibles","h":"","tp":""},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Bingo Musical — venta cartones","p":"Juan · Alex · Pablo · Natalia · Paula Rincón · Cifuentes · Hugo · Adri · David Ceb · Carmen · David B. · Hanna · Naya · Paula B. · Susana","h":"~23:00","tp":"CENA"},{"f":"6-ago","s":"6-ago · Niños","t":"Taller de manualidades + merienda","p":"Hanna, Paula Bauset, Naya, Carla, Susana","h":"Tarde","tp":"NIÑOS"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Montar (Grupo A)","p":"Carmen, Aitana, Hugo, Hanna, Paula Bauset, Naya, Juan, Alex, Pablo","h":"~17:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Mesa de tapas","p":"Hanna, Paula Bauset, Naya, Susana, Paula Rincón","h":"19:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Barra discomóvil","t":"Barra T2","p":"Hanna, Paula Bauset, Naya","h":"~02:00","tp":"BARRA"},{"f":"8-ago","s":"SÁB 8 · Verbena","t":"Barra T3","p":"Carmen, Hanna, Paula Bauset, Naya","h":"~03:00","tp":"BARRA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Montar","p":"Juan · Alex · Pablo · Paula H. · Carmen · David Bresó · Angelines · Hanna · Paula B. · Naya · Susana","h":"Tarde","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Cafés","p":"Paula Haba, Hanna, Paula Bauset, Naya, Susana, Carmen, David Bresó","h":"Post-cena","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Barra 00-01","p":"Hanna, Paula Bauset, Naya, Susana","h":"~23:00","tp":"CENA"},{"f":"13-ago","s":"JUE 13 · NIÑOS","t":"Disfraces niños","p":"Hanna, Paula Bauset, Naya, Carla, Susana","h":"Tarde","tp":"NIÑOS"},{"f":"13-ago","s":"JUE 13 · Barra disfraces","t":"Barra T4","p":"Paula Bauset, Naya, Hanna","h":"~04:00","tp":"BARRA"},{"f":"14-ago","s":"VIE 14 · Verbena","t":"Barra T1","p":"Angelines, Hanna, Paula Bauset, Naya, Susana","h":"00:30","tp":"BARRA"},{"f":"15-ago","s":"SÁB 15 · Pan Bendito","t":"Pan Bendito — Turno B (reparten pan)","p":"Belén, Natalia, Paula Rincón, Adri, David Ceb, Carla, Hanna, Paula Bauset, Naya, Susana","h":"11:00","tp":"PAN"},{"f":"15-ago","s":"SÁB 15 · Playbacks","t":"Montar sillas","p":"Alex, Pablo, Juan, Naya, Hanna, Carla, Susana","h":"","tp":"OTRA"}],
+"Hugo": [{"f":"Previo","s":"PREVIO · Logística","t":"Preparar y colgar carteles inscripciones: torneos y playbacks (salvo fútbol)","p":"Hugo","h":"—","tp":"OTRA"},{"f":"1-ago","s":"SÁB 1 · Barra discomóvil","t":"Barra T3","p":"Aitana, Cifuentes, Hugo","h":"~03:00","tp":"BARRA"},{"f":"2-ago","s":"dom 2 · BONOS","t":"Venta bonos puerta a puerta","p":"Hugo, Aitana, Natalia, Paula Rincón","h":"—","tp":"BONOS"},{"f":"4-ago","s":"MAR 4 · Barra discomóvil","t":"Barra T4","p":"Aitana, Cifuentes, Hugo","h":"~04:00","tp":"BARRA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Montar","p":"Isa, Natalia, Paula Rincón, Aitana, Cifuentes, Hugo, Carmen, David Bresó, Adri, David Ceb, Angelines","h":"Tarde","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Cafés","p":"Natalia, Paula Rincón, Aitana, Cifuentes, Hugo, David Ceb, Adri","h":"Post-cena","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Bingo Musical — venta cartones","p":"Juan, Alex, Pablo, Natalia, Paula Rincón, Cifuentes, Hugo, Adri, David Ceb","h":"~23:00","tp":"CENA"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Montar (Grupo A)","p":"Carmen, Aitana, Hugo, Hanna, Paula Bauset, Naya, Juan, Alex, Pablo","h":"~17:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Camareros","p":"Isa, Belén, Aitana, Cifuentes, Hugo, Pau","h":"19:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Barra discomóvil","t":"Barra T1","p":"Angelines, Carmen, Aitana, Hugo","h":"00:00","tp":"BARRA"},{"f":"8-ago","s":"SÁB 8 · Verbena","t":"Barra T2","p":"Aitana, Cifuentes, Hugo, David Ceb","h":"~02:00","tp":"BARRA"},{"f":"9-ago","s":"DOM 9 · Comida","t":"Desmontar y recoger casa del cura","p":"Alex, Pablo, Juan, Hugo","h":"14:00","tp":"OTRA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Recibir grupo (Tributo OVG)","p":"Isa, Belén, Natalia, Paula Rincón, David Ceb, Hugo, Carla","h":"Post-cena","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Papas","p":"Isa, Belén, Natalia, Paula Rincón, Raúl, Cristian, David Ceb, Aitana, Hugo, Carla","h":"21:00","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Desmontar","p":"Isa · Belén · Natalia · Paula Rincón · David Ceb · Cristian · Raúl · Carla · Hugo · Aitana ","h":"Post-cena","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Barra 00-01","p":"Hugo, Carmen, Carla, David Bresó","h":"~23:00","tp":"CENA"},{"f":"12-ago","s":"12-ago · Neveras","t":"Llenar neveras para Vie 13","p":"Paula Haba, Hugo, David Ceb, Carmen","h":"Mañana","tp":"NEVERA"},{"f":"13-ago","s":"JUE 13 · Barra disfraces","t":"Barra T5","p":"David Bresó, Hugo, Susana","h":"~05:00","tp":"BARRA"},{"f":"13-ago","s":"JUE 13 · Barra disfraces","t":"Barra T6 🧹 (limpieza)","p":"Aitana, Adri, Paula Haba, Hugo","h":"Cierre","tp":"BARRA"},{"f":"14-ago","s":"VIE 14 · Verbena","t":"Barra T5","p":"Aitana, Hugo, Paula Haba","h":"~05:00","tp":"BARRA"},{"f":"15-ago","s":"SÁB 15 · Pan Bendito","t":"Pan Bendito — Turno A (parten pan)","p":"Andrea, Pau, Raúl, Cristian, Juan, Alex, Pablo, Aitana, Hugo, Paula Haba, Angelines","h":"11:00","tp":"PAN"},{"f":"15-ago","s":"SÁB 15 · Playbacks","t":"Montar sonido","p":"Aitana, Hugo","h":"21:00","tp":"OTRA"},{"f":"15-ago","s":"SÁB 15 · Playbacks","t":"Preparar premios","p":"Hugo, Belén, Paula Bauset","h":"Tarde","tp":"OTRA"}],
+"Isa": [{"f":"Previo","s":"PREVIO · Logística","t":"Encargar hielos","p":"Isa","h":"—","tp":"OTRA"},{"f":"Previo","s":"PREVIO · Logística","t":"Comprar bebida","p":"Isa, Adri, Raúl","h":"—","tp":"OTRA"},{"f":"Previo","s":"PREVIO · Logística","t":"Encargar vino BIB rosado (Coviñas)","p":"Isa","h":"—","tp":"OTRA"},{"f":"31-jul","s":"31-jul · Neveras","t":"Llenar neveras para Sáb 1","p":"Isa, Aitana, Carmen, Adri","h":"Tarde","tp":"NEVERA"},{"f":"1-ago","s":"SÁB 1 · Barra discomóvil","t":"Barra T1","p":"Isa, Belén, Andrea","h":"00:00","tp":"BARRA"},{"f":"4-ago","s":"MAR 4 · Pregón","t":"Venta camisetas y bonos (pregón - KQ)","p":"Isa, Angelines, David Ceb, Cifuentes","h":"19:30","tp":"OTRA"},{"f":"4-ago","s":"MAR 4 · Vino","t":"Meter vino a neveras","p":"Isa","h":"Tarde","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Café previo","p":"Isa, Angelines, Adri","h":"Antes cena","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Montar","p":"Isa, Natalia, Paula Rincón, Aitana, Cifuentes, Hugo, Carmen, David Bresó, Adri, David Ceb, Angelines","h":"Tarde","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Bingo Musical — organizar","p":"Aitana · Cifuentes · Isa · David C.","h":"~23:00","tp":"CENA"},{"f":"6-ago","s":"6-ago · Sardinas","t":"Meter vino a neveras","p":"Isa","h":"Tarde","tp":"SARDINAS"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Caja tickets","p":"Isa, Belén","h":"19:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Camareros","p":"Isa, Belén, Aitana, Cifuentes, Hugo, Pau","h":"19:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Desmontar (Grupo B)","p":"Natalia, Paula Rincón, Belén, Pau, Raúl, Cristian, Cifuentes, David Ceb, Susana, Isa","h":"~23:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Barra discomóvil","t":"Barra T4","p":"Natalia, Paula Rincón, Belén, Isa","h":"~04:00","tp":"BARRA"},{"f":"8-ago","s":"SÁB 8 · Verbena","t":"Barra T5 🧹 (limpieza)","p":"Isa, Belén, Carla, Susana","h":"Cierre","tp":"BARRA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Café previo","p":"Isa, Angelines, Belén","h":"Antes cena","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Utensilios a la vista (platos, cubiertos, picaeta…)","p":"Adri, David Ceb, Isa, Angelines","h":"Antes cena","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Recibir grupo (Tributo OVG)","p":"Isa, Belén, Natalia, Paula Rincón, David Ceb, Hugo, Carla","h":"Post-cena","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Papas","p":"Isa, Belén, Natalia, Paula Rincón, Raúl, Cristian, David Ceb, Aitana, Hugo, Carla","h":"21:00","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Desmontar","p":"Isa, Belén, Natalia, Paula Rincón, David Ceb, Cristian, Raúl, Carla","h":"Post-cena","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Barra 22-23","p":"Isa, Belén, Cristian, David Ceb","h":"","tp":"CENA"},{"f":"13-ago","s":"JUE 13 · Barra disfraces","t":"Barra T2","p":"Isa, Belén, Andrea","h":"~02:00","tp":"BARRA"},{"f":"14-ago","s":"VIE 14 · Verbena","t":"Preparar bocadillos de atún","p":"Isa, Belén, Paula Rincón, Natalia, Aitana, Paula Haba","h":"","tp":"VERBENA"},{"f":"14-ago","s":"VIE 14 · Verbena","t":"Barra T3","p":"Isa, Belén, Andrea, Paula Rincón","h":"~03:00","tp":"BARRA"}],
+"Juan": [{"f":"1-ago","s":"SÁB 1 · Barra discomóvil","t":"Barra T2","p":"Juan, Alex, Pablo","h":"~02:00","tp":"BARRA"},{"f":"2-ago","s":"dom 2 · BINGO","t":"Preparar bingo","p":"Alex, Pablo, Juan","h":"—","tp":"BINGO"},{"f":"4-ago","s":"MAR 4 · Barra discomóvil","t":"Barra T1","p":"Angelines, Juan, Alex, Pablo","h":"00:00","tp":"BARRA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Papas","p":"Juan, Alex, Pablo, Hanna, Paula Bauset, Naya, Susana","h":"21:00","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Desmontar","p":"Juan, Alex, Pablo, Carmen, David Bresó","h":"Post-cena","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Bingo Musical — venta cartones","p":"Juan, Alex, Pablo, Natalia, Paula Rincón, Cifuentes, Hugo, Adri, David Ceb","h":"~23:00","tp":"CENA"},{"f":"6-ago","s":"6-ago · Neveras","t":"Llenar neveras para Vie 7","p":"Juan, Alex, Pablo, Susana","h":"Mañana","tp":"NEVERA"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Montar (Grupo A)","p":"Carmen, Aitana, Hugo, Hanna, Paula Bauset, Naya, Juan, Alex, Pablo","h":"~17:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Barra tapa","p":"Juan, Alex, Pablo","h":"19:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Barra discomóvil","t":"Barra T3","p":"Juan, Alex, Pablo","h":"~03:00","tp":"BARRA"},{"f":"8-ago","s":"SÁB 8 · Verbena","t":"Barra T4","p":"Juan, Alex, Pablo, Pau","h":"~04:00","tp":"BARRA"},{"f":"9-ago","s":"DOM 9 · Comida","t":"Desmontar y recoger casa del cura","p":"Alex, Pablo, Juan, Hugo","h":"14:00","tp":"OTRA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Montar","p":"Juan, Alex, Pablo, Carmen, David Bresó, Angelines, Paula Haba","h":"Tarde","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Cafés","p":"Juan · Alex · Pablo · Paula Haba · Hanna · Paula B. · Naya · Susana · Carmen · David Bresó","h":"Post-cena","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Barra 23-00","p":"Juan, Alex, Pablo, Raúl","h":"","tp":"CENA"},{"f":"14-ago","s":"VIE 14 · Verbena","t":"Barra T6 🧹 (limpieza)","p":"Juan, Alex, Pablo","h":"Cierre","tp":"BARRA"},{"f":"15-ago","s":"SÁB 15 · Pan Bendito","t":"Pan Bendito — Turno A (parten pan)","p":"Andrea, Pau, Raúl, Cristian, Juan, Alex, Pablo, Aitana, Hugo, Paula Haba, Angelines","h":"11:00","tp":"PAN"},{"f":"15-ago","s":"SÁB 15 · Playbacks","t":"Montar sillas","p":"Alex, Pablo, Juan, Naya, Hanna, Carla, Susana","h":"","tp":"OTRA"}],
+"Natalia": [{"f":"1-ago","s":"SÁB 1 · BONOS","t":"Venta bonos puerta a puerta","p":"Carmen, Paula Rincón, Natalia","h":"—","tp":"BONOS"},{"f":"1-ago","s":"SÁB 1 · Barra discomóvil","t":"Barra T5","p":"Adri, David Ceb, Paula Rincón, Natalia","h":"~05:00","tp":"BARRA"},{"f":"2-ago","s":"dom 2 · BONOS","t":"Venta bonos puerta a puerta","p":"Hugo, Aitana, Natalia, Paula Rincón","h":"—","tp":"BONOS"},{"f":"4-ago","s":"MAR 4 · Barra discomóvil","t":"Barra T6 🧹 (limpieza)","p":"David Bresó, Natalia, Paula Rincón","h":"Cierre","tp":"BARRA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Montar","p":"Isa, Natalia, Paula Rincón, Aitana, Cifuentes, Hugo, Carmen, David Bresó, Adri, David Ceb, Angelines","h":"Tarde","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Cafés","p":"Natalia, Paula Rincón, Aitana, Cifuentes, Hugo, David Ceb, Adri","h":"Post-cena","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Bingo Musical — venta cartones","p":"Juan, Alex, Pablo, Natalia, Paula Rincón, Cifuentes, Hugo, Adri, David Ceb","h":"~23:00","tp":"CENA"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Desmontar (Grupo B)","p":"Natalia, Paula Rincón, Belén, Pau, Raúl, Cristian, Cifuentes, David Ceb, Susana, Isa","h":"~23:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Barra discomóvil","t":"Barra T4","p":"Natalia, Paula Rincón, Belén, Isa","h":"~04:00","tp":"BARRA"},{"f":"7-ago","s":"7-ago · Neveras","t":"Llenar neveras para Sáb 8","p":"Belén, Natalia, Paula Rincón, David Ceb","h":"Tarde","tp":"NEVERA"},{"f":"8-ago","s":"SÁB 8 · Verbena","t":"Barra T1","p":"Angelines, Natalia, Paula Rincón, Raúl, Cristian","h":"00:30","tp":"BARRA"},{"f":"9-ago","s":"DOM 9 · Horchata","t":"Preparar y servir","p":"Natalia, Paula Rincón, Raúl, Cifuentes","h":"19:30","tp":"OTRA"},{"f":"10-ago","s":"LUN 10 · Niños","t":"Ayuda carga material","p":"Carla, David Bresó, Paula Rincón, Natalia","h":"","tp":"NIÑOS"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Papas","p":"Isa, Belén, Natalia, Paula Rincón, Raúl, Cristian, David Ceb, Aitana, Hugo, Carla","h":"21:00","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Desmontar","p":"Isa, Belén, Natalia, Paula Rincón, David Ceb, Cristian, Raúl, Carla","h":"Post-cena","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Barra 21-22","p":"Natalia, Paula Rincón, Aitana, Paula Haba","h":"","tp":"CENA"},{"f":"13-ago","s":"JUE 13 · Disfraces","t":"Concurso de disfraces + premios (~01:00)","p":"Natalia, Paula Rincón, Aitana, Cifuentes","h":"~01:00","tp":"OTRA"},{"f":"13-ago","s":"JUE 13 · Barra disfraces","t":"Barra T1","p":"Angelines, Paula Rincón, Natalia, Carla, Susana","h":"00:00","tp":"BARRA"},{"f":"14-ago","s":"VIE 14 · Verbena","t":"Preparar bocadillos de atún","p":"Isa, Belén, Paula Rincón, Natalia, Aitana, Paula Haba","h":"","tp":"VERBENA"},{"f":"14-ago","s":"VIE 14 · Verbena","t":"Barra T4","p":"Adri, David Ceb, Natalia, Carla","h":"~04:00","tp":"BARRA"},{"f":"15-ago","s":"SÁB 15 · Pan Bendito","t":"Pan Bendito — Turno B (reparten pan)","p":"Belén, Natalia, Paula Rincón, Adri, David Ceb, Carla, Hanna, Paula Bauset, Naya, Susana","h":"11:00","tp":"PAN"},{"f":"15-ago","s":"SÁB 15 · Playbacks","t":"Recoger sillas","p":"Aitana, Paula Haba, Paula Rincón, Natalia","h":"Final","tp":"OTRA"}],
+"Naya": [{"f":"1-ago","s":"SÁB 1 · BONOS","t":"Venta bonos puerta a puerta otro lado","p":"Hanna, Paula Bauset, Naya","h":"—","tp":"BONOS"},{"f":"1-ago","s":"SÁB 1 · Barra discomóvil","t":"Barra T6 🧹 (limpieza)","p":"Carmen, Hanna, Paula Bauset, Naya","h":"Cierre","tp":"BARRA"},{"f":"3-ago","s":"lun 3 · Neveras","t":"Llenar neveras para Mar 4","p":"Cifuentes, Hanna, Paula Bauset, Naya","h":"Tarde","tp":"NEVERA"},{"f":"4-ago","s":"MAR 4 · Barra discomóvil","t":"Barra T5","p":"Hanna, Paula Bauset, Naya","h":"~05:00","tp":"BARRA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Papas","p":"Juan, Alex, Pablo, Hanna, Paula Bauset, Naya, Susana","h":"21:00","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Desmontar","p":"Juan · Alex · Pablo · Carmen · David Bresó · Hanna · Paula B. · Naya · Susana","h":"Post-cena","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Barra","p":"TODOS disponibles","h":"21:00-00:00","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Bingo Musical — venta cartones","p":"Juan · Alex · Pablo · Natalia · Paula Rincón · Cifuentes · Hugo · Adri · David Ceb · Carmen · David B. · Hanna · Naya · Paula B. · Susana","h":"~23:00","tp":"CENA"},{"f":"6-ago","s":"6-ago · Niños","t":"Taller de manualidades + merienda","p":"Hanna, Paula Bauset, Naya, Carla, Susana","h":"Tarde","tp":"NIÑOS"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Montar (Grupo A)","p":"Carmen, Aitana, Hugo, Hanna, Paula Bauset, Naya, Juan, Alex, Pablo","h":"~17:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Mesa de tapas","p":"Hanna, Paula Bauset, Naya, Susana, Paula Rincón","h":"19:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Barra discomóvil","t":"Barra T2","p":"Hanna, Paula Bauset, Naya","h":"~02:00","tp":"BARRA"},{"f":"8-ago","s":"SÁB 8 · Verbena","t":"Barra T3","p":"Carmen, Hanna, Paula Bauset, Naya","h":"~03:00","tp":"BARRA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Montar","p":"Juan · Alex · Pablo · Paula H. · Carmen · David Bresó · Angelines · Hanna · Paula B. · Naya · Susana","h":"Tarde","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Cafés","p":"Paula Haba, Hanna, Paula Bauset, Naya, Susana, Carmen, David Bresó","h":"Post-cena","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Barra 00-01","p":"Hanna, Paula Bauset, Naya, Susana","h":"~23:00","tp":"CENA"},{"f":"13-ago","s":"JUE 13 · NIÑOS","t":"Disfraces niños","p":"Hanna, Paula Bauset, Naya, Carla, Susana","h":"Tarde","tp":"NIÑOS"},{"f":"13-ago","s":"JUE 13 · Barra disfraces","t":"Barra T4","p":"Paula Bauset, Naya, Hanna","h":"~04:00","tp":"BARRA"},{"f":"14-ago","s":"VIE 14 · Verbena","t":"Barra T1","p":"Angelines, Hanna, Paula Bauset, Naya, Susana","h":"00:30","tp":"BARRA"},{"f":"15-ago","s":"SÁB 15 · Pan Bendito","t":"Pan Bendito — Turno B (reparten pan)","p":"Belén, Natalia, Paula Rincón, Adri, David Ceb, Carla, Hanna, Paula Bauset, Naya, Susana","h":"11:00","tp":"PAN"},{"f":"15-ago","s":"SÁB 15 · Playbacks","t":"Montar sillas","p":"Alex, Pablo, Juan, Naya, Hanna, Carla, Susana","h":"","tp":"OTRA"}],
+"Pablo": [{"f":"1-ago","s":"SÁB 1 · Barra discomóvil","t":"Barra T2","p":"Juan, Alex, Pablo","h":"~02:00","tp":"BARRA"},{"f":"2-ago","s":"dom 2 · BINGO","t":"Preparar bingo","p":"Alex, Pablo, Juan","h":"—","tp":"BINGO"},{"f":"4-ago","s":"MAR 4 · Barra discomóvil","t":"Barra T1","p":"Angelines, Juan, Alex, Pablo","h":"00:00","tp":"BARRA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Papas","p":"Juan, Alex, Pablo, Hanna, Paula Bauset, Naya, Susana","h":"21:00","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Desmontar","p":"Juan, Alex, Pablo, Carmen, David Bresó","h":"Post-cena","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Bingo Musical — venta cartones","p":"Juan, Alex, Pablo, Natalia, Paula Rincón, Cifuentes, Hugo, Adri, David Ceb","h":"~23:00","tp":"CENA"},{"f":"6-ago","s":"6-ago · Neveras","t":"Llenar neveras para Vie 7","p":"Juan, Alex, Pablo, Susana","h":"Mañana","tp":"NEVERA"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Montar (Grupo A)","p":"Carmen, Aitana, Hugo, Hanna, Paula Bauset, Naya, Juan, Alex, Pablo","h":"~17:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Barra tapa","p":"Juan, Alex, Pablo","h":"19:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Barra discomóvil","t":"Barra T3","p":"Juan, Alex, Pablo","h":"~03:00","tp":"BARRA"},{"f":"8-ago","s":"SÁB 8 · Verbena","t":"Barra T4","p":"Juan, Alex, Pablo, Pau","h":"~04:00","tp":"BARRA"},{"f":"9-ago","s":"DOM 9 · Comida","t":"Desmontar y recoger casa del cura","p":"Alex, Pablo, Juan, Hugo","h":"14:00","tp":"OTRA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Montar","p":"Juan, Alex, Pablo, Carmen, David Bresó, Angelines, Paula Haba","h":"Tarde","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Cafés","p":"Juan · Alex · Pablo · Paula Haba · Hanna · Paula B. · Naya · Susana · Carmen · David Bresó","h":"Post-cena","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Barra 23-00","p":"Juan, Alex, Pablo, Raúl","h":"","tp":"CENA"},{"f":"14-ago","s":"VIE 14 · Verbena","t":"Barra T6 🧹 (limpieza)","p":"Juan, Alex, Pablo","h":"Cierre","tp":"BARRA"},{"f":"15-ago","s":"SÁB 15 · Pan Bendito","t":"Pan Bendito — Turno A (parten pan)","p":"Andrea, Pau, Raúl, Cristian, Juan, Alex, Pablo, Aitana, Hugo, Paula Haba, Angelines","h":"11:00","tp":"PAN"},{"f":"15-ago","s":"SÁB 15 · Playbacks","t":"Montar sillas","p":"Alex, Pablo, Juan, Naya, Hanna, Carla, Susana","h":"","tp":"OTRA"}],
+"Pau": [{"f":"1-ago","s":"SÁB 1 · Barra discomóvil","t":"Barra T4","p":"Pau, Raúl, Cristian","h":"~04:00","tp":"BARRA"},{"f":"4-ago","s":"MAR 4 · Barra discomóvil","t":"Barra T2","p":"Andrea, Pau, Cristian","h":"~02:00","tp":"BARRA"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Camareros","p":"Isa, Belén, Aitana, Cifuentes, Hugo, Pau","h":"19:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Desmontar (Grupo B)","p":"Natalia, Paula Rincón, Belén, Pau, Raúl, Cristian, Cifuentes, David Ceb, Susana, Isa","h":"~23:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Barra discomóvil","t":"Barra T5","p":"Pau, Raúl, Cristian","h":"~05:00","tp":"BARRA"},{"f":"8-ago","s":"SÁB 8 · Verbena","t":"Barra T4","p":"Juan, Alex, Pablo, Pau","h":"~04:00","tp":"BARRA"},{"f":"13-ago","s":"JUE 13 · Barra disfraces","t":"Barra T3","p":"Pau, Raúl, Cristian","h":"~03:00","tp":"BARRA"},{"f":"13-ago","s":"13-ago · Neveras","t":"Llenar neveras para Sáb 14","p":"Andrea, Pau, Raúl, Cristian","h":"Mañana","tp":"NEVERA"},{"f":"14-ago","s":"VIE 14 · Verbena","t":"Barra T2","p":"Pau, Raúl, Cristian","h":"~02:00","tp":"BARRA"},{"f":"15-ago","s":"SÁB 15 · Pan Bendito","t":"Pan Bendito — Turno A (parten pan)","p":"Andrea, Pau, Raúl, Cristian, Juan, Alex, Pablo, Aitana, Hugo, Paula Haba, Angelines","h":"11:00","tp":"PAN"}],
+"Paula Bauset": [{"f":"1-ago","s":"SÁB 1 · BONOS","t":"Venta bonos puerta a puerta otro lado","p":"Hanna, Paula Bauset, Naya","h":"—","tp":"BONOS"},{"f":"1-ago","s":"SÁB 1 · Barra discomóvil","t":"Barra T6 🧹 (limpieza)","p":"Carmen, Hanna, Paula Bauset, Naya","h":"Cierre","tp":"BARRA"},{"f":"3-ago","s":"lun 3 · Neveras","t":"Llenar neveras para Mar 4","p":"Cifuentes, Hanna, Paula Bauset, Naya","h":"Tarde","tp":"NEVERA"},{"f":"4-ago","s":"MAR 4 · Barra discomóvil","t":"Barra T5","p":"Hanna, Paula Bauset, Naya","h":"~05:00","tp":"BARRA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Papas","p":"Juan, Alex, Pablo, Hanna, Paula Bauset, Naya, Susana","h":"21:00","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Desmontar","p":"Juan · Alex · Pablo · Carmen · David Bresó · Hanna · Paula B. · Naya · Susana","h":"Post-cena","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Barra","p":"TODOS disponibles","h":"21:00-00:00","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Bingo Musical — venta cartones","p":"Juan · Alex · Pablo · Natalia · Paula Rincón · Cifuentes · Hugo · Adri · David Ceb · Carmen · David B. · Hanna · Naya · Paula B. · Susana","h":"~23:00","tp":"CENA"},{"f":"6-ago","s":"6-ago · Niños","t":"Taller de manualidades + merienda","p":"Hanna, Paula Bauset, Naya, Carla, Susana","h":"Tarde","tp":"NIÑOS"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Montar (Grupo A)","p":"Carmen, Aitana, Hugo, Hanna, Paula Bauset, Naya, Juan, Alex, Pablo","h":"~17:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Mesa de tapas","p":"Hanna, Paula Bauset, Naya, Susana, Paula Rincón","h":"19:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Barra discomóvil","t":"Barra T2","p":"Hanna, Paula Bauset, Naya","h":"~02:00","tp":"BARRA"},{"f":"8-ago","s":"SÁB 8 · Verbena","t":"Barra T3","p":"Carmen, Hanna, Paula Bauset, Naya","h":"~03:00","tp":"BARRA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Montar","p":"Juan · Alex · Pablo · Paula H. · Carmen · David Bresó · Angelines · Hanna · Paula B. · Naya · Susana","h":"Tarde","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Cafés","p":"Paula Haba, Hanna, Paula Bauset, Naya, Susana, Carmen, David Bresó","h":"Post-cena","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Barra 00-01","p":"Hanna, Paula Bauset, Naya, Susana","h":"~23:00","tp":"CENA"},{"f":"13-ago","s":"JUE 13 · NIÑOS","t":"Disfraces niños","p":"Hanna, Paula Bauset, Naya, Carla, Susana","h":"Tarde","tp":"NIÑOS"},{"f":"13-ago","s":"JUE 13 · Barra disfraces","t":"Barra T4","p":"Paula Bauset, Naya, Hanna","h":"~04:00","tp":"BARRA"},{"f":"14-ago","s":"VIE 14 · Verbena","t":"Barra T1","p":"Angelines, Hanna, Paula Bauset, Naya, Susana","h":"00:30","tp":"BARRA"},{"f":"15-ago","s":"SÁB 15 · Pan Bendito","t":"Pan Bendito — Turno B (reparten pan)","p":"Belén, Natalia, Paula Rincón, Adri, David Ceb, Carla, Hanna, Paula Bauset, Naya, Susana","h":"11:00","tp":"PAN"},{"f":"15-ago","s":"SÁB 15 · Playbacks","t":"Preparar premios","p":"Hugo, Belén, Paula Bauset","h":"Tarde","tp":"OTRA"}],
+"Paula Haba": [{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Montar","p":"Juan, Alex, Pablo, Carmen, David Bresó, Angelines, Paula Haba","h":"Tarde","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Cafés","p":"Paula Haba, Hanna, Paula Bauset, Naya, Susana, Carmen, David Bresó","h":"Post-cena","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Barra 21-22","p":"Natalia, Paula Rincón, Aitana, Paula Haba","h":"","tp":"CENA"},{"f":"12-ago","s":"12-ago · Neveras","t":"Llenar neveras para Vie 13","p":"Paula Haba, Hugo, David Ceb, Carmen","h":"Mañana","tp":"NEVERA"},{"f":"13-ago","s":"JUE 13 · Barra disfraces","t":"Barra T6 🧹 (limpieza)","p":"Aitana, Adri, Paula Haba, Hugo","h":"Cierre","tp":"BARRA"},{"f":"14-ago","s":"VIE 14 · Verbena","t":"Preparar bocadillos de atún","p":"Isa, Belén, Paula Rincón, Natalia, Aitana, Paula Haba","h":"","tp":"VERBENA"},{"f":"14-ago","s":"VIE 14 · Verbena","t":"Preparar farolillos","p":"Paula Haba","h":"","tp":"VERBENA"},{"f":"14-ago","s":"VIE 14 · Verbena","t":"Barra T5","p":"Aitana, Hugo, Paula Haba","h":"~05:00","tp":"BARRA"},{"f":"15-ago","s":"SÁB 15 · Pan Bendito","t":"Pan Bendito — Turno A (parten pan)","p":"Andrea, Pau, Raúl, Cristian, Juan, Alex, Pablo, Aitana, Hugo, Paula Haba, Angelines","h":"11:00","tp":"PAN"},{"f":"15-ago","s":"SÁB 15 · Playbacks","t":"Recoger sillas","p":"Aitana, Paula Haba, Paula Rincón, Natalia","h":"Final","tp":"OTRA"}],
+"Paula Rincón": [{"f":"1-ago","s":"SÁB 1 · BONOS","t":"Venta bonos puerta a puerta","p":"Carmen, Paula Rincón, Natalia","h":"—","tp":"BONOS"},{"f":"1-ago","s":"SÁB 1 · Barra discomóvil","t":"Barra T5","p":"Adri, David Ceb, Paula Rincón, Natalia","h":"~05:00","tp":"BARRA"},{"f":"2-ago","s":"dom 2 · BONOS","t":"Venta bonos puerta a puerta","p":"Hugo, Aitana, Natalia, Paula Rincón","h":"—","tp":"BONOS"},{"f":"4-ago","s":"MAR 4 · Barra discomóvil","t":"Barra T6 🧹 (limpieza)","p":"David Bresó, Natalia, Paula Rincón","h":"Cierre","tp":"BARRA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Montar","p":"Isa, Natalia, Paula Rincón, Aitana, Cifuentes, Hugo, Carmen, David Bresó, Adri, David Ceb, Angelines","h":"Tarde","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Cafés","p":"Natalia, Paula Rincón, Aitana, Cifuentes, Hugo, David Ceb, Adri","h":"Post-cena","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Bingo Musical — venta cartones","p":"Juan, Alex, Pablo, Natalia, Paula Rincón, Cifuentes, Hugo, Adri, David Ceb","h":"~23:00","tp":"CENA"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Mesa de tapas","p":"Hanna, Paula Bauset, Naya, Susana, Paula Rincón","h":"19:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Desmontar (Grupo B)","p":"Natalia, Paula Rincón, Belén, Pau, Raúl, Cristian, Cifuentes, David Ceb, Susana, Isa","h":"~23:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Barra discomóvil","t":"Barra T4","p":"Natalia, Paula Rincón, Belén, Isa","h":"~04:00","tp":"BARRA"},{"f":"7-ago","s":"7-ago · Neveras","t":"Llenar neveras para Sáb 8","p":"Belén, Natalia, Paula Rincón, David Ceb","h":"Tarde","tp":"NEVERA"},{"f":"8-ago","s":"SÁB 8 · Verbena","t":"Barra T1","p":"Angelines, Natalia, Paula Rincón, Raúl, Cristian","h":"00:30","tp":"BARRA"},{"f":"9-ago","s":"DOM 9 · Horchata","t":"Preparar y servir","p":"Natalia, Paula Rincón, Raúl, Cifuentes","h":"19:30","tp":"OTRA"},{"f":"10-ago","s":"LUN 10 · Niños","t":"Ayuda carga material","p":"Carla, David Bresó, Paula Rincón, Natalia","h":"","tp":"NIÑOS"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Papas","p":"Isa, Belén, Natalia, Paula Rincón, Raúl, Cristian, David Ceb, Aitana, Hugo, Carla","h":"21:00","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Desmontar","p":"Isa, Belén, Natalia, Paula Rincón, David Ceb, Cristian, Raúl, Carla","h":"Post-cena","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Barra 21-22","p":"Natalia, Paula Rincón, Aitana, Paula Haba","h":"","tp":"CENA"},{"f":"13-ago","s":"JUE 13 · Disfraces","t":"Concurso de disfraces + premios (~01:00)","p":"Natalia, Paula Rincón, Aitana, Cifuentes","h":"~01:00","tp":"OTRA"},{"f":"13-ago","s":"JUE 13 · Barra disfraces","t":"Barra T1","p":"Angelines, Paula Rincón, Natalia, Carla, Susana","h":"00:00","tp":"BARRA"},{"f":"14-ago","s":"VIE 14 · Verbena","t":"Preparar bocadillos de atún","p":"Isa, Belén, Paula Rincón, Natalia, Aitana, Paula Haba","h":"","tp":"VERBENA"},{"f":"14-ago","s":"VIE 14 · Verbena","t":"Barra T3","p":"Isa, Belén, Andrea, Paula Rincón","h":"~03:00","tp":"BARRA"},{"f":"15-ago","s":"SÁB 15 · Pan Bendito","t":"Pan Bendito — Turno B (reparten pan)","p":"Belén, Natalia, Paula Rincón, Adri, David Ceb, Carla, Hanna, Paula Bauset, Naya, Susana","h":"11:00","tp":"PAN"},{"f":"15-ago","s":"SÁB 15 · Playbacks","t":"Recoger sillas","p":"Aitana, Paula Haba, Paula Rincón, Natalia","h":"Final","tp":"OTRA"}],
+"Raúl": [{"f":"Previo","s":"PREVIO · Logística","t":"Comprar bebida","p":"Isa, Adri, Raúl","h":"—","tp":"OTRA"},{"f":"Previo","s":"PREVIO · Logística","t":"Compra atún + horchata + fartons + olivas sin hueso","p":"Raúl","h":"—","tp":"OTRA"},{"f":"Previo","s":"PREVIO · Logística","t":"Compra leche y carbón","p":"Raúl, David Ceb","h":"—","tp":"OTRA"},{"f":"1-ago","s":"SÁB 1 · Barra discomóvil","t":"Barra T4","p":"Pau, Raúl, Cristian","h":"~04:00","tp":"BARRA"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Caja bebidas","p":"Raúl, Cristian, David Ceb","h":"19:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Desmontar (Grupo B)","p":"Natalia, Paula Rincón, Belén, Pau, Raúl, Cristian, Cifuentes, David Ceb, Susana, Isa","h":"~23:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Barra discomóvil","t":"Barra T5","p":"Pau, Raúl, Cristian","h":"~05:00","tp":"BARRA"},{"f":"8-ago","s":"SÁB 8 · Verbena","t":"Barra T1","p":"Angelines, Natalia, Paula Rincón, Raúl, Cristian","h":"00:30","tp":"BARRA"},{"f":"8-ago","s":"SÁB 8 · Horchata","t":"Enfriar horchata","p":"Raúl","h":"Mañana","tp":"OTRA"},{"f":"9-ago","s":"DOM 9 · Horchata","t":"Preparar y servir","p":"Natalia, Paula Rincón, Raúl, Cifuentes","h":"19:30","tp":"OTRA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Papas","p":"Isa, Belén, Natalia, Paula Rincón, Raúl, Cristian, David Ceb, Aitana, Hugo, Carla","h":"21:00","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Desmontar","p":"Isa, Belén, Natalia, Paula Rincón, David Ceb, Cristian, Raúl, Carla","h":"Post-cena","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Barra 23-00","p":"Juan, Alex, Pablo, Raúl","h":"","tp":"CENA"},{"f":"13-ago","s":"JUE 13 · Barra disfraces","t":"Barra T3","p":"Pau, Raúl, Cristian","h":"~03:00","tp":"BARRA"},{"f":"13-ago","s":"13-ago · Neveras","t":"Llenar neveras para Sáb 14","p":"Andrea, Pau, Raúl, Cristian","h":"Mañana","tp":"NEVERA"},{"f":"14-ago","s":"VIE 14 · Verbena","t":"Barra T2","p":"Pau, Raúl, Cristian","h":"~02:00","tp":"BARRA"},{"f":"15-ago","s":"SÁB 15 · Pan Bendito","t":"Pan Bendito — Turno A (parten pan)","p":"Andrea, Pau, Raúl, Cristian, Juan, Alex, Pablo, Aitana, Hugo, Paula Haba, Angelines","h":"11:00","tp":"PAN"},{"f":"15-ago","s":"SÁB 15 · Playbacks","t":"Montar escenario","p":"Adri, David Ceb, Raúl, Cristian","h":"","tp":"OTRA"}],
+"Susana": [{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Papas","p":"Juan, Alex, Pablo, Hanna, Paula Bauset, Naya, Susana","h":"21:00","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Desmontar","p":"Juan · Alex · Pablo · Carmen · David Bresó · Hanna · Paula B. · Naya · Susana","h":"Post-cena","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Barra","p":"TODOS disponibles","h":"21:00-00:00","tp":"CENA"},{"f":"5-ago","s":"MIÉ 5 · Cena Popular","t":"Bingo Musical — venta cartones","p":"Juan · Alex · Pablo · Natalia · Paula Rincón · Cifuentes · Hugo · Adri · David Ceb · Carmen · David B. · Hanna · Naya · Paula B. · Susana","h":"~23:00","tp":"CENA"},{"f":"6-ago","s":"6-ago · Neveras","t":"Llenar neveras para Vie 7","p":"Juan, Alex, Pablo, Susana","h":"Mañana","tp":"NEVERA"},{"f":"6-ago","s":"6-ago · Niños","t":"Taller de manualidades + merienda","p":"Hanna, Paula Bauset, Naya, Carla, Susana","h":"Tarde","tp":"NIÑOS"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Mesa de tapas","p":"Hanna, Paula Bauset, Naya, Susana, Paula Rincón","h":"19:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Fiesta Tapa","t":"Desmontar (Grupo B)","p":"Natalia, Paula Rincón, Belén, Pau, Raúl, Cristian, Cifuentes, David Ceb, Susana, Isa","h":"~23:00","tp":"OTRA"},{"f":"7-ago","s":"VIE 7 · Barra discomóvil","t":"Barra T6 🧹 (limpieza)","p":"Cifuentes, David Ceb, Susana","h":"Cierre","tp":"BARRA"},{"f":"8-ago","s":"SÁB 8 · Verbena","t":"Barra T5 🧹 (limpieza)","p":"Isa, Belén, Carla, Susana","h":"Cierre","tp":"BARRA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Montar","p":"Juan · Alex · Pablo · Paula H. · Carmen · David Bresó · Angelines · Hanna · Paula B. · Naya · Susana","h":"Tarde","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Cafés","p":"Paula Haba, Hanna, Paula Bauset, Naya, Susana, Carmen, David Bresó","h":"Post-cena","tp":"CENA"},{"f":"11-ago","s":"MAR 11 · Cena Popular","t":"Barra 00-01","p":"Hanna, Paula Bauset, Naya, Susana","h":"~23:00","tp":"CENA"},{"f":"13-ago","s":"JUE 13 · NIÑOS","t":"Disfraces niños","p":"Hanna, Paula Bauset, Naya, Carla, Susana","h":"Tarde","tp":"NIÑOS"},{"f":"13-ago","s":"JUE 13 · Barra disfraces","t":"Barra T1","p":"Angelines, Paula Rincón, Natalia, Carla, Susana","h":"00:00","tp":"BARRA"},{"f":"13-ago","s":"JUE 13 · Barra disfraces","t":"Barra T5","p":"David Bresó, Hugo, Susana","h":"~05:00","tp":"BARRA"},{"f":"14-ago","s":"VIE 14 · Verbena","t":"Barra T1","p":"Angelines, Hanna, Paula Bauset, Naya, Susana","h":"00:30","tp":"BARRA"},{"f":"15-ago","s":"SÁB 15 · Pan Bendito","t":"Pan Bendito — Turno B (reparten pan)","p":"Belén, Natalia, Paula Rincón, Adri, David Ceb, Carla, Hanna, Paula Bauset, Naya, Susana","h":"11:00","tp":"PAN"},{"f":"15-ago","s":"SÁB 15 · Playbacks","t":"Montar sillas","p":"Alex, Pablo, Juan, Naya, Hanna, Carla, Susana","h":"","tp":"OTRA"}]
+};
+
+
+const META={
+  "Adri":        {n:"Adri",         ic:"&#129489;"},
+  "Aitana":      {n:"Aitana",       ic:"&#128105;"},
+  "Alex":        {n:"Alex",         ic:"&#129489;"},
+  "Andrea":      {n:"Andrea",       ic:"&#128105;"},
+  "Angelines":   {n:"Angelines",    ic:"&#128105;"},
+  "Belén":  {n:"Belén",   ic:"&#128105;"},
+  "Carla":       {n:"Carla",        ic:"&#128105;"},
+  "Carmen":      {n:"Carmen",       ic:"&#128105;"},
+  "Cifuentes":   {n:"Cifuentes",    ic:"&#129489;"},
+  "Cristian":    {n:"Cristian",     ic:"&#129489;"},
+  "David Bresó":{n:"David B.", ic:"&#129489;"},
+  "David Ceb":   {n:"David C.",     ic:"&#129489;"},
+  "Hanna":       {n:"Hanna",        ic:"&#128105;"},
+  "Hugo":        {n:"Hugo",         ic:"&#129489;"},
+  "Isa":         {n:"Isa",          ic:"&#128105;"},
+  "Juan":        {n:"Juan",         ic:"&#129489;"},
+  "Natalia":     {n:"Natalia",      ic:"&#128105;"},
+  "Naya":        {n:"Naya",         ic:"&#128105;"},
+  "Pablo":       {n:"Pablo",        ic:"&#129489;"},
+  "Pau":         {n:"Pau",          ic:"&#129489;"},
+  "Paula Bauset":{n:"Paula B.",     ic:"&#128105;"},
+  "Paula Haba":  {n:"Paula H.",     ic:"&#128105;"},
+  "Paula Rincón":{n:"Paula R.",ic:"&#128105;"},
+  "Raúl":   {n:"Raúl",    ic:"&#129489;"},
+  "Susana":      {n:"Susana",       ic:"&#128105;"}
+};
+
+// ---- DATOS DE MATRICES ----
+// Días barra/neveras: Sáb1, Mar4, Vie7, Sáb8, Jue13, Vie14
+const MAT_BARRA = {
+  dias: ["Sáb 1","Mar 4","Vie 7","Sáb 8","Jue 13","Vie 14"],
+  grupos: [
+    {g:"Isa · Belén · Andrea", filas:[
+      {n:"Isa",      v:["T1","—","T4","T5🧹","T2","T3"]},
+      {n:"Belén",v:["T1","—","T4","T5🧹","T2","T3"]},
+      {n:"Andrea",   v:["T1","T2","—","—","T2","T3"]}
+    ]},
+    {g:"Pau", filas:[
+      {n:"Pau",      v:["T4","T2","T5","T4","T3","T2"]}
+    ]},
+    {g:"Raúl · Cristian", filas:[
+      {n:"Raúl", v:["T4","—","T5","T1","T3","T2"]},
+      {n:"Cristian", v:["T4","T2","T5","T1","T3","T2"]}
+    ]},
+    {g:"Juan · Alex · Pablo", filas:[
+      {n:"Juan",     v:["T2","T1","T3","T4","T5","T6🧹"]},
+      {n:"Alex",     v:["T2","T1","T3","T4","T5","T6🧹"]},
+      {n:"Pablo",    v:["T2","T1","T3","T4","T5","T6🧹"]}
+    ]},
+    {g:"Natalia · Paula R.", filas:[
+      {n:"Natalia",  v:["T5","T6🧹","T4","T1","T1","T4"]},
+      {n:"Paula R.", v:["T5","T6🧹","T4","T1","T2","T3"]}
+    ]},
+    {g:"Aitana · Cifuentes · Hugo · Paula H.", filas:[
+      {n:"Aitana",   v:["T3","T4","T1","T2","T6🧹","T5"]},
+      {n:"Cifuentes",v:["T3","T4","T6🧹","T2","—","—"]},
+      {n:"Hugo",     v:["T3","T4","T1","T2","T6🧹","T5"]},
+      {n:"Paula H.", v:["—","—","—","—","T6🧹","T5"]}
+    ]},
+    {g:"Carmen · David B.", filas:[
+      {n:"Carmen",   v:["T6🧹","T3","T1","T3","—","—"]},
+      {n:"David B.", v:["—","T6🧹","—","—","T5","—"]}
+    ]},
+    {g:"Adri · David C.", filas:[
+      {n:"Adri",     v:["T5","T3","—","—","T6🧹","T4"]},
+      {n:"David C.", v:["T5","T3","T6🧹","T2","T1","T4"]}
+    ]},
+    {g:"Carla · Hanna · Paula B. · Naya · Susana", filas:[
+      {n:"Carla",    v:["—","—","—","T5🧹","T1","T4"]},
+      {n:"Hanna",    v:["T6🧹","T5","T2","T3","T4","T1"]},
+      {n:"Paula B.", v:["T6🧹","T5","T2","T3","T4","T1"]},
+      {n:"Naya",     v:["T6🧹","T5","T2","T3","T4","T1"]},
+      {n:"Susana",   v:["—","—","T6🧹","T5🧹","T1","T1"]}
+    ]},
+    {g:"Angelines", filas:[
+      {n:"Angelines",v:["—","T1","T1","T1","T1","T1"]}
+    ]}
+  ]
+};
+
+const MAT_NEVERAS = {
+  dias: ["Sáb 1\n(31 jul)","Mar 4\n(3 ago)","Vie 7\n(6 ago)","Sáb 8\n(7 ago)","Jue 13\n(12 ago)","Vie 14\n(13 ago)"],
+  grupos: [
+    {g:"Isa · Belén · Andrea", filas:[
+      {n:"Isa",       v:["PREV","—","—","—","—","—"]},
+      {n:"Belén", v:["—","—","—","PREV","—","—"]},
+      {n:"Andrea",    v:["—","—","—","—","—","PREV"]}
+    ]},
+    {g:"Pau", filas:[
+      {n:"Pau",       v:["—","—","—","—","—","PREV"]}
+    ]},
+    {g:"Raúl · Cristian", filas:[
+      {n:"Raúl",  v:["—","—","—","—","—","PREV"]},
+      {n:"Cristian",  v:["—","—","—","—","—","PREV"]}
+    ]},
+    {g:"Juan · Alex · Pablo", filas:[
+      {n:"Juan",      v:["—","—","PREV","—","—","—"]},
+      {n:"Alex",      v:["—","—","PREV","—","—","—"]},
+      {n:"Pablo",     v:["—","—","PREV","—","—","—"]}
+    ]},
+    {g:"Natalia · Paula R.", filas:[
+      {n:"Natalia",   v:["—","—","—","PREV","—","—"]},
+      {n:"Paula R.",  v:["—","—","—","PREV","—","—"]}
+    ]},
+    {g:"Aitana · Cifuentes · Hugo · Paula H.", filas:[
+      {n:"Aitana",    v:["PREV","—","—","—","—","—"]},
+      {n:"Cifuentes", v:["—","PREV","—","—","—","—"]},
+      {n:"Hugo",      v:["—","—","—","—","PREV","—"]},
+      {n:"Paula H.",  v:["—","—","—","—","PREV","—"]}
+    ]},
+    {g:"Carmen · David B.", filas:[
+      {n:"Carmen",    v:["PREV","—","—","—","—","—"]},
+      {n:"David B.",  v:["—","—","—","—","PREV","—"]}
+    ]},
+    {g:"Adri · David C.", filas:[
+      {n:"Adri",      v:["PREV","—","—","—","—","—"]},
+      {n:"David C.",  v:["—","—","—","PREV","—","—"]}
+    ]},
+    {g:"Carla · Hanna · Paula B. · Naya · Susana", filas:[
+      {n:"Carla",     v:["—","—","—","—","PREV","—"]},
+      {n:"Hanna",     v:["—","PREV","—","—","—","—"]},
+      {n:"Paula B.",  v:["—","PREV","—","—","—","—"]},
+      {n:"Naya",      v:["—","PREV","—","—","—","—"]},
+      {n:"Susana",    v:["—","—","PREV","—","—","—"]}
+    ]},
+    {g:"Angelines", filas:[
+      {n:"Angelines", v:["—","—","—","—","—","—"]}
+    ]}
+  ]
+};
+
+const MAT_CENAS = {
+  semanas: [
+    {s:"Sem 1 · 5 ago (Mié)", cols:["Montar","Papas","Cafés","Desmontar","Bingo\nOrg.","Bingo\nVenta","Barra"]},
+    {s:"Sem 2 · 11 ago (Mar)", cols:["Montar","Recibir\ngrupo","Papas","Cafés","Desmontar","Barra"]}
+  ],
+  grupos: [
+    {g:"Isa · Belén · Andrea", filas:[
+      {n:"Isa",       s1:["✓","—","–","—","✓","—","?"],  s2:["—","✓","✓","—","✓","22-23"]},
+      {n:"Belén", s1:["—","—","—","—","—","—","?"], s2:["—","✓","✓","—","✓","22-23"]},
+      {n:"Andrea",    s1:["—","—","—","—","—","—","—"],s2:["—","—","—","—","—","—"]}
+    ]},
+    {g:"Pau", filas:[
+      {n:"Pau",       s1:["—","—","—","—","—","—","—"],s2:["—","—","—","—","—","—"]}
+    ]},
+    {g:"Raúl · Cristian", filas:[
+      {n:"Raúl",  s1:["—","—","—","—","—","—","?"],   s2:["—","—","✓","—","✓","23-00"]},
+      {n:"Cristian",  s1:["✓","—","✓","—","—","Contar","?"],    s2:["—","—","✓","—","✓","22-23"]}
+    ]},
+    {g:"Juan · Alex · Pablo", filas:[
+      {n:"Juan",      s1:["—","✓","—","✓","—","✓","?"],    s2:["✓","—","—","✓","—","23-00"]},
+      {n:"Alex",      s1:["—","✓","—","✓","—","✓","?"],    s2:["✓","—","—","✓","—","23-00"]},
+      {n:"Pablo",     s1:["—","✓","—","✓","—","✓","?"],    s2:["✓","—","—","✓","—","23-00"]}
+    ]},
+    {g:"Natalia · Paula R.", filas:[
+      {n:"Natalia",   s1:["✓","—","✓","—","—","✓","?"],    s2:["—","—","✓","—","✓","21-22"]},
+      {n:"Paula R.",  s1:["✓","—","✓","—","—","✓","?"],    s2:["—","—","✓","—","✓","21-22"]}
+    ]},
+    {g:"Aitana · Cifuentes · Hugo · Paula H.", filas:[
+      {n:"Aitana",    s1:["✓","—","✓","—","✓","—","?"],    s2:["—","—","✓","—","✓","21-22"]},
+      {n:"Cifuentes", s1:["✓","—","✓","—","—","✓","?"],    s2:["—","—","—","—","—","—"]},
+      {n:"Hugo",      s1:["✓","—","✓","—","—","✓","?"],    s2:["—","—","✓","—","✓","00-01"]},
+      {n:"Paula H.",  s1:["—","—","—","—","—","—","—"],s2:["✓","—","—","✓","—","21-22"]}
+    ]},
+    {g:"Carmen · David B.", filas:[
+      {n:"Carmen",    s1:["—","—","✓","✓","—","✓","?"],    s2:["✓","—","—","✓","—","00-01"]},
+      {n:"David B.",  s1:["—","—","✓","✓","—","✓","?"],    s2:["✓","—","—","✓","—","00-01"]}
+    ]},
+    {g:"Adri · David C.", filas:[
+      {n:"Adri",      s1:["✓","—","✓","—","—","✓","?"],    s2:["—","—","—","—","—","—"]},
+      {n:"David C.",  s1:["✓","—","✓","—","✓","✓","?"],    s2:["—","—","✓","—","✓","22-23"]}
+    ]},
+    {g:"Carla · Hanna · Paula B. · Naya · Susana", filas:[
+      {n:"Carla",     s1:["—","—","—","—","—","—","—"],s2:["—","—","✓","—","✓","00-01"]},
+      {n:"Hanna",     s1:["—","✓","—","✓","—","✓","?"],    s2:["✓","—","—","✓","—","23-24"]},
+      {n:"Paula B.",  s1:["—","✓","—","✓","—","✓","?"],    s2:["✓","—","—","✓","—","23-24"]},
+      {n:"Naya",      s1:["—","✓","—","✓","—","✓","?"],    s2:["✓","—","—","✓","—","23-24"]},
+      {n:"Susana",    s1:["—","✓","—","✓","—","✓","?"],    s2:["✓","—","—","✓","—","23-24"]}
+    ]},
+    {g:"Angelines", filas:[
+      {n:"Angelines", s1:["✓","—","—","—","—","—","?"],    s2:["✓","—","—","—","—","—"]}
+    ]}
+  ]
+};
+
+const MAT_PAN = {
+  grupos: [
+    {g:"Isa · Belén · Andrea", filas:[
+      {n:"Isa",       tA:false, tB:false},
+      {n:"Belén", tA:false, tB:true},
+      {n:"Andrea",    tA:true,  tB:false}
+    ]},
+    {g:"Pau", filas:[
+      {n:"Pau",       tA:true,  tB:false}
+    ]},
+    {g:"Raúl · Cristian", filas:[
+      {n:"Raúl",  tA:true,  tB:false},
+      {n:"Cristian",  tA:true,  tB:false}
+    ]},
+    {g:"Juan · Alex · Pablo", filas:[
+      {n:"Juan",      tA:true,  tB:false},
+      {n:"Alex",      tA:true,  tB:false},
+      {n:"Pablo",     tA:true,  tB:false}
+    ]},
+    {g:"Natalia · Paula R.", filas:[
+      {n:"Natalia",   tA:false, tB:true},
+      {n:"Paula R.",  tA:false, tB:true}
+    ]},
+    {g:"Aitana · Cifuentes · Hugo · Paula H.", filas:[
+      {n:"Aitana",    tA:true,  tB:false},
+      {n:"Cifuentes", tA:false, tB:false},
+      {n:"Hugo",      tA:true,  tB:false},
+      {n:"Paula H.",  tA:true,  tB:false}
+    ]},
+    {g:"Carmen · David B.", filas:[
+      {n:"Carmen",    tA:false, tB:false},
+      {n:"David B.",  tA:false, tB:true}
+    ]},
+    {g:"Adri · David C.", filas:[
+      {n:"Adri",      tA:false, tB:true},
+      {n:"David C.",  tA:false, tB:true}
+    ]},
+    {g:"Carla · Hanna · Paula B. · Naya · Susana", filas:[
+      {n:"Carla",     tA:false, tB:true},
+      {n:"Hanna",     tA:false, tB:true},
+      {n:"Paula B.",  tA:false, tB:true},
+      {n:"Naya",      tA:false, tB:true},
+      {n:"Susana",    tA:false, tB:true}
+    ]},
+    {g:"Angelines", filas:[
+      {n:"Angelines", tA:true, tB:"Subasta"}
+    ]}
+  ]
+};
+
+// ---- LÓGICA APP ----
+const FL={
+  "Previo":"Previo · Preparativos","31-jul":"31 Jul · Jueves",
+  "1-ago":"1 Ago · Sáb — Discomóvil apertura",
+  "2-ago":"2 Ago · Dom — Bingo",
+  "3-ago":"3 Ago · Lun",
+  "4-ago":"4 Ago · Mar — Pregón",
+  "5-ago":"5 Ago · Mié — Cena Popular",
+  "6-ago":"6 Ago · Jue",
+  "7-ago":"7 Ago · Vie — Fiesta de la Tapa",
+  "8-ago":"8 Ago · Sáb — Verbena Enjoy",
+  "9-ago":"9 Ago · Dom — Concurso Pintura",
+  "10-ago":"10 Ago · Lun",
+  "11-ago":"11 Ago · Mar — 2ª Cena Popular",
+  "12-ago":"12 Ago · Mié — Tortillas y Gachas",
+  "13-ago":"13 Ago · Jue — Disfraces",
+  "14-ago":"14 Ago · Vie — Gran Verbena Next",
+  "15-ago":"15 Ago · Sáb — DÍA GRANDE ⭐"
+};
+const TL={
+  "BARRA":"🍺 Barra","CENA":"🍽 Cena","NEVERA":"🧊 Neveras",
+  "BONOS":"🎫 Bonos","BINGO":"🎲 Bingo","NINOS":"👧 Niños",
+  "NIÑOS":"👧 Niños","SARDINAS":"🐟 Sardinas",
+  "PAN":"🍞 Pan Bendito","VERBENA":"🎶 Verbena",
+  "OTRA":"⭐ Otras","default":"📋 General"
+};
+const ORDER=["Previo","31-jul","1-ago","2-ago","3-ago","4-ago","5-ago","6-ago","7-ago",
+             "8-ago","9-ago","10-ago","11-ago","12-ago","13-ago","14-ago","15-ago"];
+
+let PID=null, FT="ALL";
+
+function renderLanding(){
+  PID=null; FT="ALL";
+  document.getElementById('ld').style.display='block';
+  document.getElementById('vp').style.display='none';
+  document.getElementById('vm').style.display='none';
+  document.getElementById('bkBtn').style.display='none';
+  document.getElementById('hT').textContent='🎉 Cuadrante CDR 2026';
+  document.getElementById('hS').textContent='Agosto 2026 · Casas del Río';
+  document.getElementById('bq').value='';
+  const g=document.getElementById('pg'); g.innerHTML='';
+  Object.keys(DATOS).forEach(function(k){
+    const m=META[k]||{n:k,ic:'👤'};
+    const cnt=DATOS[k].length;
+    const d=document.createElement('div');
+    d.className='pc'; d.dataset.q=(m.n).toLowerCase();
+    d.innerHTML='<span class="ic">'+m.ic+'</span>'+m.n+'<br><span class="cn">'+cnt+' tarea'+(cnt!==1?'s':'')+'</span>';
+    d.onclick=(function(key){return function(){verP(key);};})(k);
+    g.appendChild(d);
+  });
+}
+
+function fChips(q){
+  const lq=q.toLowerCase();
+  document.querySelectorAll('.pc').forEach(function(c){c.classList.toggle('hid',!!lq&&!c.dataset.q.includes(lq));});
+}
+
+function verP(id){
+  PID=id; FT="ALL";
+  const m=META[id]||{n:id,ic:'👤'};
+  const tareas=DATOS[id]||[];
+  document.getElementById('ld').style.display='none';
+  document.getElementById('vp').style.display='block';
+  document.getElementById('vm').style.display='none';
+  document.getElementById('bkBtn').style.display='block';
+  document.getElementById('hT').textContent=m.n;
+  document.getElementById('hS').textContent=tareas.length+' tarea'+(tareas.length!==1?'s':'')+' asignadas';
+  document.getElementById('pN').textContent=m.ic+' '+m.n;
+  const dias=new Set(tareas.map(function(t){return t.f;})).size;
+  document.getElementById('pS').innerHTML=
+    '<span>\u{1F4C5} '+dias+' día'+(dias!==1?'s':'')+'</span>'+
+    '<span>✅ '+tareas.length+' tareas</span>';
+  const tipos=[]; tareas.forEach(function(t){if(tipos.indexOf(t.tp)<0)tipos.push(t.tp);});
+  renderFi(tipos); renderTL(id);
+}
+
+function verAll(){
+  PID="ALL"; FT="ALL";
+  document.getElementById('ld').style.display='none';
+  document.getElementById('vp').style.display='block';
+  document.getElementById('vm').style.display='none';
+  document.getElementById('bkBtn').style.display='block';
+  document.getElementById('hT').textContent='📋 Todas las tareas';
+  document.getElementById('hS').textContent='Vista completa de la comisión';
+  document.getElementById('pN').textContent='📋 Vista completa';
+  document.getElementById('pS').innerHTML='<span>📅 17 fechas</span><span>👥 25 personas</span>';
+  var all=[]; Object.values(DATOS).forEach(function(ts){all=all.concat(ts);});
+  var tipos=[]; all.forEach(function(t){if(tipos.indexOf(t.tp)<0)tipos.push(t.tp);});
+  renderFi(tipos); renderTL("ALL");
+}
+
+function verMatrices(){
+  PID=null; FT="ALL";
+  document.getElementById('ld').style.display='none';
+  document.getElementById('vp').style.display='none';
+  document.getElementById('vm').style.display='block';
+  document.getElementById('bkBtn').style.display='block';
+  document.getElementById('hT').textContent='📈 Matrices de turnos';
+  document.getElementById('hS').textContent='Vista cruzada persona × evento';
+  showMat('barra', document.querySelector('.mt-btn.on'));
+}
+
+function showMat(which, btn){
+  document.querySelectorAll('.mt-btn').forEach(function(b){b.classList.remove('on');});
+  if(btn) btn.classList.add('on');
+  var c=document.getElementById('matContent'); c.innerHTML='';
+  if(which==='barra')   renderMatBarra(c);
+  if(which==='neveras') renderMatNeveras(c);
+  if(which==='cenas')   renderMatCenas(c);
+  if(which==='pan')     renderMatPan(c);
+}
+
+function cellClass(v){
+  if(!v||v==='—') return 'cell-no';
+  if(v.startsWith('T1')) return 'cell-t1';
+  if(v.startsWith('T2')) return 'cell-t2';
+  if(v.startsWith('T3')) return 'cell-t3';
+  if(v.startsWith('T4')) return 'cell-t4';
+  if(v.startsWith('T5')) return 'cell-t5';
+  if(v.startsWith('T6')) return 'cell-t6';
+  if(v==='PREV') return 'cell-prev';
+  if(v==='✓'||v==='✓') return 'cell-ok';
+  if(v==='Subasta') return 'cell-sub';
+  if(v==='?') return 'cell-t2';
+  if(/^\d{2}-\d{2}$/.test(v)) return 'cell-hora';
+  if(v==='Contar') return 'cell-ok';
+  return '';
+}
+function cellText(v){
+  if(!v||v==='—') return '—';
+  if(v==='PREV') return 'Día previo';
+  return v;
+}
+
+function buildTable(dias, grupos, c){
+  var wrap=document.createElement('div'); wrap.className='tbl-wrap';
+  var t=document.createElement('table');
+  var thead=document.createElement('thead');
+  var hrow=document.createElement('tr');
+  var th0=document.createElement('th'); th0.className='name-col'; th0.textContent='Persona';
+  hrow.appendChild(th0);
+  dias.forEach(function(d){
+    var th=document.createElement('th'); th.innerHTML=d.replace('\n','<br>'); hrow.appendChild(th);
+  });
+  thead.appendChild(hrow); t.appendChild(thead);
+  var tbody=document.createElement('tbody');
+  grupos.forEach(function(grupo){
+    var gr=document.createElement('tr'); gr.className='grupo-row';
+    var grtd=document.createElement('td'); grtd.colSpan=dias.length+1; grtd.textContent=grupo.g;
+    gr.appendChild(grtd); tbody.appendChild(gr);
+    grupo.filas.forEach(function(fila){
+      var row=document.createElement('tr');
+      var td0=document.createElement('td'); td0.className='name-col'; td0.textContent=fila.n;
+      row.appendChild(td0);
+      fila.v.forEach(function(v){
+        var td=document.createElement('td');
+        var cl=cellClass(v);
+        if(cl) td.innerHTML='<span class="'+cl+'">'+cellText(v)+'</span>';
+        else td.textContent=cellText(v);
+        row.appendChild(td);
+      });
+      tbody.appendChild(row);
+    });
+  });
+  t.appendChild(tbody); wrap.appendChild(t); c.appendChild(wrap);
+}
+
+function renderMatBarra(c){
+  var h=document.createElement('div'); h.innerHTML=
+    '<p class="mat-title">🍺 Turnos de Barra</p>'+
+    '<p class="mat-sub">6 noches &middot; Sáb 1, Mar 4, Vie 7, Sáb 8, Jue 13, Vie 14 &middot; T6🧹 = limpieza</p>';
+  c.appendChild(h);
+  buildTable(MAT_BARRA.dias, MAT_BARRA.grupos, c);
+}
+
+function renderMatNeveras(c){
+  var h=document.createElement('div'); h.innerHTML=
+    '<p class="mat-title">🧊 Turnos de Neveras</p>'+
+    '<p class="mat-sub">"Día previo" = llenás las neveras el día anterior al evento indicado</p>';
+  c.appendChild(h);
+  buildTable(MAT_NEVERAS.dias, MAT_NEVERAS.grupos, c);
+}
+
+function renderMatCenas(c){
+  var h=document.createElement('div'); h.innerHTML=
+    '<p class="mat-title">🍽 Turnos de Cenas Populares</p>'+
+    '<p class="mat-sub">Dos cenas · 5 ago (Mié) y 11 ago (Mar) · Los turnos de barra de cenas son horas: 21-22, 22-23, 23-00, 00-01</p>';
+  c.appendChild(h);
+
+  // Semana 1
+  var sh1=document.createElement('div');
+  sh1.innerHTML='<p style="font-weight:700;color:#6a1b9a;margin:14px 0 8px;font-size:.85rem">&#128197; Cena 1 · Miércoles 5 de agosto</p>';
+  c.appendChild(sh1);
+  var cols1=MAT_CENAS.semanas[0].cols;
+  var g1=MAT_CENAS.grupos.map(function(gr){
+    return {g:gr.g, filas:gr.filas.map(function(f){return {n:f.n, v:f.s1};})};
+  });
+  buildTable(cols1, g1, c);
+
+  // Semana 2
+  var sh2=document.createElement('div');
+  sh2.innerHTML='<p style="font-weight:700;color:#6a1b9a;margin:18px 0 8px;font-size:.85rem">&#128197; Cena 2 · Martes 11 de agosto</p>';
+  c.appendChild(sh2);
+  var cols2=MAT_CENAS.semanas[1].cols;
+  var g2=MAT_CENAS.grupos.map(function(gr){
+    return {g:gr.g, filas:gr.filas.map(function(f){return {n:f.n, v:f.s2};})};
+  });
+  buildTable(cols2, g2, c);
+}
+
+function renderMatPan(c){
+  var h=document.createElement('div'); h.innerHTML=
+    '<p class="mat-title">🍞 Pan Bendito</p>'+
+    '<p class="mat-sub">Sábado 15 agosto · 11:00h &middot; Turno A: parten el pan · Turno B: reparten el pan</p>';
+  c.appendChild(h);
+  var wrap=document.createElement('div'); wrap.className='tbl-wrap';
+  var t=document.createElement('table');
+  var thead=document.createElement('thead');
+  var hrow=document.createElement('tr');
+  ['Persona','Turno A\n(parten)','Turno B\n(reparten)'].forEach(function(label,i){
+    var th=document.createElement('th');
+    if(i===0) th.className='name-col';
+    th.innerHTML=label.replace('\n','<br>');
+    hrow.appendChild(th);
+  });
+  thead.appendChild(hrow); t.appendChild(thead);
+  var tbody=document.createElement('tbody');
+  MAT_PAN.grupos.forEach(function(grupo){
+    var gr=document.createElement('tr'); gr.className='grupo-row';
+    var grtd=document.createElement('td'); grtd.colSpan=3; grtd.textContent=grupo.g;
+    gr.appendChild(grtd); tbody.appendChild(gr);
+    grupo.filas.forEach(function(fila){
+      var row=document.createElement('tr');
+      var td0=document.createElement('td'); td0.className='name-col'; td0.textContent=fila.n;
+      row.appendChild(td0);
+      [fila.tA, fila.tB].forEach(function(v){
+        var td=document.createElement('td');
+        if(v===true) td.innerHTML='<span class="cell-ok">✓</span>';
+        else if(v===false) td.innerHTML='<span class="cell-no">—</span>';
+        else td.innerHTML='<span class="cell-sub">'+v+'</span>';
+        row.appendChild(td);
+      });
+      tbody.appendChild(row);
+    });
+  });
+  t.appendChild(tbody); wrap.appendChild(t); c.appendChild(wrap);
+}
+
+function renderFi(tipos){
+  const c=document.getElementById('fi'); c.innerHTML='';
+  function mk(lbl,val){
+    const b=document.createElement('button');
+    b.className='fb'+(FT===val?' on':''); b.textContent=lbl;
+    b.onclick=(function(v,ts){return function(){FT=v;renderFi(ts);renderTL(PID);};})(val,tipos);
+    c.appendChild(b);
+  }
+  mk('Todas','ALL');
+  tipos.forEach(function(tp){mk(TL[tp]||tp,tp);});
+}
+
+function renderTL(id){
+  const c=document.getElementById('tl'); c.innerHTML='';
+  var raw=[];
+  if(id==="ALL"){
+    var seen={};
+    Object.entries(DATOS).forEach(function(kv){
+      kv[1].forEach(function(t){
+        var key=t.f+'||'+t.t;
+        if(!seen[key]){seen[key]=true;raw.push(t);}
+      });
+    });
+  } else {
+    raw=(DATOS[id]||[]).slice();
+  }
+  if(FT!=='ALL') raw=raw.filter(function(t){return t.tp===FT;});
+  if(!raw.length){
+    c.innerHTML='<div class="emp"><span>😴</span>Sin tareas con este filtro</div>';
+    return;
+  }
+  var grupos={};
+  raw.forEach(function(t){if(!grupos[t.f])grupos[t.f]=[];grupos[t.f].push(t);});
+  ORDER.forEach(function(fecha){
+    if(!grupos[fecha])return;
+    var dg=document.createElement('div'); dg.className='dg';
+    var dh=document.createElement('div'); dh.className='dh';
+    var df=document.createElement('span'); df.className='df'; df.textContent=FL[fecha]||fecha;
+    dh.appendChild(df); dg.appendChild(dh);
+    grupos[fecha].forEach(function(t){
+      var tc=document.createElement('div');
+      tc.className='tc t'+(t.tp||'default');
+      var coTxt='';
+      if(id!=="ALL"){
+        var myN=(META[id]||{n:id}).n.split(' ')[0].toLowerCase();
+        var parts=t.p?t.p.split(/[,·]/).map(function(s){return s.trim();}).filter(function(s){
+          return s&&s!=='TODOS disponibles'&&s!=='TODOS'&&s!=='TODOS (opcional)';
+        }):[];
+        var co=parts.filter(function(n){return n.toLowerCase().indexOf(myN)<0;});
+        if(co.length) coTxt='Con: '+co.join(', ');
+      } else {
+        if(t.p&&t.p!=='TODOS disponibles'&&t.p!=='TODOS') coTxt=t.p;
+      }
+      var hora=t.h&&t.h!=='—'&&t.h?'<span class="hr">'+t.h+'</span>':'';
+      var badge=TL[t.tp]||t.tp||'Tarea';
+      tc.innerHTML='<div class="th2"><span class="tn">'+t.t+'</span>'+hora+'</div>'+
+        '<div class="tm"><span class="bd">'+badge+'</span>'+(coTxt?'<span class="co">'+coTxt+'</span>':'')+'</div>';
+      dg.appendChild(tc);
+    });
+    c.appendChild(dg);
+  });
+}
+
+function goBack(){renderLanding();}
+renderLanding();
+</script>
+</body>
+</html>
