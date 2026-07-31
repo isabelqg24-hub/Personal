@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOLAIS 2026 — Cádiz</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700;800;900&family=Space+Grotesk:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pk:#FF2D78;--bl:#00D4FF;--yl:#FFE600;--nv:#150A4A;
+  --co:#FF6B6B;--mn:#00F5A0;--pu:#9B59FF;--or:#FF8C00;
+  --cr:#FFFEF0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--cr);color:var(--nv);overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;width:100%;z-index:1000;background:rgba(21,10,74,.96);backdrop-filter:blur(12px);padding:10px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid var(--pk)}
+.nav-logo{font-family:'Pacifico',cursive;color:var(--yl);font-size:1.6rem;text-shadow:2px 2px var(--pk)}
+.nav-links{display:flex;gap:8px;list-style:none;flex-wrap:wrap}
+.nav-links a{color:#fff;text-decoration:none;font-weight:800;font-size:.78rem;padding:5px 11px;border-radius:20px;transition:all .25s;border:1px solid transparent;letter-spacing:.5px}
+.nav-links a:hover,.nav-links a.active{background:var(--pk);border-color:var(--yl);transform:scale(1.05)}
+@media(max-width:700px){.nav-links{display:none}}
+
+/* ── HERO ── */
+.hero{min-height:100vh;background:linear-gradient(135deg,#150A4A 0%,#3A1080 35%,#0D3B8E 70%,#0A1A3E 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding:100px 20px 80px}
+#stars{position:absolute;inset:0;pointer-events:none}
+.star{position:absolute;background:#fff;border-radius:50%;animation:twinkle 3s infinite alternate}
+@keyframes twinkle{from{opacity:.15;transform:scale(1)}to{opacity:1;transform:scale(1.8)}}
+.hero-eyebrow{font-size:.9rem;color:var(--bl);font-weight:800;letter-spacing:6px;text-transform:uppercase;margin-bottom:8px}
+.hero-title{font-family:'Pacifico',cursive;font-size:clamp(4.5rem,16vw,11rem);color:var(--yl);text-shadow:4px 4px 0 var(--pk),8px 8px 0 rgba(255,45,120,.25);line-height:1;animation:heroPulse 4s ease-in-out infinite}
+@keyframes heroPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.02)}}
+.hero-sub{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.3rem,4vw,2.2rem);color:#fff;font-weight:700;margin:10px 0 22px}
+.hero-sub span{color:var(--co)}
+.hero-dates{background:linear-gradient(135deg,var(--pk),var(--pu));color:#fff;padding:12px 32px;border-radius:50px;font-weight:900;font-size:1.05rem;margin-bottom:28px;border:2px solid var(--yl);box-shadow:0 0 25px rgba(255,45,120,.5);display:inline-block}
+.countdown-box{background:rgba(255,230,0,.12);border:2px solid var(--yl);border-radius:16px;padding:12px 28px;margin-bottom:28px;display:inline-flex;align-items:center;gap:10px;color:var(--yl);font-weight:800;font-size:1rem}
+.crew{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.crew-badge{background:rgba(255,255,255,.08);backdrop-filter:blur(8px);border:2px solid var(--bl);color:#fff;padding:10px 22px;border-radius:50px;font-weight:900;font-size:1rem;animation:float 3s ease-in-out infinite}
+.crew-badge:nth-child(2){animation-delay:.5s}
+.crew-badge:nth-child(3){animation-delay:1s}
+.crew-badge:nth-child(4){animation-delay:1.5s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.5);font-size:.82rem;animation:bounce 2.2s infinite;text-align:center;line-height:1.6}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(9px)}}
+
+/* ── MARQUEE ── */
+.marquee-wrap{background:var(--pk);overflow:hidden;padding:11px 0;white-space:nowrap}
+.marquee-inner{display:inline-flex;animation:marquee 28s linear infinite}
+.marquee-inner span{font-weight:800;color:#fff;font-size:.9rem;letter-spacing:3px;padding-right:60px}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── OVERVIEW ── */
+.overview{background:var(--nv);padding:70px 20px}
+.ov-title{font-family:'Pacifico',cursive;font-size:clamp(1.8rem,5vw,3rem);text-align:center;color:var(--yl);margin-bottom:40px}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:18px;max-width:1000px;margin:0 auto}
+.stat-card{background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.1);border-radius:18px;padding:24px 18px;text-align:center;transition:all .3s;cursor:default}
+.stat-card:hover{transform:translateY(-6px);border-color:var(--pk);background:rgba(255,45,120,.1)}
+.stat-icon{font-size:2.4rem;margin-bottom:8px}
+.stat-value{font-size:2rem;font-weight:900;color:var(--yl)}
+.stat-label{font-size:.82rem;color:rgba(255,255,255,.65);font-weight:600}
+
+/* ── SECTION WRAPPER ── */
+.sec{padding:80px 20px;max-width:1200px;margin:0 auto}
+.sec-bg-light{background:linear-gradient(180deg,var(--cr),#FFF5F8)}
+.sec-bg-ocean{background:linear-gradient(180deg,#E0F7FF,#B8EEFF)}
+.sec-bg-dark{background:var(--nv)}
+.sec-bg-warm{background:linear-gradient(135deg,#FFF5E0,var(--cr))}
+.sec-bg-purple{background:linear-gradient(135deg,#F8F0FF,#FFF0FB)}
+.sec-bg-rest{background:linear-gradient(135deg,#150A4A,#2D1B69)}
+.sec-title{font-family:'Pacifico',cursive;font-size:clamp(2rem,5vw,3.2rem);text-align:center;margin-bottom:46px;color:var(--nv)}
+.sec-title.light{color:var(--yl)}
+.sec-title.ocean{color:#0077B6}
+
+/* ── TIMELINE ── */
+.timeline{position:relative;max-width:860px;margin:0 auto}
+.timeline::before{content:'';position:absolute;left:48px;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--pk),var(--pu),var(--bl));border-radius:2px}
+.tl-item{display:flex;gap:26px;margin-bottom:36px;align-items:flex-start}
+.tl-date{min-width:96px;text-align:center;position:relative;z-index:1}
+.tl-dot{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin:0 auto 5px;border:3px solid #fff;box-shadow:0 0 16px rgba(255,45,120,.35)}
+.tl-label{font-size:.65rem;font-weight:800;text-transform:uppercase;color:#999;letter-spacing:.5px}
+.tl-num{font-size:1.3rem;font-weight:900;color:var(--nv);line-height:1}
+.tl-content{flex:1;background:#fff;border-radius:18px;padding:22px;box-shadow:0 4px 18px rgba(0,0,0,.07);border-left:5px solid var(--pk);transition:all .3s}
+.tl-content:hover{transform:translateX(5px);box-shadow:0 10px 28px rgba(0,0,0,.13)}
+.tl-content h3{font-size:1.2rem;font-weight:900;color:var(--nv);margin-bottom:4px}
+.tl-route{font-size:.82rem;color:var(--pk);font-weight:700;margin-bottom:10px}
+.tl-content p{font-size:.91rem;color:#555;line-height:1.65}
+.tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
+.tag{padding:4px 11px;border-radius:20px;font-size:.72rem;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--pk),var(--pu))}
+.tag.b{background:linear-gradient(135deg,var(--bl),#0088CC)}
+.tag.y{background:linear-gradient(135deg,var(--or),var(--yl));color:var(--nv)}
+.tag.g{background:linear-gradient(135deg,#00B894,var(--mn));color:var(--nv)}
+@media(max-width:600px){.timeline::before{left:18px}.tl-date{min-width:58px}.tl-item{gap:12px}}
+
+/* ── DESTINATIONS ── */
+.dest-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:22px}
+.dest-card{border-radius:22px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.1);transition:all .38s;cursor:default}
+.dest-card:hover{transform:translateY(-10px);box-shadow:0 18px 46px rgba(0,0,0,.18)}
+.dest-head{padding:26px 22px 18px;color:#fff}
+.dest-emoji{font-size:2.8rem;margin-bottom:8px;display:block}
+.dest-name{font-family:'Pacifico',cursive;font-size:1.65rem;margin-bottom:4px}
+.dest-type{font-size:.78rem;opacity:.85;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+.dest-body{background:#fff;padding:18px 22px}
+.dest-lbl{font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--pk);margin-bottom:6px;margin-top:12px}
+.dest-list{list-style:none;display:flex;flex-direction:column;gap:5px}
+.dest-list li{font-size:.87rem;color:#444;display:flex;align-items:flex-start;gap:7px}
+.dest-list li::before{content:'✦';color:var(--pk);font-size:.66rem;margin-top:3px;flex-shrink:0}
+
+/* ── RESTAURANTS ── */
+.rest-tabs{display:flex;gap:9px;flex-wrap:wrap;justify-content:center;margin-bottom:36px}
+.tab-btn{background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.2);color:#fff;padding:9px 18px;border-radius:28px;cursor:pointer;font-family:'Nunito',sans-serif;font-weight:800;font-size:.85rem;transition:all .25s}
+.tab-btn:hover,.tab-btn.active{background:var(--pk);border-color:var(--pk);transform:scale(1.05)}
+.rest-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px;max-width:1100px;margin:0 auto}
+.rest-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:20px;transition:all .28s}
+.rest-card:hover{background:rgba(255,255,255,.12);transform:translateY(-5px);border-color:var(--pk)}
+.rest-name{font-size:1.05rem;font-weight:900;margin-bottom:6px;color:#fff}
+.rest-badge{display:inline-block;background:linear-gradient(135deg,var(--pk),var(--pu));color:#fff;padding:2px 10px;border-radius:18px;font-size:.7rem;font-weight:700;margin-bottom:9px}
+.rest-desc{font-size:.86rem;color:rgba(255,255,255,.72);line-height:1.5}
+.rest-types{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.rest-chip{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);color:var(--bl);padding:3px 9px;border-radius:14px;font-size:.68rem;font-weight:700}
+
+/* ── FOOD ── */
+.food-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:18px}
+.food-card{background:#fff;border-radius:18px;padding:22px 18px;text-align:center;box-shadow:0 4px 18px rgba(0,0,0,.07);transition:all .3s;border:2px solid transparent}
+.food-card:hover{transform:translateY(-8px) rotate(-1.5deg);border-color:var(--or);box-shadow:0 14px 32px rgba(255,140,0,.2)}
+.food-emoji{font-size:2.8rem;margin-bottom:10px;display:block}
+.food-name{font-weight:900;font-size:1rem;color:var(--nv);margin-bottom:5px}
+.food-desc{font-size:.8rem;color:#666;line-height:1.5}
+
+/* ── BEACHES ── */
+.beach-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(275px,1fr));gap:20px}
+.beach-card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 4px 18px rgba(0,150,200,.13);transition:all .3s}
+.beach-card:hover{transform:translateY(-8px);box-shadow:0 14px 36px rgba(0,150,200,.22)}
+.beach-head{padding:22px;color:#fff}
+.beach-name{font-size:1.2rem;font-weight:900;margin-bottom:4px}
+.beach-loc{font-size:.79rem;opacity:.85;font-weight:600}
+.beach-body{padding:18px}
+.beach-feats{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:10px}
+.beach-feat{background:#E0F7FF;color:#0077B6;padding:3px 11px;border-radius:14px;font-size:.74rem;font-weight:700}
+.beach-tip{font-size:.86rem;color:#555;line-height:1.5}
+
+/* ── ROUTES ── */
+.route-card{background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.1);border-radius:16px;padding:22px 26px;margin-bottom:13px;max-width:860px;margin-left:auto;margin-right:auto;display:flex;align-items:center;gap:20px;transition:all .28s}
+.route-card:hover{background:rgba(255,255,255,.1);border-color:var(--bl);transform:scale(1.01)}
+.route-from-to{flex:1}
+.route-from{font-size:.74rem;color:rgba(255,255,255,.55);text-transform:uppercase;font-weight:700;letter-spacing:1px}
+.route-cities{font-size:1.05rem;font-weight:800;color:#fff}
+.route-cities .arr{color:var(--bl);margin:0 7px}
+.route-stats{display:flex;gap:18px;align-items:center;flex-shrink:0}
+.route-stat{text-align:center}
+.route-val{font-size:1.35rem;font-weight:900;color:var(--yl)}
+.route-lbl{font-size:.68rem;color:rgba(255,255,255,.55);font-weight:600}
+@media(max-width:580px){.route-card{flex-direction:column}.route-stats{justify-content:center}}
+
+/* ── PACKING ── */
+.weather-card{background:linear-gradient(135deg,var(--or),var(--co));color:#fff;border-radius:22px;padding:32px;max-width:800px;margin:0 auto 36px;text-align:center;box-shadow:0 10px 36px rgba(255,107,107,.38)}
+.weather-temp{font-size:3.5rem;font-weight:900;font-family:'Space Grotesk',sans-serif;line-height:1}
+.weather-conds{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.weather-cond{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.28);padding:7px 15px;border-radius:20px;font-size:.85rem;font-weight:700}
+.pack-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px;max-width:1000px;margin:0 auto}
+.pack-cat{background:#fff;border-radius:18px;padding:22px;box-shadow:0 4px 18px rgba(155,89,255,.09);border:2px solid transparent;transition:all .28s}
+.pack-cat:hover{border-color:var(--pu);transform:translateY(-5px)}
+.pack-cat h3{font-size:1.05rem;font-weight:900;color:var(--nv);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.pack-cat ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+.pack-cat li{font-size:.88rem;color:#555;display:flex;align-items:flex-start;gap:7px}
+.pack-cat li::before{content:'○';color:var(--pu);font-size:.78rem;margin-top:1px}
+
+/* ── TIPS ── */
+.tips-section{background:linear-gradient(135deg,var(--pk),var(--pu));padding:64px 20px;color:#fff;text-align:center}
+.tips-title{font-family:'Pacifico',cursive;font-size:clamp(2rem,5vw,3rem);margin-bottom:30px;text-shadow:2px 2px rgba(0,0,0,.18)}
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px;max-width:1000px;margin:0 auto}
+.tip-card{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.22);border-radius:16px;padding:20px;text-align:left;transition:all .28s;backdrop-filter:blur(8px)}
+.tip-card:hover{background:rgba(255,255,255,.22);transform:translateY(-5px)}
+.tip-icon{font-size:1.9rem;margin-bottom:8px}
+.tip-title{font-weight:900;font-size:.97rem;margin-bottom:6px}
+.tip-text{font-size:.84rem;opacity:.9;line-height:1.55}
+
+/* ── FOOTER ── */
+footer{background:var(--nv);color:#fff;text-align:center;padding:44px 20px}
+.footer-title{font-family:'Pacifico',cursive;font-size:2rem;color:var(--yl);margin-bottom:8px;text-shadow:2px 2px var(--pk)}
+footer p{color:rgba(255,255,255,.55);font-size:.88rem}
+.footer-crew{display:flex;gap:14px;justify-content:center;margin-top:14px;flex-wrap:wrap;font-size:1.4rem}
+
+/* ── ANIMATIONS ── */
+.fade-in{opacity:0;transform:translateY(28px);transition:opacity .55s ease,transform .55s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">TOLAIS ✦</div>
+  <ul class="nav-links">
+    <li><a href="#itinerario">Itinerario</a></li>
+    <li><a href="#destinos">Destinos</a></li>
+    <li><a href="#restaurantes">Restaurantes</a></li>
+    <li><a href="#comer">Qué Comer</a></li>
+    <li><a href="#playas">Playas</a></li>
+    <li><a href="#rutas">Rutas</a></li>
+    <li><a href="#maleta">Maleta</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div id="stars"></div>
+  <div style="position:relative;z-index:2">
+    <p class="hero-eyebrow">✦ Verano 2026 ✦</p>
+    <h1 class="hero-title">TOLAIS</h1>
+    <h2 class="hero-sub">Conquistando <span>Cádiz</span> 🌊</h2>
+    <div class="hero-dates">📅 15 — 21 Agosto 2026</div>
+    <div class="countdown-box" id="countdown">⏳ Calculando días...</div>
+    <div class="crew">
+      <div class="crew-badge">👑 Alba</div>
+      <div class="crew-badge">🌟 Ali</div>
+      <div class="crew-badge">💎 Clara</div>
+      <div class="crew-badge">✨ Isa</div>
+    </div>
+  </div>
+  <div class="scroll-hint">↓ explorad<br>vuestra aventura</div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-inner">
+    <span>🌊 VEJER DE LA FRONTERA &nbsp;•&nbsp; CONIL &nbsp;•&nbsp; TARIFA &nbsp;•&nbsp; CÁDIZ &nbsp;•&nbsp; JEREZ &nbsp;•&nbsp; BOLONIA &nbsp;•&nbsp; CAÑOS DE MECA &nbsp;•&nbsp; FARO DE TRAFALGAR &nbsp;•&nbsp; MIRADOR DEL ESTRECHO &nbsp;•&nbsp; TOLAIS 2026 🌞 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <span>🌊 VEJER DE LA FRONTERA &nbsp;•&nbsp; CONIL &nbsp;•&nbsp; TARIFA &nbsp;•&nbsp; CÁDIZ &nbsp;•&nbsp; JEREZ &nbsp;•&nbsp; BOLONIA &nbsp;•&nbsp; CAÑOS DE MECA &nbsp;•&nbsp; FARO DE TRAFALGAR &nbsp;•&nbsp; MIRADOR DEL ESTRECHO &nbsp;•&nbsp; TOLAIS 2026 🌞 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  </div>
+</div>
+
+<!-- OVERVIEW -->
+<div class="overview" id="overview">
+  <div class="ov-title">✨ El Plan</div>
+  <div class="stats-grid">
+    <div class="stat-card"><div class="stat-icon">🚗</div><div class="stat-value">~720</div><div class="stat-label">km hasta Vejer</div></div>
+    <div class="stat-card"><div class="stat-icon">📅</div><div class="stat-value">6</div><div class="stat-label">Días de aventura</div></div>
+    <div class="stat-card"><div class="stat-icon">🏨</div><div class="stat-value">2</div><div class="stat-label">Alojamientos</div></div>
+    <div class="stat-card"><div class="stat-icon">🍽️</div><div class="stat-value">20+</div><div class="stat-label">Restaurantes top</div></div>
+    <div class="stat-card"><div class="stat-icon">🏖️</div><div class="stat-value">8+</div><div class="stat-label">Playas que visitar</div></div>
+    <div class="stat-card"><div class="stat-icon">👯</div><div class="stat-value">4</div><div class="stat-label">Tolais en modo gaditano</div></div>
+  </div>
+</div>
+
+<!-- ITINERARIO -->
+<div class="sec-bg-light" id="itinerario">
+<div class="sec">
+  <h2 class="sec-title">🗓️ Itinerario</h2>
+  <div class="timeline">
+
+    <div class="tl-item fade-in">
+      <div class="tl-date">
+        <div class="tl-dot" style="background:linear-gradient(135deg,#FF8C00,#FFE600)">🚗</div>
+        <div class="tl-label">Sábado</div><div class="tl-num">15 Ago</div>
+      </div>
+      <div class="tl-content" style="border-left-color:var(--or)">
+        <h3>Salida: Requena → Vejer de la Frontera</h3>
+        <div class="tl-route">🛣️ ~720 km · 7h aprox · A-7 o interior por A-4</div>
+        <p>El gran día llega. Partimos al sur por la A-7/AP-7 o la A-4 pasando por Córdoba/Sevilla. Parada estratégica en ruta para estirar las piernas. Llegada a Vejer, cena ligera y primer contacto con la magia gaditana.</p>
+        <div class="tags"><span class="tag y">Viaje en coche</span><span class="tag">Check-in Vejer</span><span class="tag g">Noche de descanso</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item fade-in">
+      <div class="tl-date">
+        <div class="tl-dot" style="background:linear-gradient(135deg,var(--pk),var(--pu))">🏘️</div>
+        <div class="tl-label">Domingo</div><div class="tl-num">16 Ago</div>
+      </div>
+      <div class="tl-content" style="border-left-color:var(--pu)">
+        <h3>Vejer de la Frontera + Conil</h3>
+        <div class="tl-route">🗺️ Vejer → Conil · 15 km · 20 min</div>
+        <p>Mañana en Vejer: callejuelas blancas medievales, la Arco de la Villa, miradores con vistas a La Janda. Comida en <strong>El Claustro</strong> (Terraza El Mirador del Claustro) — imprescindible. Tarde en Conil: playa, pescadito frito y atardecer en La Fontanilla.</p>
+        <div class="tags"><span class="tag">Pueblo blanco</span><span class="tag b">Playa Conil</span><span class="tag y">El Claustro</span><span class="tag g">Atardecer</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item fade-in">
+      <div class="tl-date">
+        <div class="tl-dot" style="background:linear-gradient(135deg,#00B4D8,var(--bl))">🌊</div>
+        <div class="tl-label">Lunes</div><div class="tl-num">17 Ago</div>
+      </div>
+      <div class="tl-content" style="border-left-color:var(--bl)">
+        <h3>Playa de Bolonia + Los Caños de Meca</h3>
+        <div class="tl-route">🗺️ Vejer → Bolonia 35 km · Vejer → Caños 25 km</div>
+        <p>Mañana: Bolonia (duna gigante, aguas cristalinas). Opcional: caminata 30 min al <strong>Faro de Camarinal</strong> y bajada a la Playa del Cañuelo, salvaje y única. Tarde: Los Caños de Meca, Faro de Trafalgar. Noche en el <strong>Chiringuito Ohana</strong> con música en directo.</p>
+        <div class="tags"><span class="tag b">Bolonia</span><span class="tag">Faro Trafalgar</span><span class="tag y">Ohana</span><span class="tag g">Senderismo</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item fade-in">
+      <div class="tl-date">
+        <div class="tl-dot" style="background:linear-gradient(135deg,var(--mn),#00B894)">🌍</div>
+        <div class="tl-label">Martes</div><div class="tl-num">18 Ago</div>
+      </div>
+      <div class="tl-content" style="border-left-color:#00B894">
+        <h3>Tarifa ↗ Traslado a Cádiz</h3>
+        <div class="tl-route">🗺️ Vejer → Tarifa 35 km · Tarifa → Cádiz 100 km</div>
+        <p>Mañana: Tarifa, el punto más sur de Europa. <strong>Mirador del Estrecho</strong> con vistas a África (a 14 km). Callejear por el centro, tapas en La Lola. Tarde: traslado a Cádiz y check-in en <strong>Luz de Cádiz by Gades Gestión</strong>. Primera noche gaditana.</p>
+        <div class="tags"><span class="tag g">Ves África</span><span class="tag">Tarifa</span><span class="tag y">Check-in Cádiz</span><span class="tag b">Noche Cádiz</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item fade-in">
+      <div class="tl-date">
+        <div class="tl-dot" style="background:linear-gradient(135deg,var(--co),var(--pk))">🏛️</div>
+        <div class="tl-label">Miércoles</div><div class="tl-num">19 Ago</div>
+      </div>
+      <div class="tl-content" style="border-left-color:var(--co)">
+        <h3>Cádiz Capital — La Tacita de Plata</h3>
+        <div class="tl-route">🗺️ Cádiz ciudad · Todo el día</div>
+        <p>Día completo en la ciudad más antigua de Occidente. <strong>Mercado Central</strong> (ambiente, tapas, puestos de pescado). Catedral y torres. <strong>Playa de la Caleta</strong>. Barrio del Pópulo. Noche de tapas: La Curiosidad de Mauro, Veedor o Arsenic Manila.</p>
+        <div class="tags"><span class="tag y">Mercado Central</span><span class="tag">Catedral</span><span class="tag b">La Caleta</span><span class="tag">Tapas night</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item fade-in">
+      <div class="tl-date">
+        <div class="tl-dot" style="background:linear-gradient(135deg,#8B4513,#C0832D)">🍷</div>
+        <div class="tl-label">Jueves</div><div class="tl-num">20 Ago</div>
+      </div>
+      <div class="tl-content" style="border-left-color:#8B4513">
+        <h3>Jerez de la Frontera</h3>
+        <div class="tl-route">🗺️ Cádiz → Jerez · 35 km · 35 min</div>
+        <p>Excursión a Jerez. Visita a <strong>González Byass</strong> (bodega icónica de sherry, visita guiada + cata). Centro histórico medieval. Tapas en <strong>Tabanco Las Banderillas</strong>. Opcional: Real Escuela de Arte Ecuestre. Regreso a Cádiz para cenar.</p>
+        <div class="tags"><span class="tag y">González Byass</span><span class="tag">Flamenco</span><span class="tag">Sherry</span><span class="tag g">Tabanco</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item fade-in">
+      <div class="tl-date">
+        <div class="tl-dot" style="background:linear-gradient(135deg,var(--or),var(--pk))">👋</div>
+        <div class="tl-label">Viernes</div><div class="tl-num">21 Ago</div>
+      </div>
+      <div class="tl-content" style="border-left-color:var(--or)">
+        <h3>Último día — Regreso a Requena/Valencia</h3>
+        <div class="tl-route">🛣️ Cádiz → Requena/Valencia · ~700 km · 6-7h</div>
+        <p>Check-out. Último desayuno gaditano. Vuelta por el paseo marítimo. Parada en Sevilla si hay ganas. Regreso a casa cargadas de recuerdos, mariscos, bronceo y ganas de volver.</p>
+        <div class="tags"><span class="tag">Desayuno final</span><span class="tag y">Recuerdos</span><span class="tag">Hasta pronto Cádiz</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- DESTINOS -->
+<div style="background:#fff" id="destinos">
+<div class="sec">
+  <h2 class="sec-title">📍 Destinos</h2>
+  <div class="dest-grid">
+
+    <div class="dest-card fade-in">
+      <div class="dest-head" style="background:linear-gradient(135deg,#6C5CE7,#A29BFE)">
+        <span class="dest-emoji">🏘️</span>
+        <div class="dest-name">Vejer de la Frontera</div>
+        <div class="dest-type">Pueblo blanco · 1ª estancia 15-18 Ago</div>
+      </div>
+      <div class="dest-body">
+        <div class="dest-lbl">🍽️ Dónde comer</div>
+        <ul class="dest-list">
+          <li><strong>El Claustro</strong> — Terraza El Mirador del Claustro ⭐</li>
+        </ul>
+        <div class="dest-lbl">👁️ Qué ver</div>
+        <ul class="dest-list">
+          <li>Casco histórico medieval (callejuelas blancas)</li>
+          <li>Muralla árabe y Arco de la Villa</li>
+          <li>Mirador con vistas a La Janda</li>
+          <li>Iglesia del Divino Salvador</li>
+        </ul>
+        <div class="dest-lbl">🏨 Alojamiento</div>
+        <ul class="dest-list"><li>Vuestro alojamiento (noches 15, 16, 17)</li></ul>
+      </div>
+    </div>
+
+    <div class="dest-card fade-in">
+      <div class="dest-head" style="background:linear-gradient(135deg,#00B4D8,#0096C7)">
+        <span class="dest-emoji">🐟</span>
+        <div class="dest-name">Conil de la Frontera</div>
+        <div class="dest-type">Playa & Pescado · 15 km de Vejer</div>
+      </div>
+      <div class="dest-body">
+        <div class="dest-lbl">🍽️ Dónde comer</div>
+        <ul class="dest-list">
+          <li><strong>Los Hermanos</strong> — Pescadito frito tradicional</li>
+          <li><strong>Feduchi</strong> — Moderno fusión</li>
+          <li><strong>La Fontanilla</strong> — Pescado en la playa (top) ⭐</li>
+          <li><strong>Mirador del Roqueo</strong> — Pescado, arroces y vistas ⭐</li>
+          <li><strong>Vascook</strong> — Carnes a la brasa</li>
+        </ul>
+        <div class="dest-lbl">👁️ Qué ver</div>
+        <ul class="dest-list">
+          <li>Kilómetros de playas turquesas</li>
+          <li>Torre de Guzmán y casco histórico</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="dest-card fade-in">
+      <div class="dest-head" style="background:linear-gradient(135deg,#2ECC71,#27AE60)">
+        <span class="dest-emoji">🌿</span>
+        <div class="dest-name">Bolonia & Los Caños</div>
+        <div class="dest-type">Paraíso salvaje · 25-35 km de Vejer</div>
+      </div>
+      <div class="dest-body">
+        <div class="dest-lbl">🍽️ Dónde comer</div>
+        <ul class="dest-list">
+          <li><strong>Chiringuito Ohana</strong> — Música en directo, ambientazo ⭐</li>
+          <li><strong>Mala Vaca</strong> — Carne top (Caños de Meca)</li>
+          <li><strong>La Quilla</strong> — Junto al mar, moderno y asequible</li>
+        </ul>
+        <div class="dest-lbl">👁️ Qué ver</div>
+        <ul class="dest-list">
+          <li>Playa de Bolonia + duna gigante</li>
+          <li>Faro de Camarinal → Playa del Cañuelo (30 min caminata)</li>
+          <li>Faro de Trafalgar</li>
+          <li>Ruta acantilados de la Breña (Caños → Barbate)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="dest-card fade-in">
+      <div class="dest-head" style="background:linear-gradient(135deg,#E67E22,#F39C12)">
+        <span class="dest-emoji">🌍</span>
+        <div class="dest-name">Tarifa</div>
+        <div class="dest-type">El sur de Europa · 35 km de Vejer</div>
+      </div>
+      <div class="dest-body">
+        <div class="dest-lbl">🍽️ Dónde comer</div>
+        <ul class="dest-list">
+          <li><strong>La Lola</strong> — Tapas tradicionales, muy concurrido</li>
+          <li><strong>El Francés</strong> — Cocina moderna</li>
+          <li><strong>El Caña</strong> — Clásico local</li>
+          <li><strong>Super Burguer</strong> — Fuera del centro</li>
+        </ul>
+        <div class="dest-lbl">👁️ Qué ver</div>
+        <ul class="dest-list">
+          <li>Mirador del Estrecho — ¡ves África a 14 km! ⭐</li>
+          <li>Casco histórico y Castillo de Guzmán</li>
+          <li>Playa de Los Lances (kitesurf mundial)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="dest-card fade-in">
+      <div class="dest-head" style="background:linear-gradient(135deg,var(--pk),#C0392B)">
+        <span class="dest-emoji">⚓</span>
+        <div class="dest-name">Cádiz Capital</div>
+        <div class="dest-type">La Tacita de Plata · 2ª estancia 18-21 Ago</div>
+      </div>
+      <div class="dest-body">
+        <div class="dest-lbl">🍽️ Dónde comer</div>
+        <ul class="dest-list">
+          <li><strong>La Curiosidad de Mauro</strong> — Moderno, top ⭐</li>
+          <li><strong>Caballas en el Tío de la Tiza</strong> — Imprescindible</li>
+          <li><strong>Veedor</strong> — Tapas en barra, barato y auténtico</li>
+          <li><strong>La Candela</strong> — Moderno fusión</li>
+          <li><strong>Arsenic Manila</strong> — Comida moderna top</li>
+          <li><strong>Mercado Central</strong> — Puestos y ambiente</li>
+        </ul>
+        <div class="dest-lbl">👁️ Qué ver</div>
+        <ul class="dest-list">
+          <li>Catedral de Cádiz (subid a las torres)</li>
+          <li>Playa de la Caleta ⭐</li>
+          <li>Barrio del Pópulo</li>
+          <li>Castillo de Santa Catalina</li>
+        </ul>
+        <div class="dest-lbl">🏨 Alojamiento</div>
+        <ul class="dest-list"><li>Luz de Cádiz by Gades Gestión (noches 18, 19, 20)</li></ul>
+      </div>
+    </div>
+
+    <div class="dest-card fade-in">
+      <div class="dest-head" style="background:linear-gradient(135deg,#6B3A2A,#A0522D)">
+        <span class="dest-emoji">🍾</span>
+        <div class="dest-name">Jerez de la Frontera</div>
+        <div class="dest-type">Sherry & Flamenco · 35 km de Cádiz</div>
+      </div>
+      <div class="dest-body">
+        <div class="dest-lbl">🍽️ Dónde comer/beber</div>
+        <ul class="dest-list">
+          <li><strong>Tabanco Las Banderillas</strong> — Típico gaditano ⭐</li>
+          <li>Tabancos históricos del centro</li>
+        </ul>
+        <div class="dest-lbl">👁️ Qué ver</div>
+        <ul class="dest-list">
+          <li>González Byass (bodega + visita guiada + cata)</li>
+          <li>Centro histórico medieval</li>
+          <li>Real Escuela de Arte Ecuestre</li>
+          <li>Barrio de Santiago (flamenco)</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- RESTAURANTES -->
+<div class="sec-bg-rest" id="restaurantes" style="padding:70px 20px">
+  <h2 class="sec-title light" style="margin-bottom:36px">🍽️ Restaurantes</h2>
+  <div class="rest-tabs" id="restTabs">
+    <button class="tab-btn active" data-filter="all">Todos</button>
+    <button class="tab-btn" data-filter="vejer">Vejer</button>
+    <button class="tab-btn" data-filter="conil">Conil</button>
+    <button class="tab-btn" data-filter="canos">Caños de Meca</button>
+    <button class="tab-btn" data-filter="tarifa">Tarifa</button>
+    <button class="tab-btn" data-filter="cadiz">Cádiz</button>
+    <button class="tab-btn" data-filter="jerez">Jerez</button>
+  </div>
+  <div class="rest-grid" id="restGrid"></div>
+</div>
+
+<!-- QUÉ COMER -->
+<div class="sec-bg-warm" id="comer">
+<div class="sec">
+  <h2 class="sec-title">😋 Qué Comer</h2>
+  <p style="text-align:center;max-width:600px;margin:-30px auto 38px;color:#666;font-size:.97rem">La gastronomía gaditana es pura felicidad. Lo que NO podéis perderos:</p>
+  <div class="food-grid">
+    <div class="food-card fade-in"><span class="food-emoji">🐟</span><div class="food-name">Pescaíto Frito</div><div class="food-desc">El rey de Cádiz. Boquerones, pijotas, acedías y cazón en adobo. Siempre en papel de estraza.</div></div>
+    <div class="food-card fade-in"><span class="food-emoji">🐙</span><div class="food-name">Ortiguillas</div><div class="food-desc">Anémonas de mar fritas. Especialidad única gaditana que no encontraréis en ningún otro sitio.</div></div>
+    <div class="food-card fade-in"><span class="food-emoji">🐠</span><div class="food-name">Atún Rojo de Almadraba</div><div class="food-desc">El mejor atún del mundo. Zahara y Tarifa son sus capitales. Agosto es temporada perfecta.</div></div>
+    <div class="food-card fade-in"><span class="food-emoji">🍤</span><div class="food-name">Gambas al Pil-Pil</div><div class="food-desc">Gambas en aceite de ajo y guindilla. Imprescindible en cualquier taberna gaditana.</div></div>
+    <div class="food-card fade-in"><span class="food-emoji">🥘</span><div class="food-name">Arroz con Bogavante</div><div class="food-desc">Arroz meloso con bogavante. Clásico de los restaurantes de playa de la costa.</div></div>
+    <div class="food-card fade-in"><span class="food-emoji">🍷</span><div class="food-name">Manzanilla & Fino</div><div class="food-desc">El vino de la tierra. Manzanilla de Sanlúcar o fino de Jerez con cualquier tapa.</div></div>
+    <div class="food-card fade-in"><span class="food-emoji">🐚</span><div class="food-name">Chocos Fritos</div><div class="food-desc">Sepia local frita. En Cádiz se llaman "chocos" y son diferentes a los calamares.</div></div>
+    <div class="food-card fade-in"><span class="food-emoji">🥗</span><div class="food-name">Papas Aliñás</div><div class="food-desc">Patatas aliñadas con pimiento, cebolla, aceite y vinagre. Humilde y delicioso.</div></div>
+    <div class="food-card fade-in"><span class="food-emoji">🐟</span><div class="food-name">Caballa Aliñada</div><div class="food-desc">Las caballas del Tío de la Tiza en Cádiz son legendarias. Venid al mediodía.</div></div>
+    <div class="food-card fade-in"><span class="food-emoji">🍺</span><div class="food-name">"Una Fría"</div><div class="food-desc">En Cádiz piden "una fría" y todos saben que es una cerveza. Acompañad todo con una.</div></div>
+  </div>
+</div>
+</div>
+
+<!-- PLAYAS -->
+<div class="sec-bg-ocean" id="playas">
+<div class="sec">
+  <h2 class="sec-title ocean">🏖️ Las Mejores Playas</h2>
+  <div class="beach-grid">
+
+    <div class="beach-card fade-in">
+      <div class="beach-head" style="background:linear-gradient(135deg,#00B4D8,#0096C7)">
+        <div class="beach-name">🌊 Playa de Bolonia</div>
+        <div class="beach-loc">Tarifa · 35 km de Vejer</div>
+      </div>
+      <div class="beach-body">
+        <div class="beach-feats"><span class="beach-feat">Duna gigante</span><span class="beach-feat">Aguas cristalinas</span><span class="beach-feat">Ruinas romanas</span></div>
+        <p class="beach-tip">Una de las mejores de España. Llegad antes de las 10h en agosto o buscad parking alternativo. La duna de 30m es una experiencia única. ⭐</p>
+      </div>
+    </div>
+
+    <div class="beach-card fade-in">
+      <div class="beach-head" style="background:linear-gradient(135deg,#1B4F72,#2980B9)">
+        <div class="beach-name">🏝️ Playa del Cañuelo</div>
+        <div class="beach-loc">Tarifa · 30 min caminata desde Faro Camarinal</div>
+      </div>
+      <div class="beach-body">
+        <div class="beach-feats"><span class="beach-feat">Salvaje</span><span class="beach-feat">Sin chiringuito</span><span class="beach-feat">Virgen total</span></div>
+        <p class="beach-tip">Virgen total. Se accede caminando 30 min desde el Faro de Camarinal. Llevad agua, comida y ropa. Paraíso para valientes. ⭐</p>
+      </div>
+    </div>
+
+    <div class="beach-card fade-in">
+      <div class="beach-head" style="background:linear-gradient(135deg,#0E6655,#1E8449)">
+        <div class="beach-name">🌿 Playa de Zahora</div>
+        <div class="beach-loc">Caños de Meca · 20 km de Vejer</div>
+      </div>
+      <div class="beach-body">
+        <div class="beach-feats"><span class="beach-feat">Entre pinares</span><span class="beach-feat">Dunas</span><span class="beach-feat">Tranquila</span></div>
+        <p class="beach-tip">Entre pinares y dunas. Ambiente más tranquilo que Bolonia. Perfecta para una tarde relax con libro y bebida.</p>
+      </div>
+    </div>
+
+    <div class="beach-card fade-in">
+      <div class="beach-head" style="background:linear-gradient(135deg,#922B21,#C0392B)">
+        <div class="beach-name">🏛️ Playa de la Caleta</div>
+        <div class="beach-loc">Cádiz Capital</div>
+      </div>
+      <div class="beach-body">
+        <div class="beach-feats"><span class="beach-feat">Icónica</span><span class="beach-feat">Histórica</span><span class="beach-feat">2 castillos</span></div>
+        <p class="beach-tip">La playa más icónica de Cádiz. Flanqueada por los castillos de Santa Catalina y San Sebastián. Mejor al atardecer.</p>
+      </div>
+    </div>
+
+    <div class="beach-card fade-in">
+      <div class="beach-head" style="background:linear-gradient(135deg,#7D6608,#B7950B)">
+        <div class="beach-name">🌅 Playa de Los Lances</div>
+        <div class="beach-loc">Tarifa</div>
+      </div>
+      <div class="beach-body">
+        <div class="beach-feats"><span class="beach-feat">Kitesurf</span><span class="beach-feat">Larga y ancha</span><span class="beach-feat">Espectáculo</span></div>
+        <p class="beach-tip">Capital mundial del kitesurf. Aunque el viento de levante puede ser fuerte, el espectáculo de los kitesurfistas en el aire es increíble.</p>
+      </div>
+    </div>
+
+    <div class="beach-card fade-in">
+      <div class="beach-head" style="background:linear-gradient(135deg,#4A235A,#76448A)">
+        <div class="beach-name">🐟 Playas de Conil</div>
+        <div class="beach-loc">Conil de la Frontera · 15 km de Vejer</div>
+      </div>
+      <div class="beach-body">
+        <div class="beach-feats"><span class="beach-feat">Aguas turquesas</span><span class="beach-feat">Chiringuitos</span><span class="beach-feat">Km de arena</span></div>
+        <p class="beach-tip">Conil tiene kilómetros de playas increíbles. La Fontanilla para comer con los pies en la arena. El Bateles más céntrica y animada.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- RUTAS Y KM -->
+<div class="sec-bg-dark" id="rutas" style="padding:70px 20px">
+  <h2 class="sec-title light">🗺️ Rutas &amp; Distancias</h2>
+
+  <div class="route-card" style="border-color:var(--or);margin-bottom:13px">
+    <div class="route-from-to">
+      <div class="route-from">Ruta principal de ida · Sábado 15 Ago</div>
+      <div class="route-cities">Requena / Valencia <span class="arr">→</span> Vejer de la Frontera</div>
+    </div>
+    <div class="route-stats">
+      <div class="route-stat"><div class="route-val">~720</div><div class="route-lbl">km</div></div>
+      <div class="route-stat"><div class="route-val">~7h</div><div class="route-lbl">conducción</div></div>
+    </div>
+  </div>
+
+  <div class="route-card" style="margin-bottom:13px">
+    <div class="route-from-to">
+      <div class="route-from">Día 1 · Dom 16 Ago</div>
+      <div class="route-cities">Vejer <span class="arr">→</span> Conil de la Frontera</div>
+    </div>
+    <div class="route-stats">
+      <div class="route-stat"><div class="route-val">~15</div><div class="route-lbl">km</div></div>
+      <div class="route-stat"><div class="route-val">~20'</div><div class="route-lbl">conducción</div></div>
+    </div>
+  </div>
+
+  <div class="route-card" style="margin-bottom:13px">
+    <div class="route-from-to">
+      <div class="route-from">Día 2 · Lun 17 Ago</div>
+      <div class="route-cities">Vejer <span class="arr">→</span> Playa de Bolonia</div>
+    </div>
+    <div class="route-stats">
+      <div class="route-stat"><div class="route-val">~35</div><div class="route-lbl">km</div></div>
+      <div class="route-stat"><div class="route-val">~40'</div><div class="route-lbl">conducción</div></div>
+    </div>
+  </div>
+
+  <div class="route-card" style="margin-bottom:13px">
+    <div class="route-from-to">
+      <div class="route-from">Día 2 · Lun 17 Ago</div>
+      <div class="route-cities">Vejer <span class="arr">→</span> Los Caños de Meca</div>
+    </div>
+    <div class="route-stats">
+      <div class="route-stat"><div class="route-val">~25</div><div class="route-lbl">km</div></div>
+      <div class="route-stat"><div class="route-val">~30'</div><div class="route-lbl">conducción</div></div>
+    </div>
+  </div>
+
+  <div class="route-card" style="margin-bottom:13px">
+    <div class="route-from-to">
+      <div class="route-from">Día 3 · Mar 18 Ago</div>
+      <div class="route-cities">Vejer <span class="arr">→</span> Tarifa</div>
+    </div>
+    <div class="route-stats">
+      <div class="route-stat"><div class="route-val">~35</div><div class="route-lbl">km</div></div>
+      <div class="route-stat"><div class="route-val">~40'</div><div class="route-lbl">conducción</div></div>
+    </div>
+  </div>
+
+  <div class="route-card" style="border-color:var(--pk);margin-bottom:13px">
+    <div class="route-from-to">
+      <div class="route-from">Traslado · Mar 18 Ago</div>
+      <div class="route-cities">Tarifa / Vejer <span class="arr">→</span> Cádiz Capital</div>
+    </div>
+    <div class="route-stats">
+      <div class="route-stat"><div class="route-val">~75</div><div class="route-lbl">km</div></div>
+      <div class="route-stat"><div class="route-val">~1h</div><div class="route-lbl">conducción</div></div>
+    </div>
+  </div>
+
+  <div class="route-card" style="margin-bottom:13px">
+    <div class="route-from-to">
+      <div class="route-from">Excursión · Jue 20 Ago</div>
+      <div class="route-cities">Cádiz <span class="arr">→</span> Jerez de la Frontera</div>
+    </div>
+    <div class="route-stats">
+      <div class="route-stat"><div class="route-val">~35</div><div class="route-lbl">km</div></div>
+      <div class="route-stat"><div class="route-val">~35'</div><div class="route-lbl">conducción</div></div>
+    </div>
+  </div>
+
+  <div class="route-card" style="border-color:var(--or)">
+    <div class="route-from-to">
+      <div class="route-from">Ruta de vuelta · Vie 21 Ago</div>
+      <div class="route-cities">Cádiz <span class="arr">→</span> Requena / Valencia</div>
+    </div>
+    <div class="route-stats">
+      <div class="route-stat"><div class="route-val">~700</div><div class="route-lbl">km</div></div>
+      <div class="route-stat"><div class="route-val">~6-7h</div><div class="route-lbl">conducción</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- MALETA & TIEMPO -->
+<div class="sec-bg-purple" id="maleta">
+<div class="sec">
+  <h2 class="sec-title">👗 La Maleta &amp; El Tiempo</h2>
+
+  <div class="weather-card">
+    <div class="weather-temp">☀️ 28°–36°C</div>
+    <p style="opacity:.88;font-size:.95rem;margin:10px 0 0">Agosto en Cádiz · Días calurosos, noches agradables (20-24°C) · Mar ~20-22°C</p>
+    <p style="opacity:.8;font-size:.88rem;max-width:500px;margin:12px auto 0">El <strong>Levante</strong> (viento caliente y seco) puede subir la temperatura. El <strong>Poniente</strong> (atlántico) refresca. En días de Levante mejor interior o costa poniente.</p>
+    <div class="weather-conds">
+      <span class="weather-cond">☀️ UV 11+ Muy Alto</span>
+      <span class="weather-cond">🌊 Mar 20-22°C</span>
+      <span class="weather-cond">🌙 Noches 20-24°C</span>
+      <span class="weather-cond">💨 Posible Levante</span>
+    </div>
+  </div>
+
+  <div class="pack-grid">
+    <div class="pack-cat fade-in">
+      <h3>👙 Ropa de Playa</h3>
+      <ul>
+        <li>3-4 bañadores / bikinis</li>
+        <li>Pareos y cover-ups</li>
+        <li>Sandalias de playa</li>
+        <li>Sombrero de ala ancha</li>
+        <li>Gafas de sol UV400</li>
+      </ul>
+    </div>
+    <div class="pack-cat fade-in">
+      <h3>👗 Ropa de Día</h3>
+      <ul>
+        <li>Vestidos de lino / algodón</li>
+        <li>Shorts y tops frescos</li>
+        <li>Zapatillas para rutas</li>
+        <li>Bolso / mochila pequeña</li>
+        <li>Pañuelo / foulard</li>
+      </ul>
+    </div>
+    <div class="pack-cat fade-in">
+      <h3>🌙 Ropa de Noche</h3>
+      <ul>
+        <li>Vestidos o monos de noche</li>
+        <li>Chaqueta ligera (noches con Poniente)</li>
+        <li>Sandalias o zapatos bonitos</li>
+        <li>Mini bolso de noche</li>
+      </ul>
+    </div>
+    <div class="pack-cat fade-in">
+      <h3>🧴 Protección Solar</h3>
+      <ul>
+        <li>Protector solar SPF 50+</li>
+        <li>After-sun / aloe vera</li>
+        <li>Crema labial con SPF</li>
+        <li>Espray protección capilar</li>
+        <li>Hidratante facial con SPF</li>
+      </ul>
+    </div>
+    <div class="pack-cat fade-in">
+      <h3>🏖️ Kit Playa</h3>
+      <ul>
+        <li>Toallas grandes de playa</li>
+        <li>Esterilla / colchoneta</li>
+        <li>Nevera portátil con bebidas</li>
+        <li>Funda impermeable para móvil</li>
+        <li>Snorkel (opcional)</li>
+      </ul>
+    </div>
+    <div class="pack-cat fade-in">
+      <h3>🩺 Salud & Farmacia</h3>
+      <ul>
+        <li>Medicación personal</li>
+        <li>Analgésicos / ibuprofeno</li>
+        <li>Repelente de mosquitos</li>
+        <li>Tiritas y antiséptico</li>
+        <li>Pastillas antimareo (ruta)</li>
+      </ul>
+    </div>
+    <div class="pack-cat fade-in">
+      <h3>📱 Tecnología</h3>
+      <ul>
+        <li>Cargadores y power bank</li>
+        <li>Maps.me offline — Cádiz</li>
+        <li>Playlist TOLAIS 2026 🎵</li>
+        <li>App viento (windy.com)</li>
+        <li>Cámara / GoPro</li>
+      </ul>
+    </div>
+    <div class="pack-cat fade-in">
+      <h3>🚗 Para el Coche</h3>
+      <ul>
+        <li>Snacks y agua para el viaje</li>
+        <li>Playlist carretera TOLAIS</li>
+        <li>Almohadas de viaje</li>
+        <li>Documentos del coche</li>
+        <li>Seguro + asistencia en carretera</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- TIPS -->
+<div class="tips-section">
+  <h2 class="tips-title">💡 Tips Gaditanos</h2>
+  <div class="tips-grid">
+    <div class="tip-card">
+      <div class="tip-icon">🌬️</div>
+      <div class="tip-title">El Levante</div>
+      <div class="tip-text">El viento de Levante puede arruinar la playa (arena en la cara). En esos días mejor visitar pueblos interiores o la costa poniente (atlántica).</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">⏰</div>
+      <div class="tip-title">Las Horas de Sol</div>
+      <div class="tip-text">No vayáis a la playa entre las 13h y 17h en agosto. El sol pega fuerte. Siesta, tapas y vuelta a las 18h cuando el sol baja.</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🅿️</div>
+      <div class="tip-title">Aparcamiento</div>
+      <div class="tip-text">Bolonia y Caños en agosto tienen parking de pago y se llena pronto. Id antes de las 10h o usad lanzaderas si hay.</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🍽️</div>
+      <div class="tip-title">Reservad</div>
+      <div class="tip-text">En agosto los restaurantes top se llenan. Reservad con antelación especialmente La Curiosidad de Mauro y Mirador del Roqueo.</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">💧</div>
+      <div class="tip-title">Hidratación</div>
+      <div class="tip-text">Con el calor y el Levante es fácil deshidratarse. Agua, agua y más agua. Llevad siempre botella grande.</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">📱</div>
+      <div class="tip-title">Maps Offline</div>
+      <div class="tip-text">Zonas como Cañuelo o la Breña tienen mala cobertura. Descargad el mapa offline de la provincia antes de salir.</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🍺</div>
+      <div class="tip-title">La Cultura de Tapas</div>
+      <div class="tip-text">En Cádiz se tapea al mediodía (13-15h) y por la noche (21-23h). Pedid "una fría" y señalad las tapas del mostrador.</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🌅</div>
+      <div class="tip-title">Atardeceres</div>
+      <div class="tip-text">Los atardeceres gaditanos son de otro mundo. Faro de Trafalgar, Playa de la Caleta y el Mirador del Estrecho son los mejores spots.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-title">VIAJE TOLAIS ✦ 2026</div>
+  <p>15 – 21 Agosto · Cádiz, España 🇪🇸</p>
+  <div class="footer-crew">
+    <span>👑 Alba</span>
+    <span>🌟 Ali</span>
+    <span>💎 Clara</span>
+    <span>✨ Isa</span>
+  </div>
+  <p style="margin-top:18px;font-size:.78rem;opacity:.4">Hecho con 💜 para las TOLAIS · Verano 2026</p>
+</footer>
+
+<script>
+// Stars
+const starsEl = document.getElementById('stars');
+for(let i=0;i<110;i++){
+  const s=document.createElement('div');
+  s.className='star';
+  s.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;width:${Math.random()*3+1}px;height:${Math.random()*3+1}px;animation-delay:${Math.random()*4}s;animation-duration:${2+Math.random()*3}s`;
+  starsEl.appendChild(s);
+}
+
+// Countdown
+(function(){
+  const trip=new Date('2026-08-15T00:00:00');
+  const now=new Date();
+  const diff=Math.ceil((trip-now)/(1000*60*60*24));
+  const el=document.getElementById('countdown');
+  if(diff>0) el.textContent=`⏳ Faltan ${diff} días para el TOLAIS!`;
+  else if(diff===0) el.textContent=`🎉 HOY ES EL DÍA! TOLAIS GO!`;
+  else el.textContent=`🌊 El TOLAIS ya pasó... hasta el próximo!`;
+})();
+
+// Restaurants
+const RESTS=[
+  {name:'El Claustro (Terraza El Mirador)',loc:'vejer',city:'Vejer de la Frontera',desc:'Restaurante jardín con terraza y vistas únicas. Recomendado por locales. Una visita imprescindible.',types:['Jardín','Terraza','Vistas','⭐ Top']},
+  {name:'Los Hermanos',loc:'conil',city:'Conil',desc:'Pescadito frito tradicional. El clásico de Conil. Siempre en papel de estraza.',types:['Pescado','Tradicional']},
+  {name:'Feduchi',loc:'conil',city:'Conil',desc:'Cocina moderna de fusión. Presentaciones creativas y producto local.',types:['Moderno','Fusión']},
+  {name:'La Fontanilla',loc:'conil',city:'Conil',desc:'Pescado fresco en la playa. Comer con los pies casi en la arena. Top absoluto.',types:['Pescado','Playa','⭐ Top']},
+  {name:'Mirador del Roqueo',loc:'conil',city:'Conil',desc:'Pescado y arroces con vistas al mar increíbles. Reservad con antelación.',types:['Pescado','Arroces','Vistas','⭐ Top']},
+  {name:'Vascook',loc:'conil',city:'Conil',desc:'Carnes a la brasa. Un respiro del pescado cuando el cuerpo lo pide.',types:['Carnes','Brasa']},
+  {name:'Chiringuito Ohana',loc:'canos',city:'Los Caños de Meca',desc:'Chiringuito con música en directo. Ambiente increíble al atardecer. El mejor plan de noche de la zona.',types:['Chiringuito','Música live','Ambiente','⭐ Top']},
+  {name:'Mala Vaca',loc:'canos',city:'Los Caños de Meca',desc:'Carne top en Caños. La mejor opción para las que quieran un buen trozo de carne.',types:['Carnes','⭐ Top']},
+  {name:'La Quilla',loc:'canos',city:'Los Caños de Meca',desc:'Junto al mar, moderno y asequible con buenas vistas. Relación calidad-precio muy buena.',types:['Moderno','Vistas','Asequible']},
+  {name:'La Lola',loc:'tarifa',city:'Tarifa',desc:'Tapas tradicionales. Siempre llena de gente. Ambiente gaditano auténtico.',types:['Tapas','Tradicional']},
+  {name:'El Francés',loc:'tarifa',city:'Tarifa',desc:'Cocina moderna y creativa. Buena relación calidad-precio.',types:['Moderno']},
+  {name:'El Caña',loc:'tarifa',city:'Tarifa',desc:'Clásico local de Tarifa. Parada obligatoria si pasáis por allí.',types:['Clásico','Local']},
+  {name:'Super Burguer',loc:'tarifa',city:'Tarifa',desc:'Fuera del centro. Para una noche de hamburguesas informales cuando ya no queréis más pescado.',types:['Burgers','Informal']},
+  {name:'La Curiosidad de Mauro',loc:'cadiz',city:'Cádiz',desc:'Cocina gaditana de autor. Moderno y top. Reservad con semanas de antelación en agosto.',types:['Moderno','⭐ Top','Reservar']},
+  {name:'Caballas · El Tío de la Tiza',loc:'cadiz',city:'Cádiz',desc:'Las famosas caballas aliñadas de Cádiz. Imprescindible. Venid al mediodía.',types:['Tradicional','Imprescindible','⭐ Top']},
+  {name:'Veedor',loc:'cadiz',city:'Cádiz',desc:'Tapas en barra, abacería con ambiente. Barato, auténtico y lleno de gaditanos.',types:['Tapas','Barato','Ambiente']},
+  {name:'La Candela',loc:'cadiz',city:'Cádiz',desc:'Cocina moderna de fusión gaditana. Muy buena relación calidad-precio.',types:['Moderno','Fusión']},
+  {name:'Arsenic Manila',loc:'cadiz',city:'Cádiz',desc:'Comida moderna gaditana. Top según los locales de la ciudad.',types:['Moderno','⭐ Top']},
+  {name:'Mercado Central de Cádiz',loc:'cadiz',city:'Cádiz',desc:'El mercado de abastos de Cádiz. Puestos de pescado, tapas y ambiente gaditano puro.',types:['Mercado','Tapas','Ambiente']},
+  {name:'Tabanco Las Banderillas',loc:'jerez',city:'Jerez',desc:'El tabanco más típico de Jerez. Sherry, tapas y ambiente flamenco auténtico.',types:['Tabanco','Sherry','Típico','⭐ Top']},
+  {name:'González Byass',loc:'jerez',city:'Jerez',desc:'Visita + maridaje en la bodega icónica de Jerez. Reservad online con antelación.',types:['Bodega','Sherry','Experiencia']},
+];
+
+function renderRests(filter){
+  const data=filter==='all'?RESTS:RESTS.filter(r=>r.loc===filter);
+  document.getElementById('restGrid').innerHTML=data.map(r=>`
+    <div class="rest-card">
+      <div class="rest-name">${r.name}</div>
+      <span class="rest-badge">📍 ${r.city}</span>
+      <div class="rest-desc">${r.desc}</div>
+      <div class="rest-types">${r.types.map(t=>`<span class="rest-chip">${t}</span>`).join('')}</div>
+    </div>`).join('');
+}
+renderRests('all');
+
+document.getElementById('restTabs').addEventListener('click',e=>{
+  const btn=e.target.closest('.tab-btn');
+  if(!btn)return;
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderRests(btn.dataset.filter);
+});
+
+// Fade-in on scroll
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:.1});
+document.querySelectorAll('.fade-in').forEach(el=>io.observe(el));
+
+// Nav active link
+window.addEventListener('scroll',()=>{
+  const sections=['itinerario','destinos','restaurantes','comer','playas','rutas','maleta'];
+  let cur='';
+  sections.forEach(id=>{
+    const el=document.getElementById(id);
+    if(el&&window.scrollY>=el.offsetTop-120)cur=id;
+  });
+  document.querySelectorAll('.nav-links a').forEach(a=>{
+    a.classList.toggle('active',a.getAttribute('href')==='#'+cur);
+  });
+});
+</script>
+</body>
+</html>
