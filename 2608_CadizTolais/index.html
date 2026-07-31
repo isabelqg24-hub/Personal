@@ -21,10 +21,17 @@ nav{position:fixed;top:0;width:100%;z-index:1000;background:rgba(21,10,74,.96);b
 .nav-links{display:flex;gap:8px;list-style:none;flex-wrap:wrap}
 .nav-links a{color:#fff;text-decoration:none;font-weight:800;font-size:.78rem;padding:5px 11px;border-radius:20px;transition:all .25s;border:1px solid transparent;letter-spacing:.5px}
 .nav-links a:hover,.nav-links a.active{background:var(--pk);border-color:var(--yl);transform:scale(1.05)}
-@media(max-width:700px){.nav-links{display:none}}
+.nav-burger{display:none;background:none;border:2px solid var(--pk);color:var(--yl);font-size:1.45rem;line-height:1;cursor:pointer;border-radius:10px;padding:4px 10px}
+@media(max-width:700px){
+  .nav-burger{display:block}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(21,10,74,.98);padding:14px 18px 18px;gap:6px;border-bottom:2px solid var(--pk)}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:10px 16px;border-radius:14px;font-size:.92rem;border:1px solid rgba(255,255,255,.08)}
+}
 
 /* ── HERO ── */
 .hero{min-height:100vh;background:linear-gradient(135deg,#150A4A 0%,#3A1080 35%,#0D3B8E 70%,#0A1A3E 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding:80px 20px 200px}
+@media(max-width:580px){.hero{padding-bottom:140px}}
 #stars{position:absolute;inset:0;pointer-events:none}
 .star{position:absolute;background:#fff;border-radius:50%;animation:twinkle 3s infinite alternate}
 @keyframes twinkle{from{opacity:.15;transform:scale(1)}to{opacity:1;transform:scale(1.8)}}
@@ -193,8 +200,8 @@ footer p{color:rgba(255,255,255,.55);font-size:.88rem}
 }
 .hero-char.left{left:0}
 .hero-char.right{right:0;animation-delay:.9s}
-@media(max-width:900px){ .hero-char{ max-height:32vh; } }
-@media(max-width:580px){ .hero-char{ display:none; } }
+@media(max-width:900px){ .hero-char{ max-height:30vh; } }
+@media(max-width:580px){ .hero-char{ max-height:22vh; } }
 .tolais-img-footer{
   max-height:130px;width:auto;
   display:block;
@@ -212,7 +219,7 @@ footer p{color:rgba(255,255,255,.55);font-size:.88rem}
 
 <nav>
   <div class="nav-logo">TOLAIS ✦</div>
-  <ul class="nav-links">
+  <ul class="nav-links" id="navLinks">
     <li><a href="#itinerario">Itinerario</a></li>
     <li><a href="#destinos">Destinos</a></li>
     <li><a href="#restaurantes">Restaurantes</a></li>
@@ -221,6 +228,7 @@ footer p{color:rgba(255,255,255,.55);font-size:.88rem}
     <li><a href="#rutas">Rutas</a></li>
     <li><a href="#maleta">Maleta</a></li>
   </ul>
+  <button class="nav-burger" id="navBurger" aria-label="Menú">☰</button>
 </nav>
 
 <!-- HERO -->
@@ -1012,6 +1020,18 @@ const io=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
 },{threshold:.1});
 document.querySelectorAll('.fade-in').forEach(el=>io.observe(el));
+
+// Hamburger menu
+const burger=document.getElementById('navBurger');
+const navLinks=document.getElementById('navLinks');
+burger.addEventListener('click',()=>{
+  const open=navLinks.classList.toggle('open');
+  burger.textContent=open?'✕':'☰';
+});
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  navLinks.classList.remove('open');
+  burger.textContent='☰';
+}));
 
 // Nav active link
 window.addEventListener('scroll',()=>{
